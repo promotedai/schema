@@ -1,0 +1,510 @@
+syntax = "proto3";
+package event;
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.event";
+option java_outer_classname = "Event";
+
+import "proto/common/common.proto";
+import "proto/delivery/delivery.proto";
+
+// We do not need this yet.
+// import "proto/promotion/promotion.proto";
+
+// Important: Fields 1-5 are common fields that we want to be similar across
+// different log records.
+
+// This structure is used to help deduplicate identifiers that live in many
+// event types.
+// Next ID = 9.
+message JoinedIdentifiers {
+  uint64 platform_id = 1;
+  string user_id = 2;
+  string log_user_id = 3;
+
+  string session_id = 4;
+  string view_id = 5;
+  string request_id = 6;
+  string insertion_id = 7;
+  string impression_id = 8;
+}
+
+// Used to store user properties.  E.g. purchasedContentIds.
+// Clients can update each User multiple times by logging the User with the same
+// user_id.  Unset fields will not be updated. Repeated fields will act like a
+// merge if the item has a key.  Otherwise, it'll act like an append.
+// Next ID = 7.
+message User {
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.platform_id.
+  uint64 platform_id = 1;
+
+  // Optional.  Must be set on LogRequest or here.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.timing.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+
+  // Optional.  Custom properties per platform.
+  common.Properties properties = 6;
+}
+
+
+// The arm (experiment's group) when the Cohort is for an experiment.
+// Next ID = 6.
+enum CohortArm {
+  UNKNOWN_GROUP = 0;
+  CONTROL = 1;
+  TREATMENT = 2;
+
+  // These are generic arms (groups) that can be used when there are multiple treatments.
+  TREATMENT1 = 3;
+  TREATMENT2 = 4;
+  TREATMENT3 = 5;
+}
+
+// For linking users to cohorts.
+// Next ID = 11.
+message CohortMembership {
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.platform_id.
+  uint64 platform_id = 1;
+
+  // Optional.  Must be set on LogRequest or here.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.timing.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+
+  // Optional.  Primary key.
+  // SDKs usually handles this automatically. For details, see
+  // https://github.com/promotedai/schema#setting-primary-keys
+  string membership_id = 6;
+
+  reserved 7; // A future optimized CohortId.
+
+  // Optional.  This field refers to the cohort (currently stored as an enum).
+  string cohort_id = 8;
+
+  // Optional.
+  CohortArm arm = 9;
+
+  // Optional.  Custom properties per platform.
+  common.Properties properties = 10;
+}
+
+// Next ID = 4.
+enum DeviceType {
+  UNKNOWN_DEVICE_TYPE = 0;
+  DESKTOP = 1;
+  MOBILE = 2;
+  TABLET = 3;
+}
+
+// Locale for session
+// Next ID = 3.
+message Locale {
+  // CodeReview - Which ISO code is this?  ISO 639-1? 2? 3?
+  // "en", "zh_Hant", "fr"
+  string language_code = 1;
+
+  // CodeReview - Which ISO code?  ISO 3166-1?
+  // "US", "CA", "FR"
+  string region_code = 2;
+}
+
+// Rectangle size in pixels
+// Next ID = 3.
+message Size {
+  uint32 width = 1;
+  uint32 height = 2;
+}
+
+// Device screen
+// Next ID = 3.
+message Screen {
+  // Android: DisplayMetrics.widthPixels/heightPixels
+  // iOS: UIScreen.nativeBounds.width/height
+  Size size = 1;
+
+  // Natural scale factor.
+  // Android: DisplayMetrics.density
+  // iOS: UIScreen.scale
+  float scale = 2;
+}
+
+// A sub-message containing Device info.
+// Next ID = 8.
+message Device {
+  DeviceType device_type = 1;
+
+  // Android: android.os.Build.BRAND
+  //          (eg. "google", "verizon", "tmobile", "Samsung")
+  // iOS: "Apple"
+  string brand = 2;
+
+  // Android: android.os.Build.MANUFACTURER
+  //          (eg. "HTC", "Motorola", "HUAWEI")
+  // iOS: "Apple"
+  string manufacturer = 3;
+
+  // Android: android.os.Build.MODEL
+  //          (eg. "GT-S5830L", "MB860")
+  // iOS: "iPhoneXX,YY" or "iPadXX,YY"
+  string identifier = 4;
+
+  // Android: android.os.Build.VERSION.RELEASE
+  // iOS: "14.4.1"
+  string os_version = 5;
+
+  // Deprecated.
+  Locale locale = 6 [deprecated = true];
+
+  Screen screen = 7;
+}
+
+// https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
+// A newer alternative to user agent strings.
+message ClientHints {
+  bool is_mobile = 1;
+  repeated ClientHintBrand brand = 2;
+  string architecture = 3;
+  string model = 4;
+  string platform = 5;
+  string platform_version = 6;
+  string ua_full_version = 7;
+}
+
+// https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
+// a part of ClientHints.
+message ClientHintBrand {
+  string brand = 1;
+  string version = 2;
+}
+
+// A sub-message containing Browser info.
+// Next ID = 4.
+message Browser {
+
+  string user_agent = 1;
+
+  Size viewport_size = 2;
+
+  ClientHints client_hints = 3;
+}
+
+// Next ID = 3.
+message Location {
+  // [-90, 90]
+  double latitude = 1;
+
+  // [-180, 180]
+  double longitude = 2;
+}
+ 
+
+// Submessage on View for Web page visits.
+// Next ID = 5.
+message WebPageView {
+
+  // Optional.  This is the url for the page.
+  string url = 1;
+
+  // Optional.
+  Browser browser = 2;
+
+  // Optional.  Can be a full referrer string.  Could be just the UTM.
+  string referrer = 3;
+
+  Size document_size = 4;
+}
+
+// Submessage on View for screen views.
+// Next ID = 1.
+message AppScreenView {
+}
+
+// A view of a single page/screen (e.g. feed, search results, etc).
+// Next ID = 17.
+message View {
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.platform_id.
+  uint64 platform_id = 1;
+
+  // Optional.  Must be set on LogRequest or here.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.timing.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+
+  // Optional.  Primary key.
+  // SDKs usually handles this automatically. For details, see
+  // https://github.com/promotedai/schema#setting-primary-keys
+  string view_id = 6;
+
+  // Optional.
+  string session_id = 7;
+
+  // Optional.  The name of the view.
+  string name = 8;
+
+  // Optional.
+  delivery.UseCase use_case = 9;
+
+  // Optional.
+  string search_query = 10;
+
+  // Optional.  Custom properties per platform.
+  common.Properties properties = 11;
+
+  // Optional.
+  Device device = 12;
+
+  Locale locale = 16;
+
+  // Next ID = 5.
+  ViewType view_type = 13;
+  enum ViewType {
+    UNKNOWN_VIEW_TYPE = 0;
+    WEB_PAGE = 1;
+    APP_SCREEN = 2;
+  }
+
+  oneof ui_type {
+    WebPageView web_page_view = 14;
+    AppScreenView app_screen_view = 15;
+  }
+}
+
+// When an Insertion (instance of Content) is shown to a user.
+// Impressions are immutable.
+// Next ID = 13.
+message Impression {
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.platform_id.
+  uint64 platform_id = 1;
+
+  // Optional.  Must be set on LogRequest or here.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.timing.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+
+  // Optional.  Primary key.
+  // SDKs usually handles this automatically. For details, see
+  // https://github.com/promotedai/schema#setting-primary-keys
+  string impression_id = 6;
+
+  // Optional.
+  string insertion_id = 7;
+
+  // Optional.
+  string request_id = 8;
+
+  // Optional.
+  string view_id = 10;
+
+  // Optional.
+  string session_id = 9;
+
+  // Optional. content_id is used as a hint when insertion_id is not set.
+  // For more accurate results, set insertion_id.
+  string content_id = 12;
+
+  // Optional.  Custom properties per platform.
+  common.Properties properties = 11;
+}
+
+// The action that user wants to perform.
+//
+// Next ID = 16.
+enum ActionType {
+  UNKNOWN_ACTION_TYPE = 0;
+
+  // Action that doesn't correspond to any of the below.
+  CUSTOM_ACTION_TYPE = 1;
+
+  // Navigating to details about content.
+  NAVIGATE = 2;
+
+  // Adding an item to shopping cart.
+  ADD_TO_CART = 4;
+
+  // Remove an item from shopping cart.
+  REMOVE_FROM_CART = 10;
+
+  // Going to checkout.
+  CHECKOUT = 8;
+
+  // Purchasing an item.
+  PURCHASE = 3;
+
+  // Sharing content.
+  SHARE = 5;
+
+  // Liking content.
+  LIKE = 6;
+
+  // Un-liking content.
+  UNLIKE = 9;
+
+  // Commenting on content.
+  COMMENT = 7;
+
+  // Making an offer on content.
+  MAKE_OFFER = 11;
+
+  // Asking a question about content.
+  ASK_QUESTION = 12;
+
+  // Answering a question about content.
+  ANSWER_QUESTION = 13;
+
+  // Complete sign-in.
+  // No content_id needed.  If set, set it to the Content's ID (not User).
+  COMPLETE_SIGN_IN = 14;
+
+  // Complete sign-up.
+  // No content_id needed.  If set, set it to the Content's ID (not User).
+  COMPLETE_SIGN_UP = 15;
+}
+
+// Next ID = 2.
+message NavigateAction {
+
+  // Optional.  The next URL.
+  string target_url = 1;
+}
+
+// Actions are user actions.  Example: Click.
+// Actions are immutable.
+// Next ID = 22.
+message Action {
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.platform_id.
+  uint64 platform_id = 1;
+
+  // Optional.  Must be set on LogRequest or here.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.timing.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+
+  // Optional.  Primary key.
+  // SDKs usually handles this automatically. For details, see
+  // https://github.com/promotedai/schema#setting-primary-keys
+  string action_id = 6;
+
+  // Optional.
+  string impression_id = 7;
+
+  // Optional.
+  string insertion_id = 8;
+
+  // Optional.
+  string request_id = 9;
+
+  // Optional.
+  string view_id = 11;
+
+  // Optional.
+  string session_id = 10;
+
+  // Optional. content_id is used as a hint when impression_id is not set.
+  // For more accurate results, set impression_id if available.
+  string content_id = 21;
+
+  // Optional.  Custom name of the action that the user performed.
+  // E.g. "Product clicked".  Do not stick parameters or pii in this name.
+  string name = 12;
+  reserved 13; // For future dictionary ID for name.
+
+  // Optional.  The action that the user wants to perform.
+  ActionType action_type = 14;
+
+  // Optional.
+  string custom_action_type = 15;
+  reserved 16; // For a dictionary ID for custom_action_type;
+
+  string element_id = 17;
+
+  oneof action {
+    NavigateAction navigate_action = 18;
+  }
+
+  reserved 19;
+
+  // Optional.  Custom properties per platform.
+  common.Properties properties = 20;
+}
+
+
+// A way to batch up log requests into the same request.
+// Clients can reference logs in different batches.
+// Next ID = 17.
+message LogRequest {
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses the value set on each log record.
+  uint64 platform_id = 1;
+
+  // Optional.  Must be set on each child log record or here.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses the value set on each log record.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+  reserved 6; // To keep numbers similar to FlatEvent.  We can use this for Rpc Header.
+  repeated User user = 7;
+  repeated CohortMembership cohort_membership = 8;
+  reserved 9;
+  reserved 10;
+  repeated View view = 11;
+  repeated delivery.Request request = 12;
+  repeated delivery.Insertion insertion = 13;
+  repeated Impression impression = 14;
+  repeated Action action = 15;
+  reserved 16;
+}
+
+// Internal Proto used for flattened events.
+// Keep proto IDs matching LogRequest.
+// Next ID = 17.
+message FlatEvent {
+  reserved 1 to 2, 4 to 5; // Reserving fields for furture common fields.
+  // Can be ignored if set.  Used only for stream process state management.
+  common.Timing timing = 3;
+  JoinedIdentifiers ids = 6;
+  User user = 7;
+  reserved 8; // For cohort_membership
+  reserved 9;
+  reserved 10;
+  View view = 11;
+  delivery.Request request = 12;
+  delivery.Insertion insertion = 13;
+  Impression impression = 14;
+  Action action = 15;
+  reserved 16;
+}
