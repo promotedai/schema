@@ -1,0 +1,5 @@
+# Later rules override this default owners
+*         @promotedai/eng
+
+# Overrides
+*.proto   @danbosnichill @jinyius

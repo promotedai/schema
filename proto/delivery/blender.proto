@@ -1,0 +1,90 @@
+syntax = "proto3";
+package delivery;
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.delivery";
+option java_outer_classname = "Blender";
+
+// See: https://github.com/promotedai/blender for README
+// Next ID = 10.
+message BlenderRule {
+  // The name of item attribute that this rule applies to.
+  string attribute_name = 1;
+  reserved 2 to 5; // Reserving fields for future common fields.
+  oneof rule {
+    PositiveRule positive_rule = 6;
+    InsertRule insert_rule = 7;
+    NegativeRule negative_rule = 8;
+    DiversityRule diversity_rule = 9;
+  }
+}
+
+// Next ID = 4.
+message PositiveRule {
+  optional double select_pct = 1;
+  optional uint64 min_pos = 2;
+  optional uint64 max_pos = 3;
+}
+
+// Next ID = 4.
+message InsertRule {
+  optional double select_pct = 1;
+  optional uint64 min_pos = 2;
+  optional uint64 max_pos = 3;
+}
+
+// Next ID = 6.
+message NegativeRule {
+  optional double pluck_pct = 1;
+  optional uint64 forbid_less_pos = 2;
+  optional uint64 min_spacing = 3;
+  optional uint64 forbid_greater_pos = 4;
+  optional uint64 max_count = 5;
+}
+
+// Next ID = 2.
+message DiversityRule {
+  optional double multi = 1;
+}
+
+// Next ID = 3.
+message BlenderConfig {
+  // List of blender rules.
+  repeated BlenderRule blender_rule = 1;
+  QualityScoreConfig quality_score_config = 2;
+}
+
+// See: https://github.com/promotedai/qualityscore
+// Next ID = 2.
+message QualityScoreConfig {
+  repeated QualityScoreTerm weighted_sum_term = 1;
+}
+
+// Next ID = 14.
+message QualityScoreTerm {
+  // How to fetch the base values of this term vector.
+  oneof fetch_method {
+    // A named vector provided from elsewhere.
+    string attribute_name = 1;
+    // Randomly generated values from a normal distribution.
+    NormalDistribution random_normal = 2;
+    // A constant value of ones. Set to any constant with offset and/or weight.
+    // Set to "true" to indicate that this option is set by convention.
+    bool ones = 3;
+  }
+  reserved 4 to 9; // Reserving fields for future fetch_method options.
+  // Maximum limit of underlying value (before weight and offset).
+  optional double fetch_high = 10;
+  // Minimum limit of underlying value (before weight and offset).
+  optional double fetch_low = 11;
+  // Multiply by this value. default =1 (no multiply).
+  double weight = 12;
+  // Add by this value. default = 0 (no addition)
+  double offset = 13;
+}
+
+// Next ID = 3.
+message NormalDistribution {
+  double mean = 1;
+  double variance = 2;
+}
