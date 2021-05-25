@@ -1,0 +1,26 @@
+syntax = "proto3";
+package delivery;
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.delivery";
+option java_outer_classname = "Feature";
+
+// Next ID = 8
+enum NumericFeatures {
+  INVALID_NUMERIC = 0;
+  ITEM_IMP_L7 = 1;
+  ITEM_CLICK_L7 = 2;
+  ITEM_LIKE_L7 = 3;
+  ITEM_OFFER_L7 = 4;
+  ITEM_CTR_L7 = 5;
+  ITEM_CLR_L7 = 6;   // like/imp
+  ITEM_COR_L7 = 7;   // offer/click
+}
+
+// Next ID = 4
+enum CategoricalFeatures {
+  INVALID_CATEGORY = 0;
+  ITEM_COLOR = 1;
+  ITEM_SIZE = 2;
+  ITEM_CATEGORY = 3;
+}
