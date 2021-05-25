@@ -1,0 +1,122 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+      - main
+      - master
+      - "release/**"
+      - "hotfix/**"
+  pull_request:
+    branches:
+      - develop
+      - main
+      - master
+      - "release/**"
+      - "hotfix/**"
+
+name: Build protos
+
+jobs:
+  build:
+    name: Build
+    # TODO - how to handle forks?
+    # if: github.event.pull_request.head.repo.full_name == github.repository
+
+    # This has bazelisk already
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Cache Bazel
+        uses: actions/cache@v2.1.5
+        env:
+          cache-name: bazel-cache
+        with:
+          path: |
+            ~/.cache/bazelisk
+            ~/.cache/bazel
+          key: ${{ runner.os }}-${{ env.cache-name }}
+
+      - name: Schema repo checkout
+        id: schema_repo_checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Setup SSH Keys and known_hosts
+        id: setup_ssh_keys
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.PUBLIC_REPO_SSH_PRIVATE_KEY }}"
+
+      - name: Build protos
+        id: build_protos
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          bazel sync --configure
+          bazel build ...
+
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install mypy-protobuf
+        run: |
+          PB_REL="https://github.com/protocolbuffers/protobuf/releases"
+          curl -LO $PB_REL/download/v3.15.8/protoc-3.15.8-linux-x86_64.zip
+          unzip protoc-3.15.8-linux-x86_64.zip -d .local/
+          rm protoc-3.15.8-linux-x86_64.zip
+          ./.local/bin/protoc --version
+          pip install --upgrade pip
+          pip install mypy-protobuf
+
+      - name: Generate Python library
+        # Generate Python library on both push and pull_requests
+        id: generate_py
+        run: |
+          export BAZEL_BIN=$(bazel info bazel-bin)
+
+          mkdir -p generated/proto/common
+          touch generated/proto/common/__init__.py
+          cp $BAZEL_BIN/proto/common/common_pb2.py generated/proto/common/common_pb2.py
+
+          mkdir -p generated/proto/event
+          touch generated/proto/event/__init__.py
+          cp $BAZEL_BIN/proto/event/event_pb2.py generated/proto/event/event_pb2.py
+
+          mkdir -p generated/proto/delivery/grpc
+          touch generated/proto/delivery/__init__.py
+          touch generated/proto/delivery/grpc/__init__.py
+          cp $BAZEL_BIN/proto/delivery/*_pb2.py generated/proto/delivery/
+          cp $BAZEL_BIN/proto/delivery/delivery_python_grpc/proto/delivery/*.py generated/proto/delivery/
+
+          ./.local/bin/protoc --mypy_out=generated proto/common/*.proto
+          ./.local/bin/protoc --mypy_out=generated proto/delivery/*.proto
+          touch generated/proto/py.typed
+          touch generated/proto/delivery/py.typed
+          touch generated/proto/common/py.typed
+
+          git remote set-url origin https://x-access-token:${{ secrets.PROMOTED_PUBLIC_DEPLOYER_GITHUB_ACTIONS }}@github.com/${{ github.repository }}
+          git config user.name prm-deployer
+          git config user.email prm-deployer@promoted.ai
+          git add .
+
+      - name: Check for modified files
+        id: git-check
+        run: |
+          echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+          echo $(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+
+      - name: Commit generated Python library
+        # Only commit if there is a change.
+        id: commit_generated_py
+        # Check if the PR is not from a fork
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git commit -m "Generate Python Library"
+          git push

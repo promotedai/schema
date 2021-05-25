@@ -1,0 +1,147 @@
+syntax = "proto3";
+package delivery;
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.delivery";
+option java_outer_classname = "Delivery";
+import "google/protobuf/struct.proto";
+import "proto/common/common.proto";
+import "proto/delivery/blender.proto";
+
+// Represents a Request for Insertions (Content).
+// Can be used to log existing ranking (not Promoted) or Promoted's Delivery
+// API requests.
+//
+// Next ID = 17.
+message Request {
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.platform_id.
+  uint64 platform_id = 1;
+
+  // Optional.  Must be set on LogRequest or here.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  // If not set, API server uses LogRequest.timing.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+
+  // Optional.  Primary key.
+  // SDKs usually handles this automatically. For details, see
+  // https://github.com/promotedai/schema#setting-primary-keys
+  string request_id = 6;
+
+  // Required.
+  string view_id = 7;
+
+  // Optional.
+  string session_id = 8;
+
+  // Optional.
+  // An ID indicating the client's version of a request_id.  This field
+  // matters when a single Request from the client could cause multiple
+  // request executions (e.g. backups from retries or timeouts).  Each of those
+  // request executions should have separate request_ids.
+  // This should be a UUID.  If not set on a Request, the SDKs or Promoted
+  // servers will set it.
+  string client_request_id = 14;
+
+  // Optional.
+  UseCase use_case = 9;
+
+  // Optional.
+  string search_query = 10;
+
+  // Optional. Number of Insertions to return.
+  int32 limit = 15;
+
+  // Optional.
+  // If set in Delivery API, Promoted will re-rank this list of Content.
+  // This list can be used to pass in a list of Content (or Content IDs).
+  // If set in Metrics API, Promoted will separate this list of Insertions
+  // into separate log records.
+  repeated Insertion insertion = 11;
+
+  // Optional.
+  BlenderConfig blender_config = 12;
+
+  // Optional.  Custom properties per platform.
+  common.Properties properties = 13;
+}
+
+// Next ID = 3.
+message Response {
+
+  reserved 1;
+
+  // List of content.
+  repeated Insertion insertion = 2;
+}
+
+// Used to indicate the client's use case.  Used on both View and Request.
+//
+// Next ID = 11.
+enum UseCase {
+  UNKNOWN_USE_CASE = 0;
+  CUSTOM = 1; // Need to handle in wrapper proto.
+  SEARCH = 2;
+  SEARCH_SUGGESTIONS = 3;
+  FEED = 4;
+  RELATED_CONTENT = 5;
+  CLOSE_UP = 6;
+  CATEGORY_CONTENT = 7;
+  MY_CONTENT = 8;
+  MY_SAVED_CONTENT = 9;
+  SELLER_CONTENT = 10;
+}
+
+// This Event represents a Content being served at a certain position regardless
+// of it was views by a user. Insertions are immutable.
+// Next ID = 17.
+message Insertion {
+
+  // Optional.  If not set, set by API servers.
+  uint64 platform_id = 1;
+
+  // Required.
+  common.UserInfo user_info = 2;
+
+  // Optional.  If not set, set by API servers.
+  common.Timing timing = 3;
+
+  reserved 4 to 5; // Reserving fields for future common fields.
+
+  // Optional.  Primary key.
+  // SDKs usually handles this automatically. For details, see
+  // https://github.com/promotedai/schema#setting-primary-keys
+  string insertion_id = 6;
+
+  // Optional.
+  string request_id = 7;
+
+  // Optional.
+  string view_id = 9;
+
+  // Optional.
+  string session_id = 8;
+
+  // Optional.  We'll look this up using the external_content_id.
+  string content_id = 10;
+
+  // Optional.  If using Promotion's CMS.
+  reserved 11; // uint64 promotedai_content_id
+
+  // Optional.  0-based. Set by the customer, not by Promoted.
+  uint64 position = 12;
+
+  reserved 14;
+
+  reserved 15;
+
+
+  // Optional. Custom item attributes and features set by customers.
+  common.Properties properties = 13;
+  reserved 16;
+}

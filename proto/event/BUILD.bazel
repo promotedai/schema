@@ -1,0 +1,54 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+load("@rules_java//java:defs.bzl", "java_proto_library")
+load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
+load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
+
+proto_library(
+    name = "event_proto",
+    srcs = ["event.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+      "//proto/common:common_proto",
+      "//proto/delivery:delivery_proto",
+    ],
+)
+
+go_proto_library(
+    name = "event_go_proto",
+    importpath = "github.com/promotedai/schema/proto/event",
+    proto = ":event_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+      "//proto/common:go_default_library",
+      "//proto/delivery:go_default_library",
+    ],
+)
+
+go_library(
+    name = "go_default_library",
+    embed = [":event_go_proto"],
+    importpath = "github.com/promotedai/schema/proto/event",
+    visibility = ["//visibility:public"],
+)
+
+java_proto_library(
+    name = "event_java_proto",
+    deps = [
+        ":event_proto",
+        "//proto/common:common_proto",
+        "//proto/delivery:delivery_proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+py_proto_library(
+    name = "event_py_proto",
+    srcs = ["event.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+      "//proto/common:common_py_proto",
+      "//proto/delivery:delivery_py_proto",
+    ],
+)
