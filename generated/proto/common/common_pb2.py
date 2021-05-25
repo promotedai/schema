@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\030ai.promoted.proto.commonB\013CommonProtoP\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19proto/common/common.proto\x12\x06\x63ommon\x1a\x1cgoogle/protobuf/struct.proto\"\x89\x01\n\nEntityPath\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x13\n\x0b\x63ustomer_id\x18\x02 \x01(\x04\x12\x12\n\naccount_id\x18\x04 \x01(\x04\x12\x13\n\x0b\x63\x61mpaign_id\x18\x05 \x01(\x04\x12\x14\n\x0cpromotion_id\x18\x06 \x01(\x04\x12\x12\n\ncontent_id\x18\x03 \x01(\x04\"0\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x13\n\x0blog_user_id\x18\x02 \x01(\t\"Z\n\x06Timing\x12\x1c\n\x14\x63lient_log_timestamp\x18\x01 \x01(\x04\x12\x1b\n\x13\x65vent_api_timestamp\x18\x02 \x01(\x04\x12\x15\n\rlog_timestamp\x18\x03 \x01(\x04\"_\n\nProperties\x12\x16\n\x0cstruct_bytes\x18\x01 \x01(\x0cH\x00\x12)\n\x06struct\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x42\x0e\n\x0cstruct_field*\xdd\x01\n\x0c\x43urrencyCode\x12\x19\n\x15UNKNOWN_CURRENCY_CODE\x10\x00\x12\x07\n\x03USD\x10\x01\x12\x07\n\x03\x45UR\x10\x02\x12\x07\n\x03JPY\x10\x03\x12\x07\n\x03GBP\x10\x04\x12\x07\n\x03\x41UD\x10\x05\x12\x07\n\x03\x43\x41\x44\x10\x06\x12\x07\n\x03\x43HF\x10\x07\x12\x07\n\x03\x43NY\x10\x08\x12\x07\n\x03HKD\x10\t\x12\x07\n\x03NZD\x10\n\x12\x07\n\x03SEK\x10\x0b\x12\x07\n\x03KRW\x10\x0c\x12\x07\n\x03SGD\x10\r\x12\x07\n\x03NOK\x10\x0e\x12\x07\n\x03MXN\x10\x0f\x12\x07\n\x03INR\x10\x10\x12\x07\n\x03RUB\x10\x11\x12\x07\n\x03ZAR\x10\x12\x12\x07\n\x03TRY\x10\x13\x12\x07\n\x03\x42RL\x10\x14\x42)\n\x18\x61i.promoted.proto.commonB\x0b\x43ommonProtoP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x19proto/common/common.proto\x12\x06\x63ommon\x1a\x1cgoogle/protobuf/struct.proto\"\x89\x01\n\nEntityPath\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x13\n\x0b\x63ustomer_id\x18\x02 \x01(\x04\x12\x12\n\naccount_id\x18\x04 \x01(\x04\x12\x13\n\x0b\x63\x61mpaign_id\x18\x05 \x01(\x04\x12\x14\n\x0cpromotion_id\x18\x06 \x01(\x04\x12\x12\n\ncontent_id\x18\x03 \x01(\x04\"0\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x13\n\x0blog_user_id\x18\x02 \x01(\t\"2\n\x06Timing\x12\x1c\n\x14\x63lient_log_timestamp\x18\x01 \x01(\x04J\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04\"_\n\nProperties\x12\x16\n\x0cstruct_bytes\x18\x01 \x01(\x0cH\x00\x12)\n\x06struct\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x42\x0e\n\x0cstruct_field*\xdd\x01\n\x0c\x43urrencyCode\x12\x19\n\x15UNKNOWN_CURRENCY_CODE\x10\x00\x12\x07\n\x03USD\x10\x01\x12\x07\n\x03\x45UR\x10\x02\x12\x07\n\x03JPY\x10\x03\x12\x07\n\x03GBP\x10\x04\x12\x07\n\x03\x41UD\x10\x05\x12\x07\n\x03\x43\x41\x44\x10\x06\x12\x07\n\x03\x43HF\x10\x07\x12\x07\n\x03\x43NY\x10\x08\x12\x07\n\x03HKD\x10\t\x12\x07\n\x03NZD\x10\n\x12\x07\n\x03SEK\x10\x0b\x12\x07\n\x03KRW\x10\x0c\x12\x07\n\x03SGD\x10\r\x12\x07\n\x03NOK\x10\x0e\x12\x07\n\x03MXN\x10\x0f\x12\x07\n\x03INR\x10\x10\x12\x07\n\x03RUB\x10\x11\x12\x07\n\x03ZAR\x10\x12\x12\x07\n\x03TRY\x10\x13\x12\x07\n\x03\x42RL\x10\x14\x42)\n\x18\x61i.promoted.proto.commonB\x0b\x43ommonProtoP\x01\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -140,8 +140,8 @@ _CURRENCYCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=447,
-  serialized_end=668,
+  serialized_start=407,
+  serialized_end=628,
 )
 _sym_db.RegisterEnumDescriptor(_CURRENCYCODE)
 
@@ -291,20 +291,6 @@ _TIMING = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='event_api_timestamp', full_name='common.Timing.event_api_timestamp', index=1,
-      number=2, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='log_timestamp', full_name='common.Timing.log_timestamp', index=2,
-      number=3, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -318,7 +304,7 @@ _TIMING = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=257,
-  serialized_end=347,
+  serialized_end=307,
 )
 
 
@@ -361,8 +347,8 @@ _PROPERTIES = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=349,
-  serialized_end=444,
+  serialized_start=309,
+  serialized_end=404,
 )
 
 _PROPERTIES.fields_by_name['struct'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
