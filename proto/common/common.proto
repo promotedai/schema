@@ -70,12 +70,7 @@ message Timing {
   // Optional.  Client timestamp when event was created.
   uint64 client_log_timestamp = 1;
 
-  // Read-only.  This is set in the Event API.
-  uint64 event_api_timestamp = 2;
-
-  // Internal to our metrics pipeline.  Currently set by kafka and used to
-  // manage state for event joining.
-  uint64 log_timestamp = 3;
+  reserved 2, 3;
 }
 
 // Supports custom properties per platform.
