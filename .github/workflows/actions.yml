@@ -28,7 +28,7 @@ jobs:
     steps:
 
       - name: Cache Bazel
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         env:
           cache-name: bazel-cache
         with:
