@@ -28,7 +28,7 @@ jobs:
     steps:
 
       - name: Cache Bazel
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         env:
           cache-name: bazel-cache
         with:
@@ -61,7 +61,7 @@ jobs:
           bazel sync --configure
           bazel build ...
 
-      - uses: actions/setup-python@v1
+      - uses: actions/setup-python@v2.2.2
         with:
           python-version: 3.8
 
