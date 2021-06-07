@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\010DeliveryP\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\"\x88\x03\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12\r\n\x05limit\x18\x0f \x01(\x05\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12/\n\x0e\x62lender_config\x18\x0c \x01(\x0b\x32\x17.delivery.BlenderConfig\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x04\x10\x06\"8\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.InsertionJ\x04\x08\x01\x10\x02\"\xa0\x02\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x10\n\x08position\x18\x0c \x01(\x04\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x04\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x10\x10\x11*\xcc\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\nB(\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\"\xb1\x03\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12\r\n\x05limit\x18\x0f \x01(\x05\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12/\n\x0e\x62lender_config\x18\x0c \x01(\x0b\x32\x17.delivery.BlenderConfig\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"8\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.InsertionJ\x04\x08\x01\x10\x02\"\xc9\x02\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x10\n\x08position\x18\x0c \x01(\x04\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x10\x10\x11*\xda\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\n\x12\x0c\n\x08\x44ISCOVER\x10\x0b\x42(\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_blender__pb2.DESCRIPTOR,])
 
@@ -89,11 +89,16 @@ _USECASE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DISCOVER', index=11, number=11,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=875,
-  serialized_end=1079,
+  serialized_start=957,
+  serialized_end=1175,
 )
 _sym_db.RegisterEnumDescriptor(_USECASE)
 
@@ -109,6 +114,7 @@ CATEGORY_CONTENT = 7
 MY_CONTENT = 8
 MY_SAVED_CONTENT = 9
 SELLER_CONTENT = 10
+DISCOVER = 11
 
 
 
@@ -142,70 +148,77 @@ _REQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request_id', full_name='delivery.Request.request_id', index=3,
+      name='client_info', full_name='delivery.Request.client_info', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='delivery.Request.request_id', index=4,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='view_id', full_name='delivery.Request.view_id', index=4,
+      name='view_id', full_name='delivery.Request.view_id', index=5,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='session_id', full_name='delivery.Request.session_id', index=5,
+      name='session_id', full_name='delivery.Request.session_id', index=6,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='client_request_id', full_name='delivery.Request.client_request_id', index=6,
+      name='client_request_id', full_name='delivery.Request.client_request_id', index=7,
       number=14, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='use_case', full_name='delivery.Request.use_case', index=7,
+      name='use_case', full_name='delivery.Request.use_case', index=8,
       number=9, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='search_query', full_name='delivery.Request.search_query', index=8,
+      name='search_query', full_name='delivery.Request.search_query', index=9,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='limit', full_name='delivery.Request.limit', index=9,
+      name='limit', full_name='delivery.Request.limit', index=10,
       number=15, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='insertion', full_name='delivery.Request.insertion', index=10,
+      name='insertion', full_name='delivery.Request.insertion', index=11,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='blender_config', full_name='delivery.Request.blender_config', index=11,
+      name='blender_config', full_name='delivery.Request.blender_config', index=12,
       number=12, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='properties', full_name='delivery.Request.properties', index=12,
+      name='properties', full_name='delivery.Request.properties', index=13,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -224,7 +237,7 @@ _REQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=131,
-  serialized_end=523,
+  serialized_end=564,
 )
 
 
@@ -255,8 +268,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=525,
-  serialized_end=581,
+  serialized_start=566,
+  serialized_end=622,
 )
 
 
@@ -290,49 +303,56 @@ _INSERTION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='insertion_id', full_name='delivery.Insertion.insertion_id', index=3,
+      name='client_info', full_name='delivery.Insertion.client_info', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='insertion_id', full_name='delivery.Insertion.insertion_id', index=4,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request_id', full_name='delivery.Insertion.request_id', index=4,
+      name='request_id', full_name='delivery.Insertion.request_id', index=5,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='view_id', full_name='delivery.Insertion.view_id', index=5,
+      name='view_id', full_name='delivery.Insertion.view_id', index=6,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='session_id', full_name='delivery.Insertion.session_id', index=6,
+      name='session_id', full_name='delivery.Insertion.session_id', index=7,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='content_id', full_name='delivery.Insertion.content_id', index=7,
+      name='content_id', full_name='delivery.Insertion.content_id', index=8,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='position', full_name='delivery.Insertion.position', index=8,
+      name='position', full_name='delivery.Insertion.position', index=9,
       number=12, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='properties', full_name='delivery.Insertion.properties', index=9,
+      name='properties', full_name='delivery.Insertion.properties', index=10,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -350,12 +370,13 @@ _INSERTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=584,
-  serialized_end=872,
+  serialized_start=625,
+  serialized_end=954,
 )
 
 _REQUEST.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
 _REQUEST.fields_by_name['timing'].message_type = proto_dot_common_dot_common__pb2._TIMING
+_REQUEST.fields_by_name['client_info'].message_type = proto_dot_common_dot_common__pb2._CLIENTINFO
 _REQUEST.fields_by_name['use_case'].enum_type = _USECASE
 _REQUEST.fields_by_name['insertion'].message_type = _INSERTION
 _REQUEST.fields_by_name['blender_config'].message_type = proto_dot_delivery_dot_blender__pb2._BLENDERCONFIG
@@ -363,6 +384,7 @@ _REQUEST.fields_by_name['properties'].message_type = proto_dot_common_dot_common
 _RESPONSE.fields_by_name['insertion'].message_type = _INSERTION
 _INSERTION.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
 _INSERTION.fields_by_name['timing'].message_type = proto_dot_common_dot_common__pb2._TIMING
+_INSERTION.fields_by_name['client_info'].message_type = proto_dot_common_dot_common__pb2._CLIENTINFO
 _INSERTION.fields_by_name['properties'].message_type = proto_dot_common_dot_common__pb2._PROPERTIES
 DESCRIPTOR.message_types_by_name['Request'] = _REQUEST
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE

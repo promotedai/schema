@@ -28,6 +28,7 @@ class _UseCase(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UseCa
     MY_CONTENT = UseCase.V(8)
     MY_SAVED_CONTENT = UseCase.V(9)
     SELLER_CONTENT = UseCase.V(10)
+    DISCOVER = UseCase.V(11)
 class UseCase(metaclass=_UseCase):
     V = typing.NewType('V', builtins.int)
 UNKNOWN_USE_CASE = UseCase.V(0)
@@ -41,12 +42,14 @@ CATEGORY_CONTENT = UseCase.V(7)
 MY_CONTENT = UseCase.V(8)
 MY_SAVED_CONTENT = UseCase.V(9)
 SELLER_CONTENT = UseCase.V(10)
+DISCOVER = UseCase.V(11)
 
 class Request(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     USER_INFO_FIELD_NUMBER: builtins.int
     TIMING_FIELD_NUMBER: builtins.int
+    CLIENT_INFO_FIELD_NUMBER: builtins.int
     REQUEST_ID_FIELD_NUMBER: builtins.int
     VIEW_ID_FIELD_NUMBER: builtins.int
     SESSION_ID_FIELD_NUMBER: builtins.int
@@ -73,6 +76,9 @@ class Request(google.protobuf.message.Message):
     def timing(self) -> proto.common.common_pb2.Timing: ...
 
     @property
+    def client_info(self) -> proto.common.common_pb2.ClientInfo: ...
+
+    @property
     def insertion(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Insertion]: ...
 
     @property
@@ -86,6 +92,7 @@ class Request(google.protobuf.message.Message):
         platform_id : builtins.int = ...,
         user_info : typing.Optional[proto.common.common_pb2.UserInfo] = ...,
         timing : typing.Optional[proto.common.common_pb2.Timing] = ...,
+        client_info : typing.Optional[proto.common.common_pb2.ClientInfo] = ...,
         request_id : typing.Text = ...,
         view_id : typing.Text = ...,
         session_id : typing.Text = ...,
@@ -97,8 +104,8 @@ class Request(google.protobuf.message.Message):
         blender_config : typing.Optional[proto.delivery.blender_pb2.BlenderConfig] = ...,
         properties : typing.Optional[proto.common.common_pb2.Properties] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal[u"blender_config",b"blender_config",u"properties",b"properties",u"timing",b"timing",u"user_info",b"user_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"blender_config",b"blender_config",u"client_request_id",b"client_request_id",u"insertion",b"insertion",u"limit",b"limit",u"platform_id",b"platform_id",u"properties",b"properties",u"request_id",b"request_id",u"search_query",b"search_query",u"session_id",b"session_id",u"timing",b"timing",u"use_case",b"use_case",u"user_info",b"user_info",u"view_id",b"view_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal[u"blender_config",b"blender_config",u"client_info",b"client_info",u"properties",b"properties",u"timing",b"timing",u"user_info",b"user_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal[u"blender_config",b"blender_config",u"client_info",b"client_info",u"client_request_id",b"client_request_id",u"insertion",b"insertion",u"limit",b"limit",u"platform_id",b"platform_id",u"properties",b"properties",u"request_id",b"request_id",u"search_query",b"search_query",u"session_id",b"session_id",u"timing",b"timing",u"use_case",b"use_case",u"user_info",b"user_info",u"view_id",b"view_id"]) -> None: ...
 global___Request = Request
 
 class Response(google.protobuf.message.Message):
@@ -120,6 +127,7 @@ class Insertion(google.protobuf.message.Message):
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     USER_INFO_FIELD_NUMBER: builtins.int
     TIMING_FIELD_NUMBER: builtins.int
+    CLIENT_INFO_FIELD_NUMBER: builtins.int
     INSERTION_ID_FIELD_NUMBER: builtins.int
     REQUEST_ID_FIELD_NUMBER: builtins.int
     VIEW_ID_FIELD_NUMBER: builtins.int
@@ -142,6 +150,9 @@ class Insertion(google.protobuf.message.Message):
     def timing(self) -> proto.common.common_pb2.Timing: ...
 
     @property
+    def client_info(self) -> proto.common.common_pb2.ClientInfo: ...
+
+    @property
     def properties(self) -> proto.common.common_pb2.Properties: ...
 
     def __init__(self,
@@ -149,6 +160,7 @@ class Insertion(google.protobuf.message.Message):
         platform_id : builtins.int = ...,
         user_info : typing.Optional[proto.common.common_pb2.UserInfo] = ...,
         timing : typing.Optional[proto.common.common_pb2.Timing] = ...,
+        client_info : typing.Optional[proto.common.common_pb2.ClientInfo] = ...,
         insertion_id : typing.Text = ...,
         request_id : typing.Text = ...,
         view_id : typing.Text = ...,
@@ -157,6 +169,6 @@ class Insertion(google.protobuf.message.Message):
         position : builtins.int = ...,
         properties : typing.Optional[proto.common.common_pb2.Properties] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal[u"properties",b"properties",u"timing",b"timing",u"user_info",b"user_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"content_id",b"content_id",u"insertion_id",b"insertion_id",u"platform_id",b"platform_id",u"position",b"position",u"properties",b"properties",u"request_id",b"request_id",u"session_id",b"session_id",u"timing",b"timing",u"user_info",b"user_info",u"view_id",b"view_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal[u"client_info",b"client_info",u"properties",b"properties",u"timing",b"timing",u"user_info",b"user_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal[u"client_info",b"client_info",u"content_id",b"content_id",u"insertion_id",b"insertion_id",u"platform_id",b"platform_id",u"position",b"position",u"properties",b"properties",u"request_id",b"request_id",u"session_id",b"session_id",u"timing",b"timing",u"user_info",b"user_info",u"view_id",b"view_id"]) -> None: ...
 global___Insertion = Insertion

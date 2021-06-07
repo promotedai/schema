@@ -102,6 +102,43 @@ class UserInfo(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"log_user_id",b"log_user_id",u"user_id",b"user_id"]) -> None: ...
 global___UserInfo = UserInfo
 
+class ClientInfo(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    class _ClientType(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClientType.V], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
+        PLATFORM_SERVER = ClientInfo.ClientType.V(1)
+        PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
+    class ClientType(metaclass=_ClientType):
+        V = typing.NewType('V', builtins.int)
+    UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
+    PLATFORM_SERVER = ClientInfo.ClientType.V(1)
+    PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
+
+    class _TrafficType(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[TrafficType.V], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
+        PRODUCTION = ClientInfo.TrafficType.V(1)
+        REPLAY = ClientInfo.TrafficType.V(2)
+    class TrafficType(metaclass=_TrafficType):
+        V = typing.NewType('V', builtins.int)
+    UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
+    PRODUCTION = ClientInfo.TrafficType.V(1)
+    REPLAY = ClientInfo.TrafficType.V(2)
+
+    CLIENT_TYPE_FIELD_NUMBER: builtins.int
+    TRAFFIC_TYPE_FIELD_NUMBER: builtins.int
+    client_type: global___ClientInfo.ClientType.V = ...
+    traffic_type: global___ClientInfo.TrafficType.V = ...
+
+    def __init__(self,
+        *,
+        client_type : global___ClientInfo.ClientType.V = ...,
+        traffic_type : global___ClientInfo.TrafficType.V = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal[u"client_type",b"client_type",u"traffic_type",b"traffic_type"]) -> None: ...
+global___ClientInfo = ClientInfo
+
 class Timing(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     CLIENT_LOG_TIMESTAMP_FIELD_NUMBER: builtins.int

@@ -47,7 +47,10 @@ message User {
   // If not set, API server uses LogRequest.timing.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.  If not set, API server uses LogRequest.client_info.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 6;
@@ -82,7 +85,10 @@ message CohortMembership {
   // If not set, API server uses LogRequest.timing.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.  If not set, API server uses LogRequest.client_info.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Primary key.
   // SDKs usually handles this automatically. For details, see
@@ -247,7 +253,10 @@ message View {
   // If not set, API server uses LogRequest.timing.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.  If not set, API server uses LogRequest.client_info.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Primary key.
   // SDKs usually handles this automatically. For details, see
@@ -274,7 +283,9 @@ message View {
 
   Locale locale = 16;
 
-  // Next ID = 5.
+  // If a specific view is set (`web_page_view` and `app_screen_view`), 
+  // clients do not need to set it directly.  If those fields and `view_type`
+  // have conflicting values, the specific view field is used.
   ViewType view_type = 13;
   enum ViewType {
     UNKNOWN_VIEW_TYPE = 0;
@@ -304,7 +315,10 @@ message Impression {
   // If not set, API server uses LogRequest.timing.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.  If not set, API server uses LogRequest.client_info.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Primary key.
   // SDKs usually handles this automatically. For details, see
@@ -408,7 +422,10 @@ message Action {
   // If not set, API server uses LogRequest.timing.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.  If not set, API server uses LogRequest.client_info.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Primary key.
   // SDKs usually handles this automatically. For details, see
@@ -475,7 +492,10 @@ message LogRequest {
   // If not set, API server uses the value set on each log record.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
   reserved 6; // To keep numbers similar to FlatEvent.  We can use this for Rpc Header.
   repeated User user = 7;
   repeated CohortMembership cohort_membership = 8;

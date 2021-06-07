@@ -26,7 +26,10 @@ message Request {
   // If not set, API server uses LogRequest.timing.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.  If not set, API server uses LogRequest.client_info.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Primary key.
   // SDKs usually handles this automatically. For details, see
@@ -82,7 +85,7 @@ message Response {
 
 // Used to indicate the client's use case.  Used on both View and Request.
 //
-// Next ID = 11.
+// Next ID = 12.
 enum UseCase {
   UNKNOWN_USE_CASE = 0;
   CUSTOM = 1; // Need to handle in wrapper proto.
@@ -95,6 +98,7 @@ enum UseCase {
   MY_CONTENT = 8;
   MY_SAVED_CONTENT = 9;
   SELLER_CONTENT = 10;
+  DISCOVER = 11;
 }
 
 // This Event represents a Content being served at a certain position regardless
@@ -111,7 +115,10 @@ message Insertion {
   // Optional.  If not set, set by API servers.
   common.Timing timing = 3;
 
-  reserved 4 to 5; // Reserving fields for future common fields.
+  // Optional.  If not set, API server uses LogRequest.client_info.
+  common.ClientInfo client_info = 4;
+
+  reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Primary key.
   // SDKs usually handles this automatically. For details, see
@@ -133,7 +140,7 @@ message Insertion {
   // Optional.  If using Promotion's CMS.
   reserved 11; // uint64 promotedai_content_id
 
-  // Optional.  0-based. Set by the customer, not by Promoted.
+  // Optional.  0-based. As set by the customer, not by Promoted allocation.
   uint64 position = 12;
 
   reserved 14;
