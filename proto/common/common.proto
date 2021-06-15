@@ -58,6 +58,30 @@ message UserInfo {
 
 }
 
+// Info about the client.
+// Next ID = 3.
+message ClientInfo {
+
+  // Next ID = 5;
+  enum ClientType {
+    UNKNOWN_REQUEST_CLIENT = 0;
+    PLATFORM_SERVER = 1; // Your (customer) server.
+    PLATFORM_CLIENT = 2; // Your (customer) client.
+    reserved 3 to 4;
+  }
+  ClientType client_type = 1;
+
+  // Used to indicate the type of traffic.  We can use this to prioritize resources.
+  // Next ID = 4.
+  enum TrafficType {
+    UNKNOWN_TRAFFIC_TYPE = 0;
+    PRODUCTION = 1; // Live traffic.
+    REPLAY = 2; // Replayed traffic.  We'd like similar to PRODUCTION level.
+    reserved 3;
+  }
+  TrafficType traffic_type = 2;
+}
+
 // A message containing timing information.
 //
 // We can add common timing info to this message.  Down the road, we might
@@ -70,12 +94,7 @@ message Timing {
   // Optional.  Client timestamp when event was created.
   uint64 client_log_timestamp = 1;
 
-  // Read-only.  This is set in the Event API.
-  uint64 event_api_timestamp = 2;
-
-  // Internal to our metrics pipeline.  Currently set by kafka and used to
-  // manage state for event joining.
-  uint64 log_timestamp = 3;
+  reserved 2, 3;
 }
 
 // Supports custom properties per platform.
