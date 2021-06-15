@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\010DeliveryP\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\"\xb1\x03\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12\r\n\x05limit\x18\x0f \x01(\x05\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12/\n\x0e\x62lender_config\x18\x0c \x01(\x0b\x32\x17.delivery.BlenderConfig\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"8\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.InsertionJ\x04\x08\x01\x10\x02\"\xc9\x02\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x10\n\x08position\x18\x0c \x01(\x04\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x10\x10\x11*\xda\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\n\x12\x0c\n\x08\x44ISCOVER\x10\x0b\x42(\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\"\xd3\x03\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12\r\n\x05limit\x18\x0f \x01(\x05\x12 \n\x06paging\x18\x11 \x01(\x0b\x32\x10.delivery.Paging\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12/\n\x0e\x62lender_config\x18\x0c \x01(\x0b\x32\x17.delivery.BlenderConfig\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"Y\n\x06Paging\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x05\x12\x10\n\x06\x63ursor\x18\x03 \x01(\tH\x00\x12\x10\n\x06offset\x18\x04 \x01(\x05H\x00\x42\n\n\x08starting\"c\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.Insertion\x12)\n\x0bpaging_info\x18\x03 \x01(\x0b\x32\x14.delivery.PagingInfoJ\x04\x08\x01\x10\x02\"/\n\nPagingInfo\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0e\n\x06\x63ursor\x18\x02 \x01(\t\"\xc9\x02\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x10\n\x08position\x18\x0c \x01(\x04\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x10\x10\x11*\xda\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\n\x12\x0c\n\x08\x44ISCOVER\x10\x0b\x42(\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_blender__pb2.DESCRIPTOR,])
 
@@ -97,8 +97,8 @@ _USECASE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=957,
-  serialized_end=1175,
+  serialized_start=1174,
+  serialized_end=1392,
 )
 _sym_db.RegisterEnumDescriptor(_USECASE)
 
@@ -204,21 +204,28 @@ _REQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='insertion', full_name='delivery.Request.insertion', index=11,
+      name='paging', full_name='delivery.Request.paging', index=11,
+      number=17, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='insertion', full_name='delivery.Request.insertion', index=12,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='blender_config', full_name='delivery.Request.blender_config', index=12,
+      name='blender_config', full_name='delivery.Request.blender_config', index=13,
       number=12, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='properties', full_name='delivery.Request.properties', index=13,
+      name='properties', full_name='delivery.Request.properties', index=14,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -237,7 +244,65 @@ _REQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=131,
-  serialized_end=564,
+  serialized_end=598,
+)
+
+
+_PAGING = _descriptor.Descriptor(
+  name='Paging',
+  full_name='delivery.Paging',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='paging_id', full_name='delivery.Paging.paging_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='size', full_name='delivery.Paging.size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cursor', full_name='delivery.Paging.cursor', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='delivery.Paging.offset', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='starting', full_name='delivery.Paging.starting',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=600,
+  serialized_end=689,
 )
 
 
@@ -256,6 +321,13 @@ _RESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='paging_info', full_name='delivery.Response.paging_info', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -268,8 +340,47 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=566,
-  serialized_end=622,
+  serialized_start=691,
+  serialized_end=790,
+)
+
+
+_PAGINGINFO = _descriptor.Descriptor(
+  name='PagingInfo',
+  full_name='delivery.PagingInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='paging_id', full_name='delivery.PagingInfo.paging_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cursor', full_name='delivery.PagingInfo.cursor', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=792,
+  serialized_end=839,
 )
 
 
@@ -370,24 +481,34 @@ _INSERTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=625,
-  serialized_end=954,
+  serialized_start=842,
+  serialized_end=1171,
 )
 
 _REQUEST.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
 _REQUEST.fields_by_name['timing'].message_type = proto_dot_common_dot_common__pb2._TIMING
 _REQUEST.fields_by_name['client_info'].message_type = proto_dot_common_dot_common__pb2._CLIENTINFO
 _REQUEST.fields_by_name['use_case'].enum_type = _USECASE
+_REQUEST.fields_by_name['paging'].message_type = _PAGING
 _REQUEST.fields_by_name['insertion'].message_type = _INSERTION
 _REQUEST.fields_by_name['blender_config'].message_type = proto_dot_delivery_dot_blender__pb2._BLENDERCONFIG
 _REQUEST.fields_by_name['properties'].message_type = proto_dot_common_dot_common__pb2._PROPERTIES
+_PAGING.oneofs_by_name['starting'].fields.append(
+  _PAGING.fields_by_name['cursor'])
+_PAGING.fields_by_name['cursor'].containing_oneof = _PAGING.oneofs_by_name['starting']
+_PAGING.oneofs_by_name['starting'].fields.append(
+  _PAGING.fields_by_name['offset'])
+_PAGING.fields_by_name['offset'].containing_oneof = _PAGING.oneofs_by_name['starting']
 _RESPONSE.fields_by_name['insertion'].message_type = _INSERTION
+_RESPONSE.fields_by_name['paging_info'].message_type = _PAGINGINFO
 _INSERTION.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
 _INSERTION.fields_by_name['timing'].message_type = proto_dot_common_dot_common__pb2._TIMING
 _INSERTION.fields_by_name['client_info'].message_type = proto_dot_common_dot_common__pb2._CLIENTINFO
 _INSERTION.fields_by_name['properties'].message_type = proto_dot_common_dot_common__pb2._PROPERTIES
 DESCRIPTOR.message_types_by_name['Request'] = _REQUEST
+DESCRIPTOR.message_types_by_name['Paging'] = _PAGING
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
+DESCRIPTOR.message_types_by_name['PagingInfo'] = _PAGINGINFO
 DESCRIPTOR.message_types_by_name['Insertion'] = _INSERTION
 DESCRIPTOR.enum_types_by_name['UseCase'] = _USECASE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -399,12 +520,26 @@ Request = _reflection.GeneratedProtocolMessageType('Request', (_message.Message,
   })
 _sym_db.RegisterMessage(Request)
 
+Paging = _reflection.GeneratedProtocolMessageType('Paging', (_message.Message,), {
+  'DESCRIPTOR' : _PAGING,
+  '__module__' : 'proto.delivery.delivery_pb2'
+  # @@protoc_insertion_point(class_scope:delivery.Paging)
+  })
+_sym_db.RegisterMessage(Paging)
+
 Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
   'DESCRIPTOR' : _RESPONSE,
   '__module__' : 'proto.delivery.delivery_pb2'
   # @@protoc_insertion_point(class_scope:delivery.Response)
   })
 _sym_db.RegisterMessage(Response)
+
+PagingInfo = _reflection.GeneratedProtocolMessageType('PagingInfo', (_message.Message,), {
+  'DESCRIPTOR' : _PAGINGINFO,
+  '__module__' : 'proto.delivery.delivery_pb2'
+  # @@protoc_insertion_point(class_scope:delivery.PagingInfo)
+  })
+_sym_db.RegisterMessage(PagingInfo)
 
 Insertion = _reflection.GeneratedProtocolMessageType('Insertion', (_message.Message,), {
   'DESCRIPTOR' : _INSERTION,

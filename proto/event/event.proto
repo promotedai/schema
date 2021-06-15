@@ -215,7 +215,7 @@ message Location {
   // [-180, 180]
   double longitude = 2;
 }
- 
+
 
 // Submessage on View for Web page visits.
 // Next ID = 5.
@@ -283,7 +283,7 @@ message View {
 
   Locale locale = 16;
 
-  // If a specific view is set (`web_page_view` and `app_screen_view`), 
+  // If a specific view is set (`web_page_view` and `app_screen_view`),
   // clients do not need to set it directly.  If those fields and `view_type`
   // have conflicting values, the specific view field is used.
   ViewType view_type = 13;
@@ -299,9 +299,23 @@ message View {
   }
 }
 
+// Contextual information about where impression was served.
+// Allows backends to infer expected behavior about
+// corresponding content.
+// Next ID = 3.
+enum ImpressionSourceType {
+  UNKNOWN_IMPRESSION_SOURCE_TYPE = 0;
+
+  // Content was served by Promoted Delivery API.
+  DELIVERY = 1;
+
+  // Content was not served by Promoted Delivery API.
+  CLIENT_BACKEND = 2;
+}
+
 // When an Insertion (instance of Content) is shown to a user.
 // Impressions are immutable.
-// Next ID = 13.
+// Next ID = 14.
 message Impression {
 
   // Optional.  If not set, set by API servers.
@@ -340,6 +354,9 @@ message Impression {
   // Optional. content_id is used as a hint when insertion_id is not set.
   // For more accurate results, set insertion_id.
   string content_id = 12;
+
+  // Optional.
+  ImpressionSourceType source_type = 13;
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 11;

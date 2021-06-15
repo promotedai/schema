@@ -12,7 +12,7 @@ import "proto/delivery/blender.proto";
 // Can be used to log existing ranking (not Promoted) or Promoted's Delivery
 // API requests.
 //
-// Next ID = 17.
+// Next ID = 18.
 message Request {
 
   // Optional.  If not set, set by API servers.
@@ -58,7 +58,11 @@ message Request {
   string search_query = 10;
 
   // Optional. Number of Insertions to return.
+  // DEPRECATED: use paging intead.
   int32 limit = 15;
+
+  // Optional. Set to request a specific "page" of results.
+  Paging paging = 17;
 
   // Optional.
   // If set in Delivery API, Promoted will re-rank this list of Content.
@@ -74,13 +78,60 @@ message Request {
   common.Properties properties = 13;
 }
 
-// Next ID = 3.
+// Next ID = 5.
+message Paging {
+  // Identity for the paging request (opaque token).
+  // A single paging_id will have many associated requests to get the fully
+  // paged response set (hence, many request_id's and client_request_id's).
+  //
+  // Required if using the cursor for the last_index; optional if using offset.
+  // Setting this value provides better paging consistency/stability.  Ideally,
+  // it should be set from the initial paging response
+  // (Response.paging_info.paging_id).
+  //
+  // An external value can be used when *not* using promoted.ai's item
+  // datastore.  The value must be specific enough to be globally unique, yet
+  // general enough to ignore paging parameters.  A good example of a useful,
+  // externally set paging_id is to use the paging token or identifiers returned
+  // by your item datastore retrieval while passing the eligible insertions in
+  // the Request.  If in doubt, rely on the Response.paging_info.paging_id or
+  // contact us.
+  string paging_id = 1;
+
+  // Required.  The number of items (insertions) to return.
+  int32 size = 2;
+
+  // Required.  The position of the first item of this page.
+  // For example, to get the 5th page of results with a paging size of 10:
+  // * cursor is an opaque token, so it should be the value returned
+  //   by the 4th page response (Response.paging_info.cursor).
+  // * offset is a 0-based index, so it should be set to 40.
+  oneof starting {
+    string cursor = 3;
+    int32 offset = 4;
+  }
+}
+
+// Next ID = 4.
 message Response {
 
   reserved 1;
 
   // List of content.
   repeated Insertion insertion = 2;
+
+  // Paging information of this response.  Only returned on paging requests.
+  PagingInfo paging_info = 3;
+}
+
+// Next ID = 3.
+message PagingInfo {
+  // Opaque identifier to be used in subsequent paging requests for a specific
+  // paged repsonse set.
+  string paging_id = 1;
+
+  // Opaque token that represents the last item index of this response.
+  string cursor = 2;
 }
 
 // Used to indicate the client's use case.  Used on both View and Request.
