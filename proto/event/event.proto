@@ -493,6 +493,105 @@ message Action {
 }
 
 
+// Error from iOS client.
+// Next ID = 5.
+message IOSError {
+  // Error code from NSError.
+  int32 code = 1;
+
+  // Error domain from NSError.
+  string domain = 2;
+
+  // Description of error.
+  string description = 3;
+
+  // Which batch generated the error.
+  int32 batch_number = 4;
+}
+
+// History of errors from client.
+// Next ID = 3.
+message ErrorHistory {
+  // Window of latest errors.
+  repeated IOSError ios_errors = 1;
+
+  // Total number of errors encountered.
+  int32 total_errors = 2;
+}
+
+// Ancestor ID either logged as event or external ID.
+// Next ID = 6.
+message AncestorIdHistoryItem {
+  // Changed value of ancestor ID.
+  string ancestor_id = 1;
+
+  // Event that caused the change, if any.
+  oneof logged_event {
+    event.User user_event = 2;
+    event.Session session_event = 3;
+    event.View view_event = 4;
+  }
+
+  // Which batch number the event was logged in
+  int32 batch_number = 5;
+}
+
+// History of ancestor IDs logged by client.
+// Next ID = 7.
+message AncestorIdHistory {
+  // Window of latest log user ids.
+  repeated AncestorIdHistoryItem ancestor_id_history = 1;
+
+  // Total number of log user ids logged this session.
+  int32 total_log_user_ids_logged = 2;
+
+  // Window of latest session ids.
+  repeated AncestorIdHistoryItem session_id_history = 3;
+
+  // Total number of session ids logged this session.
+  int32 total_session_ids_logged = 4;
+
+  // Window of latest view ids.
+  repeated AncestorIdHistoryItem view_id_history = 5;
+
+  // Total number of view ids logged this session.
+  int32 total_view_ids_logged = 6;
+}
+
+// Diagnostic information for mobile clients.
+// Next ID = 13.
+message MobileDiagnostics {
+  // Common fields.
+  uint64 platform_id = 1;
+  common.UserInfo user_info = 2;
+  common.Timing timing = 3;
+  common.ClientInfo client_info = 4;
+
+  // Unique identifier for device sending this message.
+  string device_identifier = 5;
+
+  // Version identifier for client app.
+  string client_version = 6;
+
+  // Version of Promoted library.
+  string promoted_library_version = 7;
+
+  // Number of batch logs attempted.
+  int32 batches_attempted = 8;
+
+  // Number of batch logs sent successfully.
+  int32 batches_sent_successfully = 9;
+
+  // Number of batch logs that failed to send.
+  int32 batches_with_errors = 10;
+
+  // Error history.
+  ErrorHistory error_history = 11;
+
+  // Ancestor ID history. See #133.
+  AncestorIdHistory ancestor_id_history = 12;
+}
+
 // A way to batch up log requests into the same request.
 // Clients can reference logs in different batches.
 // Next ID = 17.
@@ -524,4 +623,5 @@ message LogRequest {
   repeated Impression impression = 14;
   repeated Action action = 15;
   reserved 16;
+  MobileDiagnostics mobile_diagnostics = 17;
 }

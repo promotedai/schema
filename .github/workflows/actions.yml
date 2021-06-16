@@ -90,15 +90,20 @@ jobs:
           cp $BAZEL_BIN/proto/event/event_pb2.py generated/proto/event/event_pb2.py
 
           mkdir -p generated/proto/delivery/grpc
+          mkdir -p generated/proto/delivery/internal
           touch generated/proto/delivery/__init__.py
+          touch generated/proto/delivery/internal/__init__.py
           touch generated/proto/delivery/grpc/__init__.py
           cp $BAZEL_BIN/proto/delivery/*_pb2.py generated/proto/delivery/
+          cp $BAZEL_BIN/proto/delivery/internal/*_pb2.py generated/proto/delivery/internal/
           cp $BAZEL_BIN/proto/delivery/delivery_python_grpc/proto/delivery/*.py generated/proto/delivery/
 
           ./.local/bin/protoc --mypy_out=generated proto/common/*.proto
           ./.local/bin/protoc --mypy_out=generated proto/delivery/*.proto
+          ./.local/bin/protoc --mypy_out=generated proto/delivery/internal/*.proto
           touch generated/proto/py.typed
           touch generated/proto/delivery/py.typed
+          touch generated/proto/delivery/internal/py.typed
           touch generated/proto/common/py.typed
 
           git remote set-url origin https://x-access-token:${{ secrets.PROMOTED_PUBLIC_DEPLOYER_GITHUB_ACTIONS }}@github.com/${{ github.repository }}
