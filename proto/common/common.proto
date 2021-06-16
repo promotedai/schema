@@ -98,7 +98,7 @@ message Timing {
 }
 
 // Supports custom properties per platform.
-// Next ID = 3.
+// Next ID = 4.
 message Properties {
   oneof struct_field {
     // Optional.  Contains protobuf serialized bytes.
