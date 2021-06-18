@@ -72,12 +72,13 @@ message ClientInfo {
   ClientType client_type = 1;
 
   // Used to indicate the type of traffic.  We can use this to prioritize resources.
-  // Next ID = 4.
+  // Next ID = 5.
   enum TrafficType {
     UNKNOWN_TRAFFIC_TYPE = 0;
     PRODUCTION = 1; // Live traffic.
     REPLAY = 2; // Replayed traffic.  We'd like similar to PRODUCTION level.
     reserved 3;
+    SHADOW = 4; // Shadow traffic to delivery during logging.
   }
   TrafficType traffic_type = 2;
 }
@@ -98,7 +99,7 @@ message Timing {
 }
 
 // Supports custom properties per platform.
-// Next ID = 3.
+// Next ID = 4.
 message Properties {
   oneof struct_field {
     // Optional.  Contains protobuf serialized bytes.
@@ -107,4 +108,5 @@ message Properties {
     // Optional.  Can be converted to/from JSON.
     google.protobuf.Struct struct = 2;
   }
+  reserved 3;
 }
