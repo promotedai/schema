@@ -120,11 +120,13 @@ class ClientInfo(google.protobuf.message.Message):
         UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
         PRODUCTION = ClientInfo.TrafficType.V(1)
         REPLAY = ClientInfo.TrafficType.V(2)
+        SHADOW = ClientInfo.TrafficType.V(4)
     class TrafficType(metaclass=_TrafficType):
         V = typing.NewType('V', builtins.int)
     UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
     PRODUCTION = ClientInfo.TrafficType.V(1)
     REPLAY = ClientInfo.TrafficType.V(2)
+    SHADOW = ClientInfo.TrafficType.V(4)
 
     CLIENT_TYPE_FIELD_NUMBER: builtins.int
     TRAFFIC_TYPE_FIELD_NUMBER: builtins.int

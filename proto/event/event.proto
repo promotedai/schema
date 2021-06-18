@@ -595,7 +595,7 @@ message MobileDiagnostics {
 
 // A way to batch up log requests into the same request.
 // Clients can reference logs in different batches.
-// Next ID = 17.
+// Next ID = 18.
 message LogRequest {
 
   // Optional.  If not set, set by API servers.
