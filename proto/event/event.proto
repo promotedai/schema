@@ -541,7 +541,7 @@ message AncestorIdHistoryItem {
 // Next ID = 7.
 message AncestorIdHistory {
   // Window of latest log user ids.
-  repeated AncestorIdHistoryItem ancestor_id_history = 1;
+  repeated AncestorIdHistoryItem log_user_id_history = 1;
 
   // Total number of log user ids logged this session.
   int32 total_log_user_ids_logged = 2;
