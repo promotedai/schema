@@ -7,7 +7,9 @@ load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
 
 proto_library(
     name = "event_proto",
-    srcs = ["event.proto"],
+    srcs = [
+      "event.proto",
+    ],
     visibility = ["//visibility:public"],
     deps = [
       "//proto/common:common_proto",
@@ -45,7 +47,9 @@ java_proto_library(
 
 py_proto_library(
     name = "event_py_proto",
-    srcs = ["event.proto"],
+    srcs = [
+      "event.proto",
+    ],
     visibility = ["//visibility:public"],
     deps = [
       "//proto/common:common_py_proto",

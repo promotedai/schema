@@ -54,8 +54,7 @@ This builds all targets to `schema/bazel-bin/proto`, which can be copied or insp
 
 ## Manual build for python types
 
-We currently build python stubs (type hints) manually. To run locally:
-
+This is now done by Github actions automatically. To run manually for testing, see the example below.
 ```
 pip install mypy-protobuf
 cd /path/to/schema
