@@ -152,9 +152,12 @@ enum UseCase {
   DISCOVER = 11;
 }
 
+// Collect all outputs generated from feature stores
+// Next ID = 2
+
 // This Event represents a Content being served at a certain position regardless
 // of it was views by a user. Insertions are immutable.
-// Next ID = 17.
+// Next ID = 18.
 message Insertion {
 
   // Optional.  If not set, set by API servers.
@@ -202,4 +205,5 @@ message Insertion {
   // Optional. Custom item attributes and features set by customers.
   common.Properties properties = 13;
   reserved 16;
+  reserved 17;
 }

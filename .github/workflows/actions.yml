@@ -35,7 +35,12 @@ jobs:
           path: |
             ~/.cache/bazelisk
             ~/.cache/bazel
-          key: ${{ runner.os }}-${{ env.cache-name }}
+          # To write a new cache, we need to have a unique key.
+          # TODO - try to get "-${{ hashFiles('WORKSPACE', '**/BUILD.bazel') }}"" to work
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.ref }}
+          # We use restore-keys to find a recent cache to reuse.
+          restore-keys: |
+            ${{ runner.os }}-${{ env.cache-name }}-
 
       - name: Schema repo checkout
         id: schema_repo_checkout

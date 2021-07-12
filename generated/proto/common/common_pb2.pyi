@@ -12,8 +12,34 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
+class CurrencyCode(metaclass=_CurrencyCode):
+    V = typing.NewType('V', builtins.int)
+
 global___CurrencyCode = CurrencyCode
-class _CurrencyCode(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CurrencyCode.V], builtins.type):
+
+UNKNOWN_CURRENCY_CODE = CurrencyCode.V(0)
+USD = CurrencyCode.V(1)
+EUR = CurrencyCode.V(2)
+JPY = CurrencyCode.V(3)
+GBP = CurrencyCode.V(4)
+AUD = CurrencyCode.V(5)
+CAD = CurrencyCode.V(6)
+CHF = CurrencyCode.V(7)
+CNY = CurrencyCode.V(8)
+HKD = CurrencyCode.V(9)
+NZD = CurrencyCode.V(10)
+SEK = CurrencyCode.V(11)
+KRW = CurrencyCode.V(12)
+SGD = CurrencyCode.V(13)
+NOK = CurrencyCode.V(14)
+MXN = CurrencyCode.V(15)
+INR = CurrencyCode.V(16)
+RUB = CurrencyCode.V(17)
+ZAR = CurrencyCode.V(18)
+TRY = CurrencyCode.V(19)
+BRL = CurrencyCode.V(20)
+
+class _CurrencyCode(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CurrencyCode.V], builtins.type):  # type: ignore
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
     UNKNOWN_CURRENCY_CODE = CurrencyCode.V(0)
     USD = CurrencyCode.V(1)
@@ -36,29 +62,6 @@ class _CurrencyCode(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[
     ZAR = CurrencyCode.V(18)
     TRY = CurrencyCode.V(19)
     BRL = CurrencyCode.V(20)
-class CurrencyCode(metaclass=_CurrencyCode):
-    V = typing.NewType('V', builtins.int)
-UNKNOWN_CURRENCY_CODE = CurrencyCode.V(0)
-USD = CurrencyCode.V(1)
-EUR = CurrencyCode.V(2)
-JPY = CurrencyCode.V(3)
-GBP = CurrencyCode.V(4)
-AUD = CurrencyCode.V(5)
-CAD = CurrencyCode.V(6)
-CHF = CurrencyCode.V(7)
-CNY = CurrencyCode.V(8)
-HKD = CurrencyCode.V(9)
-NZD = CurrencyCode.V(10)
-SEK = CurrencyCode.V(11)
-KRW = CurrencyCode.V(12)
-SGD = CurrencyCode.V(13)
-NOK = CurrencyCode.V(14)
-MXN = CurrencyCode.V(15)
-INR = CurrencyCode.V(16)
-RUB = CurrencyCode.V(17)
-ZAR = CurrencyCode.V(18)
-TRY = CurrencyCode.V(19)
-BRL = CurrencyCode.V(20)
 
 class EntityPath(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
@@ -104,29 +107,33 @@ global___UserInfo = UserInfo
 
 class ClientInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    class _ClientType(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClientType.V], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
-        PLATFORM_SERVER = ClientInfo.ClientType.V(1)
-        PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
     class ClientType(metaclass=_ClientType):
         V = typing.NewType('V', builtins.int)
+
     UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
     PLATFORM_SERVER = ClientInfo.ClientType.V(1)
     PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
 
-    class _TrafficType(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[TrafficType.V], builtins.type):
+    class _ClientType(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClientType.V], builtins.type):  # type: ignore
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
+        PLATFORM_SERVER = ClientInfo.ClientType.V(1)
+        PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
+
+    class TrafficType(metaclass=_TrafficType):
+        V = typing.NewType('V', builtins.int)
+
+    UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
+    PRODUCTION = ClientInfo.TrafficType.V(1)
+    REPLAY = ClientInfo.TrafficType.V(2)
+    SHADOW = ClientInfo.TrafficType.V(4)
+
+    class _TrafficType(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[TrafficType.V], builtins.type):  # type: ignore
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
         UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
         PRODUCTION = ClientInfo.TrafficType.V(1)
         REPLAY = ClientInfo.TrafficType.V(2)
         SHADOW = ClientInfo.TrafficType.V(4)
-    class TrafficType(metaclass=_TrafficType):
-        V = typing.NewType('V', builtins.int)
-    UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
-    PRODUCTION = ClientInfo.TrafficType.V(1)
-    REPLAY = ClientInfo.TrafficType.V(2)
-    SHADOW = ClientInfo.TrafficType.V(4)
 
     CLIENT_TYPE_FIELD_NUMBER: builtins.int
     TRAFFIC_TYPE_FIELD_NUMBER: builtins.int
@@ -169,5 +176,5 @@ class Properties(google.protobuf.message.Message):
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal[u"struct",b"struct",u"struct_bytes",b"struct_bytes",u"struct_field",b"struct_field"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal[u"struct",b"struct",u"struct_bytes",b"struct_bytes",u"struct_field",b"struct_field"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"struct_field",b"struct_field"]) -> typing_extensions.Literal["struct_bytes","struct"]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"struct_field",b"struct_field"]) -> typing.Optional[typing_extensions.Literal["struct_bytes","struct"]]: ...
 global___Properties = Properties

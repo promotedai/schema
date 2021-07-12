@@ -14,8 +14,25 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
+class UseCase(metaclass=_UseCase):
+    V = typing.NewType('V', builtins.int)
+
 global___UseCase = UseCase
-class _UseCase(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UseCase.V], builtins.type):
+
+UNKNOWN_USE_CASE = UseCase.V(0)
+CUSTOM = UseCase.V(1)
+SEARCH = UseCase.V(2)
+SEARCH_SUGGESTIONS = UseCase.V(3)
+FEED = UseCase.V(4)
+RELATED_CONTENT = UseCase.V(5)
+CLOSE_UP = UseCase.V(6)
+CATEGORY_CONTENT = UseCase.V(7)
+MY_CONTENT = UseCase.V(8)
+MY_SAVED_CONTENT = UseCase.V(9)
+SELLER_CONTENT = UseCase.V(10)
+DISCOVER = UseCase.V(11)
+
+class _UseCase(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UseCase.V], builtins.type):  # type: ignore
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
     UNKNOWN_USE_CASE = UseCase.V(0)
     CUSTOM = UseCase.V(1)
@@ -29,20 +46,6 @@ class _UseCase(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UseCa
     MY_SAVED_CONTENT = UseCase.V(9)
     SELLER_CONTENT = UseCase.V(10)
     DISCOVER = UseCase.V(11)
-class UseCase(metaclass=_UseCase):
-    V = typing.NewType('V', builtins.int)
-UNKNOWN_USE_CASE = UseCase.V(0)
-CUSTOM = UseCase.V(1)
-SEARCH = UseCase.V(2)
-SEARCH_SUGGESTIONS = UseCase.V(3)
-FEED = UseCase.V(4)
-RELATED_CONTENT = UseCase.V(5)
-CLOSE_UP = UseCase.V(6)
-CATEGORY_CONTENT = UseCase.V(7)
-MY_CONTENT = UseCase.V(8)
-MY_SAVED_CONTENT = UseCase.V(9)
-SELLER_CONTENT = UseCase.V(10)
-DISCOVER = UseCase.V(11)
 
 class Request(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
@@ -133,7 +136,7 @@ class Paging(google.protobuf.message.Message):
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal[u"cursor",b"cursor",u"offset",b"offset",u"starting",b"starting"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal[u"cursor",b"cursor",u"offset",b"offset",u"paging_id",b"paging_id",u"size",b"size",u"starting",b"starting"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"starting",b"starting"]) -> typing_extensions.Literal["cursor","offset"]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"starting",b"starting"]) -> typing.Optional[typing_extensions.Literal["cursor","offset"]]: ...
 global___Paging = Paging
 
 class Response(google.protobuf.message.Message):
