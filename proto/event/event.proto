@@ -234,8 +234,9 @@ message WebPageView {
 }
 
 // Submessage on View for screen views.
-// Next ID = 1.
+// Next ID = 2.
 message AppScreenView {
+  reserved 1;
 }
 
 // A view of a single page/screen (e.g. feed, search results, etc).
@@ -560,44 +561,44 @@ message AncestorIdHistory {
 }
 
 // Diagnostic information for mobile clients.
-// Next ID = 13.
+// Next ID = 9.
 message MobileDiagnostics {
+  // Unique identifier for device sending this message.
+  string device_identifier = 1;
+
+  // Version identifier for client app.
+  string client_version = 2;
+
+  // Version of Promoted library.
+  string promoted_library_version = 3;
+
+  // Number of batch logs attempted.
+  int32 batches_attempted = 4;
+
+  // Number of batch logs sent successfully.
+  int32 batches_sent_successfully = 5;
+
+  // Number of batch logs that failed to send.
+  int32 batches_with_errors = 6;
+
+  // Error history.
+  ErrorHistory error_history = 7;
+
+  // Ancestor ID history. See #133.
+  AncestorIdHistory ancestor_id_history = 8;
+}
+
+// Wrapper message for all kinds of diagnostic messages.
+// Next ID = 6.
+message Diagnostics {
   // Common fields.
   uint64 platform_id = 1;
   common.UserInfo user_info = 2;
   common.Timing timing = 3;
   common.ClientInfo client_info = 4;
 
-  // Unique identifier for device sending this message.
-  string device_identifier = 5;
-
-  // Version identifier for client app.
-  string client_version = 6;
-
-  // Version of Promoted library.
-  string promoted_library_version = 7;
-
-  // Number of batch logs attempted.
-  int32 batches_attempted = 8;
-
-  // Number of batch logs sent successfully.
-  int32 batches_sent_successfully = 9;
-
-  // Number of batch logs that failed to send.
-  int32 batches_with_errors = 10;
-
-  // Error history.
-  ErrorHistory error_history = 11;
-
-  // Ancestor ID history. See #133.
-  AncestorIdHistory ancestor_id_history = 12;
-}
-
-// Wrapper message for all kinds of diagnostic messages.
-// Next ID = 2.
-message Diagnostics {
   oneof diagnostics_message {
-    MobileDiagnostics mobile_diagnostics = 1;
+    MobileDiagnostics mobile_diagnostics = 5;
   }
 }
 
