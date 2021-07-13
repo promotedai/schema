@@ -593,10 +593,18 @@ message MobileDiagnostics {
   AncestorIdHistory ancestor_id_history = 12;
 }
 
+// Wrapper message for all kinds of diagnostic messages.
+// Next ID = 2.
+message Diagnostics {
+  oneof diagnostics_message {
+    MobileDiagnostics mobile_diagnostics = 1;
+  }
+}
+
 // A way to batch up log requests into the same request.
 // Clients can reference logs in different batches.
 // Keep in sync with FlatEvent.
-// Next ID = 23.
+// Next ID = 24.
 message LogRequest {
 
   // Optional.  If not set, set by API servers.
@@ -624,8 +632,6 @@ message LogRequest {
   repeated delivery.Insertion insertion = 13;
   repeated Impression impression = 14;
   repeated Action action = 15;
-  reserved 16;
-  MobileDiagnostics mobile_diagnostics = 17;
-  reserved 18;
-  reserved 19 to 22;
+  reserved 16 to 22;
+  repeated Diagnostics diagnostics = 23;
 }
