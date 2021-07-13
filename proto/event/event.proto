@@ -633,9 +633,6 @@ message LogRequest {
   repeated delivery.Insertion insertion = 13;
   repeated Impression impression = 14;
   repeated Action action = 15;
-  reserved 16;
-  reserved 17;
-  reserved 18;
-  reserved 19 to 22;
+  reserved 16 to 22;
   repeated Diagnostics diagnostics = 23;
 }
