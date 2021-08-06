@@ -12,7 +12,7 @@ import "proto/delivery/blender.proto";
 // Can be used to log existing ranking (not Promoted) or Promoted's Delivery
 // API requests.
 //
-// Next ID = 18.
+// Next ID = 19.
 message Request {
 
   // Optional.  If not set, set by API servers.
@@ -28,6 +28,9 @@ message Request {
 
   // Optional.  If not set, API server uses LogRequest.client_info.
   common.ClientInfo client_info = 4;
+
+  // Optional. Information about the user's device.
+  common.Device device = 18;
 
   reserved 5; // Reserving fields for future common fields.
 
@@ -57,9 +60,7 @@ message Request {
   // Optional.
   string search_query = 10;
 
-  // Optional. Number of Insertions to return.
-  // DEPRECATED: use paging intead.
-  int32 limit = 15;
+  reserved 15; // Deprecated
 
   // Optional. Set to request a specific "page" of results.
   Paging paging = 17;
@@ -152,12 +153,12 @@ enum UseCase {
   DISCOVER = 11;
 }
 
-// Collect all outputs generated from feature stores
-// Next ID = 2
+
+
 
 // This Event represents a Content being served at a certain position regardless
 // of it was views by a user. Insertions are immutable.
-// Next ID = 18.
+// Next ID = 19.
 message Insertion {
 
   // Optional.  If not set, set by API servers.
@@ -194,8 +195,10 @@ message Insertion {
   // Optional.  If using Promotion's CMS.
   reserved 11; // uint64 promotedai_content_id
 
-  // Optional.  0-based. As set by the customer, not by Promoted allocation.
-  uint64 position = 12;
+  // Optional. 0-based. Position "in what" depends on insertion context:
+  // if request_insertion, then position provided by client or retrieval
+  // if response_insertion, then the position returned by Delivery to the client
+  optional uint64 position = 12;
 
   reserved 14;
 
@@ -206,4 +209,5 @@ message Insertion {
   common.Properties properties = 13;
   reserved 16;
   reserved 17;
+  reserved 18;
 }
