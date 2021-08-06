@@ -115,7 +115,6 @@ message WebPageView {
   // Optional.  This is the url for the page.
   string url = 1;
 
-  // Optional.
   reserved 2;
 
   // Optional.  Can be a full referrer string.  Could be just the UTM.
@@ -170,7 +169,6 @@ message View {
   // Optional.  Custom properties per platform.
   common.Properties properties = 11;
 
-  // Optional.
   reserved 12;
 
   common.Locale locale = 16;

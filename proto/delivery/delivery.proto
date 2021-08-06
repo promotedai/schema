@@ -60,7 +60,7 @@ message Request {
   // Optional.
   string search_query = 10;
 
-  reserved 15; // Deprecated
+  reserved 15;
 
   // Optional. Set to request a specific "page" of results.
   Paging paging = 17;
