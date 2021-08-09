@@ -107,115 +107,6 @@ message CohortMembership {
   common.Properties properties = 10;
 }
 
-// Next ID = 4.
-enum DeviceType {
-  UNKNOWN_DEVICE_TYPE = 0;
-  DESKTOP = 1;
-  MOBILE = 2;
-  TABLET = 3;
-}
-
-// Locale for session
-// Next ID = 3.
-message Locale {
-  // CodeReview - Which ISO code is this?  ISO 639-1? 2? 3?
-  // "en", "zh_Hant", "fr"
-  string language_code = 1;
-
-  // CodeReview - Which ISO code?  ISO 3166-1?
-  // "US", "CA", "FR"
-  string region_code = 2;
-}
-
-// Rectangle size in pixels
-// Next ID = 3.
-message Size {
-  uint32 width = 1;
-  uint32 height = 2;
-}
-
-// Device screen
-// Next ID = 3.
-message Screen {
-  // Android: DisplayMetrics.widthPixels/heightPixels
-  // iOS: UIScreen.nativeBounds.width/height
-  Size size = 1;
-
-  // Natural scale factor.
-  // Android: DisplayMetrics.density
-  // iOS: UIScreen.scale
-  float scale = 2;
-}
-
-// A sub-message containing Device info.
-// Next ID = 8.
-message Device {
-  DeviceType device_type = 1;
-
-  // Android: android.os.Build.BRAND
-  //          (eg. "google", "verizon", "tmobile", "Samsung")
-  // iOS: "Apple"
-  string brand = 2;
-
-  // Android: android.os.Build.MANUFACTURER
-  //          (eg. "HTC", "Motorola", "HUAWEI")
-  // iOS: "Apple"
-  string manufacturer = 3;
-
-  // Android: android.os.Build.MODEL
-  //          (eg. "GT-S5830L", "MB860")
-  // iOS: "iPhoneXX,YY" or "iPadXX,YY"
-  string identifier = 4;
-
-  // Android: android.os.Build.VERSION.RELEASE
-  // iOS: "14.4.1"
-  string os_version = 5;
-
-  // Deprecated.
-  Locale locale = 6 [deprecated = true];
-
-  Screen screen = 7;
-}
-
-// https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
-// A newer alternative to user agent strings.
-message ClientHints {
-  bool is_mobile = 1;
-  repeated ClientHintBrand brand = 2;
-  string architecture = 3;
-  string model = 4;
-  string platform = 5;
-  string platform_version = 6;
-  string ua_full_version = 7;
-}
-
-// https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
-// a part of ClientHints.
-message ClientHintBrand {
-  string brand = 1;
-  string version = 2;
-}
-
-// A sub-message containing Browser info.
-// Next ID = 4.
-message Browser {
-
-  string user_agent = 1;
-
-  Size viewport_size = 2;
-
-  ClientHints client_hints = 3;
-}
-
-// Next ID = 3.
-message Location {
-  // [-90, 90]
-  double latitude = 1;
-
-  // [-180, 180]
-  double longitude = 2;
-}
-
 
 // Submessage on View for Web page visits.
 // Next ID = 5.
@@ -224,13 +115,12 @@ message WebPageView {
   // Optional.  This is the url for the page.
   string url = 1;
 
-  // Optional.
-  Browser browser = 2;
+  reserved 2;
 
   // Optional.  Can be a full referrer string.  Could be just the UTM.
   string referrer = 3;
 
-  Size document_size = 4;
+  common.Size document_size = 4;
 }
 
 // Submessage on View for screen views.
@@ -279,10 +169,9 @@ message View {
   // Optional.  Custom properties per platform.
   common.Properties properties = 11;
 
-  // Optional.
-  Device device = 12;
+  reserved 12;
 
-  Locale locale = 16;
+  common.Locale locale = 16;
 
   // If a specific view is set (`web_page_view` and `app_screen_view`),
   // clients do not need to set it directly.  If those fields and `view_type`
@@ -604,8 +493,8 @@ message Diagnostics {
 
 // A way to batch up log requests into the same request.
 // Clients can reference logs in different batches.
-// Keep in sync with FlatEvent.
-// Next ID = 24.
+// Keep in sync with FlatEvent and FlatResponseInsertion.
+// Next ID = 25.
 message LogRequest {
 
   // Optional.  If not set, set by API servers.
@@ -622,6 +511,9 @@ message LogRequest {
   // Optional.
   common.ClientInfo client_info = 4;
 
+  // Optional. Information about the user device.
+  common.Device device = 24;
+
   reserved 5; // Reserving fields for future common fields.
   reserved 6; // To keep numbers similar to FlatEvent.  We can use this for Rpc Header.
   repeated User user = 7;
@@ -633,6 +525,9 @@ message LogRequest {
   repeated delivery.Insertion insertion = 13;
   repeated Impression impression = 14;
   repeated Action action = 15;
-  reserved 16 to 22;
+  reserved 16;
+  reserved 17;
+  reserved 18;
+  reserved 19 to 22;
   repeated Diagnostics diagnostics = 23;
 }

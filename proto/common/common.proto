@@ -83,6 +83,129 @@ message ClientInfo {
   TrafficType traffic_type = 2;
 }
 
+// Next ID = 4.
+enum DeviceType {
+  UNKNOWN_DEVICE_TYPE = 0;
+  DESKTOP = 1;
+  MOBILE = 2;
+  TABLET = 3;
+}
+
+// Locale for session
+// Next ID = 3.
+message Locale {
+  // CodeReview - Which ISO code is this?  ISO 639-1? 2? 3?
+  // "en", "zh_Hant", "fr"
+  string language_code = 1;
+
+  // CodeReview - Which ISO code?  ISO 3166-1?
+  // "US", "CA", "FR"
+  string region_code = 2;
+}
+
+// Rectangle size in pixels
+// Next ID = 3.
+message Size {
+  uint32 width = 1;
+  uint32 height = 2;
+}
+
+// Device screen
+// Next ID = 3.
+message Screen {
+  // Android: DisplayMetrics.widthPixels/heightPixels
+  // iOS: UIScreen.nativeBounds.width/height
+  Size size = 1;
+
+  // Natural scale factor.
+  // Android: DisplayMetrics.density
+  // iOS: UIScreen.scale
+  float scale = 2;
+}
+
+// A sub-message containing Device info.
+// Next ID = 11.
+message Device {
+  DeviceType device_type = 1;
+
+  // Android: android.os.Build.BRAND
+  //          (eg. "google", "verizon", "tmobile", "Samsung")
+  // iOS: "Apple"
+  string brand = 2;
+
+  // Android: android.os.Build.MANUFACTURER
+  //          (eg. "HTC", "Motorola", "HUAWEI")
+  // iOS: "Apple"
+  string manufacturer = 3;
+
+  // Android: android.os.Build.MODEL
+  //          (eg. "GT-S5830L", "MB860")
+  // iOS: "iPhoneXX,YY" or "iPadXX,YY"
+  string identifier = 4;
+
+  // Android: android.os.Build.VERSION.RELEASE
+  // iOS: "14.4.1"
+  string os_version = 5;
+
+  // Deprecated.
+  Locale locale = 6 [deprecated = true];
+
+  Screen screen = 7;
+
+  // Optional.  We'll use IP Address to guess the user's
+  // location when necessary and possible on desktop.
+  // Most likely in a server integration this should be the value
+  // of the X-Forwarded-For header.
+  string ip_address = 8;
+
+  // Optional. User device's actual geolocation if available.
+  Location location = 9;
+
+  // Optional. Information about the user's web client (on web or mobile browser).
+  Browser browser = 10;
+}
+
+// https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
+// A newer alternative to user agent strings.
+message ClientHints {
+  bool is_mobile = 1;
+  repeated ClientHintBrand brand = 2;
+  string architecture = 3;
+  string model = 4;
+  string platform = 5;
+  string platform_version = 6;
+  string ua_full_version = 7;
+}
+
+// https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
+// a part of ClientHints.
+message ClientHintBrand {
+  string brand = 1;
+  string version = 2;
+}
+
+// A sub-message containing Browser info.
+// Next ID = 4.
+message Browser {
+  string user_agent = 1;
+
+  Size viewport_size = 2;
+
+  ClientHints client_hints = 3;
+}
+
+// Next ID = 4.
+message Location {
+  // [-90, 90]
+  double latitude = 1;
+
+  // [-180, 180]
+  double longitude = 2;
+
+  // Optional. Accuracy of location if known.
+  double accuracy_in_meters = 3;
+}
+
 // A message containing timing information.
 //
 // We can add common timing info to this message.  Down the road, we might
