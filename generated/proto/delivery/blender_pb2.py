@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\007BlenderP\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1cproto/delivery/blender.proto\x12\x08\x64\x65livery\"\xf5\x01\n\x0b\x42lenderRule\x12\x16\n\x0e\x61ttribute_name\x18\x01 \x01(\t\x12/\n\rpositive_rule\x18\x06 \x01(\x0b\x32\x16.delivery.PositiveRuleH\x00\x12+\n\x0binsert_rule\x18\x07 \x01(\x0b\x32\x14.delivery.InsertRuleH\x00\x12/\n\rnegative_rule\x18\x08 \x01(\x0b\x32\x16.delivery.NegativeRuleH\x00\x12\x31\n\x0e\x64iversity_rule\x18\t \x01(\x0b\x32\x17.delivery.DiversityRuleH\x00\x42\x06\n\x04ruleJ\x04\x08\x02\x10\x06\"z\n\x0cPositiveRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x42\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"x\n\nInsertRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x42\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"\xee\x01\n\x0cNegativeRule\x12\x16\n\tpluck_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x1c\n\x0f\x66orbid_less_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x18\n\x0bmin_spacing\x18\x03 \x01(\x04H\x02\x88\x01\x01\x12\x1f\n\x12\x66orbid_greater_pos\x18\x04 \x01(\x04H\x03\x88\x01\x01\x12\x16\n\tmax_count\x18\x05 \x01(\x04H\x04\x88\x01\x01\x42\x0c\n\n_pluck_pctB\x12\n\x10_forbid_less_posB\x0e\n\x0c_min_spacingB\x15\n\x13_forbid_greater_posB\x0c\n\n_max_count\"-\n\rDiversityRule\x12\x12\n\x05multi\x18\x01 \x01(\x01H\x00\x88\x01\x01\x42\x08\n\x06_multi\"x\n\rBlenderConfig\x12+\n\x0c\x62lender_rule\x18\x01 \x03(\x0b\x32\x15.delivery.BlenderRule\x12:\n\x14quality_score_config\x18\x02 \x01(\x0b\x32\x1c.delivery.QualityScoreConfig\"K\n\x12QualityScoreConfig\x12\x35\n\x11weighted_sum_term\x18\x01 \x03(\x0b\x32\x1a.delivery.QualityScoreTerm\"\xf7\x01\n\x10QualityScoreTerm\x12\x18\n\x0e\x61ttribute_name\x18\x01 \x01(\tH\x00\x12\x35\n\rrandom_normal\x18\x02 \x01(\x0b\x32\x1c.delivery.NormalDistributionH\x00\x12\x0e\n\x04ones\x18\x03 \x01(\x08H\x00\x12\x17\n\nfetch_high\x18\n \x01(\x01H\x01\x88\x01\x01\x12\x16\n\tfetch_low\x18\x0b \x01(\x01H\x02\x88\x01\x01\x12\x0e\n\x06weight\x18\x0c \x01(\x01\x12\x0e\n\x06offset\x18\r \x01(\x01\x42\x0e\n\x0c\x66\x65tch_methodB\r\n\x0b_fetch_highB\x0c\n\n_fetch_lowJ\x04\x08\x04\x10\n\"4\n\x12NormalDistribution\x12\x0c\n\x04mean\x18\x01 \x01(\x01\x12\x10\n\x08variance\x18\x02 \x01(\x01\x42\'\n\x1a\x61i.promoted.proto.deliveryB\x07\x42lenderP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x1cproto/delivery/blender.proto\x12\x08\x64\x65livery\"\xfb\x01\n\x0b\x42lenderRule\x12\x16\n\x0e\x61ttribute_name\x18\x01 \x01(\t\x12/\n\rpositive_rule\x18\x06 \x01(\x0b\x32\x16.delivery.PositiveRuleH\x00\x12+\n\x0binsert_rule\x18\x07 \x01(\x0b\x32\x14.delivery.InsertRuleH\x00\x12/\n\rnegative_rule\x18\x08 \x01(\x0b\x32\x16.delivery.NegativeRuleH\x00\x12\x31\n\x0e\x64iversity_rule\x18\t \x01(\x0b\x32\x17.delivery.DiversityRuleH\x00\x42\x06\n\x04ruleJ\x04\x08\n\x10\x0bJ\x04\x08\x02\x10\x06\"z\n\x0cPositiveRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x42\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"x\n\nInsertRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x42\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"\xee\x01\n\x0cNegativeRule\x12\x16\n\tpluck_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x1c\n\x0f\x66orbid_less_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x18\n\x0bmin_spacing\x18\x03 \x01(\x04H\x02\x88\x01\x01\x12\x1f\n\x12\x66orbid_greater_pos\x18\x04 \x01(\x04H\x03\x88\x01\x01\x12\x16\n\tmax_count\x18\x05 \x01(\x04H\x04\x88\x01\x01\x42\x0c\n\n_pluck_pctB\x12\n\x10_forbid_less_posB\x0e\n\x0c_min_spacingB\x15\n\x13_forbid_greater_posB\x0c\n\n_max_count\"-\n\rDiversityRule\x12\x12\n\x05multi\x18\x01 \x01(\x01H\x00\x88\x01\x01\x42\x08\n\x06_multi\"x\n\rBlenderConfig\x12+\n\x0c\x62lender_rule\x18\x01 \x03(\x0b\x32\x15.delivery.BlenderRule\x12:\n\x14quality_score_config\x18\x02 \x01(\x0b\x32\x1c.delivery.QualityScoreConfig\"K\n\x12QualityScoreConfig\x12\x35\n\x11weighted_sum_term\x18\x01 \x03(\x0b\x32\x1a.delivery.QualityScoreTerm\"\xf7\x01\n\x10QualityScoreTerm\x12\x18\n\x0e\x61ttribute_name\x18\x01 \x01(\tH\x00\x12\x35\n\rrandom_normal\x18\x02 \x01(\x0b\x32\x1c.delivery.NormalDistributionH\x00\x12\x0e\n\x04ones\x18\x03 \x01(\x08H\x00\x12\x17\n\nfetch_high\x18\n \x01(\x01H\x01\x88\x01\x01\x12\x16\n\tfetch_low\x18\x0b \x01(\x01H\x02\x88\x01\x01\x12\x0e\n\x06weight\x18\x0c \x01(\x01\x12\x0e\n\x06offset\x18\r \x01(\x01\x42\x0e\n\x0c\x66\x65tch_methodB\r\n\x0b_fetch_highB\x0c\n\n_fetch_lowJ\x04\x08\x04\x10\n\"4\n\x12NormalDistribution\x12\x0c\n\x04mean\x18\x01 \x01(\x01\x12\x10\n\x08variance\x18\x02 \x01(\x01\x42\'\n\x1a\x61i.promoted.proto.deliveryB\x07\x42lenderP\x01\x62\x06proto3'
 )
 
 
@@ -86,7 +86,7 @@ _BLENDERRULE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=43,
-  serialized_end=288,
+  serialized_end=294,
 )
 
 
@@ -146,8 +146,8 @@ _POSITIVERULE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=290,
-  serialized_end=412,
+  serialized_start=296,
+  serialized_end=418,
 )
 
 
@@ -207,8 +207,8 @@ _INSERTRULE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=414,
-  serialized_end=534,
+  serialized_start=420,
+  serialized_end=540,
 )
 
 
@@ -292,8 +292,8 @@ _NEGATIVERULE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=537,
-  serialized_end=775,
+  serialized_start=543,
+  serialized_end=781,
 )
 
 
@@ -329,8 +329,8 @@ _DIVERSITYRULE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=777,
-  serialized_end=822,
+  serialized_start=783,
+  serialized_end=828,
 )
 
 
@@ -368,8 +368,8 @@ _BLENDERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=824,
-  serialized_end=944,
+  serialized_start=830,
+  serialized_end=950,
 )
 
 
@@ -400,8 +400,8 @@ _QUALITYSCORECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=946,
-  serialized_end=1021,
+  serialized_start=952,
+  serialized_end=1027,
 )
 
 
@@ -489,8 +489,8 @@ _QUALITYSCORETERM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1024,
-  serialized_end=1271,
+  serialized_start=1030,
+  serialized_end=1277,
 )
 
 
@@ -528,8 +528,8 @@ _NORMALDISTRIBUTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1273,
-  serialized_end=1325,
+  serialized_start=1279,
+  serialized_end=1331,
 )
 
 _BLENDERRULE.fields_by_name['positive_rule'].message_type = _POSITIVERULE
