@@ -10,7 +10,7 @@ option java_outer_classname = "Blender";
 message BlenderRule {
   // The name of item attribute that this rule applies to. It may be a JSON key path.
   string attribute_name = 1;
-  // The standardized xxhash value of attribute_name as used in sparse features.
+  reserved 10;
   reserved 2 to 5; // Reserving fields for future common fields.
   oneof rule {
     PositiveRule positive_rule = 6;

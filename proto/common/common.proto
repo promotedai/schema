@@ -81,8 +81,8 @@ message ClientInfo {
     UNKNOWN_TRAFFIC_TYPE = 0;
     PRODUCTION = 1; // Live traffic.
     REPLAY = 2; // Replayed traffic.  We'd like similar to PRODUCTION level.
-    reserved 3;
     SHADOW = 4; // Shadow traffic to delivery during logging.
+    reserved 3, 5;
   }
   TrafficType traffic_type = 2;
 }
