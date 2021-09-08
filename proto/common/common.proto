@@ -42,7 +42,7 @@ enum CurrencyCode {
 
 // Common submessage that scopes helps scope a request/log to a user.
 //
-// Next ID = 3.
+// Next ID = 4.
 message UserInfo {
 
   // Optional.  The Platform's actual user ID.
@@ -55,6 +55,10 @@ message UserInfo {
   // 2. logging unauthenticated users.
   // The user UUID is in a different ID space than user_id.
   string log_user_id = 2;
+
+  // Optional, defaults to false. Indicates that the user is from the
+  // marketplace or Promoted team.
+  bool is_internal_user = 3;
 
 }
 
@@ -72,13 +76,13 @@ message ClientInfo {
   ClientType client_type = 1;
 
   // Used to indicate the type of traffic.  We can use this to prioritize resources.
-  // Next ID = 5.
+  // Next ID = 6.
   enum TrafficType {
     UNKNOWN_TRAFFIC_TYPE = 0;
     PRODUCTION = 1; // Live traffic.
     REPLAY = 2; // Replayed traffic.  We'd like similar to PRODUCTION level.
-    reserved 3;
     SHADOW = 4; // Shadow traffic to delivery during logging.
+    reserved 3, 5;
   }
   TrafficType traffic_type = 2;
 }

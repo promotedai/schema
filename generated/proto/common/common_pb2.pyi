@@ -112,11 +112,12 @@ global___EntityPath = EntityPath
 
 # Common submessage that scopes helps scope a request/log to a user.
 #
-# Next ID = 3.
+# Next ID = 4.
 class UserInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_ID_FIELD_NUMBER: builtins.int
     LOG_USER_ID_FIELD_NUMBER: builtins.int
+    IS_INTERNAL_USER_FIELD_NUMBER: builtins.int
     # Optional.  The Platform's actual user ID.
     # This field will be cleared from our transaction logs.
     user_id: typing.Text = ...
@@ -126,12 +127,16 @@ class UserInfo(google.protobuf.message.Message):
     # 2. logging unauthenticated users.
     # The user UUID is in a different ID space than user_id.
     log_user_id: typing.Text = ...
+    # Optional, defaults to false. Indicates that the user is from the
+    # marketplace or Promoted team.
+    is_internal_user: builtins.bool = ...
     def __init__(self,
         *,
         user_id : typing.Text = ...,
         log_user_id : typing.Text = ...,
+        is_internal_user : builtins.bool = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"log_user_id",b"log_user_id",u"user_id",b"user_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal[u"is_internal_user",b"is_internal_user",u"log_user_id",b"log_user_id",u"user_id",b"user_id"]) -> None: ...
 global___UserInfo = UserInfo
 
 # Info about the client.
@@ -158,7 +163,7 @@ class ClientInfo(google.protobuf.message.Message):
     PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
 
     # Used to indicate the type of traffic.  We can use this to prioritize resources.
-    # Next ID = 5.
+    # Next ID = 6.
     class TrafficType(_TrafficType, metaclass=_TrafficTypeEnumTypeWrapper):
         pass
     class _TrafficType:

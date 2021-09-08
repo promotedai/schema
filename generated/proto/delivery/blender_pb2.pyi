@@ -12,7 +12,7 @@ import typing_extensions
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
 # See: https://github.com/promotedai/blender for README
-# Next ID = 10.
+# Next ID = 11.
 class BlenderRule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
@@ -20,7 +20,7 @@ class BlenderRule(google.protobuf.message.Message):
     INSERT_RULE_FIELD_NUMBER: builtins.int
     NEGATIVE_RULE_FIELD_NUMBER: builtins.int
     DIVERSITY_RULE_FIELD_NUMBER: builtins.int
-    # The name of item attribute that this rule applies to.
+    # The name of item attribute that this rule applies to. It may be a JSON key path.
     attribute_name: typing.Text = ...
     @property
     def positive_rule(self) -> global___PositiveRule: ...

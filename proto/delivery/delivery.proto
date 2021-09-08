@@ -156,6 +156,7 @@ enum UseCase {
 
 
 
+
 // This Event represents a Content being served at a certain position regardless
 // of it was views by a user. Insertions are immutable.
 // Next ID = 19.
