@@ -159,7 +159,7 @@ enum UseCase {
 
 // This Event represents a Content being served at a certain position regardless
 // of it was views by a user. Insertions are immutable.
-// Next ID = 19.
+// Next ID = 21.
 message Insertion {
 
   // Optional.  If not set, set by API servers.
@@ -211,4 +211,10 @@ message Insertion {
   reserved 16;
   reserved 17;
   reserved 18;
+
+  // Optional. Ranking (if known) of this insertion from the retrieval system.
+  optional uint64 retrieval_rank = 19;
+
+  // Optional. Score (if any) of this insertion from the retrieval system.
+  optional float retrieval_score = 20;
 }
