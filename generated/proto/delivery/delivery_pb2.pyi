@@ -14,18 +14,20 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
-# Used to indicate the client's use case.  Used on both View and Request.
-#
-# Next ID = 12.
 class UseCase(_UseCase, metaclass=_UseCaseEnumTypeWrapper):
+    """Used to indicate the client's use case.  Used on both View and Request.
+
+    Next ID = 12.
+    """
     pass
 class _UseCase:
     V = typing.NewType('V', builtins.int)
 class _UseCaseEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_UseCase.V], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
     UNKNOWN_USE_CASE = UseCase.V(0)
-    # Need to handle in wrapper proto.
     CUSTOM = UseCase.V(1)
+    """Need to handle in wrapper proto."""
+
     SEARCH = UseCase.V(2)
     SEARCH_SUGGESTIONS = UseCase.V(3)
     FEED = UseCase.V(4)
@@ -38,8 +40,9 @@ class _UseCaseEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTy
     DISCOVER = UseCase.V(11)
 
 UNKNOWN_USE_CASE = UseCase.V(0)
-# Need to handle in wrapper proto.
 CUSTOM = UseCase.V(1)
+"""Need to handle in wrapper proto."""
+
 SEARCH = UseCase.V(2)
 SEARCH_SUGGESTIONS = UseCase.V(3)
 FEED = UseCase.V(4)
@@ -53,12 +56,13 @@ DISCOVER = UseCase.V(11)
 global___UseCase = UseCase
 
 
-# Represents a Request for Insertions (Content).
-# Can be used to log existing ranking (not Promoted) or Promoted's Delivery
-# API requests.
-#
-# Next ID = 19.
 class Request(google.protobuf.message.Message):
+    """Represents a Request for Insertions (Content).
+    Can be used to log existing ranking (not Promoted) or Promoted's Delivery
+    API requests.
+
+    Next ID = 19.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     USER_INFO_FIELD_NUMBER: builtins.int
@@ -75,58 +79,78 @@ class Request(google.protobuf.message.Message):
     INSERTION_FIELD_NUMBER: builtins.int
     BLENDER_CONFIG_FIELD_NUMBER: builtins.int
     PROPERTIES_FIELD_NUMBER: builtins.int
-    # Optional.  If not set, set by API servers.
-    # If not set, API server uses LogRequest.platform_id.
     platform_id: builtins.int = ...
-    # Optional.  Must be set on LogRequest or here.
+    """Optional.  If not set, set by API servers.
+    If not set, API server uses LogRequest.platform_id.
+    """
+
     @property
-    def user_info(self) -> proto.common.common_pb2.UserInfo: ...
-    # Optional.  If not set, set by API servers.
-    # If not set, API server uses LogRequest.timing.
+    def user_info(self) -> proto.common.common_pb2.UserInfo:
+        """Optional.  Must be set on LogRequest or here."""
+        pass
     @property
-    def timing(self) -> proto.common.common_pb2.Timing: ...
-    # Optional.  If not set, API server uses LogRequest.client_info.
+    def timing(self) -> proto.common.common_pb2.Timing:
+        """Optional.  If not set, set by API servers.
+        If not set, API server uses LogRequest.timing.
+        """
+        pass
     @property
-    def client_info(self) -> proto.common.common_pb2.ClientInfo: ...
-    # Optional. Information about the user's device.
+    def client_info(self) -> proto.common.common_pb2.ClientInfo:
+        """Optional.  If not set, API server uses LogRequest.client_info."""
+        pass
     @property
-    def device(self) -> proto.common.common_pb2.Device: ...
-    # Optional.  Primary key.
-    # SDKs usually handles this automatically. For details, see
-    # https://github.com/promotedai/schema#setting-primary-keys
+    def device(self) -> proto.common.common_pb2.Device:
+        """Optional. Information about the user's device."""
+        pass
     request_id: typing.Text = ...
-    # Required.
+    """Optional.  Primary key.
+    SDKs usually handles this automatically. For details, see
+    https://github.com/promotedai/schema#setting-primary-keys
+    """
+
     view_id: typing.Text = ...
-    # Optional.
+    """Required."""
+
     session_id: typing.Text = ...
-    # Optional.
-    # An ID indicating the client's version of a request_id.  This field
-    # matters when a single Request from the client could cause multiple
-    # request executions (e.g. backups from retries or timeouts).  Each of those
-    # request executions should have separate request_ids.
-    # This should be a UUID.  If not set on a Request, the SDKs or Promoted
-    # servers will set it.
+    """Optional."""
+
     client_request_id: typing.Text = ...
-    # Optional.
+    """Optional.
+    An ID indicating the client's version of a request_id.  This field
+    matters when a single Request from the client could cause multiple
+    request executions (e.g. backups from retries or timeouts).  Each of those
+    request executions should have separate request_ids.
+    This should be a UUID.  If not set on a Request, the SDKs or Promoted
+    servers will set it.
+    """
+
     use_case: global___UseCase.V = ...
-    # Optional.
+    """Optional."""
+
     search_query: typing.Text = ...
-    # Optional. Set to request a specific "page" of results.
+    """Optional."""
+
     @property
-    def paging(self) -> global___Paging: ...
-    # Optional.
-    # If set in Delivery API, Promoted will re-rank this list of Content.
-    # This list can be used to pass in a list of Content (or Content IDs).
-    # If set in Metrics API, Promoted will separate this list of Insertions
-    # into separate log records.
+    def paging(self) -> global___Paging:
+        """Optional. Set to request a specific "page" of results."""
+        pass
     @property
-    def insertion(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Insertion]: ...
-    # Optional.
+    def insertion(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Insertion]:
+        """Optional.
+        If set in Delivery API, Promoted will re-rank this list of Content.
+        This list can be used to pass in a list of Content (or Content IDs).
+        If set in Metrics API, Promoted will separate this list of Insertions
+        into separate log records.
+        """
+        pass
     @property
-    def blender_config(self) -> proto.delivery.blender_pb2.BlenderConfig: ...
-    # Optional.  Custom properties per platform.
+    def blender_config(self) -> proto.delivery.blender_pb2.BlenderConfig:
+        """Optional."""
+        pass
     @property
-    def properties(self) -> proto.common.common_pb2.Properties: ...
+    def properties(self) -> proto.common.common_pb2.Properties:
+        """Optional.  Custom properties per platform."""
+        pass
     def __init__(self,
         *,
         platform_id : builtins.int = ...,
@@ -149,32 +173,35 @@ class Request(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"blender_config",b"blender_config",u"client_info",b"client_info",u"client_request_id",b"client_request_id",u"device",b"device",u"insertion",b"insertion",u"paging",b"paging",u"platform_id",b"platform_id",u"properties",b"properties",u"request_id",b"request_id",u"search_query",b"search_query",u"session_id",b"session_id",u"timing",b"timing",u"use_case",b"use_case",u"user_info",b"user_info",u"view_id",b"view_id"]) -> None: ...
 global___Request = Request
 
-# Next ID = 5.
 class Paging(google.protobuf.message.Message):
+    """Next ID = 5."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PAGING_ID_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
     CURSOR_FIELD_NUMBER: builtins.int
     OFFSET_FIELD_NUMBER: builtins.int
-    # Identity for the paging request (opaque token).
-    # A single paging_id will have many associated requests to get the fully
-    # paged response set (hence, many request_id's and client_request_id's).
-    #
-    # Required if using the cursor for the last_index; optional if using offset.
-    # Setting this value provides better paging consistency/stability.  Ideally,
-    # it should be set from the initial paging response
-    # (Response.paging_info.paging_id).
-    #
-    # An external value can be used when *not* using promoted.ai's item
-    # datastore.  The value must be specific enough to be globally unique, yet
-    # general enough to ignore paging parameters.  A good example of a useful,
-    # externally set paging_id is to use the paging token or identifiers returned
-    # by your item datastore retrieval while passing the eligible insertions in
-    # the Request.  If in doubt, rely on the Response.paging_info.paging_id or
-    # contact us.
     paging_id: typing.Text = ...
-    # Required.  The number of items (insertions) to return.
+    """Identity for the paging request (opaque token).
+    A single paging_id will have many associated requests to get the fully
+    paged response set (hence, many request_id's and client_request_id's).
+
+    Required if using the cursor for the last_index; optional if using offset.
+    Setting this value provides better paging consistency/stability.  Ideally,
+    it should be set from the initial paging response
+    (Response.paging_info.paging_id).
+
+    An external value can be used when *not* using promoted.ai's item
+    datastore.  The value must be specific enough to be globally unique, yet
+    general enough to ignore paging parameters.  A good example of a useful,
+    externally set paging_id is to use the paging token or identifiers returned
+    by your item datastore retrieval while passing the eligible insertions in
+    the Request.  If in doubt, rely on the Response.paging_info.paging_id or
+    contact us.
+    """
+
     size: builtins.int = ...
+    """Required.  The number of items (insertions) to return."""
+
     cursor: typing.Text = ...
     offset: builtins.int = ...
     def __init__(self,
@@ -189,17 +216,19 @@ class Paging(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal[u"starting",b"starting"]) -> typing.Optional[typing_extensions.Literal["cursor","offset"]]: ...
 global___Paging = Paging
 
-# Next ID = 4.
 class Response(google.protobuf.message.Message):
+    """Next ID = 4."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     INSERTION_FIELD_NUMBER: builtins.int
     PAGING_INFO_FIELD_NUMBER: builtins.int
-    # List of content.
     @property
-    def insertion(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Insertion]: ...
-    # Paging information of this response.  Only returned on paging requests.
+    def insertion(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Insertion]:
+        """List of content."""
+        pass
     @property
-    def paging_info(self) -> global___PagingInfo: ...
+    def paging_info(self) -> global___PagingInfo:
+        """Paging information of this response.  Only returned on paging requests."""
+        pass
     def __init__(self,
         *,
         insertion : typing.Optional[typing.Iterable[global___Insertion]] = ...,
@@ -209,16 +238,19 @@ class Response(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"insertion",b"insertion",u"paging_info",b"paging_info"]) -> None: ...
 global___Response = Response
 
-# Next ID = 3.
 class PagingInfo(google.protobuf.message.Message):
+    """Next ID = 3."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PAGING_ID_FIELD_NUMBER: builtins.int
     CURSOR_FIELD_NUMBER: builtins.int
-    # Opaque identifier to be used in subsequent paging requests for a specific
-    # paged repsonse set.
     paging_id: typing.Text = ...
-    # Opaque token that represents the last item index of this response.
+    """Opaque identifier to be used in subsequent paging requests for a specific
+    paged repsonse set.
+    """
+
     cursor: typing.Text = ...
+    """Opaque token that represents the last item index of this response."""
+
     def __init__(self,
         *,
         paging_id : typing.Text = ...,
@@ -227,10 +259,11 @@ class PagingInfo(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"cursor",b"cursor",u"paging_id",b"paging_id"]) -> None: ...
 global___PagingInfo = PagingInfo
 
-# This Event represents a Content being served at a certain position regardless
-# of it was views by a user. Insertions are immutable.
-# Next ID = 21.
 class Insertion(google.protobuf.message.Message):
+    """This Event represents a Content being served at a certain position regardless
+    of it was views by a user. Insertions are immutable.
+    Next ID = 21.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     USER_INFO_FIELD_NUMBER: builtins.int
@@ -245,40 +278,55 @@ class Insertion(google.protobuf.message.Message):
     PROPERTIES_FIELD_NUMBER: builtins.int
     RETRIEVAL_RANK_FIELD_NUMBER: builtins.int
     RETRIEVAL_SCORE_FIELD_NUMBER: builtins.int
-    # Optional.  If not set, set by API servers.
     platform_id: builtins.int = ...
-    # Required.
+    """Optional.  If not set, set by API servers."""
+
     @property
-    def user_info(self) -> proto.common.common_pb2.UserInfo: ...
-    # Optional.  If not set, set by API servers.
+    def user_info(self) -> proto.common.common_pb2.UserInfo:
+        """Required."""
+        pass
     @property
-    def timing(self) -> proto.common.common_pb2.Timing: ...
-    # Optional.  If not set, API server uses LogRequest.client_info.
+    def timing(self) -> proto.common.common_pb2.Timing:
+        """Optional.  If not set, set by API servers."""
+        pass
     @property
-    def client_info(self) -> proto.common.common_pb2.ClientInfo: ...
-    # Optional.  Primary key.
-    # SDKs usually handles this automatically. For details, see
-    # https://github.com/promotedai/schema#setting-primary-keys
+    def client_info(self) -> proto.common.common_pb2.ClientInfo:
+        """Optional.  If not set, API server uses LogRequest.client_info."""
+        pass
     insertion_id: typing.Text = ...
-    # Optional.
+    """Optional.  Primary key.
+    SDKs usually handles this automatically. For details, see
+    https://github.com/promotedai/schema#setting-primary-keys
+    """
+
     request_id: typing.Text = ...
-    # Optional.
+    """Optional."""
+
     view_id: typing.Text = ...
-    # Optional.
+    """Optional."""
+
     session_id: typing.Text = ...
-    # Optional.  We'll look this up using the external_content_id.
+    """Optional."""
+
     content_id: typing.Text = ...
-    # Optional. 0-based. Position "in what" depends on insertion context:
-    # if request_insertion, then position provided by client or retrieval
-    # if response_insertion, then the position returned by Delivery to the client
+    """Optional.  We'll look this up using the external_content_id."""
+
     position: builtins.int = ...
-    # Optional. Custom item attributes and features set by customers.
+    """Optional. 0-based. Position "in what" depends on insertion context:
+    if request_insertion, then position provided by client or retrieval
+    if response_insertion, then the position returned by Delivery to the client
+    """
+
     @property
-    def properties(self) -> proto.common.common_pb2.Properties: ...
-    # Optional. Ranking (if known) of this insertion from the retrieval system.
+    def properties(self) -> proto.common.common_pb2.Properties:
+        """Optional. Custom item attributes and features set by customers."""
+        pass
     retrieval_rank: builtins.int = ...
-    # Optional. Score (if any) of this insertion from the retrieval system.
+    """Optional. Ranking (if known) of this insertion from the retrieval system."""
+
     retrieval_score: builtins.float = ...
+    """Optional. Score (if any) of this insertion from the retrieval system."""
+
     def __init__(self,
         *,
         platform_id : builtins.int = ...,

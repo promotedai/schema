@@ -65,8 +65,8 @@ BRL = CurrencyCode.V(20)
 global___CurrencyCode = CurrencyCode
 
 
-# Next ID = 4.
 class DeviceType(_DeviceType, metaclass=_DeviceTypeEnumTypeWrapper):
+    """Next ID = 4."""
     pass
 class _DeviceType:
     V = typing.NewType('V', builtins.int)
@@ -110,26 +110,33 @@ class EntityPath(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"account_id",b"account_id",u"campaign_id",b"campaign_id",u"content_id",b"content_id",u"customer_id",b"customer_id",u"platform_id",b"platform_id",u"promotion_id",b"promotion_id"]) -> None: ...
 global___EntityPath = EntityPath
 
-# Common submessage that scopes helps scope a request/log to a user.
-#
-# Next ID = 4.
 class UserInfo(google.protobuf.message.Message):
+    """Common submessage that scopes helps scope a request/log to a user.
+
+    Next ID = 4.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_ID_FIELD_NUMBER: builtins.int
     LOG_USER_ID_FIELD_NUMBER: builtins.int
     IS_INTERNAL_USER_FIELD_NUMBER: builtins.int
-    # Optional.  The Platform's actual user ID.
-    # This field will be cleared from our transaction logs.
     user_id: typing.Text = ...
-    # Optional.  This is a user UUID that is different from user_id and
-    # can quickly be disassociated from the actual user ID.  This is useful:
-    # 1. in case the user wants to be forgotten.
-    # 2. logging unauthenticated users.
-    # The user UUID is in a different ID space than user_id.
+    """Optional.  The Platform's actual user ID.
+    This field will be cleared from our transaction logs.
+    """
+
     log_user_id: typing.Text = ...
-    # Optional, defaults to false. Indicates that the user is from the
-    # marketplace or Promoted team.
+    """Optional.  This is a user UUID that is different from user_id and
+    can quickly be disassociated from the actual user ID.  This is useful:
+    1. in case the user wants to be forgotten.
+    2. logging unauthenticated users.
+    The user UUID is in a different ID space than user_id.
+    """
+
     is_internal_user: builtins.bool = ...
+    """Optional, defaults to false. Indicates that the user is from the
+    marketplace or Promoted team.
+    """
+
     def __init__(self,
         *,
         user_id : typing.Text = ...,
@@ -139,52 +146,64 @@ class UserInfo(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"is_internal_user",b"is_internal_user",u"log_user_id",b"log_user_id",u"user_id",b"user_id"]) -> None: ...
 global___UserInfo = UserInfo
 
-# Info about the client.
-# Next ID = 3.
 class ClientInfo(google.protobuf.message.Message):
+    """Info about the client.
+    Next ID = 3.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    # Next ID = 5;
     class ClientType(_ClientType, metaclass=_ClientTypeEnumTypeWrapper):
+        """Next ID = 5;"""
         pass
     class _ClientType:
         V = typing.NewType('V', builtins.int)
     class _ClientTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ClientType.V], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
         UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
-        # Your (customer) server.
         PLATFORM_SERVER = ClientInfo.ClientType.V(1)
-        # Your (customer) client.
+        """Your (customer) server."""
+
         PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
+        """Your (customer) client."""
+
 
     UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
-    # Your (customer) server.
     PLATFORM_SERVER = ClientInfo.ClientType.V(1)
-    # Your (customer) client.
-    PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
+    """Your (customer) server."""
 
-    # Used to indicate the type of traffic.  We can use this to prioritize resources.
-    # Next ID = 6.
+    PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
+    """Your (customer) client."""
+
+
     class TrafficType(_TrafficType, metaclass=_TrafficTypeEnumTypeWrapper):
+        """Used to indicate the type of traffic.  We can use this to prioritize resources.
+        Next ID = 6.
+        """
         pass
     class _TrafficType:
         V = typing.NewType('V', builtins.int)
     class _TrafficTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TrafficType.V], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
         UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
-        # Live traffic.
         PRODUCTION = ClientInfo.TrafficType.V(1)
-        # Replayed traffic.  We'd like similar to PRODUCTION level.
+        """Live traffic."""
+
         REPLAY = ClientInfo.TrafficType.V(2)
-        # Shadow traffic to delivery during logging.
+        """Replayed traffic.  We'd like similar to PRODUCTION level."""
+
         SHADOW = ClientInfo.TrafficType.V(4)
+        """Shadow traffic to delivery during logging."""
+
 
     UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
-    # Live traffic.
     PRODUCTION = ClientInfo.TrafficType.V(1)
-    # Replayed traffic.  We'd like similar to PRODUCTION level.
+    """Live traffic."""
+
     REPLAY = ClientInfo.TrafficType.V(2)
-    # Shadow traffic to delivery during logging.
+    """Replayed traffic.  We'd like similar to PRODUCTION level."""
+
     SHADOW = ClientInfo.TrafficType.V(4)
+    """Shadow traffic to delivery during logging."""
+
 
     CLIENT_TYPE_FIELD_NUMBER: builtins.int
     TRAFFIC_TYPE_FIELD_NUMBER: builtins.int
@@ -198,18 +217,23 @@ class ClientInfo(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"client_type",b"client_type",u"traffic_type",b"traffic_type"]) -> None: ...
 global___ClientInfo = ClientInfo
 
-# Locale for session
-# Next ID = 3.
 class Locale(google.protobuf.message.Message):
+    """Locale for session
+    Next ID = 3.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     LANGUAGE_CODE_FIELD_NUMBER: builtins.int
     REGION_CODE_FIELD_NUMBER: builtins.int
-    # CodeReview - Which ISO code is this?  ISO 639-1? 2? 3?
-    # "en", "zh_Hant", "fr"
     language_code: typing.Text = ...
-    # CodeReview - Which ISO code?  ISO 3166-1?
-    # "US", "CA", "FR"
+    """CodeReview - Which ISO code is this?  ISO 639-1? 2? 3?
+    "en", "zh_Hant", "fr"
+    """
+
     region_code: typing.Text = ...
+    """CodeReview - Which ISO code?  ISO 3166-1?
+    "US", "CA", "FR"
+    """
+
     def __init__(self,
         *,
         language_code : typing.Text = ...,
@@ -218,9 +242,10 @@ class Locale(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"language_code",b"language_code",u"region_code",b"region_code"]) -> None: ...
 global___Locale = Locale
 
-# Rectangle size in pixels
-# Next ID = 3.
 class Size(google.protobuf.message.Message):
+    """Rectangle size in pixels
+    Next ID = 3.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     WIDTH_FIELD_NUMBER: builtins.int
     HEIGHT_FIELD_NUMBER: builtins.int
@@ -234,20 +259,25 @@ class Size(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"height",b"height",u"width",b"width"]) -> None: ...
 global___Size = Size
 
-# Device screen
-# Next ID = 3.
 class Screen(google.protobuf.message.Message):
+    """Device screen
+    Next ID = 3.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     SIZE_FIELD_NUMBER: builtins.int
     SCALE_FIELD_NUMBER: builtins.int
-    # Android: DisplayMetrics.widthPixels/heightPixels
-    # iOS: UIScreen.nativeBounds.width/height
     @property
-    def size(self) -> global___Size: ...
-    # Natural scale factor.
-    # Android: DisplayMetrics.density
-    # iOS: UIScreen.scale
+    def size(self) -> global___Size:
+        """Android: DisplayMetrics.widthPixels/heightPixels
+        iOS: UIScreen.nativeBounds.width/height
+        """
+        pass
     scale: builtins.float = ...
+    """Natural scale factor.
+    Android: DisplayMetrics.density
+    iOS: UIScreen.scale
+    """
+
     def __init__(self,
         *,
         size : typing.Optional[global___Size] = ...,
@@ -257,9 +287,10 @@ class Screen(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"scale",b"scale",u"size",b"size"]) -> None: ...
 global___Screen = Screen
 
-# A sub-message containing Device info.
-# Next ID = 11.
 class Device(google.protobuf.message.Message):
+    """A sub-message containing Device info.
+    Next ID = 11.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     DEVICE_TYPE_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
@@ -272,37 +303,50 @@ class Device(google.protobuf.message.Message):
     LOCATION_FIELD_NUMBER: builtins.int
     BROWSER_FIELD_NUMBER: builtins.int
     device_type: global___DeviceType.V = ...
-    # Android: android.os.Build.BRAND
-    #          (eg. "google", "verizon", "tmobile", "Samsung")
-    # iOS: "Apple"
     brand: typing.Text = ...
-    # Android: android.os.Build.MANUFACTURER
-    #          (eg. "HTC", "Motorola", "HUAWEI")
-    # iOS: "Apple"
+    """Android: android.os.Build.BRAND
+             (eg. "google", "verizon", "tmobile", "Samsung")
+    iOS: "Apple"
+    """
+
     manufacturer: typing.Text = ...
-    # Android: android.os.Build.MODEL
-    #          (eg. "GT-S5830L", "MB860")
-    # iOS: "iPhoneXX,YY" or "iPadXX,YY"
+    """Android: android.os.Build.MANUFACTURER
+             (eg. "HTC", "Motorola", "HUAWEI")
+    iOS: "Apple"
+    """
+
     identifier: typing.Text = ...
-    # Android: android.os.Build.VERSION.RELEASE
-    # iOS: "14.4.1"
+    """Android: android.os.Build.MODEL
+             (eg. "GT-S5830L", "MB860")
+    iOS: "iPhoneXX,YY" or "iPadXX,YY"
+    """
+
     os_version: typing.Text = ...
-    # Deprecated.
+    """Android: android.os.Build.VERSION.RELEASE
+    iOS: "14.4.1"
+    """
+
     @property
-    def locale(self) -> global___Locale: ...
+    def locale(self) -> global___Locale:
+        """Deprecated."""
+        pass
     @property
     def screen(self) -> global___Screen: ...
-    # Optional.  We'll use IP Address to guess the user's
-    # location when necessary and possible on desktop.
-    # Most likely in a server integration this should be the value
-    # of the X-Forwarded-For header.
     ip_address: typing.Text = ...
-    # Optional. User device's actual geolocation if available.
+    """Optional.  We'll use IP Address to guess the user's
+    location when necessary and possible on desktop.
+    Most likely in a server integration this should be the value
+    of the X-Forwarded-For header.
+    """
+
     @property
-    def location(self) -> global___Location: ...
-    # Optional. Information about the user's web client (on web or mobile browser).
+    def location(self) -> global___Location:
+        """Optional. User device's actual geolocation if available."""
+        pass
     @property
-    def browser(self) -> global___Browser: ...
+    def browser(self) -> global___Browser:
+        """Optional. Information about the user's web client (on web or mobile browser)."""
+        pass
     def __init__(self,
         *,
         device_type : global___DeviceType.V = ...,
@@ -320,9 +364,10 @@ class Device(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"brand",b"brand",u"browser",b"browser",u"device_type",b"device_type",u"identifier",b"identifier",u"ip_address",b"ip_address",u"locale",b"locale",u"location",b"location",u"manufacturer",b"manufacturer",u"os_version",b"os_version",u"screen",b"screen"]) -> None: ...
 global___Device = Device
 
-# https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
-# A newer alternative to user agent strings.
 class ClientHints(google.protobuf.message.Message):
+    """https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
+    A newer alternative to user agent strings.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     IS_MOBILE_FIELD_NUMBER: builtins.int
     BRAND_FIELD_NUMBER: builtins.int
@@ -352,9 +397,10 @@ class ClientHints(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"architecture",b"architecture",u"brand",b"brand",u"is_mobile",b"is_mobile",u"model",b"model",u"platform",b"platform",u"platform_version",b"platform_version",u"ua_full_version",b"ua_full_version"]) -> None: ...
 global___ClientHints = ClientHints
 
-# https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
-# a part of ClientHints.
 class ClientHintBrand(google.protobuf.message.Message):
+    """https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
+    a part of ClientHints.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     BRAND_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
@@ -368,9 +414,10 @@ class ClientHintBrand(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"brand",b"brand",u"version",b"version"]) -> None: ...
 global___ClientHintBrand = ClientHintBrand
 
-# A sub-message containing Browser info.
-# Next ID = 4.
 class Browser(google.protobuf.message.Message):
+    """A sub-message containing Browser info.
+    Next ID = 4.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_AGENT_FIELD_NUMBER: builtins.int
     VIEWPORT_SIZE_FIELD_NUMBER: builtins.int
@@ -390,18 +437,21 @@ class Browser(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"client_hints",b"client_hints",u"user_agent",b"user_agent",u"viewport_size",b"viewport_size"]) -> None: ...
 global___Browser = Browser
 
-# Next ID = 4.
 class Location(google.protobuf.message.Message):
+    """Next ID = 4."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     LATITUDE_FIELD_NUMBER: builtins.int
     LONGITUDE_FIELD_NUMBER: builtins.int
     ACCURACY_IN_METERS_FIELD_NUMBER: builtins.int
-    # [-90, 90]
     latitude: builtins.float = ...
-    # [-180, 180]
+    """[-90, 90]"""
+
     longitude: builtins.float = ...
-    # Optional. Accuracy of location if known.
+    """[-180, 180]"""
+
     accuracy_in_meters: builtins.float = ...
+    """Optional. Accuracy of location if known."""
+
     def __init__(self,
         *,
         latitude : builtins.float = ...,
@@ -411,18 +461,20 @@ class Location(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"accuracy_in_meters",b"accuracy_in_meters",u"latitude",b"latitude",u"longitude",b"longitude"]) -> None: ...
 global___Location = Location
 
-# A message containing timing information.
-#
-# We can add common timing info to this message.  Down the road, we might
-# make more specific Timing messages (e.g. MetricsTiming).  We can reuse
-# the field numbers.
-#
-# Next ID = 4.
 class Timing(google.protobuf.message.Message):
+    """A message containing timing information.
+
+    We can add common timing info to this message.  Down the road, we might
+    make more specific Timing messages (e.g. MetricsTiming).  We can reuse
+    the field numbers.
+
+    Next ID = 4.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     CLIENT_LOG_TIMESTAMP_FIELD_NUMBER: builtins.int
-    # Optional.  Client timestamp when event was created.
     client_log_timestamp: builtins.int = ...
+    """Optional.  Client timestamp when event was created."""
+
     def __init__(self,
         *,
         client_log_timestamp : builtins.int = ...,
@@ -430,17 +482,20 @@ class Timing(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"client_log_timestamp",b"client_log_timestamp"]) -> None: ...
 global___Timing = Timing
 
-# Supports custom properties per platform.
-# Next ID = 4.
 class Properties(google.protobuf.message.Message):
+    """Supports custom properties per platform.
+    Next ID = 4.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     STRUCT_BYTES_FIELD_NUMBER: builtins.int
     STRUCT_FIELD_NUMBER: builtins.int
-    # Optional.  Contains protobuf serialized bytes.
     struct_bytes: builtins.bytes = ...
-    # Optional.  Can be converted to/from JSON.
+    """Optional.  Contains protobuf serialized bytes."""
+
     @property
-    def struct(self) -> google.protobuf.struct_pb2.Struct: ...
+    def struct(self) -> google.protobuf.struct_pb2.Struct:
+        """Optional.  Can be converted to/from JSON."""
+        pass
     def __init__(self,
         *,
         struct_bytes : builtins.bytes = ...,

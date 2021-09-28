@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\027ai.promoted.proto.eventB\005EventP\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x17proto/event/event.proto\x12\x05\x65vent\x1a\x19proto/common/common.proto\x1a\x1dproto/delivery/delivery.proto\"\xb4\x01\n\x11JoinedIdentifiers\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x13\n\x0blog_user_id\x18\x03 \x01(\t\x12\x12\n\nsession_id\x18\x04 \x01(\t\x12\x0f\n\x07view_id\x18\x05 \x01(\t\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x15\n\rimpression_id\x18\x08 \x01(\t\"\xb7\x03\n\x15IdentifierProvenances\x12\x37\n\x12user_id_provenance\x18\x01 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15session_id_provenance\x18\x02 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x37\n\x12view_id_provenance\x18\x03 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12=\n\x18impression_id_provenance\x18\x04 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x39\n\x14\x61\x63tion_id_provenance\x18\x05 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15\x63ontent_id_provenance\x18\x06 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15request_id_provenance\x18\x07 \x01(\x0e\x32\x1b.event.IdentifierProvenance\"\xb7\x01\n\x04User\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12&\n\nproperties\x18\x06 \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"\x92\x02\n\x10\x43ohortMembership\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rmembership_id\x18\x06 \x01(\t\x12\x11\n\tcohort_id\x18\x08 \x01(\t\x12\x1d\n\x03\x61rm\x18\t \x01(\x0e\x32\x10.event.CohortArm\x12&\n\nproperties\x18\n \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x07\x10\x08\"W\n\x0bWebPageView\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x10\n\x08referrer\x18\x03 \x01(\t\x12#\n\rdocument_size\x18\x04 \x01(\x0b\x32\x0c.common.SizeJ\x04\x08\x02\x10\x03\"\x15\n\rAppScreenViewJ\x04\x08\x01\x10\x02\"\x9e\x04\n\x04View\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x0f\n\x07view_id\x18\x06 \x01(\t\x12\x12\n\nsession_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06locale\x18\x10 \x01(\x0b\x32\x0e.common.Locale\x12\'\n\tview_type\x18\r \x01(\x0e\x32\x14.event.View.ViewType\x12+\n\rweb_page_view\x18\x0e \x01(\x0b\x32\x12.event.WebPageViewH\x00\x12/\n\x0f\x61pp_screen_view\x18\x0f \x01(\x0b\x32\x14.event.AppScreenViewH\x00\"?\n\x08ViewType\x12\x15\n\x11UNKNOWN_VIEW_TYPE\x10\x00\x12\x0c\n\x08WEB_PAGE\x10\x01\x12\x0e\n\nAPP_SCREEN\x10\x02\x42\t\n\x07ui_typeJ\x04\x08\x05\x10\x06J\x04\x08\x0c\x10\r\"\xe9\x02\n\nImpression\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rimpression_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x12\n\nrequest_id\x18\x08 \x01(\t\x12\x0f\n\x07view_id\x18\n \x01(\t\x12\x12\n\nsession_id\x18\t \x01(\t\x12\x12\n\ncontent_id\x18\x0c \x01(\t\x12\x30\n\x0bsource_type\x18\r \x01(\x0e\x32\x1b.event.ImpressionSourceType\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"$\n\x0eNavigateAction\x12\x12\n\ntarget_url\x18\x01 \x01(\t\"\xfa\x03\n\x06\x41\x63tion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x11\n\taction_id\x18\x06 \x01(\t\x12\x15\n\rimpression_id\x18\x07 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x08 \x01(\t\x12\x12\n\nrequest_id\x18\t \x01(\t\x12\x0f\n\x07view_id\x18\x0b \x01(\t\x12\x12\n\nsession_id\x18\n \x01(\t\x12\x12\n\ncontent_id\x18\x15 \x01(\t\x12\x0c\n\x04name\x18\x0c \x01(\t\x12&\n\x0b\x61\x63tion_type\x18\x0e \x01(\x0e\x32\x11.event.ActionType\x12\x1a\n\x12\x63ustom_action_type\x18\x0f \x01(\t\x12\x12\n\nelement_id\x18\x11 \x01(\t\x12\x30\n\x0fnavigate_action\x18\x12 \x01(\x0b\x32\x15.event.NavigateActionH\x00\x12&\n\nproperties\x18\x14 \x01(\x0b\x32\x12.common.PropertiesB\x08\n\x06\x61\x63tionJ\x04\x08\x05\x10\x06J\x04\x08\r\x10\x0eJ\x04\x08\x10\x10\x11J\x04\x08\x13\x10\x14\"S\n\x08IOSError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x64omain\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x14\n\x0c\x62\x61tch_number\x18\x04 \x01(\x05\"I\n\x0c\x45rrorHistory\x12#\n\nios_errors\x18\x01 \x03(\x0b\x32\x0f.event.IOSError\x12\x14\n\x0ctotal_errors\x18\x02 \x01(\x05\"\xbe\x01\n\x15\x41ncestorIdHistoryItem\x12\x13\n\x0b\x61ncestor_id\x18\x01 \x01(\t\x12!\n\nuser_event\x18\x02 \x01(\x0b\x32\x0b.event.UserH\x00\x12$\n\x1asession_id_from_user_event\x18\x03 \x01(\tH\x00\x12!\n\nview_event\x18\x04 \x01(\x0b\x32\x0b.event.ViewH\x00\x12\x14\n\x0c\x62\x61tch_number\x18\x05 \x01(\x05\x42\x0e\n\x0clogged_event\"\xa3\x02\n\x11\x41ncestorIdHistory\x12\x39\n\x13log_user_id_history\x18\x01 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12!\n\x19total_log_user_ids_logged\x18\x02 \x01(\x05\x12\x38\n\x12session_id_history\x18\x03 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12 \n\x18total_session_ids_logged\x18\x04 \x01(\x05\x12\x35\n\x0fview_id_history\x18\x05 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12\x1d\n\x15total_view_ids_logged\x18\x06 \x01(\x05\"\xa6\x02\n\x11MobileDiagnostics\x12\x19\n\x11\x64\x65vice_identifier\x18\x01 \x01(\t\x12\x16\n\x0e\x63lient_version\x18\x02 \x01(\t\x12 \n\x18promoted_library_version\x18\x03 \x01(\t\x12\x19\n\x11\x62\x61tches_attempted\x18\x04 \x01(\x05\x12!\n\x19\x62\x61tches_sent_successfully\x18\x05 \x01(\x05\x12\x1b\n\x13\x62\x61tches_with_errors\x18\x06 \x01(\x05\x12*\n\rerror_history\x18\x07 \x01(\x0b\x32\x13.event.ErrorHistory\x12\x35\n\x13\x61ncestor_id_history\x18\x08 \x01(\x0b\x32\x18.event.AncestorIdHistory\"\xdf\x01\n\x0b\x44iagnostics\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x36\n\x12mobile_diagnostics\x18\x05 \x01(\x0b\x32\x18.event.MobileDiagnosticsH\x00\x42\x15\n\x13\x64iagnostics_message\"\x84\x04\n\nLogRequest\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x18 \x01(\x0b\x32\x0e.common.Device\x12\x19\n\x04user\x18\x07 \x03(\x0b\x32\x0b.event.User\x12\x32\n\x11\x63ohort_membership\x18\x08 \x03(\x0b\x32\x17.event.CohortMembership\x12\x19\n\x04view\x18\x0b \x03(\x0b\x32\x0b.event.View\x12\"\n\x07request\x18\x0c \x03(\x0b\x32\x11.delivery.Request\x12&\n\tinsertion\x18\r \x03(\x0b\x32\x13.delivery.Insertion\x12%\n\nimpression\x18\x0e \x03(\x0b\x32\x11.event.Impression\x12\x1d\n\x06\x61\x63tion\x18\x0f \x03(\x0b\x32\r.event.Action\x12\'\n\x0b\x64iagnostics\x18\x17 \x03(\x0b\x32\x12.event.DiagnosticsJ\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07J\x04\x08\t\x10\nJ\x04\x08\n\x10\x0bJ\x04\x08\x10\x10\x11J\x04\x08\x11\x10\x12J\x04\x08\x12\x10\x13J\x04\x08\x13\x10\x17*c\n\x14IdentifierProvenance\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04NULL\x10\x01\x12\t\n\x05\x45MPTY\x10\x02\x12\x11\n\rAUTOGENERATED\x10\x03\x12\x16\n\x12PLATFORM_SPECIFIED\x10\x04*j\n\tCohortArm\x12\x11\n\rUNKNOWN_GROUP\x10\x00\x12\x0b\n\x07\x43ONTROL\x10\x01\x12\r\n\tTREATMENT\x10\x02\x12\x0e\n\nTREATMENT1\x10\x03\x12\x0e\n\nTREATMENT2\x10\x04\x12\x0e\n\nTREATMENT3\x10\x05*\\\n\x14ImpressionSourceType\x12\"\n\x1eUNKNOWN_IMPRESSION_SOURCE_TYPE\x10\x00\x12\x0c\n\x08\x44\x45LIVERY\x10\x01\x12\x12\n\x0e\x43LIENT_BACKEND\x10\x02*\x9f\x02\n\nActionType\x12\x17\n\x13UNKNOWN_ACTION_TYPE\x10\x00\x12\x16\n\x12\x43USTOM_ACTION_TYPE\x10\x01\x12\x0c\n\x08NAVIGATE\x10\x02\x12\x0f\n\x0b\x41\x44\x44_TO_CART\x10\x04\x12\x14\n\x10REMOVE_FROM_CART\x10\n\x12\x0c\n\x08\x43HECKOUT\x10\x08\x12\x0c\n\x08PURCHASE\x10\x03\x12\t\n\x05SHARE\x10\x05\x12\x08\n\x04LIKE\x10\x06\x12\n\n\x06UNLIKE\x10\t\x12\x0b\n\x07\x43OMMENT\x10\x07\x12\x0e\n\nMAKE_OFFER\x10\x0b\x12\x10\n\x0c\x41SK_QUESTION\x10\x0c\x12\x13\n\x0f\x41NSWER_QUESTION\x10\r\x12\x14\n\x10\x43OMPLETE_SIGN_IN\x10\x0e\x12\x14\n\x10\x43OMPLETE_SIGN_UP\x10\x0f\x42\"\n\x17\x61i.promoted.proto.eventB\x05\x45ventP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x17proto/event/event.proto\x12\x05\x65vent\x1a\x19proto/common/common.proto\x1a\x1dproto/delivery/delivery.proto\"\xb4\x01\n\x11JoinedIdentifiers\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x13\n\x0blog_user_id\x18\x03 \x01(\t\x12\x12\n\nsession_id\x18\x04 \x01(\t\x12\x0f\n\x07view_id\x18\x05 \x01(\t\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x15\n\rimpression_id\x18\x08 \x01(\t\"\xb7\x03\n\x15IdentifierProvenances\x12\x37\n\x12user_id_provenance\x18\x01 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15session_id_provenance\x18\x02 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x37\n\x12view_id_provenance\x18\x03 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12=\n\x18impression_id_provenance\x18\x04 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x39\n\x14\x61\x63tion_id_provenance\x18\x05 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15\x63ontent_id_provenance\x18\x06 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15request_id_provenance\x18\x07 \x01(\x0e\x32\x1b.event.IdentifierProvenance\"\xb7\x01\n\x04User\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12&\n\nproperties\x18\x06 \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"\x92\x02\n\x10\x43ohortMembership\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rmembership_id\x18\x06 \x01(\t\x12\x11\n\tcohort_id\x18\x08 \x01(\t\x12\x1d\n\x03\x61rm\x18\t \x01(\x0e\x32\x10.event.CohortArm\x12&\n\nproperties\x18\n \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x07\x10\x08\"W\n\x0bWebPageView\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x10\n\x08referrer\x18\x03 \x01(\t\x12#\n\rdocument_size\x18\x04 \x01(\x0b\x32\x0c.common.SizeJ\x04\x08\x02\x10\x03\"\x15\n\rAppScreenViewJ\x04\x08\x01\x10\x02\"\x9e\x04\n\x04View\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x0f\n\x07view_id\x18\x06 \x01(\t\x12\x12\n\nsession_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06locale\x18\x10 \x01(\x0b\x32\x0e.common.Locale\x12\'\n\tview_type\x18\r \x01(\x0e\x32\x14.event.View.ViewType\x12+\n\rweb_page_view\x18\x0e \x01(\x0b\x32\x12.event.WebPageViewH\x00\x12/\n\x0f\x61pp_screen_view\x18\x0f \x01(\x0b\x32\x14.event.AppScreenViewH\x00\"?\n\x08ViewType\x12\x15\n\x11UNKNOWN_VIEW_TYPE\x10\x00\x12\x0c\n\x08WEB_PAGE\x10\x01\x12\x0e\n\nAPP_SCREEN\x10\x02\x42\t\n\x07ui_typeJ\x04\x08\x05\x10\x06J\x04\x08\x0c\x10\r\"\xa1\x03\n\x08\x41utoView\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0c\x61uto_view_id\x18\x06 \x01(\t\x12\x12\n\nsession_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12&\n\nproperties\x18\n \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06locale\x18\x0b \x01(\x0b\x32\x0e.common.Locale\x12+\n\rweb_page_view\x18\x0c \x01(\x0b\x32\x12.event.WebPageViewH\x00\x12/\n\x0f\x61pp_screen_view\x18\r \x01(\x0b\x32\x14.event.AppScreenViewH\x00\x42\t\n\x07ui_typeJ\x04\x08\x05\x10\x06\"\x9f\x03\n\nImpression\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rimpression_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x12\n\nrequest_id\x18\x08 \x01(\t\x12\x0f\n\x07view_id\x18\n \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x0f \x01(\t\x12\x12\n\nsession_id\x18\t \x01(\t\x12\x12\n\ncontent_id\x18\x0c \x01(\t\x12\x30\n\x0bsource_type\x18\r \x01(\x0e\x32\x1b.event.ImpressionSourceType\x12\x1e\n\x16has_superimposed_views\x18\x0e \x01(\x08\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"$\n\x0eNavigateAction\x12\x12\n\ntarget_url\x18\x01 \x01(\t\"\xb0\x04\n\x06\x41\x63tion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x11\n\taction_id\x18\x06 \x01(\t\x12\x15\n\rimpression_id\x18\x07 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x08 \x01(\t\x12\x12\n\nrequest_id\x18\t \x01(\t\x12\x0f\n\x07view_id\x18\x0b \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x17 \x01(\t\x12\x12\n\nsession_id\x18\n \x01(\t\x12\x12\n\ncontent_id\x18\x15 \x01(\t\x12\x0c\n\x04name\x18\x0c \x01(\t\x12&\n\x0b\x61\x63tion_type\x18\x0e \x01(\x0e\x32\x11.event.ActionType\x12\x1a\n\x12\x63ustom_action_type\x18\x0f \x01(\t\x12\x12\n\nelement_id\x18\x11 \x01(\t\x12\x30\n\x0fnavigate_action\x18\x12 \x01(\x0b\x32\x15.event.NavigateActionH\x00\x12\x1e\n\x16has_superimposed_views\x18\x16 \x01(\x08\x12&\n\nproperties\x18\x14 \x01(\x0b\x32\x12.common.PropertiesB\x08\n\x06\x61\x63tionJ\x04\x08\x05\x10\x06J\x04\x08\r\x10\x0eJ\x04\x08\x10\x10\x11J\x04\x08\x13\x10\x14\"S\n\x08IOSError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x64omain\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x14\n\x0c\x62\x61tch_number\x18\x04 \x01(\x05\"I\n\x0c\x45rrorHistory\x12#\n\nios_errors\x18\x01 \x03(\x0b\x32\x0f.event.IOSError\x12\x14\n\x0ctotal_errors\x18\x02 \x01(\x05\"\xea\x01\n\x15\x41ncestorIdHistoryItem\x12\x13\n\x0b\x61ncestor_id\x18\x01 \x01(\t\x12!\n\nuser_event\x18\x02 \x01(\x0b\x32\x0b.event.UserH\x00\x12$\n\x1asession_id_from_user_event\x18\x03 \x01(\tH\x00\x12!\n\nview_event\x18\x04 \x01(\x0b\x32\x0b.event.ViewH\x00\x12*\n\x0f\x61uto_view_event\x18\x06 \x01(\x0b\x32\x0f.event.AutoViewH\x00\x12\x14\n\x0c\x62\x61tch_number\x18\x05 \x01(\x05\x42\x0e\n\x0clogged_event\"\x83\x03\n\x11\x41ncestorIdHistory\x12\x39\n\x13log_user_id_history\x18\x01 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12!\n\x19total_log_user_ids_logged\x18\x02 \x01(\x05\x12\x38\n\x12session_id_history\x18\x03 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12 \n\x18total_session_ids_logged\x18\x04 \x01(\x05\x12\x35\n\x0fview_id_history\x18\x05 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12\x1d\n\x15total_view_ids_logged\x18\x06 \x01(\x05\x12:\n\x14\x61uto_view_id_history\x18\x07 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12\"\n\x1atotal_auto_view_ids_logged\x18\x08 \x01(\x05\"\xa6\x02\n\x11MobileDiagnostics\x12\x19\n\x11\x64\x65vice_identifier\x18\x01 \x01(\t\x12\x16\n\x0e\x63lient_version\x18\x02 \x01(\t\x12 \n\x18promoted_library_version\x18\x03 \x01(\t\x12\x19\n\x11\x62\x61tches_attempted\x18\x04 \x01(\x05\x12!\n\x19\x62\x61tches_sent_successfully\x18\x05 \x01(\x05\x12\x1b\n\x13\x62\x61tches_with_errors\x18\x06 \x01(\x05\x12*\n\rerror_history\x18\x07 \x01(\x0b\x32\x13.event.ErrorHistory\x12\x35\n\x13\x61ncestor_id_history\x18\x08 \x01(\x0b\x32\x18.event.AncestorIdHistory\"\xdf\x01\n\x0b\x44iagnostics\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x36\n\x12mobile_diagnostics\x18\x05 \x01(\x0b\x32\x18.event.MobileDiagnosticsH\x00\x42\x15\n\x13\x64iagnostics_message\"\xa8\x04\n\nLogRequest\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x18 \x01(\x0b\x32\x0e.common.Device\x12\x19\n\x04user\x18\x07 \x03(\x0b\x32\x0b.event.User\x12\x32\n\x11\x63ohort_membership\x18\x08 \x03(\x0b\x32\x17.event.CohortMembership\x12\x19\n\x04view\x18\x0b \x03(\x0b\x32\x0b.event.View\x12\"\n\tauto_view\x18\x19 \x03(\x0b\x32\x0f.event.AutoView\x12\"\n\x07request\x18\x0c \x03(\x0b\x32\x11.delivery.Request\x12&\n\tinsertion\x18\r \x03(\x0b\x32\x13.delivery.Insertion\x12%\n\nimpression\x18\x0e \x03(\x0b\x32\x11.event.Impression\x12\x1d\n\x06\x61\x63tion\x18\x0f \x03(\x0b\x32\r.event.Action\x12\'\n\x0b\x64iagnostics\x18\x17 \x03(\x0b\x32\x12.event.DiagnosticsJ\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07J\x04\x08\t\x10\nJ\x04\x08\n\x10\x0bJ\x04\x08\x10\x10\x11J\x04\x08\x11\x10\x12J\x04\x08\x12\x10\x13J\x04\x08\x13\x10\x17*c\n\x14IdentifierProvenance\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04NULL\x10\x01\x12\t\n\x05\x45MPTY\x10\x02\x12\x11\n\rAUTOGENERATED\x10\x03\x12\x16\n\x12PLATFORM_SPECIFIED\x10\x04*j\n\tCohortArm\x12\x11\n\rUNKNOWN_GROUP\x10\x00\x12\x0b\n\x07\x43ONTROL\x10\x01\x12\r\n\tTREATMENT\x10\x02\x12\x0e\n\nTREATMENT1\x10\x03\x12\x0e\n\nTREATMENT2\x10\x04\x12\x0e\n\nTREATMENT3\x10\x05*\\\n\x14ImpressionSourceType\x12\"\n\x1eUNKNOWN_IMPRESSION_SOURCE_TYPE\x10\x00\x12\x0c\n\x08\x44\x45LIVERY\x10\x01\x12\x12\n\x0e\x43LIENT_BACKEND\x10\x02*\x9f\x02\n\nActionType\x12\x17\n\x13UNKNOWN_ACTION_TYPE\x10\x00\x12\x16\n\x12\x43USTOM_ACTION_TYPE\x10\x01\x12\x0c\n\x08NAVIGATE\x10\x02\x12\x0f\n\x0b\x41\x44\x44_TO_CART\x10\x04\x12\x14\n\x10REMOVE_FROM_CART\x10\n\x12\x0c\n\x08\x43HECKOUT\x10\x08\x12\x0c\n\x08PURCHASE\x10\x03\x12\t\n\x05SHARE\x10\x05\x12\x08\n\x04LIKE\x10\x06\x12\n\n\x06UNLIKE\x10\t\x12\x0b\n\x07\x43OMMENT\x10\x07\x12\x0e\n\nMAKE_OFFER\x10\x0b\x12\x10\n\x0c\x41SK_QUESTION\x10\x0c\x12\x13\n\x0f\x41NSWER_QUESTION\x10\r\x12\x14\n\x10\x43OMPLETE_SIGN_IN\x10\x0e\x12\x14\n\x10\x43OMPLETE_SIGN_UP\x10\x0f\x42\"\n\x17\x61i.promoted.proto.eventB\x05\x45ventP\x01\x62\x06proto3'
   ,
   dependencies=[proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_delivery__pb2.DESCRIPTOR,])
 
@@ -61,8 +61,8 @@ _IDENTIFIERPROVENANCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4437,
-  serialized_end=4536,
+  serialized_start=5141,
+  serialized_end=5240,
 )
 _sym_db.RegisterEnumDescriptor(_IDENTIFIERPROVENANCE)
 
@@ -107,8 +107,8 @@ _COHORTARM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4538,
-  serialized_end=4644,
+  serialized_start=5242,
+  serialized_end=5348,
 )
 _sym_db.RegisterEnumDescriptor(_COHORTARM)
 
@@ -138,8 +138,8 @@ _IMPRESSIONSOURCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4646,
-  serialized_end=4738,
+  serialized_start=5350,
+  serialized_end=5442,
 )
 _sym_db.RegisterEnumDescriptor(_IMPRESSIONSOURCETYPE)
 
@@ -234,8 +234,8 @@ _ACTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4741,
-  serialized_end=5028,
+  serialized_start=5445,
+  serialized_end=5732,
 )
 _sym_db.RegisterEnumDescriptor(_ACTIONTYPE)
 
@@ -799,6 +799,120 @@ _VIEW = _descriptor.Descriptor(
 )
 
 
+_AUTOVIEW = _descriptor.Descriptor(
+  name='AutoView',
+  full_name='event.AutoView',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='platform_id', full_name='event.AutoView.platform_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_info', full_name='event.AutoView.user_info', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timing', full_name='event.AutoView.timing', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='client_info', full_name='event.AutoView.client_info', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='auto_view_id', full_name='event.AutoView.auto_view_id', index=4,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='session_id', full_name='event.AutoView.session_id', index=5,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='event.AutoView.name', index=6,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='use_case', full_name='event.AutoView.use_case', index=7,
+      number=9, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='properties', full_name='event.AutoView.properties', index=8,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='locale', full_name='event.AutoView.locale', index=9,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='web_page_view', full_name='event.AutoView.web_page_view', index=10,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='app_screen_view', full_name='event.AutoView.app_screen_view', index=11,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='ui_type', full_name='event.AutoView.ui_type',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1838,
+  serialized_end=2255,
+)
+
+
 _IMPRESSION = _descriptor.Descriptor(
   name='Impression',
   full_name='event.Impression',
@@ -864,28 +978,42 @@ _IMPRESSION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='session_id', full_name='event.Impression.session_id', index=8,
+      name='auto_view_id', full_name='event.Impression.auto_view_id', index=8,
+      number=15, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='session_id', full_name='event.Impression.session_id', index=9,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='content_id', full_name='event.Impression.content_id', index=9,
+      name='content_id', full_name='event.Impression.content_id', index=10,
       number=12, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='source_type', full_name='event.Impression.source_type', index=10,
+      name='source_type', full_name='event.Impression.source_type', index=11,
       number=13, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='properties', full_name='event.Impression.properties', index=11,
+      name='has_superimposed_views', full_name='event.Impression.has_superimposed_views', index=12,
+      number=14, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='properties', full_name='event.Impression.properties', index=13,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -903,8 +1031,8 @@ _IMPRESSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1838,
-  serialized_end=2199,
+  serialized_start=2258,
+  serialized_end=2673,
 )
 
 
@@ -935,8 +1063,8 @@ _NAVIGATEACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2201,
-  serialized_end=2237,
+  serialized_start=2675,
+  serialized_end=2711,
 )
 
 
@@ -1012,56 +1140,70 @@ _ACTION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='session_id', full_name='event.Action.session_id', index=9,
+      name='auto_view_id', full_name='event.Action.auto_view_id', index=9,
+      number=23, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='session_id', full_name='event.Action.session_id', index=10,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='content_id', full_name='event.Action.content_id', index=10,
+      name='content_id', full_name='event.Action.content_id', index=11,
       number=21, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='name', full_name='event.Action.name', index=11,
+      name='name', full_name='event.Action.name', index=12,
       number=12, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='action_type', full_name='event.Action.action_type', index=12,
+      name='action_type', full_name='event.Action.action_type', index=13,
       number=14, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='custom_action_type', full_name='event.Action.custom_action_type', index=13,
+      name='custom_action_type', full_name='event.Action.custom_action_type', index=14,
       number=15, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='element_id', full_name='event.Action.element_id', index=14,
+      name='element_id', full_name='event.Action.element_id', index=15,
       number=17, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='navigate_action', full_name='event.Action.navigate_action', index=15,
+      name='navigate_action', full_name='event.Action.navigate_action', index=16,
       number=18, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='properties', full_name='event.Action.properties', index=16,
+      name='has_superimposed_views', full_name='event.Action.has_superimposed_views', index=17,
+      number=22, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='properties', full_name='event.Action.properties', index=18,
       number=20, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1084,8 +1226,8 @@ _ACTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2240,
-  serialized_end=2746,
+  serialized_start=2714,
+  serialized_end=3274,
 )
 
 
@@ -1137,8 +1279,8 @@ _IOSERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2748,
-  serialized_end=2831,
+  serialized_start=3276,
+  serialized_end=3359,
 )
 
 
@@ -1176,8 +1318,8 @@ _ERRORHISTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2833,
-  serialized_end=2906,
+  serialized_start=3361,
+  serialized_end=3434,
 )
 
 
@@ -1218,7 +1360,14 @@ _ANCESTORIDHISTORYITEM = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='batch_number', full_name='event.AncestorIdHistoryItem.batch_number', index=4,
+      name='auto_view_event', full_name='event.AncestorIdHistoryItem.auto_view_event', index=4,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='batch_number', full_name='event.AncestorIdHistoryItem.batch_number', index=5,
       number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1241,8 +1390,8 @@ _ANCESTORIDHISTORYITEM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2909,
-  serialized_end=3099,
+  serialized_start=3437,
+  serialized_end=3671,
 )
 
 
@@ -1296,6 +1445,20 @@ _ANCESTORIDHISTORY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='auto_view_id_history', full_name='event.AncestorIdHistory.auto_view_id_history', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_auto_view_ids_logged', full_name='event.AncestorIdHistory.total_auto_view_ids_logged', index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1308,8 +1471,8 @@ _ANCESTORIDHISTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3102,
-  serialized_end=3393,
+  serialized_start=3674,
+  serialized_end=4061,
 )
 
 
@@ -1389,8 +1552,8 @@ _MOBILEDIAGNOSTICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3396,
-  serialized_end=3690,
+  serialized_start=4064,
+  serialized_end=4358,
 )
 
 
@@ -1454,8 +1617,8 @@ _DIAGNOSTICS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3693,
-  serialized_end=3916,
+  serialized_start=4361,
+  serialized_end=4584,
 )
 
 
@@ -1524,35 +1687,42 @@ _LOGREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request', full_name='event.LogRequest.request', index=8,
+      name='auto_view', full_name='event.LogRequest.auto_view', index=8,
+      number=25, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request', full_name='event.LogRequest.request', index=9,
       number=12, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='insertion', full_name='event.LogRequest.insertion', index=9,
+      name='insertion', full_name='event.LogRequest.insertion', index=10,
       number=13, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='impression', full_name='event.LogRequest.impression', index=10,
+      name='impression', full_name='event.LogRequest.impression', index=11,
       number=14, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='action', full_name='event.LogRequest.action', index=11,
+      name='action', full_name='event.LogRequest.action', index=12,
       number=15, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='diagnostics', full_name='event.LogRequest.diagnostics', index=12,
+      name='diagnostics', full_name='event.LogRequest.diagnostics', index=13,
       number=23, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1570,8 +1740,8 @@ _LOGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3919,
-  serialized_end=4435,
+  serialized_start=4587,
+  serialized_end=5139,
 )
 
 _IDENTIFIERPROVENANCES.fields_by_name['user_id_provenance'].enum_type = _IDENTIFIERPROVENANCE
@@ -1607,6 +1777,20 @@ _VIEW.fields_by_name['web_page_view'].containing_oneof = _VIEW.oneofs_by_name['u
 _VIEW.oneofs_by_name['ui_type'].fields.append(
   _VIEW.fields_by_name['app_screen_view'])
 _VIEW.fields_by_name['app_screen_view'].containing_oneof = _VIEW.oneofs_by_name['ui_type']
+_AUTOVIEW.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
+_AUTOVIEW.fields_by_name['timing'].message_type = proto_dot_common_dot_common__pb2._TIMING
+_AUTOVIEW.fields_by_name['client_info'].message_type = proto_dot_common_dot_common__pb2._CLIENTINFO
+_AUTOVIEW.fields_by_name['use_case'].enum_type = proto_dot_delivery_dot_delivery__pb2._USECASE
+_AUTOVIEW.fields_by_name['properties'].message_type = proto_dot_common_dot_common__pb2._PROPERTIES
+_AUTOVIEW.fields_by_name['locale'].message_type = proto_dot_common_dot_common__pb2._LOCALE
+_AUTOVIEW.fields_by_name['web_page_view'].message_type = _WEBPAGEVIEW
+_AUTOVIEW.fields_by_name['app_screen_view'].message_type = _APPSCREENVIEW
+_AUTOVIEW.oneofs_by_name['ui_type'].fields.append(
+  _AUTOVIEW.fields_by_name['web_page_view'])
+_AUTOVIEW.fields_by_name['web_page_view'].containing_oneof = _AUTOVIEW.oneofs_by_name['ui_type']
+_AUTOVIEW.oneofs_by_name['ui_type'].fields.append(
+  _AUTOVIEW.fields_by_name['app_screen_view'])
+_AUTOVIEW.fields_by_name['app_screen_view'].containing_oneof = _AUTOVIEW.oneofs_by_name['ui_type']
 _IMPRESSION.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
 _IMPRESSION.fields_by_name['timing'].message_type = proto_dot_common_dot_common__pb2._TIMING
 _IMPRESSION.fields_by_name['client_info'].message_type = proto_dot_common_dot_common__pb2._CLIENTINFO
@@ -1624,6 +1808,7 @@ _ACTION.fields_by_name['navigate_action'].containing_oneof = _ACTION.oneofs_by_n
 _ERRORHISTORY.fields_by_name['ios_errors'].message_type = _IOSERROR
 _ANCESTORIDHISTORYITEM.fields_by_name['user_event'].message_type = _USER
 _ANCESTORIDHISTORYITEM.fields_by_name['view_event'].message_type = _VIEW
+_ANCESTORIDHISTORYITEM.fields_by_name['auto_view_event'].message_type = _AUTOVIEW
 _ANCESTORIDHISTORYITEM.oneofs_by_name['logged_event'].fields.append(
   _ANCESTORIDHISTORYITEM.fields_by_name['user_event'])
 _ANCESTORIDHISTORYITEM.fields_by_name['user_event'].containing_oneof = _ANCESTORIDHISTORYITEM.oneofs_by_name['logged_event']
@@ -1633,9 +1818,13 @@ _ANCESTORIDHISTORYITEM.fields_by_name['session_id_from_user_event'].containing_o
 _ANCESTORIDHISTORYITEM.oneofs_by_name['logged_event'].fields.append(
   _ANCESTORIDHISTORYITEM.fields_by_name['view_event'])
 _ANCESTORIDHISTORYITEM.fields_by_name['view_event'].containing_oneof = _ANCESTORIDHISTORYITEM.oneofs_by_name['logged_event']
+_ANCESTORIDHISTORYITEM.oneofs_by_name['logged_event'].fields.append(
+  _ANCESTORIDHISTORYITEM.fields_by_name['auto_view_event'])
+_ANCESTORIDHISTORYITEM.fields_by_name['auto_view_event'].containing_oneof = _ANCESTORIDHISTORYITEM.oneofs_by_name['logged_event']
 _ANCESTORIDHISTORY.fields_by_name['log_user_id_history'].message_type = _ANCESTORIDHISTORYITEM
 _ANCESTORIDHISTORY.fields_by_name['session_id_history'].message_type = _ANCESTORIDHISTORYITEM
 _ANCESTORIDHISTORY.fields_by_name['view_id_history'].message_type = _ANCESTORIDHISTORYITEM
+_ANCESTORIDHISTORY.fields_by_name['auto_view_id_history'].message_type = _ANCESTORIDHISTORYITEM
 _MOBILEDIAGNOSTICS.fields_by_name['error_history'].message_type = _ERRORHISTORY
 _MOBILEDIAGNOSTICS.fields_by_name['ancestor_id_history'].message_type = _ANCESTORIDHISTORY
 _DIAGNOSTICS.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
@@ -1652,6 +1841,7 @@ _LOGREQUEST.fields_by_name['device'].message_type = proto_dot_common_dot_common_
 _LOGREQUEST.fields_by_name['user'].message_type = _USER
 _LOGREQUEST.fields_by_name['cohort_membership'].message_type = _COHORTMEMBERSHIP
 _LOGREQUEST.fields_by_name['view'].message_type = _VIEW
+_LOGREQUEST.fields_by_name['auto_view'].message_type = _AUTOVIEW
 _LOGREQUEST.fields_by_name['request'].message_type = proto_dot_delivery_dot_delivery__pb2._REQUEST
 _LOGREQUEST.fields_by_name['insertion'].message_type = proto_dot_delivery_dot_delivery__pb2._INSERTION
 _LOGREQUEST.fields_by_name['impression'].message_type = _IMPRESSION
@@ -1664,6 +1854,7 @@ DESCRIPTOR.message_types_by_name['CohortMembership'] = _COHORTMEMBERSHIP
 DESCRIPTOR.message_types_by_name['WebPageView'] = _WEBPAGEVIEW
 DESCRIPTOR.message_types_by_name['AppScreenView'] = _APPSCREENVIEW
 DESCRIPTOR.message_types_by_name['View'] = _VIEW
+DESCRIPTOR.message_types_by_name['AutoView'] = _AUTOVIEW
 DESCRIPTOR.message_types_by_name['Impression'] = _IMPRESSION
 DESCRIPTOR.message_types_by_name['NavigateAction'] = _NAVIGATEACTION
 DESCRIPTOR.message_types_by_name['Action'] = _ACTION
@@ -1728,6 +1919,13 @@ View = _reflection.GeneratedProtocolMessageType('View', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:event.View)
   })
 _sym_db.RegisterMessage(View)
+
+AutoView = _reflection.GeneratedProtocolMessageType('AutoView', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOVIEW,
+  '__module__' : 'proto.event.event_pb2'
+  # @@protoc_insertion_point(class_scope:event.AutoView)
+  })
+_sym_db.RegisterMessage(AutoView)
 
 Impression = _reflection.GeneratedProtocolMessageType('Impression', (_message.Message,), {
   'DESCRIPTOR' : _IMPRESSION,

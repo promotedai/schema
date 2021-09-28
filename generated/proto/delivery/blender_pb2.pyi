@@ -11,17 +11,19 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
-# See: https://github.com/promotedai/blender for README
-# Next ID = 11.
 class BlenderRule(google.protobuf.message.Message):
+    """See: https://github.com/promotedai/blender for README
+    Next ID = 11.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
     POSITIVE_RULE_FIELD_NUMBER: builtins.int
     INSERT_RULE_FIELD_NUMBER: builtins.int
     NEGATIVE_RULE_FIELD_NUMBER: builtins.int
     DIVERSITY_RULE_FIELD_NUMBER: builtins.int
-    # The name of item attribute that this rule applies to. It may be a JSON key path.
     attribute_name: typing.Text = ...
+    """The name of item attribute that this rule applies to. It may be a JSON key path."""
+
     @property
     def positive_rule(self) -> global___PositiveRule: ...
     @property
@@ -43,8 +45,8 @@ class BlenderRule(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal[u"rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["positive_rule","insert_rule","negative_rule","diversity_rule"]]: ...
 global___BlenderRule = BlenderRule
 
-# Next ID = 4.
 class PositiveRule(google.protobuf.message.Message):
+    """Next ID = 4."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     SELECT_PCT_FIELD_NUMBER: builtins.int
     MIN_POS_FIELD_NUMBER: builtins.int
@@ -68,8 +70,8 @@ class PositiveRule(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal[u"_select_pct",b"_select_pct"]) -> typing.Optional[typing_extensions.Literal["select_pct"]]: ...
 global___PositiveRule = PositiveRule
 
-# Next ID = 4.
 class InsertRule(google.protobuf.message.Message):
+    """Next ID = 4."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     SELECT_PCT_FIELD_NUMBER: builtins.int
     MIN_POS_FIELD_NUMBER: builtins.int
@@ -93,8 +95,8 @@ class InsertRule(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal[u"_select_pct",b"_select_pct"]) -> typing.Optional[typing_extensions.Literal["select_pct"]]: ...
 global___InsertRule = InsertRule
 
-# Next ID = 6.
 class NegativeRule(google.protobuf.message.Message):
+    """Next ID = 6."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLUCK_PCT_FIELD_NUMBER: builtins.int
     FORBID_LESS_POS_FIELD_NUMBER: builtins.int
@@ -128,8 +130,8 @@ class NegativeRule(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal[u"_pluck_pct",b"_pluck_pct"]) -> typing.Optional[typing_extensions.Literal["pluck_pct"]]: ...
 global___NegativeRule = NegativeRule
 
-# Next ID = 2.
 class DiversityRule(google.protobuf.message.Message):
+    """Next ID = 2."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     MULTI_FIELD_NUMBER: builtins.int
     multi: builtins.float = ...
@@ -142,14 +144,15 @@ class DiversityRule(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal[u"_multi",b"_multi"]) -> typing.Optional[typing_extensions.Literal["multi"]]: ...
 global___DiversityRule = DiversityRule
 
-# Next ID = 3.
 class BlenderConfig(google.protobuf.message.Message):
+    """Next ID = 3."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     BLENDER_RULE_FIELD_NUMBER: builtins.int
     QUALITY_SCORE_CONFIG_FIELD_NUMBER: builtins.int
-    # List of blender rules.
     @property
-    def blender_rule(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BlenderRule]: ...
+    def blender_rule(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BlenderRule]:
+        """List of blender rules."""
+        pass
     @property
     def quality_score_config(self) -> global___QualityScoreConfig: ...
     def __init__(self,
@@ -161,9 +164,10 @@ class BlenderConfig(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"blender_rule",b"blender_rule",u"quality_score_config",b"quality_score_config"]) -> None: ...
 global___BlenderConfig = BlenderConfig
 
-# See: https://github.com/promotedai/qualityscore
-# Next ID = 2.
 class QualityScoreConfig(google.protobuf.message.Message):
+    """See: https://github.com/promotedai/qualityscore
+    Next ID = 2.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     WEIGHTED_SUM_TERM_FIELD_NUMBER: builtins.int
     @property
@@ -175,8 +179,8 @@ class QualityScoreConfig(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal[u"weighted_sum_term",b"weighted_sum_term"]) -> None: ...
 global___QualityScoreConfig = QualityScoreConfig
 
-# Next ID = 14.
 class QualityScoreTerm(google.protobuf.message.Message):
+    """Next ID = 14."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
     RANDOM_NORMAL_FIELD_NUMBER: builtins.int
@@ -185,22 +189,30 @@ class QualityScoreTerm(google.protobuf.message.Message):
     FETCH_LOW_FIELD_NUMBER: builtins.int
     WEIGHT_FIELD_NUMBER: builtins.int
     OFFSET_FIELD_NUMBER: builtins.int
-    # A named vector provided from elsewhere.
     attribute_name: typing.Text = ...
-    # Randomly generated values from a normal distribution.
+    """A named vector provided from elsewhere."""
+
     @property
-    def random_normal(self) -> global___NormalDistribution: ...
-    # A constant value of ones. Set to any constant with offset and/or weight.
-    # Set to "true" to indicate that this option is set by convention.
+    def random_normal(self) -> global___NormalDistribution:
+        """Randomly generated values from a normal distribution."""
+        pass
     ones: builtins.bool = ...
-    # Maximum limit of underlying value (before weight and offset).
+    """A constant value of ones. Set to any constant with offset and/or weight.
+    Set to "true" to indicate that this option is set by convention.
+    """
+
     fetch_high: builtins.float = ...
-    # Minimum limit of underlying value (before weight and offset).
+    """Maximum limit of underlying value (before weight and offset)."""
+
     fetch_low: builtins.float = ...
-    # Multiply by this value. default =1 (no multiply).
+    """Minimum limit of underlying value (before weight and offset)."""
+
     weight: builtins.float = ...
-    # Add by this value. default = 0 (no addition)
+    """Multiply by this value. default =1 (no multiply)."""
+
     offset: builtins.float = ...
+    """Add by this value. default = 0 (no addition)"""
+
     def __init__(self,
         *,
         attribute_name : typing.Text = ...,
@@ -221,8 +233,8 @@ class QualityScoreTerm(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal[u"fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","random_normal","ones"]]: ...
 global___QualityScoreTerm = QualityScoreTerm
 
-# Next ID = 3.
 class NormalDistribution(google.protobuf.message.Message):
+    """Next ID = 3."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     MEAN_FIELD_NUMBER: builtins.int
     VARIANCE_FIELD_NUMBER: builtins.int
