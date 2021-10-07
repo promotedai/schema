@@ -7,6 +7,7 @@ option java_outer_classname = "Event";
 
 import "proto/common/common.proto";
 import "proto/delivery/delivery.proto";
+import "proto/delivery/execution.proto";
 
 // We do not need this yet.
 // import "proto/promotion/promotion.proto";
@@ -160,7 +161,7 @@ message AppScreenView {
 }
 
 // A view of a single page/screen (e.g. feed, search results, etc).
-// Next ID = 17.
+// Next ID = 18.
 message View {
 
   // Optional.  If not set, set by API servers.
@@ -183,6 +184,9 @@ message View {
   // SDKs usually handles this automatically. For details, see
   // https://github.com/promotedai/schema#setting-primary-keys
   string view_id = 6;
+  
+  // Optional.  Do not set this outside the client SDK.
+  string auto_view_id = 17;
 
   // Optional.
   string session_id = 7;
@@ -224,7 +228,7 @@ message View {
 // An automatically generated view logged by web and mobile SDKs.
 // Platform clients should never log this directly. Let the SDKs
 // handle this instead.
-// Next ID = 14.
+// Next ID = 15.
 message AutoView {
 
   // Optional.  If not set, set by API servers.
@@ -247,6 +251,9 @@ message AutoView {
   // SDKs usually handles this automatically. For details, see
   // https://github.com/promotedai/schema#setting-primary-keys
   string auto_view_id = 6;
+  
+  // Optional.  Do not set this outside the client SDK.
+  string view_id = 14;
 
   // Optional.
   string session_id = 7;
@@ -604,11 +611,14 @@ message LogRequest {
   // If not set, API server uses the value set on each log record.
   uint64 platform_id = 1;
 
-  // Optional.  Must be set on each child log record or here.
+  // Optional.  This field is a default user_info to use on all log records
+  // on this LogRequest.  Must be set here or on each child log record.
+  // Clients need to validate that the user_info fields match the actual user.
   common.UserInfo user_info = 2;
 
-  // Optional.  If not set, set by API servers.
-  // If not set, API server uses the value set on each log record.
+  // Optional.  This field is a default timing to use on all log records
+  // on this LogRequest.  If neither the log record timing or LogRequest
+  // timing is set, then Promoted's API creates one.
   common.Timing timing = 3;
 
   // Optional.
@@ -631,7 +641,7 @@ message LogRequest {
   repeated Action action = 15;
   reserved 16;
   reserved 17;
-  reserved 18;
+  repeated delivery.DeliveryLog delivery_log = 18;
   reserved 19 to 22;
   repeated Diagnostics diagnostics = 23;
 }
