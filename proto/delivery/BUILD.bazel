@@ -11,8 +11,9 @@ load("@rules_proto_grpc//python:defs.bzl", "python_grpc_compile")
 proto_library(
     name = "delivery_proto",
     srcs = [
-      "delivery.proto",
       "blender.proto",
+      "delivery.proto",
+      "execution.proto",
     ],
     visibility = ["//visibility:public"],
     deps = [
@@ -51,8 +52,9 @@ java_proto_library(
 py_proto_library(
     name = "delivery_py_proto",
     srcs = [
-      "delivery.proto",
       "blender.proto",
+      "delivery.proto",
+      "execution.proto",
     ],
     visibility = ["//visibility:public"],
     deps = [

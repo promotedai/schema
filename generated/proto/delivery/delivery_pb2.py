@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from proto.common import common_pb2 as proto_dot_common_dot_common__pb2
 from proto.delivery import blender_pb2 as proto_dot_delivery_dot_blender__pb2
 
@@ -23,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\010DeliveryP\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\"\xea\x03\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x12 \x01(\x0b\x32\x0e.common.Device\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12 \n\x06paging\x18\x11 \x01(\x0b\x32\x10.delivery.Paging\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12/\n\x0e\x62lender_config\x18\x0c \x01(\x0b\x32\x17.delivery.BlenderConfig\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x0f\x10\x10\"Y\n\x06Paging\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x05\x12\x10\n\x06\x63ursor\x18\x03 \x01(\tH\x00\x12\x10\n\x06offset\x18\x04 \x01(\x05H\x00\x42\n\n\x08starting\"c\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.Insertion\x12)\n\x0bpaging_info\x18\x03 \x01(\x0b\x32\x14.delivery.PagingInfoJ\x04\x08\x01\x10\x02\"/\n\nPagingInfo\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0e\n\x06\x63ursor\x18\x02 \x01(\t\"\xc9\x03\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x15\n\x08position\x18\x0c \x01(\x04H\x00\x88\x01\x01\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.Properties\x12\x1b\n\x0eretrieval_rank\x18\x13 \x01(\x04H\x01\x88\x01\x01\x12\x1c\n\x0fretrieval_score\x18\x14 \x01(\x02H\x02\x88\x01\x01\x42\x0b\n\t_positionB\x11\n\x0f_retrieval_rankB\x12\n\x10_retrieval_scoreJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x10\x10\x11J\x04\x08\x11\x10\x12J\x04\x08\x12\x10\x13*\xda\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\n\x12\x0c\n\x08\x44ISCOVER\x10\x0b\x42(\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\"\xea\x03\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x12 \x01(\x0b\x32\x0e.common.Device\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12 \n\x06paging\x18\x11 \x01(\x0b\x32\x10.delivery.Paging\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12/\n\x0e\x62lender_config\x18\x0c \x01(\x0b\x32\x17.delivery.BlenderConfig\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x0f\x10\x10\"Y\n\x06Paging\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x05\x12\x10\n\x06\x63ursor\x18\x03 \x01(\tH\x00\x12\x10\n\x06offset\x18\x04 \x01(\x05H\x00\x42\n\n\x08starting\"c\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.Insertion\x12)\n\x0bpaging_info\x18\x03 \x01(\x0b\x32\x14.delivery.PagingInfoJ\x04\x08\x01\x10\x02\"/\n\nPagingInfo\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0e\n\x06\x63ursor\x18\x02 \x01(\t\"\xc9\x03\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x15\n\x08position\x18\x0c \x01(\x04H\x00\x88\x01\x01\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.Properties\x12\x1b\n\x0eretrieval_rank\x18\x13 \x01(\x04H\x01\x88\x01\x01\x12\x1c\n\x0fretrieval_score\x18\x14 \x01(\x02H\x02\x88\x01\x01\x42\x0b\n\t_positionB\x11\n\x0f_retrieval_rankB\x12\n\x10_retrieval_scoreJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x10\x10\x11J\x04\x08\x11\x10\x12J\x04\x08\x12\x10\x13*\xda\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\n\x12\x0c\n\x08\x44ISCOVER\x10\x0b\x42(\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01\x62\x06proto3'
   ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_blender__pb2.DESCRIPTOR,])
+  dependencies=[proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_blender__pb2.DESCRIPTOR,])
 
 _USECASE = _descriptor.EnumDescriptor(
   name='UseCase',
@@ -97,8 +96,8 @@ _USECASE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1325,
-  serialized_end=1543,
+  serialized_start=1295,
+  serialized_end=1513,
 )
 _sym_db.RegisterEnumDescriptor(_USECASE)
 
@@ -243,8 +242,8 @@ _REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=131,
-  serialized_end=621,
+  serialized_start=101,
+  serialized_end=591,
 )
 
 
@@ -301,8 +300,8 @@ _PAGING = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=623,
-  serialized_end=712,
+  serialized_start=593,
+  serialized_end=682,
 )
 
 
@@ -340,8 +339,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=714,
-  serialized_end=813,
+  serialized_start=684,
+  serialized_end=783,
 )
 
 
@@ -379,8 +378,8 @@ _PAGINGINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=815,
-  serialized_end=862,
+  serialized_start=785,
+  serialized_end=832,
 )
 
 
@@ -510,8 +509,8 @@ _INSERTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=865,
-  serialized_end=1322,
+  serialized_start=835,
+  serialized_end=1292,
 )
 
 _REQUEST.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO

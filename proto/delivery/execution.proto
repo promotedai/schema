@@ -1,0 +1,46 @@
+syntax = "proto3";
+package delivery;
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.delivery";
+option java_outer_classname = "DeliveryExecutionLog";
+import "proto/delivery/delivery.proto";
+
+// The system repsonsible for doing delivery.
+// Next ID = 4
+enum ExecutionServer {
+  UNKNOWN_EXECUTION_SERVER = 0;
+
+  // The SDK did delivery because the API failed or was not called for any reason.
+  SDK = 2;
+  reserved 3;
+}
+
+// Full execution details of a single Delivery hit: Request->Execution->Response.
+// Next ID = 5.
+message DeliveryLog {
+  // As used by Delivery. May be set by Delivery per server environment.
+  uint64 platform_id = 1;
+
+  // Should be exactly what Delivery API received as input.
+  // request.insertion will be filled in if client does retrieval.
+  Request request = 2;
+
+  // Should be exactly what Delivery API sent as output.
+  // response.insertion will be filled in with the paged response.
+  Response response = 3;
+
+  DeliveryExecution execution = 4;
+}
+
+// Contains the inner execution details for a Delivery call.
+// Next ID = 6.
+message DeliveryExecution {
+
+  // Where delivery happened, i.e. via the SDK or some approach on the API side.
+  ExecutionServer execution_server = 2;
+  reserved 1;
+  reserved 3;
+  reserved 4;
+  reserved 5;
+}
