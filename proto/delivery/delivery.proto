@@ -11,7 +11,7 @@ import "proto/delivery/blender.proto";
 // Can be used to log existing ranking (not Promoted) or Promoted's Delivery
 // API requests.
 //
-// Next ID = 19.
+// Next ID = 20.
 message Request {
 
   // Optional.  If not set, set by API servers.
@@ -40,6 +40,9 @@ message Request {
 
   // Required.
   string view_id = 7;
+
+  // Required.
+  string auto_view_id = 19;
 
   // Optional.
   string session_id = 8;
@@ -158,7 +161,7 @@ enum UseCase {
 
 // This Event represents a Content being served at a certain position regardless
 // of it was views by a user. Insertions are immutable.
-// Next ID = 21.
+// Next ID = 22.
 message Insertion {
 
   // Optional.  If not set, set by API servers.
@@ -185,6 +188,9 @@ message Insertion {
 
   // Optional.
   string view_id = 9;
+
+  // Optional.
+  string auto_view_id = 21;
 
   // Optional.
   string session_id = 8;

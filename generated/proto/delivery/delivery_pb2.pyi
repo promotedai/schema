@@ -61,7 +61,7 @@ class Request(google.protobuf.message.Message):
     Can be used to log existing ranking (not Promoted) or Promoted's Delivery
     API requests.
 
-    Next ID = 19.
+    Next ID = 20.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
@@ -71,6 +71,7 @@ class Request(google.protobuf.message.Message):
     DEVICE_FIELD_NUMBER: builtins.int
     REQUEST_ID_FIELD_NUMBER: builtins.int
     VIEW_ID_FIELD_NUMBER: builtins.int
+    AUTO_VIEW_ID_FIELD_NUMBER: builtins.int
     SESSION_ID_FIELD_NUMBER: builtins.int
     CLIENT_REQUEST_ID_FIELD_NUMBER: builtins.int
     USE_CASE_FIELD_NUMBER: builtins.int
@@ -109,6 +110,9 @@ class Request(google.protobuf.message.Message):
     """
 
     view_id: typing.Text = ...
+    """Required."""
+
+    auto_view_id: typing.Text = ...
     """Required."""
 
     session_id: typing.Text = ...
@@ -160,6 +164,7 @@ class Request(google.protobuf.message.Message):
         device : typing.Optional[proto.common.common_pb2.Device] = ...,
         request_id : typing.Text = ...,
         view_id : typing.Text = ...,
+        auto_view_id : typing.Text = ...,
         session_id : typing.Text = ...,
         client_request_id : typing.Text = ...,
         use_case : global___UseCase.V = ...,
@@ -169,8 +174,8 @@ class Request(google.protobuf.message.Message):
         blender_config : typing.Optional[proto.delivery.blender_pb2.BlenderConfig] = ...,
         properties : typing.Optional[proto.common.common_pb2.Properties] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal[u"blender_config",b"blender_config",u"client_info",b"client_info",u"device",b"device",u"paging",b"paging",u"properties",b"properties",u"timing",b"timing",u"user_info",b"user_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"blender_config",b"blender_config",u"client_info",b"client_info",u"client_request_id",b"client_request_id",u"device",b"device",u"insertion",b"insertion",u"paging",b"paging",u"platform_id",b"platform_id",u"properties",b"properties",u"request_id",b"request_id",u"search_query",b"search_query",u"session_id",b"session_id",u"timing",b"timing",u"use_case",b"use_case",u"user_info",b"user_info",u"view_id",b"view_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["blender_config",b"blender_config","client_info",b"client_info","device",b"device","paging",b"paging","properties",b"properties","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_view_id",b"auto_view_id","blender_config",b"blender_config","client_info",b"client_info","client_request_id",b"client_request_id","device",b"device","insertion",b"insertion","paging",b"paging","platform_id",b"platform_id","properties",b"properties","request_id",b"request_id","search_query",b"search_query","session_id",b"session_id","timing",b"timing","use_case",b"use_case","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
 global___Request = Request
 
 class Paging(google.protobuf.message.Message):
@@ -211,9 +216,9 @@ class Paging(google.protobuf.message.Message):
         cursor : typing.Text = ...,
         offset : builtins.int = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal[u"cursor",b"cursor",u"offset",b"offset",u"starting",b"starting"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"cursor",b"cursor",u"offset",b"offset",u"paging_id",b"paging_id",u"size",b"size",u"starting",b"starting"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"starting",b"starting"]) -> typing.Optional[typing_extensions.Literal["cursor","offset"]]: ...
+    def HasField(self, field_name: typing_extensions.Literal["cursor",b"cursor","offset",b"offset","starting",b"starting"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cursor",b"cursor","offset",b"offset","paging_id",b"paging_id","size",b"size","starting",b"starting"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["starting",b"starting"]) -> typing.Optional[typing_extensions.Literal["cursor","offset"]]: ...
 global___Paging = Paging
 
 class Response(google.protobuf.message.Message):
@@ -234,8 +239,8 @@ class Response(google.protobuf.message.Message):
         insertion : typing.Optional[typing.Iterable[global___Insertion]] = ...,
         paging_info : typing.Optional[global___PagingInfo] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal[u"paging_info",b"paging_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"insertion",b"insertion",u"paging_info",b"paging_info"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["paging_info",b"paging_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["insertion",b"insertion","paging_info",b"paging_info"]) -> None: ...
 global___Response = Response
 
 class PagingInfo(google.protobuf.message.Message):
@@ -256,13 +261,13 @@ class PagingInfo(google.protobuf.message.Message):
         paging_id : typing.Text = ...,
         cursor : typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"cursor",b"cursor",u"paging_id",b"paging_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cursor",b"cursor","paging_id",b"paging_id"]) -> None: ...
 global___PagingInfo = PagingInfo
 
 class Insertion(google.protobuf.message.Message):
     """This Event represents a Content being served at a certain position regardless
     of it was views by a user. Insertions are immutable.
-    Next ID = 21.
+    Next ID = 22.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
@@ -272,6 +277,7 @@ class Insertion(google.protobuf.message.Message):
     INSERTION_ID_FIELD_NUMBER: builtins.int
     REQUEST_ID_FIELD_NUMBER: builtins.int
     VIEW_ID_FIELD_NUMBER: builtins.int
+    AUTO_VIEW_ID_FIELD_NUMBER: builtins.int
     SESSION_ID_FIELD_NUMBER: builtins.int
     CONTENT_ID_FIELD_NUMBER: builtins.int
     POSITION_FIELD_NUMBER: builtins.int
@@ -305,6 +311,9 @@ class Insertion(google.protobuf.message.Message):
     view_id: typing.Text = ...
     """Optional."""
 
+    auto_view_id: typing.Text = ...
+    """Optional."""
+
     session_id: typing.Text = ...
     """Optional."""
 
@@ -336,6 +345,7 @@ class Insertion(google.protobuf.message.Message):
         insertion_id : typing.Text = ...,
         request_id : typing.Text = ...,
         view_id : typing.Text = ...,
+        auto_view_id : typing.Text = ...,
         session_id : typing.Text = ...,
         content_id : typing.Text = ...,
         position : builtins.int = ...,
@@ -343,12 +353,12 @@ class Insertion(google.protobuf.message.Message):
         retrieval_rank : builtins.int = ...,
         retrieval_score : builtins.float = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal[u"_position",b"_position",u"_retrieval_rank",b"_retrieval_rank",u"_retrieval_score",b"_retrieval_score",u"client_info",b"client_info",u"position",b"position",u"properties",b"properties",u"retrieval_rank",b"retrieval_rank",u"retrieval_score",b"retrieval_score",u"timing",b"timing",u"user_info",b"user_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal[u"_position",b"_position",u"_retrieval_rank",b"_retrieval_rank",u"_retrieval_score",b"_retrieval_score",u"client_info",b"client_info",u"content_id",b"content_id",u"insertion_id",b"insertion_id",u"platform_id",b"platform_id",u"position",b"position",u"properties",b"properties",u"request_id",b"request_id",u"retrieval_rank",b"retrieval_rank",u"retrieval_score",b"retrieval_score",u"session_id",b"session_id",u"timing",b"timing",u"user_info",b"user_info",u"view_id",b"view_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_position",b"_position","_retrieval_rank",b"_retrieval_rank","_retrieval_score",b"_retrieval_score","client_info",b"client_info","position",b"position","properties",b"properties","retrieval_rank",b"retrieval_rank","retrieval_score",b"retrieval_score","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_position",b"_position","_retrieval_rank",b"_retrieval_rank","_retrieval_score",b"_retrieval_score","auto_view_id",b"auto_view_id","client_info",b"client_info","content_id",b"content_id","insertion_id",b"insertion_id","platform_id",b"platform_id","position",b"position","properties",b"properties","request_id",b"request_id","retrieval_rank",b"retrieval_rank","retrieval_score",b"retrieval_score","session_id",b"session_id","timing",b"timing","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"_position",b"_position"]) -> typing.Optional[typing_extensions.Literal["position"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_position",b"_position"]) -> typing.Optional[typing_extensions.Literal["position"]]: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"_retrieval_rank",b"_retrieval_rank"]) -> typing.Optional[typing_extensions.Literal["retrieval_rank"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_retrieval_rank",b"_retrieval_rank"]) -> typing.Optional[typing_extensions.Literal["retrieval_rank"]]: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal[u"_retrieval_score",b"_retrieval_score"]) -> typing.Optional[typing_extensions.Literal["retrieval_score"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_retrieval_score",b"_retrieval_score"]) -> typing.Optional[typing_extensions.Literal["retrieval_score"]]: ...
 global___Insertion = Insertion
