@@ -11,8 +11,8 @@ setup(
     author='Dan Hill',
     author_email='dhill@promoted.ai',
     url='https://github.com/promotedai/schema',
-    package_dir={'': 'generated/py'},
-    packages=find_packages('generated/py'),
+    package_dir={'': 'generated'},
+    packages=find_packages('generated'),
     install_requires=[],
     package_data={
         '': ['*.pyi', 'py.typed', '*/*.pyi', '*/*/*.pyi'],
