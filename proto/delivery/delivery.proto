@@ -4,6 +4,8 @@ package delivery;
 option java_multiple_files = true;
 option java_package = "ai.promoted.proto.delivery";
 option java_outer_classname = "Delivery";
+option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
+
 import "proto/common/common.proto";
 import "proto/delivery/blender.proto";
 
@@ -34,7 +36,7 @@ message Request {
   reserved 5; // Reserving fields for future common fields.
 
   // Optional.  Primary key.
-  // SDKs usually handles this automatically. For details, see
+  // Delivery sets this automatically. For details, see
   // https://github.com/promotedai/schema#setting-primary-keys
   string request_id = 6;
 
@@ -155,13 +157,19 @@ enum UseCase {
   DISCOVER = 11;
 }
 
+// Define Model Type
+// Next ID = 4
+
+
+
+
 
 
 
 
 // This Event represents a Content being served at a certain position regardless
 // of it was views by a user. Insertions are immutable.
-// Next ID = 22.
+// Next ID = 23.
 message Insertion {
 
   // Optional.  If not set, set by API servers.
@@ -216,6 +224,8 @@ message Insertion {
   reserved 16;
   reserved 17;
   reserved 18;
+
+  reserved 22;
 
   // Optional. Ranking (if known) of this insertion from the retrieval system.
   optional uint64 retrieval_rank = 19;
