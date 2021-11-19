@@ -4,9 +4,10 @@ package common;
 option java_multiple_files = true;
 option java_package = "ai.promoted.proto.common";
 option java_outer_classname = "CommonProto";
-
+option go_package = "github.com/promotedai/schema/generated/go/proto/common";
 import "google/protobuf/struct.proto";
 
+// Next ID = 7.
 message EntityPath {
   uint64 platform_id = 1;
   uint64 customer_id = 2;
@@ -16,6 +17,7 @@ message EntityPath {
   uint64 content_id = 3;
 }
 
+// Next ID = 21.
 enum CurrencyCode {
   UNKNOWN_CURRENCY_CODE = 0;
   USD = 1;
@@ -171,6 +173,7 @@ message Device {
 
 // https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
 // A newer alternative to user agent strings.
+// Next ID = 8.
 message ClientHints {
   bool is_mobile = 1;
   repeated ClientHintBrand brand = 2;
@@ -183,6 +186,7 @@ message ClientHints {
 
 // https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
 // a part of ClientHints.
+// Next ID = 3.
 message ClientHintBrand {
   string brand = 1;
   string version = 2;

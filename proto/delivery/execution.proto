@@ -4,6 +4,8 @@ package delivery;
 option java_multiple_files = true;
 option java_package = "ai.promoted.proto.delivery";
 option java_outer_classname = "DeliveryExecutionLog";
+option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
+
 import "proto/delivery/delivery.proto";
 
 // The system repsonsible for doing delivery.
@@ -34,7 +36,7 @@ message DeliveryLog {
 }
 
 // Contains the inner execution details for a Delivery call.
-// Next ID = 6.
+// Next ID = 7.
 message DeliveryExecution {
 
   // Where delivery happened, i.e. via the SDK or some approach on the API side.
@@ -43,4 +45,6 @@ message DeliveryExecution {
   reserved 3;
   reserved 4;
   reserved 5;
+
+  // list of model definition, referenced by score in feature_stage
 }
