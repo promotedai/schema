@@ -4,6 +4,7 @@ package event;
 option java_multiple_files = true;
 option java_package = "ai.promoted.proto.event";
 option java_outer_classname = "Event";
+option go_package = "github.com/promotedai/schema/generated/go/proto/event";
 
 import "proto/common/common.proto";
 import "proto/delivery/delivery.proto";
@@ -17,7 +18,7 @@ import "proto/delivery/execution.proto";
 
 // This structure is used to help deduplicate identifiers that live in many
 // event types.
-// Next ID = 9.
+// Next ID = 10.
 message JoinedIdentifiers {
   uint64 platform_id = 1;
   string user_id = 2;
@@ -25,6 +26,7 @@ message JoinedIdentifiers {
 
   string session_id = 4;
   string view_id = 5;
+  string auto_view_id = 9;
   string request_id = 6;
   string insertion_id = 7;
   string impression_id = 8;
@@ -47,13 +49,12 @@ enum IdentifierProvenance {
 
 // Diagnostics message indicating where each of an event's IDs originated
 // from in metrics client library.
-// This message is passed through the properties field of User, Impression,
-// View, and Action protos as serialized bytes.
-// Next ID = 8;
+// Next ID = 9;
 message IdentifierProvenances {
   IdentifierProvenance user_id_provenance = 1;
   IdentifierProvenance session_id_provenance = 2;
   IdentifierProvenance view_id_provenance = 3;
+  IdentifierProvenance auto_view_id_provenance = 8;
   IdentifierProvenance impression_id_provenance = 4;
   IdentifierProvenance action_id_provenance = 5;
   IdentifierProvenance content_id_provenance = 6;
@@ -64,7 +65,7 @@ message IdentifierProvenances {
 // Clients can update each User multiple times by logging the User with the same
 // user_id.  Unset fields will not be updated. Repeated fields will act like a
 // merge if the item has a key.  Otherwise, it'll act like an append.
-// Next ID = 7.
+// Next ID = 8.
 message User {
 
   // Optional.  If not set, set by API servers.
@@ -82,6 +83,9 @@ message User {
   common.ClientInfo client_info = 4;
 
   reserved 5; // Reserving fields for future common fields.
+
+  // Optional.  Used for debugging.
+  IdentifierProvenances id_provenances = 7;
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 6;
@@ -161,7 +165,7 @@ message AppScreenView {
 }
 
 // A view of a single page/screen (e.g. feed, search results, etc).
-// Next ID = 18.
+// Next ID = 19.
 message View {
 
   // Optional.  If not set, set by API servers.
@@ -223,12 +227,15 @@ message View {
     WebPageView web_page_view = 14;
     AppScreenView app_screen_view = 15;
   }
+
+  // Optional.  Used for debugging.
+  IdentifierProvenances id_provenances = 18;
 }
 
 // An automatically generated view logged by web and mobile SDKs.
 // Platform clients should never log this directly. Let the SDKs
 // handle this instead.
-// Next ID = 15.
+// Next ID = 16.
 message AutoView {
 
   // Optional.  If not set, set by API servers.
@@ -275,6 +282,9 @@ message AutoView {
     WebPageView web_page_view = 12;
     AppScreenView app_screen_view = 13;
   }
+
+  // Optional.  Used for debugging.
+  IdentifierProvenances id_provenances = 15;
 }
 
 // Contextual information about where impression was served.
@@ -291,9 +301,23 @@ enum ImpressionSourceType {
   CLIENT_BACKEND = 2;
 }
 
+// Represents a position in a list view, most commonly used with
+// mobile clients (though it can apply to web too).
+// The indexes represent a zero-based hierarchical path of sections,
+// subsections, and items. For example:
+// [2] -> Item at index 2 in a flat list
+// [0, 1] -> Section 0, item 1 in a sectioned list
+// [0, 1, 5] -> Section 0, subsection 1, item 5 in a sectioned list
+// Next ID = 2.
+message IndexPath {
+
+  // Index of item in path.
+  repeated int32 index = 1;
+}
+
 // When an Insertion (instance of Content) is shown to a user.
 // Impressions are immutable.
-// Next ID = 16.
+// Next ID = 18.
 message Impression {
 
   // Optional.  If not set, set by API servers.
@@ -343,6 +367,12 @@ message Impression {
   // not be topmost in the view hierarchy, and thus may have been obscured
   // from the user.
   bool has_superimposed_views = 14;
+  
+  // Optional. Position the the impression within its enclosing list.
+  IndexPath client_position = 16;
+
+  // Optional.  Used for debugging.
+  IdentifierProvenances id_provenances = 17;
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 11;
@@ -411,7 +441,7 @@ message NavigateAction {
 
 // Actions are user actions.  Example: Click.
 // Actions are immutable.
-// Next ID = 24.
+// Next ID = 26.
 message Action {
 
   // Optional.  If not set, set by API servers.
@@ -480,6 +510,12 @@ message Action {
   // Optional. Indicates that this action occurred in a view that may
   // not be topmost in the view hierarchy.
   bool has_superimposed_views = 22;
+  
+  // Optional. Position the the action within its enclosing list.
+  IndexPath client_position = 24;
+
+  // Optional.  Used for debugging.
+  IdentifierProvenances id_provenances = 25;
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 20;

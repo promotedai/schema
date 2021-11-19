@@ -105,7 +105,7 @@ class Request(google.protobuf.message.Message):
         pass
     request_id: typing.Text = ...
     """Optional.  Primary key.
-    SDKs usually handles this automatically. For details, see
+    Delivery sets this automatically. For details, see
     https://github.com/promotedai/schema#setting-primary-keys
     """
 
@@ -265,9 +265,12 @@ class PagingInfo(google.protobuf.message.Message):
 global___PagingInfo = PagingInfo
 
 class Insertion(google.protobuf.message.Message):
-    """This Event represents a Content being served at a certain position regardless
+    """Define Model Type
+    Next ID = 4
+
+    This Event represents a Content being served at a certain position regardless
     of it was views by a user. Insertions are immutable.
-    Next ID = 22.
+    Next ID = 23.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int

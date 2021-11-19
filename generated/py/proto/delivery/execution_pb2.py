@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/delivery/execution.proto',
   package='delivery',
   syntax='proto3',
-  serialized_options=b'\n\032ai.promoted.proto.deliveryB\024DeliveryExecutionLogP\001',
+  serialized_options=b'\n\032ai.promoted.proto.deliveryB\024DeliveryExecutionLogP\001Z8github.com/promotedai/schema/generated/go/proto/delivery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1eproto/delivery/execution.proto\x12\x08\x64\x65livery\x1a\x1dproto/delivery/delivery.proto\"\x9c\x01\n\x0b\x44\x65liveryLog\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\"\n\x07request\x18\x02 \x01(\x0b\x32\x11.delivery.Request\x12$\n\x08response\x18\x03 \x01(\x0b\x32\x12.delivery.Response\x12.\n\texecution\x18\x04 \x01(\x0b\x32\x1b.delivery.DeliveryExecution\"`\n\x11\x44\x65liveryExecution\x12\x33\n\x10\x65xecution_server\x18\x02 \x01(\x0e\x32\x19.delivery.ExecutionServerJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06*>\n\x0f\x45xecutionServer\x12\x1c\n\x18UNKNOWN_EXECUTION_SERVER\x10\x00\x12\x07\n\x03SDK\x10\x02\"\x04\x08\x03\x10\x03\x42\x34\n\x1a\x61i.promoted.proto.deliveryB\x14\x44\x65liveryExecutionLogP\x01\x62\x06proto3'
+  serialized_pb=b'\n\x1eproto/delivery/execution.proto\x12\x08\x64\x65livery\x1a\x1dproto/delivery/delivery.proto\"\x9c\x01\n\x0b\x44\x65liveryLog\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\"\n\x07request\x18\x02 \x01(\x0b\x32\x11.delivery.Request\x12$\n\x08response\x18\x03 \x01(\x0b\x32\x12.delivery.Response\x12.\n\texecution\x18\x04 \x01(\x0b\x32\x1b.delivery.DeliveryExecution\"`\n\x11\x44\x65liveryExecution\x12\x33\n\x10\x65xecution_server\x18\x02 \x01(\x0e\x32\x19.delivery.ExecutionServerJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06*>\n\x0f\x45xecutionServer\x12\x1c\n\x18UNKNOWN_EXECUTION_SERVER\x10\x00\x12\x07\n\x03SDK\x10\x02\"\x04\x08\x03\x10\x03\x42n\n\x1a\x61i.promoted.proto.deliveryB\x14\x44\x65liveryExecutionLogP\x01Z8github.com/promotedai/schema/generated/go/proto/deliveryb\x06proto3'
   ,
   dependencies=[proto_dot_delivery_dot_delivery__pb2.DESCRIPTOR,])
 

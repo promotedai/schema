@@ -14,6 +14,7 @@ import typing_extensions
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
 class CurrencyCode(_CurrencyCode, metaclass=_CurrencyCodeEnumTypeWrapper):
+    """Next ID = 21."""
     pass
 class _CurrencyCode:
     V = typing.NewType('V', builtins.int)
@@ -85,6 +86,7 @@ global___DeviceType = DeviceType
 
 
 class EntityPath(google.protobuf.message.Message):
+    """Next ID = 7."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     CUSTOMER_ID_FIELD_NUMBER: builtins.int
@@ -367,6 +369,7 @@ global___Device = Device
 class ClientHints(google.protobuf.message.Message):
     """https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
     A newer alternative to user agent strings.
+    Next ID = 8.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     IS_MOBILE_FIELD_NUMBER: builtins.int
@@ -400,6 +403,7 @@ global___ClientHints = ClientHints
 class ClientHintBrand(google.protobuf.message.Message):
     """https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0
     a part of ClientHints.
+    Next ID = 3.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     BRAND_FIELD_NUMBER: builtins.int
