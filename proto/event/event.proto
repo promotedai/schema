@@ -49,12 +49,14 @@ enum IdentifierProvenance {
 
 // Diagnostics message indicating where each of an event's IDs originated
 // from in metrics client library.
-// Next ID = 9;
+// Next ID = 11;
 message IdentifierProvenances {
   IdentifierProvenance user_id_provenance = 1;
+  IdentifierProvenance log_user_id_provenance = 9;
   IdentifierProvenance session_id_provenance = 2;
   IdentifierProvenance view_id_provenance = 3;
   IdentifierProvenance auto_view_id_provenance = 8;
+  IdentifierProvenance insertion_id_provenance = 10;
   IdentifierProvenance impression_id_provenance = 4;
   IdentifierProvenance action_id_provenance = 5;
   IdentifierProvenance content_id_provenance = 6;

@@ -81,8 +81,7 @@ jobs:
         # Generate Python library on both push and pull_requests
         id: generate_py_and_golang
         run: |
-          ./generate-python.sh -s || exit 1
-          ./generate-go.sh -s || exit 1
+          ./scripts/generate.sh -s || exit 1
           git remote set-url origin https://x-access-token:${{ secrets.PROMOTED_PUBLIC_DEPLOYER_GITHUB_ACTIONS }}@github.com/${{ github.repository }}
           git config user.name prm-deployer
           git config user.email prm-deployer@promoted.ai

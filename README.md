@@ -56,11 +56,7 @@ This builds all targets to `schema/bazel-bin/proto`, which can be copied or insp
 
 This is now done by Github actions automatically. To run manually for testing, see the example below.
 ```
-pip install mypy-protobuf
-cd /path/to/schema
-protoc --mypy_out=generated proto/delivery/blender.proto
-protoc --mypy_out=generated proto/delivery/delivery.proto
-touch generated/proto/py.typed
+./scripts/generate-python.sh
 ```
 
 Commit changes as normal.
