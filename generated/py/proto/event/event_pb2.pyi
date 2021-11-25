@@ -275,21 +275,25 @@ global___JoinedIdentifiers = JoinedIdentifiers
 class IdentifierProvenances(google.protobuf.message.Message):
     """Diagnostics message indicating where each of an event's IDs originated
     from in metrics client library.
-    Next ID = 9;
+    Next ID = 11;
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_ID_PROVENANCE_FIELD_NUMBER: builtins.int
+    LOG_USER_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     SESSION_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     VIEW_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     AUTO_VIEW_ID_PROVENANCE_FIELD_NUMBER: builtins.int
+    INSERTION_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     IMPRESSION_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     ACTION_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     CONTENT_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     REQUEST_ID_PROVENANCE_FIELD_NUMBER: builtins.int
     user_id_provenance: global___IdentifierProvenance.V = ...
+    log_user_id_provenance: global___IdentifierProvenance.V = ...
     session_id_provenance: global___IdentifierProvenance.V = ...
     view_id_provenance: global___IdentifierProvenance.V = ...
     auto_view_id_provenance: global___IdentifierProvenance.V = ...
+    insertion_id_provenance: global___IdentifierProvenance.V = ...
     impression_id_provenance: global___IdentifierProvenance.V = ...
     action_id_provenance: global___IdentifierProvenance.V = ...
     content_id_provenance: global___IdentifierProvenance.V = ...
@@ -297,15 +301,17 @@ class IdentifierProvenances(google.protobuf.message.Message):
     def __init__(self,
         *,
         user_id_provenance : global___IdentifierProvenance.V = ...,
+        log_user_id_provenance : global___IdentifierProvenance.V = ...,
         session_id_provenance : global___IdentifierProvenance.V = ...,
         view_id_provenance : global___IdentifierProvenance.V = ...,
         auto_view_id_provenance : global___IdentifierProvenance.V = ...,
+        insertion_id_provenance : global___IdentifierProvenance.V = ...,
         impression_id_provenance : global___IdentifierProvenance.V = ...,
         action_id_provenance : global___IdentifierProvenance.V = ...,
         content_id_provenance : global___IdentifierProvenance.V = ...,
         request_id_provenance : global___IdentifierProvenance.V = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action_id_provenance",b"action_id_provenance","auto_view_id_provenance",b"auto_view_id_provenance","content_id_provenance",b"content_id_provenance","impression_id_provenance",b"impression_id_provenance","request_id_provenance",b"request_id_provenance","session_id_provenance",b"session_id_provenance","user_id_provenance",b"user_id_provenance","view_id_provenance",b"view_id_provenance"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action_id_provenance",b"action_id_provenance","auto_view_id_provenance",b"auto_view_id_provenance","content_id_provenance",b"content_id_provenance","impression_id_provenance",b"impression_id_provenance","insertion_id_provenance",b"insertion_id_provenance","log_user_id_provenance",b"log_user_id_provenance","request_id_provenance",b"request_id_provenance","session_id_provenance",b"session_id_provenance","user_id_provenance",b"user_id_provenance","view_id_provenance",b"view_id_provenance"]) -> None: ...
 global___IdentifierProvenances = IdentifierProvenances
 
 class User(google.protobuf.message.Message):
