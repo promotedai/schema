@@ -8,12 +8,6 @@ on:
       - "release/**"
       - "hotfix/**"
   pull_request:
-    branches:
-      - develop
-      - main
-      - master
-      - "release/**"
-      - "hotfix/**"
 
 name: Build protos
 
@@ -63,7 +57,8 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-          bazel sync --configure
+          # If you hit any cache issues, either delete the cache or enable this line.
+          # bazel sync --configure
           bazel build ...
 
       - uses: actions/setup-python@v2.3.0

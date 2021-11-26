@@ -36,7 +36,7 @@ message DeliveryLog {
 }
 
 // Contains the inner execution details for a Delivery call.
-// Next ID = 7.
+// Next ID = 8.
 message DeliveryExecution {
 
   // Where delivery happened, i.e. via the SDK or some approach on the API side.
@@ -46,5 +46,9 @@ message DeliveryExecution {
   reserved 4;
   reserved 5;
 
-  // list of model definition, referenced by score in feature_stage
+  reserved 6;
+
+  // Version of the execution server, for example a commit hash
+  // or public repo release version.
+  string ExecutionServerVersion = 7;
 }
