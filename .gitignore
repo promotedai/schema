@@ -7,3 +7,5 @@ bin
 .ijwb
 .idea
 .local
+.DS_Store
+.history

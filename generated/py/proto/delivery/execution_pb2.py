@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\024DeliveryExecutionLogP\001Z8github.com/promotedai/schema/generated/go/proto/delivery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1eproto/delivery/execution.proto\x12\x08\x64\x65livery\x1a\x1dproto/delivery/delivery.proto\"\x9c\x01\n\x0b\x44\x65liveryLog\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\"\n\x07request\x18\x02 \x01(\x0b\x32\x11.delivery.Request\x12$\n\x08response\x18\x03 \x01(\x0b\x32\x12.delivery.Response\x12.\n\texecution\x18\x04 \x01(\x0b\x32\x1b.delivery.DeliveryExecution\"`\n\x11\x44\x65liveryExecution\x12\x33\n\x10\x65xecution_server\x18\x02 \x01(\x0e\x32\x19.delivery.ExecutionServerJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06*>\n\x0f\x45xecutionServer\x12\x1c\n\x18UNKNOWN_EXECUTION_SERVER\x10\x00\x12\x07\n\x03SDK\x10\x02\"\x04\x08\x03\x10\x03\x42n\n\x1a\x61i.promoted.proto.deliveryB\x14\x44\x65liveryExecutionLogP\x01Z8github.com/promotedai/schema/generated/go/proto/deliveryb\x06proto3'
+  serialized_pb=b'\n\x1eproto/delivery/execution.proto\x12\x08\x64\x65livery\x1a\x1dproto/delivery/delivery.proto\"\x9c\x01\n\x0b\x44\x65liveryLog\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\"\n\x07request\x18\x02 \x01(\x0b\x32\x11.delivery.Request\x12$\n\x08response\x18\x03 \x01(\x0b\x32\x12.delivery.Response\x12.\n\texecution\x18\x04 \x01(\x0b\x32\x1b.delivery.DeliveryExecution\"\x86\x01\n\x11\x44\x65liveryExecution\x12\x33\n\x10\x65xecution_server\x18\x02 \x01(\x0e\x32\x19.delivery.ExecutionServer\x12\x1e\n\x16\x45xecutionServerVersion\x18\x07 \x01(\tJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07*>\n\x0f\x45xecutionServer\x12\x1c\n\x18UNKNOWN_EXECUTION_SERVER\x10\x00\x12\x07\n\x03SDK\x10\x02\"\x04\x08\x03\x10\x03\x42n\n\x1a\x61i.promoted.proto.deliveryB\x14\x44\x65liveryExecutionLogP\x01Z8github.com/promotedai/schema/generated/go/proto/deliveryb\x06proto3'
   ,
   dependencies=[proto_dot_delivery_dot_delivery__pb2.DESCRIPTOR,])
 
@@ -45,8 +45,8 @@ _EXECUTIONSERVER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=332,
-  serialized_end=394,
+  serialized_start=371,
+  serialized_end=433,
 )
 _sym_db.RegisterEnumDescriptor(_EXECUTIONSERVER)
 
@@ -124,6 +124,13 @@ _DELIVERYEXECUTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ExecutionServerVersion', full_name='delivery.DeliveryExecution.ExecutionServerVersion', index=1,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -136,8 +143,8 @@ _DELIVERYEXECUTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=330,
+  serialized_start=235,
+  serialized_end=369,
 )
 
 _DELIVERYLOG.fields_by_name['request'].message_type = proto_dot_delivery_dot_delivery__pb2._REQUEST
