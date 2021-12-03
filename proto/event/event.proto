@@ -604,10 +604,12 @@ message MobileDiagnostics {
   string device_identifier = 1;
 
   // Version identifier for client app.
-  string client_version = 2;
+  // DEPRECATED: Use the field on common.Device instead.
+  string client_version = 2 [deprecated = true];
 
   // Version of Promoted library.
-  string promoted_library_version = 3;
+  // DEPRECATED: Use the field on common.Device instead.
+  string promoted_library_version = 3 [deprecated = true];
 
   // Number of batch logs attempted.
   int32 batches_attempted = 4;

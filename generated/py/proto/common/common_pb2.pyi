@@ -291,7 +291,7 @@ global___Screen = Screen
 
 class Device(google.protobuf.message.Message):
     """A sub-message containing Device info.
-    Next ID = 11.
+    Next ID = 13.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     DEVICE_TYPE_FIELD_NUMBER: builtins.int
@@ -304,6 +304,8 @@ class Device(google.protobuf.message.Message):
     IP_ADDRESS_FIELD_NUMBER: builtins.int
     LOCATION_FIELD_NUMBER: builtins.int
     BROWSER_FIELD_NUMBER: builtins.int
+    PLATFORM_APP_VERSION_FIELD_NUMBER: builtins.int
+    PROMOTED_MOBILE_SDK_VERSION_FIELD_NUMBER: builtins.int
     device_type: global___DeviceType.V = ...
     brand: typing.Text = ...
     """Android: android.os.Build.BRAND
@@ -349,6 +351,12 @@ class Device(google.protobuf.message.Message):
     def browser(self) -> global___Browser:
         """Optional. Information about the user's web client (on web or mobile browser)."""
         pass
+    platform_app_version: typing.Text = ...
+    """Optional. Version string for platform app."""
+
+    promoted_mobile_sdk_version: typing.Text = ...
+    """Optional. Version string for mobile SDK."""
+
     def __init__(self,
         *,
         device_type : global___DeviceType.V = ...,
@@ -361,9 +369,11 @@ class Device(google.protobuf.message.Message):
         ip_address : typing.Text = ...,
         location : typing.Optional[global___Location] = ...,
         browser : typing.Optional[global___Browser] = ...,
+        platform_app_version : typing.Text = ...,
+        promoted_mobile_sdk_version : typing.Text = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["browser",b"browser","locale",b"locale","location",b"location","screen",b"screen"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["brand",b"brand","browser",b"browser","device_type",b"device_type","identifier",b"identifier","ip_address",b"ip_address","locale",b"locale","location",b"location","manufacturer",b"manufacturer","os_version",b"os_version","screen",b"screen"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["brand",b"brand","browser",b"browser","device_type",b"device_type","identifier",b"identifier","ip_address",b"ip_address","locale",b"locale","location",b"location","manufacturer",b"manufacturer","os_version",b"os_version","platform_app_version",b"platform_app_version","promoted_mobile_sdk_version",b"promoted_mobile_sdk_version","screen",b"screen"]) -> None: ...
 global___Device = Device
 
 class ClientHints(google.protobuf.message.Message):

@@ -130,7 +130,7 @@ message Screen {
 }
 
 // A sub-message containing Device info.
-// Next ID = 11.
+// Next ID = 13.
 message Device {
   DeviceType device_type = 1;
 
@@ -169,6 +169,12 @@ message Device {
 
   // Optional. Information about the user's web client (on web or mobile browser).
   Browser browser = 10;
+
+  // Optional. Version string for platform app.
+  string platform_app_version = 11;
+
+  // Optional. Version string for mobile SDK.
+  string promoted_mobile_sdk_version = 12;
 }
 
 // https://raw.githubusercontent.com/snowplow/iglu-central/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0

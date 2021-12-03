@@ -76,11 +76,11 @@ class DeliveryExecution(google.protobuf.message.Message):
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     EXECUTION_SERVER_FIELD_NUMBER: builtins.int
-    EXECUTIONSERVERVERSION_FIELD_NUMBER: builtins.int
+    SERVER_VERSION_FIELD_NUMBER: builtins.int
     execution_server: global___ExecutionServer.V = ...
     """Where delivery happened, i.e. via the SDK or some approach on the API side."""
 
-    ExecutionServerVersion: typing.Text = ...
+    server_version: typing.Text = ...
     """Version of the execution server, for example a commit hash
     or public repo release version.
     """
@@ -88,7 +88,7 @@ class DeliveryExecution(google.protobuf.message.Message):
     def __init__(self,
         *,
         execution_server : global___ExecutionServer.V = ...,
-        ExecutionServerVersion : typing.Text = ...,
+        server_version : typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ExecutionServerVersion",b"ExecutionServerVersion","execution_server",b"execution_server"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["execution_server",b"execution_server","server_version",b"server_version"]) -> None: ...
 global___DeliveryExecution = DeliveryExecution
