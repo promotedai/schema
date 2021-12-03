@@ -1131,10 +1131,14 @@ class MobileDiagnostics(google.protobuf.message.Message):
     """Unique identifier for device sending this message."""
 
     client_version: typing.Text = ...
-    """Version identifier for client app."""
+    """Version identifier for client app.
+    DEPRECATED: Use the field on common.Device instead.
+    """
 
     promoted_library_version: typing.Text = ...
-    """Version of Promoted library."""
+    """Version of Promoted library.
+    DEPRECATED: Use the field on common.Device instead.
+    """
 
     batches_attempted: builtins.int = ...
     """Number of batch logs attempted."""

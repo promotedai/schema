@@ -50,5 +50,5 @@ message DeliveryExecution {
 
   // Version of the execution server, for example a commit hash
   // or public repo release version.
-  string ExecutionServerVersion = 7;
+  string server_version = 7;
 }
