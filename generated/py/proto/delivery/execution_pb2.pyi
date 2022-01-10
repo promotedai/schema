@@ -12,22 +12,23 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
+class _ExecutionServer:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _ExecutionServerEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ExecutionServer.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+    UNKNOWN_EXECUTION_SERVER: ExecutionServer.ValueType = ...  # 0
+    SDK: ExecutionServer.ValueType = ...  # 2
+    """The SDK did delivery because the API failed or was not called for any reason."""
+
 class ExecutionServer(_ExecutionServer, metaclass=_ExecutionServerEnumTypeWrapper):
     """The system repsonsible for doing delivery.
     Next ID = 4
     """
     pass
-class _ExecutionServer:
-    V = typing.NewType('V', builtins.int)
-class _ExecutionServerEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ExecutionServer.V], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    UNKNOWN_EXECUTION_SERVER = ExecutionServer.V(0)
-    SDK = ExecutionServer.V(2)
-    """The SDK did delivery because the API failed or was not called for any reason."""
 
-
-UNKNOWN_EXECUTION_SERVER = ExecutionServer.V(0)
-SDK = ExecutionServer.V(2)
+UNKNOWN_EXECUTION_SERVER: ExecutionServer.ValueType = ...  # 0
+SDK: ExecutionServer.ValueType = ...  # 2
 """The SDK did delivery because the API failed or was not called for any reason."""
 
 global___ExecutionServer = ExecutionServer
@@ -77,7 +78,7 @@ class DeliveryExecution(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     EXECUTION_SERVER_FIELD_NUMBER: builtins.int
     SERVER_VERSION_FIELD_NUMBER: builtins.int
-    execution_server: global___ExecutionServer.V = ...
+    execution_server: global___ExecutionServer.ValueType = ...
     """Where delivery happened, i.e. via the SDK or some approach on the API side."""
 
     server_version: typing.Text = ...
@@ -87,7 +88,7 @@ class DeliveryExecution(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        execution_server : global___ExecutionServer.V = ...,
+        execution_server : global___ExecutionServer.ValueType = ...,
         server_version : typing.Text = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["execution_server",b"execution_server","server_version",b"server_version"]) -> None: ...

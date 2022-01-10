@@ -118,9 +118,9 @@ class PositiveRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        select_pct : builtins.float = ...,
-        min_pos : builtins.int = ...,
-        max_pos : builtins.int = ...,
+        select_pct : typing.Optional[builtins.float] = ...,
+        min_pos : typing.Optional[builtins.int] = ...,
+        max_pos : typing.Optional[builtins.int] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> None: ...
@@ -198,9 +198,9 @@ class InsertRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        select_pct : builtins.float = ...,
-        min_pos : builtins.int = ...,
-        max_pos : builtins.int = ...,
+        select_pct : typing.Optional[builtins.float] = ...,
+        min_pos : typing.Optional[builtins.int] = ...,
+        max_pos : typing.Optional[builtins.int] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> None: ...
@@ -276,11 +276,11 @@ class NegativeRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        pluck_pct : builtins.float = ...,
-        forbid_less_pos : builtins.int = ...,
-        min_spacing : builtins.int = ...,
-        forbid_greater_pos : builtins.int = ...,
-        max_count : builtins.int = ...,
+        pluck_pct : typing.Optional[builtins.float] = ...,
+        forbid_less_pos : typing.Optional[builtins.int] = ...,
+        min_spacing : typing.Optional[builtins.int] = ...,
+        forbid_greater_pos : typing.Optional[builtins.int] = ...,
+        max_count : typing.Optional[builtins.int] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_forbid_greater_pos",b"_forbid_greater_pos","_forbid_less_pos",b"_forbid_less_pos","_max_count",b"_max_count","_min_spacing",b"_min_spacing","_pluck_pct",b"_pluck_pct","forbid_greater_pos",b"forbid_greater_pos","forbid_less_pos",b"forbid_less_pos","max_count",b"max_count","min_spacing",b"min_spacing","pluck_pct",b"pluck_pct"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_forbid_greater_pos",b"_forbid_greater_pos","_forbid_less_pos",b"_forbid_less_pos","_max_count",b"_max_count","_min_spacing",b"_min_spacing","_pluck_pct",b"_pluck_pct","forbid_greater_pos",b"forbid_greater_pos","forbid_less_pos",b"forbid_less_pos","max_count",b"max_count","min_spacing",b"min_spacing","pluck_pct",b"pluck_pct"]) -> None: ...
@@ -325,7 +325,7 @@ class DiversityRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        multi : builtins.float = ...,
+        multi : typing.Optional[builtins.float] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_multi",b"_multi","multi",b"multi"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_multi",b"_multi","multi",b"multi"]) -> None: ...
@@ -373,6 +373,7 @@ class QualityScoreTerm(google.protobuf.message.Message):
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
     RANDOM_NORMAL_FIELD_NUMBER: builtins.int
     ONES_FIELD_NUMBER: builtins.int
+    MULTIPLY_TERM_FIELD_NUMBER: builtins.int
     FETCH_HIGH_FIELD_NUMBER: builtins.int
     FETCH_LOW_FIELD_NUMBER: builtins.int
     WEIGHT_FIELD_NUMBER: builtins.int
@@ -389,6 +390,10 @@ class QualityScoreTerm(google.protobuf.message.Message):
     Set to "true" to indicate that this option is set by convention.
     """
 
+    @property
+    def multiply_term(self) -> global___QualityScoreTerm:
+        """Recursively evaluate terms and multiply their evaluations."""
+        pass
     fetch_high: builtins.float = ...
     """Maximum limit of underlying value (before weight and offset)."""
 
@@ -406,19 +411,20 @@ class QualityScoreTerm(google.protobuf.message.Message):
         attribute_name : typing.Text = ...,
         random_normal : typing.Optional[global___NormalDistribution] = ...,
         ones : builtins.bool = ...,
-        fetch_high : builtins.float = ...,
-        fetch_low : builtins.float = ...,
+        multiply_term : typing.Optional[global___QualityScoreTerm] = ...,
+        fetch_high : typing.Optional[builtins.float] = ...,
+        fetch_low : typing.Optional[builtins.float] = ...,
         weight : builtins.float = ...,
         offset : builtins.float = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","ones",b"ones","random_normal",b"random_normal"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","offset",b"offset","ones",b"ones","random_normal",b"random_normal","weight",b"weight"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","multiply_term",b"multiply_term","ones",b"ones","random_normal",b"random_normal"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","multiply_term",b"multiply_term","offset",b"offset","ones",b"ones","random_normal",b"random_normal","weight",b"weight"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_high",b"_fetch_high"]) -> typing.Optional[typing_extensions.Literal["fetch_high"]]: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_low",b"_fetch_low"]) -> typing.Optional[typing_extensions.Literal["fetch_low"]]: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","random_normal","ones"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","random_normal","ones","multiply_term"]]: ...
 global___QualityScoreTerm = QualityScoreTerm
 
 class NormalDistribution(google.protobuf.message.Message):
