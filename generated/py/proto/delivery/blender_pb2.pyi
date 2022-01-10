@@ -118,9 +118,9 @@ class PositiveRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        select_pct : typing.Optional[builtins.float] = ...,
-        min_pos : typing.Optional[builtins.int] = ...,
-        max_pos : typing.Optional[builtins.int] = ...,
+        select_pct : builtins.float = ...,
+        min_pos : builtins.int = ...,
+        max_pos : builtins.int = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> None: ...
@@ -198,9 +198,9 @@ class InsertRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        select_pct : typing.Optional[builtins.float] = ...,
-        min_pos : typing.Optional[builtins.int] = ...,
-        max_pos : typing.Optional[builtins.int] = ...,
+        select_pct : builtins.float = ...,
+        min_pos : builtins.int = ...,
+        max_pos : builtins.int = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> None: ...
@@ -276,11 +276,11 @@ class NegativeRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        pluck_pct : typing.Optional[builtins.float] = ...,
-        forbid_less_pos : typing.Optional[builtins.int] = ...,
-        min_spacing : typing.Optional[builtins.int] = ...,
-        forbid_greater_pos : typing.Optional[builtins.int] = ...,
-        max_count : typing.Optional[builtins.int] = ...,
+        pluck_pct : builtins.float = ...,
+        forbid_less_pos : builtins.int = ...,
+        min_spacing : builtins.int = ...,
+        forbid_greater_pos : builtins.int = ...,
+        max_count : builtins.int = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_forbid_greater_pos",b"_forbid_greater_pos","_forbid_less_pos",b"_forbid_less_pos","_max_count",b"_max_count","_min_spacing",b"_min_spacing","_pluck_pct",b"_pluck_pct","forbid_greater_pos",b"forbid_greater_pos","forbid_less_pos",b"forbid_less_pos","max_count",b"max_count","min_spacing",b"min_spacing","pluck_pct",b"pluck_pct"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_forbid_greater_pos",b"_forbid_greater_pos","_forbid_less_pos",b"_forbid_less_pos","_max_count",b"_max_count","_min_spacing",b"_min_spacing","_pluck_pct",b"_pluck_pct","forbid_greater_pos",b"forbid_greater_pos","forbid_less_pos",b"forbid_less_pos","max_count",b"max_count","min_spacing",b"min_spacing","pluck_pct",b"pluck_pct"]) -> None: ...
@@ -325,7 +325,7 @@ class DiversityRule(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        multi : typing.Optional[builtins.float] = ...,
+        multi : builtins.float = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_multi",b"_multi","multi",b"multi"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_multi",b"_multi","multi",b"multi"]) -> None: ...
@@ -412,8 +412,8 @@ class QualityScoreTerm(google.protobuf.message.Message):
         random_normal : typing.Optional[global___NormalDistribution] = ...,
         ones : builtins.bool = ...,
         multiply_term : typing.Optional[global___QualityScoreTerm] = ...,
-        fetch_high : typing.Optional[builtins.float] = ...,
-        fetch_low : typing.Optional[builtins.float] = ...,
+        fetch_high : builtins.float = ...,
+        fetch_low : builtins.float = ...,
         weight : builtins.float = ...,
         offset : builtins.float = ...,
         ) -> None: ...

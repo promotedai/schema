@@ -13,77 +13,75 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
-class _CurrencyCode:
-    ValueType = typing.NewType('ValueType', builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-class _CurrencyCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CurrencyCode.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    UNKNOWN_CURRENCY_CODE: CurrencyCode.ValueType = ...  # 0
-    USD: CurrencyCode.ValueType = ...  # 1
-    EUR: CurrencyCode.ValueType = ...  # 2
-    JPY: CurrencyCode.ValueType = ...  # 3
-    GBP: CurrencyCode.ValueType = ...  # 4
-    AUD: CurrencyCode.ValueType = ...  # 5
-    CAD: CurrencyCode.ValueType = ...  # 6
-    CHF: CurrencyCode.ValueType = ...  # 7
-    CNY: CurrencyCode.ValueType = ...  # 8
-    HKD: CurrencyCode.ValueType = ...  # 9
-    NZD: CurrencyCode.ValueType = ...  # 10
-    SEK: CurrencyCode.ValueType = ...  # 11
-    KRW: CurrencyCode.ValueType = ...  # 12
-    SGD: CurrencyCode.ValueType = ...  # 13
-    NOK: CurrencyCode.ValueType = ...  # 14
-    MXN: CurrencyCode.ValueType = ...  # 15
-    INR: CurrencyCode.ValueType = ...  # 16
-    RUB: CurrencyCode.ValueType = ...  # 17
-    ZAR: CurrencyCode.ValueType = ...  # 18
-    TRY: CurrencyCode.ValueType = ...  # 19
-    BRL: CurrencyCode.ValueType = ...  # 20
 class CurrencyCode(_CurrencyCode, metaclass=_CurrencyCodeEnumTypeWrapper):
     """Next ID = 21."""
     pass
+class _CurrencyCode:
+    V = typing.NewType('V', builtins.int)
+class _CurrencyCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CurrencyCode.V], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+    UNKNOWN_CURRENCY_CODE = CurrencyCode.V(0)
+    USD = CurrencyCode.V(1)
+    EUR = CurrencyCode.V(2)
+    JPY = CurrencyCode.V(3)
+    GBP = CurrencyCode.V(4)
+    AUD = CurrencyCode.V(5)
+    CAD = CurrencyCode.V(6)
+    CHF = CurrencyCode.V(7)
+    CNY = CurrencyCode.V(8)
+    HKD = CurrencyCode.V(9)
+    NZD = CurrencyCode.V(10)
+    SEK = CurrencyCode.V(11)
+    KRW = CurrencyCode.V(12)
+    SGD = CurrencyCode.V(13)
+    NOK = CurrencyCode.V(14)
+    MXN = CurrencyCode.V(15)
+    INR = CurrencyCode.V(16)
+    RUB = CurrencyCode.V(17)
+    ZAR = CurrencyCode.V(18)
+    TRY = CurrencyCode.V(19)
+    BRL = CurrencyCode.V(20)
 
-UNKNOWN_CURRENCY_CODE: CurrencyCode.ValueType = ...  # 0
-USD: CurrencyCode.ValueType = ...  # 1
-EUR: CurrencyCode.ValueType = ...  # 2
-JPY: CurrencyCode.ValueType = ...  # 3
-GBP: CurrencyCode.ValueType = ...  # 4
-AUD: CurrencyCode.ValueType = ...  # 5
-CAD: CurrencyCode.ValueType = ...  # 6
-CHF: CurrencyCode.ValueType = ...  # 7
-CNY: CurrencyCode.ValueType = ...  # 8
-HKD: CurrencyCode.ValueType = ...  # 9
-NZD: CurrencyCode.ValueType = ...  # 10
-SEK: CurrencyCode.ValueType = ...  # 11
-KRW: CurrencyCode.ValueType = ...  # 12
-SGD: CurrencyCode.ValueType = ...  # 13
-NOK: CurrencyCode.ValueType = ...  # 14
-MXN: CurrencyCode.ValueType = ...  # 15
-INR: CurrencyCode.ValueType = ...  # 16
-RUB: CurrencyCode.ValueType = ...  # 17
-ZAR: CurrencyCode.ValueType = ...  # 18
-TRY: CurrencyCode.ValueType = ...  # 19
-BRL: CurrencyCode.ValueType = ...  # 20
+UNKNOWN_CURRENCY_CODE = CurrencyCode.V(0)
+USD = CurrencyCode.V(1)
+EUR = CurrencyCode.V(2)
+JPY = CurrencyCode.V(3)
+GBP = CurrencyCode.V(4)
+AUD = CurrencyCode.V(5)
+CAD = CurrencyCode.V(6)
+CHF = CurrencyCode.V(7)
+CNY = CurrencyCode.V(8)
+HKD = CurrencyCode.V(9)
+NZD = CurrencyCode.V(10)
+SEK = CurrencyCode.V(11)
+KRW = CurrencyCode.V(12)
+SGD = CurrencyCode.V(13)
+NOK = CurrencyCode.V(14)
+MXN = CurrencyCode.V(15)
+INR = CurrencyCode.V(16)
+RUB = CurrencyCode.V(17)
+ZAR = CurrencyCode.V(18)
+TRY = CurrencyCode.V(19)
+BRL = CurrencyCode.V(20)
 global___CurrencyCode = CurrencyCode
 
 
-class _DeviceType:
-    ValueType = typing.NewType('ValueType', builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-class _DeviceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DeviceType.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    UNKNOWN_DEVICE_TYPE: DeviceType.ValueType = ...  # 0
-    DESKTOP: DeviceType.ValueType = ...  # 1
-    MOBILE: DeviceType.ValueType = ...  # 2
-    TABLET: DeviceType.ValueType = ...  # 3
 class DeviceType(_DeviceType, metaclass=_DeviceTypeEnumTypeWrapper):
     """Next ID = 4."""
     pass
+class _DeviceType:
+    V = typing.NewType('V', builtins.int)
+class _DeviceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DeviceType.V], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+    UNKNOWN_DEVICE_TYPE = DeviceType.V(0)
+    DESKTOP = DeviceType.V(1)
+    MOBILE = DeviceType.V(2)
+    TABLET = DeviceType.V(3)
 
-UNKNOWN_DEVICE_TYPE: DeviceType.ValueType = ...  # 0
-DESKTOP: DeviceType.ValueType = ...  # 1
-MOBILE: DeviceType.ValueType = ...  # 2
-TABLET: DeviceType.ValueType = ...  # 3
+UNKNOWN_DEVICE_TYPE = DeviceType.V(0)
+DESKTOP = DeviceType.V(1)
+MOBILE = DeviceType.V(2)
+TABLET = DeviceType.V(3)
 global___DeviceType = DeviceType
 
 
@@ -155,70 +153,68 @@ class ClientInfo(google.protobuf.message.Message):
     Next ID = 3.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    class _ClientType:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _ClientTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ClientType.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        UNKNOWN_REQUEST_CLIENT: ClientInfo.ClientType.ValueType = ...  # 0
-        PLATFORM_SERVER: ClientInfo.ClientType.ValueType = ...  # 1
-        """Your (customer) server."""
-
-        PLATFORM_CLIENT: ClientInfo.ClientType.ValueType = ...  # 2
-        """Your (customer) client."""
-
     class ClientType(_ClientType, metaclass=_ClientTypeEnumTypeWrapper):
         """Next ID = 5;"""
         pass
+    class _ClientType:
+        V = typing.NewType('V', builtins.int)
+    class _ClientTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ClientType.V], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
+        PLATFORM_SERVER = ClientInfo.ClientType.V(1)
+        """Your (customer) server."""
 
-    UNKNOWN_REQUEST_CLIENT: ClientInfo.ClientType.ValueType = ...  # 0
-    PLATFORM_SERVER: ClientInfo.ClientType.ValueType = ...  # 1
+        PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
+        """Your (customer) client."""
+
+
+    UNKNOWN_REQUEST_CLIENT = ClientInfo.ClientType.V(0)
+    PLATFORM_SERVER = ClientInfo.ClientType.V(1)
     """Your (customer) server."""
 
-    PLATFORM_CLIENT: ClientInfo.ClientType.ValueType = ...  # 2
+    PLATFORM_CLIENT = ClientInfo.ClientType.V(2)
     """Your (customer) client."""
 
-
-    class _TrafficType:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _TrafficTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TrafficType.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-        UNKNOWN_TRAFFIC_TYPE: ClientInfo.TrafficType.ValueType = ...  # 0
-        PRODUCTION: ClientInfo.TrafficType.ValueType = ...  # 1
-        """Live traffic."""
-
-        REPLAY: ClientInfo.TrafficType.ValueType = ...  # 2
-        """Replayed traffic.  We'd like similar to PRODUCTION level."""
-
-        SHADOW: ClientInfo.TrafficType.ValueType = ...  # 4
-        """Shadow traffic to delivery during logging."""
 
     class TrafficType(_TrafficType, metaclass=_TrafficTypeEnumTypeWrapper):
         """Used to indicate the type of traffic.  We can use this to prioritize resources.
         Next ID = 6.
         """
         pass
+    class _TrafficType:
+        V = typing.NewType('V', builtins.int)
+    class _TrafficTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TrafficType.V], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
+        PRODUCTION = ClientInfo.TrafficType.V(1)
+        """Live traffic."""
 
-    UNKNOWN_TRAFFIC_TYPE: ClientInfo.TrafficType.ValueType = ...  # 0
-    PRODUCTION: ClientInfo.TrafficType.ValueType = ...  # 1
+        REPLAY = ClientInfo.TrafficType.V(2)
+        """Replayed traffic.  We'd like similar to PRODUCTION level."""
+
+        SHADOW = ClientInfo.TrafficType.V(4)
+        """Shadow traffic to delivery during logging."""
+
+
+    UNKNOWN_TRAFFIC_TYPE = ClientInfo.TrafficType.V(0)
+    PRODUCTION = ClientInfo.TrafficType.V(1)
     """Live traffic."""
 
-    REPLAY: ClientInfo.TrafficType.ValueType = ...  # 2
+    REPLAY = ClientInfo.TrafficType.V(2)
     """Replayed traffic.  We'd like similar to PRODUCTION level."""
 
-    SHADOW: ClientInfo.TrafficType.ValueType = ...  # 4
+    SHADOW = ClientInfo.TrafficType.V(4)
     """Shadow traffic to delivery during logging."""
 
 
     CLIENT_TYPE_FIELD_NUMBER: builtins.int
     TRAFFIC_TYPE_FIELD_NUMBER: builtins.int
-    client_type: global___ClientInfo.ClientType.ValueType = ...
-    traffic_type: global___ClientInfo.TrafficType.ValueType = ...
+    client_type: global___ClientInfo.ClientType.V = ...
+    traffic_type: global___ClientInfo.TrafficType.V = ...
     def __init__(self,
         *,
-        client_type : global___ClientInfo.ClientType.ValueType = ...,
-        traffic_type : global___ClientInfo.TrafficType.ValueType = ...,
+        client_type : global___ClientInfo.ClientType.V = ...,
+        traffic_type : global___ClientInfo.TrafficType.V = ...,
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["client_type",b"client_type","traffic_type",b"traffic_type"]) -> None: ...
 global___ClientInfo = ClientInfo
@@ -310,7 +306,7 @@ class Device(google.protobuf.message.Message):
     BROWSER_FIELD_NUMBER: builtins.int
     PLATFORM_APP_VERSION_FIELD_NUMBER: builtins.int
     PROMOTED_MOBILE_SDK_VERSION_FIELD_NUMBER: builtins.int
-    device_type: global___DeviceType.ValueType = ...
+    device_type: global___DeviceType.V = ...
     brand: typing.Text = ...
     """Android: android.os.Build.BRAND
              (eg. "google", "verizon", "tmobile", "Samsung")
@@ -363,7 +359,7 @@ class Device(google.protobuf.message.Message):
 
     def __init__(self,
         *,
-        device_type : global___DeviceType.ValueType = ...,
+        device_type : global___DeviceType.V = ...,
         brand : typing.Text = ...,
         manufacturer : typing.Text = ...,
         identifier : typing.Text = ...,

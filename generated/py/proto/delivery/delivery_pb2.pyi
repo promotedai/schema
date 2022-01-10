@@ -14,46 +14,45 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
-class _UseCase:
-    ValueType = typing.NewType('ValueType', builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-class _UseCaseEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_UseCase.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    UNKNOWN_USE_CASE: UseCase.ValueType = ...  # 0
-    CUSTOM: UseCase.ValueType = ...  # 1
-    """Need to handle in wrapper proto."""
-
-    SEARCH: UseCase.ValueType = ...  # 2
-    SEARCH_SUGGESTIONS: UseCase.ValueType = ...  # 3
-    FEED: UseCase.ValueType = ...  # 4
-    RELATED_CONTENT: UseCase.ValueType = ...  # 5
-    CLOSE_UP: UseCase.ValueType = ...  # 6
-    CATEGORY_CONTENT: UseCase.ValueType = ...  # 7
-    MY_CONTENT: UseCase.ValueType = ...  # 8
-    MY_SAVED_CONTENT: UseCase.ValueType = ...  # 9
-    SELLER_CONTENT: UseCase.ValueType = ...  # 10
-    DISCOVER: UseCase.ValueType = ...  # 11
 class UseCase(_UseCase, metaclass=_UseCaseEnumTypeWrapper):
     """Used to indicate the client's use case.  Used on both View and Request.
 
     Next ID = 12.
     """
     pass
+class _UseCase:
+    V = typing.NewType('V', builtins.int)
+class _UseCaseEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_UseCase.V], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+    UNKNOWN_USE_CASE = UseCase.V(0)
+    CUSTOM = UseCase.V(1)
+    """Need to handle in wrapper proto."""
 
-UNKNOWN_USE_CASE: UseCase.ValueType = ...  # 0
-CUSTOM: UseCase.ValueType = ...  # 1
+    SEARCH = UseCase.V(2)
+    SEARCH_SUGGESTIONS = UseCase.V(3)
+    FEED = UseCase.V(4)
+    RELATED_CONTENT = UseCase.V(5)
+    CLOSE_UP = UseCase.V(6)
+    CATEGORY_CONTENT = UseCase.V(7)
+    MY_CONTENT = UseCase.V(8)
+    MY_SAVED_CONTENT = UseCase.V(9)
+    SELLER_CONTENT = UseCase.V(10)
+    DISCOVER = UseCase.V(11)
+
+UNKNOWN_USE_CASE = UseCase.V(0)
+CUSTOM = UseCase.V(1)
 """Need to handle in wrapper proto."""
 
-SEARCH: UseCase.ValueType = ...  # 2
-SEARCH_SUGGESTIONS: UseCase.ValueType = ...  # 3
-FEED: UseCase.ValueType = ...  # 4
-RELATED_CONTENT: UseCase.ValueType = ...  # 5
-CLOSE_UP: UseCase.ValueType = ...  # 6
-CATEGORY_CONTENT: UseCase.ValueType = ...  # 7
-MY_CONTENT: UseCase.ValueType = ...  # 8
-MY_SAVED_CONTENT: UseCase.ValueType = ...  # 9
-SELLER_CONTENT: UseCase.ValueType = ...  # 10
-DISCOVER: UseCase.ValueType = ...  # 11
+SEARCH = UseCase.V(2)
+SEARCH_SUGGESTIONS = UseCase.V(3)
+FEED = UseCase.V(4)
+RELATED_CONTENT = UseCase.V(5)
+CLOSE_UP = UseCase.V(6)
+CATEGORY_CONTENT = UseCase.V(7)
+MY_CONTENT = UseCase.V(8)
+MY_SAVED_CONTENT = UseCase.V(9)
+SELLER_CONTENT = UseCase.V(10)
+DISCOVER = UseCase.V(11)
 global___UseCase = UseCase
 
 
@@ -129,7 +128,7 @@ class Request(google.protobuf.message.Message):
     servers will set it.
     """
 
-    use_case: global___UseCase.ValueType = ...
+    use_case: global___UseCase.V = ...
     """Optional."""
 
     search_query: typing.Text = ...
@@ -168,7 +167,7 @@ class Request(google.protobuf.message.Message):
         auto_view_id : typing.Text = ...,
         session_id : typing.Text = ...,
         client_request_id : typing.Text = ...,
-        use_case : global___UseCase.ValueType = ...,
+        use_case : global___UseCase.V = ...,
         search_query : typing.Text = ...,
         paging : typing.Optional[global___Paging] = ...,
         insertion : typing.Optional[typing.Iterable[global___Insertion]] = ...,
@@ -352,10 +351,10 @@ class Insertion(google.protobuf.message.Message):
         auto_view_id : typing.Text = ...,
         session_id : typing.Text = ...,
         content_id : typing.Text = ...,
-        position : typing.Optional[builtins.int] = ...,
+        position : builtins.int = ...,
         properties : typing.Optional[proto.common.common_pb2.Properties] = ...,
-        retrieval_rank : typing.Optional[builtins.int] = ...,
-        retrieval_score : typing.Optional[builtins.float] = ...,
+        retrieval_rank : builtins.int = ...,
+        retrieval_score : builtins.float = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_position",b"_position","_retrieval_rank",b"_retrieval_rank","_retrieval_score",b"_retrieval_score","client_info",b"client_info","position",b"position","properties",b"properties","retrieval_rank",b"retrieval_rank","retrieval_score",b"retrieval_score","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_position",b"_position","_retrieval_rank",b"_retrieval_rank","_retrieval_score",b"_retrieval_score","auto_view_id",b"auto_view_id","client_info",b"client_info","content_id",b"content_id","insertion_id",b"insertion_id","platform_id",b"platform_id","position",b"position","properties",b"properties","request_id",b"request_id","retrieval_rank",b"retrieval_rank","retrieval_score",b"retrieval_score","session_id",b"session_id","timing",b"timing","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
