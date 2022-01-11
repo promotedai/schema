@@ -834,7 +834,7 @@ global___NavigateAction = NavigateAction
 class Action(google.protobuf.message.Message):
     """Actions are user actions.  Example: Click.
     Actions are immutable.
-    Next ID = 26.
+    Next ID = 27.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
@@ -858,6 +858,7 @@ class Action(google.protobuf.message.Message):
     CLIENT_POSITION_FIELD_NUMBER: builtins.int
     ID_PROVENANCES_FIELD_NUMBER: builtins.int
     PROPERTIES_FIELD_NUMBER: builtins.int
+    DEVICE_FIELD_NUMBER: builtins.int
     platform_id: builtins.int = ...
     """Optional.  If not set, set by API servers.
     If not set, API server uses LogRequest.platform_id.
@@ -937,6 +938,12 @@ class Action(google.protobuf.message.Message):
     def properties(self) -> proto.common.common_pb2.Properties:
         """Optional.  Custom properties per platform."""
         pass
+    @property
+    def device(self) -> proto.common.common_pb2.Device:
+        """Optional.  This is meant for debugging.
+        If the client is fully integrated, this does not need to be filled in.
+        """
+        pass
     def __init__(self,
         *,
         platform_id : builtins.int = ...,
@@ -960,9 +967,10 @@ class Action(google.protobuf.message.Message):
         client_position : typing.Optional[global___IndexPath] = ...,
         id_provenances : typing.Optional[global___IdentifierProvenances] = ...,
         properties : typing.Optional[proto.common.common_pb2.Properties] = ...,
+        device : typing.Optional[proto.common.common_pb2.Device] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["action",b"action","client_info",b"client_info","client_position",b"client_position","id_provenances",b"id_provenances","navigate_action",b"navigate_action","properties",b"properties","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","action_id",b"action_id","action_type",b"action_type","auto_view_id",b"auto_view_id","client_info",b"client_info","client_position",b"client_position","content_id",b"content_id","custom_action_type",b"custom_action_type","element_id",b"element_id","has_superimposed_views",b"has_superimposed_views","id_provenances",b"id_provenances","impression_id",b"impression_id","insertion_id",b"insertion_id","name",b"name","navigate_action",b"navigate_action","platform_id",b"platform_id","properties",b"properties","request_id",b"request_id","session_id",b"session_id","timing",b"timing","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["action",b"action","client_info",b"client_info","client_position",b"client_position","device",b"device","id_provenances",b"id_provenances","navigate_action",b"navigate_action","properties",b"properties","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","action_id",b"action_id","action_type",b"action_type","auto_view_id",b"auto_view_id","client_info",b"client_info","client_position",b"client_position","content_id",b"content_id","custom_action_type",b"custom_action_type","device",b"device","element_id",b"element_id","has_superimposed_views",b"has_superimposed_views","id_provenances",b"id_provenances","impression_id",b"impression_id","insertion_id",b"insertion_id","name",b"name","navigate_action",b"navigate_action","platform_id",b"platform_id","properties",b"properties","request_id",b"request_id","session_id",b"session_id","timing",b"timing","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["navigate_action"]]: ...
 global___Action = Action
 

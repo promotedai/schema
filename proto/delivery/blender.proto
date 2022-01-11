@@ -233,8 +233,10 @@ message QualityScoreTerm {
     // A constant value of ones. Set to any constant with offset and/or weight.
     // Set to "true" to indicate that this option is set by convention.
     bool ones = 3;
+    // Recursively evaluate terms and multiply their evaluations.
+    QualityScoreTerm multiply_term = 4;
   }
-  reserved 4 to 9; // Reserving fields for future fetch_method options.
+  reserved 6 to 9; // Reserving fields for future fetch_method options.
   // Maximum limit of underlying value (before weight and offset).
   optional double fetch_high = 10;
   // Minimum limit of underlying value (before weight and offset).

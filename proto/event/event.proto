@@ -443,7 +443,7 @@ message NavigateAction {
 
 // Actions are user actions.  Example: Click.
 // Actions are immutable.
-// Next ID = 26.
+// Next ID = 27.
 message Action {
 
   // Optional.  If not set, set by API servers.
@@ -521,6 +521,10 @@ message Action {
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 20;
+
+  // Optional.  This is meant for debugging.
+  // If the client is fully integrated, this does not need to be filled in.
+  common.Device device = 26;
 }
 
 
