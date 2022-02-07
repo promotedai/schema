@@ -61,7 +61,7 @@ jobs:
           # bazel sync --configure
           bazel build ...
 
-      - uses: actions/setup-python@v2.3.1
+      - uses: actions/setup-python@v2.3.2
         with:
           python-version: 3.8
 
