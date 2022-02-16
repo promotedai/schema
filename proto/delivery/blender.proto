@@ -7,7 +7,7 @@ option java_outer_classname = "Blender";
 option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
 
 // See: https://github.com/promotedai/blender for README
-// Next ID = 11.
+// Next ID = 17.
 message BlenderRule {
   // The name of item attribute that this rule applies to. It may be a JSON key path.
   string attribute_name = 1;
@@ -19,6 +19,90 @@ message BlenderRule {
     NegativeRule negative_rule = 8;
     DiversityRule diversity_rule = 9;
   }
+
+  // If eval_method is not set, falls back to boolean evaluation (described below).
+  oneof eval_method {
+    Boolean boolean = 11;
+    Equal equal = 12 [deprecated = true];
+    GreaterThan greater_than = 13;
+    LessThan less_than = 14;
+    Interval interval = 15;
+    EqualV2 equal_v2 = 16;
+  }
+}
+
+// Tests if an insertion has an attribute of name `attribute_name` and if its value is not falsy.
+// If the insertion lacks the attribute, this evaluates to `false`. If it does contain the
+// attribute but is `nil`, `false`, the empty string `""`, zero `0.0`, the empty list `[]`, etc
+// then it also evaluates to `false`.  If the attribute value can be considered truthy, then this
+// evaluates to `true`.
+//
+// Next ID = 1;
+message Boolean {}
+
+// Tests if a number or string is equal to some predefined value.
+// Default: none; if neither `number` nor `string` are set then the containing context will be
+// dropped (for example, a rule will be discarded because it cannot be evaluated).
+// Next ID = 3
+message EqualV2 {
+    oneof equality_type {
+        Equal number = 1;
+        StringEquality string = 2;
+    }
+}
+
+// Tests if an an insertion's attribute of name `attribute_name` and value `x`
+// fulfills `x ∈ compared_to ± tolerance`. Evaluates to `false` if the insertion lacks the
+// attribute or the attribute does not contain a numeric value.
+// Next ID = 3;
+message Equal {
+    float compared_to = 1;
+    float tolerance = 2;
+}
+
+// Tests if a string is equal to the defined value.
+// Next ID = 3;
+message StringEquality {
+    oneof value {
+        string raw = 1;
+    }
+}
+
+// Tests if an an insertion's attribute of name `attribute_name` and value `x`
+// fulfills `x > compared_to` (if `or_equal = false`) or `x ≥ compared_to` (if `or_equal = true`).
+// Evaluates to `false` if the insertion lacks the attribute or the attribute
+// does not contain a numeric value.
+// Next ID = 3
+message GreaterThan {
+    float compared_to = 1;
+    bool or_equal = 2;
+}
+
+// Tests if an an insertion's attribute of name `attribute_name` and value `x`
+// fulfills `x < compared_to` (if `or_equal = false`) or `x ≤ compared_to` (if `or_equal = true`).
+// Evaluates to `false` if the insertion lacks the attribute or the attribute
+// does not contain a numeric value.
+// Next ID = 3
+message LessThan {
+    float compared_to = 1;
+    bool or_equal = 2;
+}
+
+// Tests if an an insertion's attribute of name `attribute_name` and value `x`
+// fulfills `x ∈ (lower_bound, upper_bound)` (open interval). The interval can be closed or
+// half-closed by setting either or both of `lower_inclusive` and `upper_inclusive` to `true`.
+// Evaluates to `false` if the insertion lacks the attribute or the attribute
+// does not contain a numeric value.
+// Next ID = 5
+message Interval {
+    float upper_bound = 1;
+    float lower_bound = 2;
+    bool lower_inclusive = 3;
+    bool upper_inclusive = 4;
+}
+
+message SparseIdMatch {
+    string str = 1;
 }
 
 // A positive rule selects insertions by their score if they are associated with the same attribute
@@ -83,6 +167,15 @@ message PositiveRule {
   optional uint64 max_pos = 3;
 }
 
+// How to rank insertions. This enum is used in `InsertRule`s to specify how
+// insertions matched under that rule shall be selected. `QUALITY_SCORE` (the
+// default) selects available insertions in order highest score, while
+// `REQUEST_ORDER` selects availle insertions in the order they were received.
+enum RankingMethod {
+    QUALITY_SCORE = 0;
+    REQUEST_ORDER = 1;
+}
+
 // An insert rule selects insertions by their score if they are associated with the same attribute
 // that the rule is associated with.
 //
@@ -104,7 +197,7 @@ message PositiveRule {
 // Note that there is a chance of no rule (and hence no insertion) being selected if the sum of all
 // rules selected in step 3. is less than 100.0. The probability of that happening is `100 - sum`.
 // 
-// Next ID = 4.
+// Next ID = 7.
 message InsertRule {
   // Value between 0 and 100. The weight of this rule to be selected.
   //
@@ -136,6 +229,30 @@ message InsertRule {
   //
   // Default `uint64::MAX`
   optional uint64 max_pos = 3;
+  // The priority of this rule. When picking an insert rule to allocate an
+  // insertion to a position, blender will first select from rules of highest
+  // priority. A larger value implies higher priority, and a value of `0` is
+  // considered lowest priority. If two or more rules have the same priority,
+  // then one rule will be randomly picked from the set of same-priority rules
+  // and based on their relative weight (= `select_pct`). Blender will move on
+  // the the next-highest priority only if no more insertions can be selected
+  // under the current priority level (this happens if for the current set of
+  // rules all available insertions evaluate to `false` under their respective
+  // evaluation methods).
+  //
+  // Default: `0` (lowest priority)
+  uint32 priority = 4;
+ 
+  // Causes this rule to ignore the value of `attribute_name` in this insert
+  // rule's `BlenderRule` wrapper, causing this `InsertRule` to apply to all
+  // insertions that are sent to blender.
+  // Default: `false`.
+  bool applies_to_all_insertions = 5;
+
+  // How this rule should select insertions for allocation (see `RankingMethod`
+  // for more information).
+  // Default: QUALITY_SCORE
+  RankingMethod ranking_method = 6;
 }
 
 // A negative rule tests if a given insertion may not be selected under application of positive
@@ -219,36 +336,61 @@ message BlenderConfig {
 // See: https://github.com/promotedai/qualityscore
 // Next ID = 2.
 message QualityScoreConfig {
+    // A list of quality score terms. These are always summed.
   repeated QualityScoreTerm weighted_sum_term = 1;
 }
 
-// Next ID = 14.
+// Next ID = 2.
+message QualityScoreTerms {
+  // A list of quality score terms. These are always multiplied.
+  repeated QualityScoreTerm quality_score_terms = 1;
+}
+
+// Next ID = 15.
 message QualityScoreTerm {
   // How to fetch the base values of this term vector.
+  //
+  // If `fetch_method` is null, `attribute_name`, or `hashed_attribute` and the
+  // value cannot be retrieved from an insertion's sparse map, then this term
+  // will be set to `0.0`. Note: this will cause the product that this term is
+  // a part of to evaluate to 0.0.
   oneof fetch_method {
     // A named vector provided from elsewhere.
     string attribute_name = 1;
-    // Randomly generated values from a normal distribution.
-    NormalDistribution random_normal = 2;
-    // A constant value of ones. Set to any constant with offset and/or weight.
-    // Set to "true" to indicate that this option is set by convention.
-    bool ones = 3;
-    // Recursively evaluate terms and multiply their evaluations.
-    QualityScoreTerm multiply_term = 4;
+    // Recursively evaluate terms and multiply their evaluations as a product.
+    QualityScoreTerms product = 3;
   }
-  reserved 6 to 9; // Reserving fields for future fetch_method options.
+  reserved 4 to 9; // Reserving fields for future fetch_method options.
   // Maximum limit of underlying value (before weight and offset).
-  optional double fetch_high = 10;
+  optional float fetch_high = 10;
   // Minimum limit of underlying value (before weight and offset).
-  optional double fetch_low = 11;
-  // Multiply by this value. default =1 (no multiply).
-  double weight = 12;
-  // Add by this value. default = 0 (no addition)
-  double offset = 13;
+  optional float fetch_low = 11;
+  // Multiply by this value.
+  // Default: 1.0 (no multiply).
+  optional float weight = 12;
+  // Add a constant to this term (after applying the weight).
+  // Default: 0
+  float offset = 13;
+  // The value that this term evaluates to if the provided eval method evaluates to false.
+  // Default: ignored
+  optional TermConditionalEvaluation term_conditional_evaluation = 14;
 }
 
-// Next ID = 3.
-message NormalDistribution {
-  double mean = 1;
-  double variance = 2;
+// If specified, then the condition must evaluate to True. Otherwise, this
+// term evaluates to "value"
+// Use to define terms specific to different item types with different
+// Features. For example: video vs images.
+// Next Id 12;
+message TermConditionalEvaluation {
+  float value_if_false = 1;
+  string attribute_name = 2;
+  uint64 hashed_attribute = 3;
+  oneof eval_method {
+    Boolean boolean = 4;
+    Equal equal = 5;
+    GreaterThan greater_than = 6;
+    LessThan less_than = 7;
+    Interval interval = 8;
+    SparseIdMatch sparse_id_match = 9;
+  }
 }
