@@ -379,6 +379,7 @@ message Impression {
   // Optional.  Custom properties per platform.
   common.Properties properties = 11;
 }
+// 
 
 // The action that user wants to perform.
 //
