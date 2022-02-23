@@ -5,15 +5,35 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import typing
 import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
+class RankingMethod(_RankingMethod, metaclass=_RankingMethodEnumTypeWrapper):
+    """How to rank insertions. This enum is used in `InsertRule`s to specify how
+    insertions matched under that rule shall be selected. `QUALITY_SCORE` (the
+    default) selects available insertions in order highest score, while
+    `REQUEST_ORDER` selects availle insertions in the order they were received.
+    """
+    pass
+class _RankingMethod:
+    V = typing.NewType('V', builtins.int)
+class _RankingMethodEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RankingMethod.V], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+    QUALITY_SCORE = RankingMethod.V(0)
+    REQUEST_ORDER = RankingMethod.V(1)
+
+QUALITY_SCORE = RankingMethod.V(0)
+REQUEST_ORDER = RankingMethod.V(1)
+global___RankingMethod = RankingMethod
+
+
 class BlenderRule(google.protobuf.message.Message):
     """See: https://github.com/promotedai/blender for README
-    Next ID = 11.
+    Next ID = 17.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
@@ -21,6 +41,12 @@ class BlenderRule(google.protobuf.message.Message):
     INSERT_RULE_FIELD_NUMBER: builtins.int
     NEGATIVE_RULE_FIELD_NUMBER: builtins.int
     DIVERSITY_RULE_FIELD_NUMBER: builtins.int
+    BOOLEAN_FIELD_NUMBER: builtins.int
+    EQUAL_FIELD_NUMBER: builtins.int
+    GREATER_THAN_FIELD_NUMBER: builtins.int
+    LESS_THAN_FIELD_NUMBER: builtins.int
+    INTERVAL_FIELD_NUMBER: builtins.int
+    EQUAL_V2_FIELD_NUMBER: builtins.int
     attribute_name: typing.Text = ...
     """The name of item attribute that this rule applies to. It may be a JSON key path."""
 
@@ -32,6 +58,18 @@ class BlenderRule(google.protobuf.message.Message):
     def negative_rule(self) -> global___NegativeRule: ...
     @property
     def diversity_rule(self) -> global___DiversityRule: ...
+    @property
+    def boolean(self) -> global___Boolean: ...
+    @property
+    def equal(self) -> global___Equal: ...
+    @property
+    def greater_than(self) -> global___GreaterThan: ...
+    @property
+    def less_than(self) -> global___LessThan: ...
+    @property
+    def interval(self) -> global___Interval: ...
+    @property
+    def equal_v2(self) -> global___EqualV2: ...
     def __init__(self,
         *,
         attribute_name : typing.Text = ...,
@@ -39,11 +77,170 @@ class BlenderRule(google.protobuf.message.Message):
         insert_rule : typing.Optional[global___InsertRule] = ...,
         negative_rule : typing.Optional[global___NegativeRule] = ...,
         diversity_rule : typing.Optional[global___DiversityRule] = ...,
+        boolean : typing.Optional[global___Boolean] = ...,
+        equal : typing.Optional[global___Equal] = ...,
+        greater_than : typing.Optional[global___GreaterThan] = ...,
+        less_than : typing.Optional[global___LessThan] = ...,
+        interval : typing.Optional[global___Interval] = ...,
+        equal_v2 : typing.Optional[global___EqualV2] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["diversity_rule",b"diversity_rule","insert_rule",b"insert_rule","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","diversity_rule",b"diversity_rule","insert_rule",b"insert_rule","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["boolean",b"boolean","diversity_rule",b"diversity_rule","equal",b"equal","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","insert_rule",b"insert_rule","interval",b"interval","less_than",b"less_than","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","boolean",b"boolean","diversity_rule",b"diversity_rule","equal",b"equal","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","insert_rule",b"insert_rule","interval",b"interval","less_than",b"less_than","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["eval_method",b"eval_method"]) -> typing.Optional[typing_extensions.Literal["boolean","equal","greater_than","less_than","interval","equal_v2"]]: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["positive_rule","insert_rule","negative_rule","diversity_rule"]]: ...
 global___BlenderRule = BlenderRule
+
+class Boolean(google.protobuf.message.Message):
+    """Tests if an insertion has an attribute of name `attribute_name` and if its value is not falsy.
+    If the insertion lacks the attribute, this evaluates to `false`. If it does contain the
+    attribute but is `nil`, `false`, the empty string `""`, zero `0.0`, the empty list `[]`, etc
+    then it also evaluates to `false`.  If the attribute value can be considered truthy, then this
+    evaluates to `true`.
+
+    Next ID = 1;
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    def __init__(self,
+        ) -> None: ...
+global___Boolean = Boolean
+
+class EqualV2(google.protobuf.message.Message):
+    """Tests if a number or string is equal to some predefined value.
+    Default: none; if neither `number` nor `string` are set then the containing context will be
+    dropped (for example, a rule will be discarded because it cannot be evaluated).
+    Next ID = 3
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    NUMBER_FIELD_NUMBER: builtins.int
+    STRING_FIELD_NUMBER: builtins.int
+    @property
+    def number(self) -> global___Equal: ...
+    @property
+    def string(self) -> global___StringEquality: ...
+    def __init__(self,
+        *,
+        number : typing.Optional[global___Equal] = ...,
+        string : typing.Optional[global___StringEquality] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["equality_type",b"equality_type","number",b"number","string",b"string"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["equality_type",b"equality_type","number",b"number","string",b"string"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["equality_type",b"equality_type"]) -> typing.Optional[typing_extensions.Literal["number","string"]]: ...
+global___EqualV2 = EqualV2
+
+class Equal(google.protobuf.message.Message):
+    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
+    fulfills `x ∈ compared_to ± tolerance`. Evaluates to `false` if the insertion lacks the
+    attribute or the attribute does not contain a numeric value.
+    Next ID = 3;
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    COMPARED_TO_FIELD_NUMBER: builtins.int
+    TOLERANCE_FIELD_NUMBER: builtins.int
+    compared_to: builtins.float = ...
+    tolerance: builtins.float = ...
+    def __init__(self,
+        *,
+        compared_to : builtins.float = ...,
+        tolerance : builtins.float = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","tolerance",b"tolerance"]) -> None: ...
+global___Equal = Equal
+
+class StringEquality(google.protobuf.message.Message):
+    """Tests if a string is equal to the defined value.
+    Next ID = 3;
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    RAW_FIELD_NUMBER: builtins.int
+    raw: typing.Text = ...
+    def __init__(self,
+        *,
+        raw : typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["raw",b"raw","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["raw",b"raw","value",b"value"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["value",b"value"]) -> typing.Optional[typing_extensions.Literal["raw"]]: ...
+global___StringEquality = StringEquality
+
+class GreaterThan(google.protobuf.message.Message):
+    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
+    fulfills `x > compared_to` (if `or_equal = false`) or `x ≥ compared_to` (if `or_equal = true`).
+    Evaluates to `false` if the insertion lacks the attribute or the attribute
+    does not contain a numeric value.
+    Next ID = 3
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    COMPARED_TO_FIELD_NUMBER: builtins.int
+    OR_EQUAL_FIELD_NUMBER: builtins.int
+    compared_to: builtins.float = ...
+    or_equal: builtins.bool = ...
+    def __init__(self,
+        *,
+        compared_to : builtins.float = ...,
+        or_equal : builtins.bool = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","or_equal",b"or_equal"]) -> None: ...
+global___GreaterThan = GreaterThan
+
+class LessThan(google.protobuf.message.Message):
+    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
+    fulfills `x < compared_to` (if `or_equal = false`) or `x ≤ compared_to` (if `or_equal = true`).
+    Evaluates to `false` if the insertion lacks the attribute or the attribute
+    does not contain a numeric value.
+    Next ID = 3
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    COMPARED_TO_FIELD_NUMBER: builtins.int
+    OR_EQUAL_FIELD_NUMBER: builtins.int
+    compared_to: builtins.float = ...
+    or_equal: builtins.bool = ...
+    def __init__(self,
+        *,
+        compared_to : builtins.float = ...,
+        or_equal : builtins.bool = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","or_equal",b"or_equal"]) -> None: ...
+global___LessThan = LessThan
+
+class Interval(google.protobuf.message.Message):
+    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
+    fulfills `x ∈ (lower_bound, upper_bound)` (open interval). The interval can be closed or
+    half-closed by setting either or both of `lower_inclusive` and `upper_inclusive` to `true`.
+    Evaluates to `false` if the insertion lacks the attribute or the attribute
+    does not contain a numeric value.
+    Next ID = 5
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    UPPER_BOUND_FIELD_NUMBER: builtins.int
+    LOWER_BOUND_FIELD_NUMBER: builtins.int
+    LOWER_INCLUSIVE_FIELD_NUMBER: builtins.int
+    UPPER_INCLUSIVE_FIELD_NUMBER: builtins.int
+    upper_bound: builtins.float = ...
+    lower_bound: builtins.float = ...
+    lower_inclusive: builtins.bool = ...
+    upper_inclusive: builtins.bool = ...
+    def __init__(self,
+        *,
+        upper_bound : builtins.float = ...,
+        lower_bound : builtins.float = ...,
+        lower_inclusive : builtins.bool = ...,
+        upper_inclusive : builtins.bool = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["lower_bound",b"lower_bound","lower_inclusive",b"lower_inclusive","upper_bound",b"upper_bound","upper_inclusive",b"upper_inclusive"]) -> None: ...
+global___Interval = Interval
+
+class SparseIdMatch(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    STR_FIELD_NUMBER: builtins.int
+    str: typing.Text = ...
+    def __init__(self,
+        *,
+        str : typing.Text = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["str",b"str"]) -> None: ...
+global___SparseIdMatch = SparseIdMatch
 
 class PositiveRule(google.protobuf.message.Message):
     """A positive rule selects insertions by their score if they are associated with the same attribute
@@ -154,12 +351,15 @@ class InsertRule(google.protobuf.message.Message):
     Note that there is a chance of no rule (and hence no insertion) being selected if the sum of all
     rules selected in step 3. is less than 100.0. The probability of that happening is `100 - sum`.
 
-    Next ID = 4.
+    Next ID = 7.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     SELECT_PCT_FIELD_NUMBER: builtins.int
     MIN_POS_FIELD_NUMBER: builtins.int
     MAX_POS_FIELD_NUMBER: builtins.int
+    PRIORITY_FIELD_NUMBER: builtins.int
+    APPLIES_TO_ALL_INSERTIONS_FIELD_NUMBER: builtins.int
+    RANKING_METHOD_FIELD_NUMBER: builtins.int
     select_pct: builtins.float = ...
     """Value between 0 and 100. The weight of this rule to be selected.
 
@@ -196,14 +396,45 @@ class InsertRule(google.protobuf.message.Message):
     Default `uint64::MAX`
     """
 
+    priority: builtins.int = ...
+    """The priority of this rule. When picking an insert rule to allocate an
+    insertion to a position, blender will first select from rules of highest
+    priority. A larger value implies higher priority, and a value of `0` is
+    considered lowest priority. If two or more rules have the same priority,
+    then one rule will be randomly picked from the set of same-priority rules
+    and based on their relative weight (= `select_pct`). Blender will move on
+    the the next-highest priority only if no more insertions can be selected
+    under the current priority level (this happens if for the current set of
+    rules all available insertions evaluate to `false` under their respective
+    evaluation methods).
+
+    Default: `0` (lowest priority)
+    """
+
+    applies_to_all_insertions: builtins.bool = ...
+    """Causes this rule to ignore the value of `attribute_name` in this insert
+    rule's `BlenderRule` wrapper, causing this `InsertRule` to apply to all
+    insertions that are sent to blender.
+    Default: `false`.
+    """
+
+    ranking_method: global___RankingMethod.V = ...
+    """How this rule should select insertions for allocation (see `RankingMethod`
+    for more information).
+    Default: QUALITY_SCORE
+    """
+
     def __init__(self,
         *,
         select_pct : builtins.float = ...,
         min_pos : builtins.int = ...,
         max_pos : builtins.int = ...,
+        priority : builtins.int = ...,
+        applies_to_all_insertions : builtins.bool = ...,
+        ranking_method : global___RankingMethod.V = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","applies_to_all_insertions",b"applies_to_all_insertions","max_pos",b"max_pos","min_pos",b"min_pos","priority",b"priority","ranking_method",b"ranking_method","select_pct",b"select_pct"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_pos",b"_max_pos"]) -> typing.Optional[typing_extensions.Literal["max_pos"]]: ...
     @typing.overload
@@ -359,7 +590,9 @@ class QualityScoreConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     WEIGHTED_SUM_TERM_FIELD_NUMBER: builtins.int
     @property
-    def weighted_sum_term(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]: ...
+    def weighted_sum_term(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]:
+        """A list of quality score terms. These are always summed."""
+        pass
     def __init__(self,
         *,
         weighted_sum_term : typing.Optional[typing.Iterable[global___QualityScoreTerm]] = ...,
@@ -367,32 +600,37 @@ class QualityScoreConfig(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["weighted_sum_term",b"weighted_sum_term"]) -> None: ...
 global___QualityScoreConfig = QualityScoreConfig
 
+class QualityScoreTerms(google.protobuf.message.Message):
+    """Next ID = 2."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    QUALITY_SCORE_TERMS_FIELD_NUMBER: builtins.int
+    @property
+    def quality_score_terms(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]:
+        """A list of quality score terms. These are always multiplied."""
+        pass
+    def __init__(self,
+        *,
+        quality_score_terms : typing.Optional[typing.Iterable[global___QualityScoreTerm]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["quality_score_terms",b"quality_score_terms"]) -> None: ...
+global___QualityScoreTerms = QualityScoreTerms
+
 class QualityScoreTerm(google.protobuf.message.Message):
-    """Next ID = 14."""
+    """Next ID = 15."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
-    RANDOM_NORMAL_FIELD_NUMBER: builtins.int
-    ONES_FIELD_NUMBER: builtins.int
-    MULTIPLY_TERM_FIELD_NUMBER: builtins.int
+    PRODUCT_FIELD_NUMBER: builtins.int
     FETCH_HIGH_FIELD_NUMBER: builtins.int
     FETCH_LOW_FIELD_NUMBER: builtins.int
     WEIGHT_FIELD_NUMBER: builtins.int
     OFFSET_FIELD_NUMBER: builtins.int
+    TERM_CONDITIONAL_EVALUATION_FIELD_NUMBER: builtins.int
     attribute_name: typing.Text = ...
     """A named vector provided from elsewhere."""
 
     @property
-    def random_normal(self) -> global___NormalDistribution:
-        """Randomly generated values from a normal distribution."""
-        pass
-    ones: builtins.bool = ...
-    """A constant value of ones. Set to any constant with offset and/or weight.
-    Set to "true" to indicate that this option is set by convention.
-    """
-
-    @property
-    def multiply_term(self) -> global___QualityScoreTerm:
-        """Recursively evaluate terms and multiply their evaluations."""
+    def product(self) -> global___QualityScoreTerms:
+        """Recursively evaluate terms and multiply their evaluations as a product."""
         pass
     fetch_high: builtins.float = ...
     """Maximum limit of underlying value (before weight and offset)."""
@@ -401,43 +639,94 @@ class QualityScoreTerm(google.protobuf.message.Message):
     """Minimum limit of underlying value (before weight and offset)."""
 
     weight: builtins.float = ...
-    """Multiply by this value. default =1 (no multiply)."""
+    """Multiply by this value.
+    Default: 1.0 (no multiply).
+    """
 
     offset: builtins.float = ...
-    """Add by this value. default = 0 (no addition)"""
+    """Add a constant to this term (after applying the weight).
+    Default: 0
+    """
 
+    @property
+    def term_conditional_evaluation(self) -> global___TermConditionalEvaluation:
+        """The value that this term evaluates to if the provided eval method evaluates to false.
+        Default: ignored
+        """
+        pass
     def __init__(self,
         *,
         attribute_name : typing.Text = ...,
-        random_normal : typing.Optional[global___NormalDistribution] = ...,
-        ones : builtins.bool = ...,
-        multiply_term : typing.Optional[global___QualityScoreTerm] = ...,
+        product : typing.Optional[global___QualityScoreTerms] = ...,
         fetch_high : builtins.float = ...,
         fetch_low : builtins.float = ...,
         weight : builtins.float = ...,
         offset : builtins.float = ...,
+        term_conditional_evaluation : typing.Optional[global___TermConditionalEvaluation] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","multiply_term",b"multiply_term","ones",b"ones","random_normal",b"random_normal"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","multiply_term",b"multiply_term","offset",b"offset","ones",b"ones","random_normal",b"random_normal","weight",b"weight"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","_term_conditional_evaluation",b"_term_conditional_evaluation","_weight",b"_weight","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","product",b"product","term_conditional_evaluation",b"term_conditional_evaluation","weight",b"weight"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","_term_conditional_evaluation",b"_term_conditional_evaluation","_weight",b"_weight","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","offset",b"offset","product",b"product","term_conditional_evaluation",b"term_conditional_evaluation","weight",b"weight"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_high",b"_fetch_high"]) -> typing.Optional[typing_extensions.Literal["fetch_high"]]: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_low",b"_fetch_low"]) -> typing.Optional[typing_extensions.Literal["fetch_low"]]: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","random_normal","ones","multiply_term"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_term_conditional_evaluation",b"_term_conditional_evaluation"]) -> typing.Optional[typing_extensions.Literal["term_conditional_evaluation"]]: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_weight",b"_weight"]) -> typing.Optional[typing_extensions.Literal["weight"]]: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","product"]]: ...
 global___QualityScoreTerm = QualityScoreTerm
 
-class NormalDistribution(google.protobuf.message.Message):
-    """Next ID = 3."""
+class TermConditionalEvaluation(google.protobuf.message.Message):
+    """If specified, then the condition must evaluate to True. Otherwise, this
+    term evaluates to "value"
+    Use to define terms specific to different item types with different
+    Features. For example: video vs images.
+    Next Id 11;
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    MEAN_FIELD_NUMBER: builtins.int
-    VARIANCE_FIELD_NUMBER: builtins.int
-    mean: builtins.float = ...
-    variance: builtins.float = ...
+    VALUE_IF_FALSE_FIELD_NUMBER: builtins.int
+    ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
+    HASHED_ATTRIBUTE_FIELD_NUMBER: builtins.int
+    BOOLEAN_FIELD_NUMBER: builtins.int
+    EQUAL_FIELD_NUMBER: builtins.int
+    GREATER_THAN_FIELD_NUMBER: builtins.int
+    LESS_THAN_FIELD_NUMBER: builtins.int
+    INTERVAL_FIELD_NUMBER: builtins.int
+    SPARSE_ID_MATCH_FIELD_NUMBER: builtins.int
+    EQUAL_V2_FIELD_NUMBER: builtins.int
+    value_if_false: builtins.float = ...
+    attribute_name: typing.Text = ...
+    hashed_attribute: builtins.int = ...
+    @property
+    def boolean(self) -> global___Boolean: ...
+    @property
+    def equal(self) -> global___Equal: ...
+    @property
+    def greater_than(self) -> global___GreaterThan: ...
+    @property
+    def less_than(self) -> global___LessThan: ...
+    @property
+    def interval(self) -> global___Interval: ...
+    @property
+    def sparse_id_match(self) -> global___SparseIdMatch: ...
+    @property
+    def equal_v2(self) -> global___EqualV2: ...
     def __init__(self,
         *,
-        mean : builtins.float = ...,
-        variance : builtins.float = ...,
+        value_if_false : builtins.float = ...,
+        attribute_name : typing.Text = ...,
+        hashed_attribute : builtins.int = ...,
+        boolean : typing.Optional[global___Boolean] = ...,
+        equal : typing.Optional[global___Equal] = ...,
+        greater_than : typing.Optional[global___GreaterThan] = ...,
+        less_than : typing.Optional[global___LessThan] = ...,
+        interval : typing.Optional[global___Interval] = ...,
+        sparse_id_match : typing.Optional[global___SparseIdMatch] = ...,
+        equal_v2 : typing.Optional[global___EqualV2] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mean",b"mean","variance",b"variance"]) -> None: ...
-global___NormalDistribution = NormalDistribution
+    def HasField(self, field_name: typing_extensions.Literal["boolean",b"boolean","equal",b"equal","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","interval",b"interval","less_than",b"less_than","sparse_id_match",b"sparse_id_match"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","boolean",b"boolean","equal",b"equal","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","hashed_attribute",b"hashed_attribute","interval",b"interval","less_than",b"less_than","sparse_id_match",b"sparse_id_match","value_if_false",b"value_if_false"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["eval_method",b"eval_method"]) -> typing.Optional[typing_extensions.Literal["boolean","equal","greater_than","less_than","interval","sparse_id_match","equal_v2"]]: ...
+global___TermConditionalEvaluation = TermConditionalEvaluation
