@@ -52,9 +52,9 @@ else
         rm protoc-3.15.8-linux-x86_64.zip
     fi
     ./.local/bin/protoc --version || exit 1
-    pip install --upgrade pip || exit 1
-    pip install mypy-protobuf==3.0 || exit 1
 fi
+pip3 install --upgrade pip || exit 1
+pip3 install mypy-protobuf==3.0 || exit 1
 
 rm -rf generated/py
 export BAZEL_BIN=$(bazel info bazel-bin)

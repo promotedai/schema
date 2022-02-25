@@ -57,11 +57,12 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
+          export USE_BAZEL_VERSION=4.2.2
           # If you hit any cache issues, either delete the cache or enable this line.
           # bazel sync --configure
           bazel build ...
 
-      - uses: actions/setup-python@v2.3.1
+      - uses: actions/setup-python@v2.3.2
         with:
           python-version: 3.8
 

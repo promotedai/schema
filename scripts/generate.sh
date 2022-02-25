@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Regenerates the `generated/go/` directory.
+# Regenerates the `generated/` directory.
 #
 # Options
 # -s => skip bazel build.  Used since GitHub Actions caching is broken.

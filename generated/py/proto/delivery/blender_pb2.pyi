@@ -5,15 +5,97 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import typing
 import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
+class RankingMethod(_RankingMethod, metaclass=_RankingMethodEnumTypeWrapper):
+    """How to rank insertions. This enum is used in `InsertRule`s to specify how
+    insertions matched under that rule shall be selected. `QUALITY_SCORE` (the
+    default) selects available insertions in order highest score, while
+    `REQUEST_ORDER` selects availle insertions in the order they were received.
+    """
+    pass
+class _RankingMethod:
+    V = typing.NewType('V', builtins.int)
+class _RankingMethodEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RankingMethod.V], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+    QUALITY_SCORE = RankingMethod.V(0)
+    REQUEST_ORDER = RankingMethod.V(1)
+
+QUALITY_SCORE = RankingMethod.V(0)
+REQUEST_ORDER = RankingMethod.V(1)
+global___RankingMethod = RankingMethod
+
+
+class BlenderConfig(google.protobuf.message.Message):
+    """`BlenderConfig` configures how a set of insertions is blended, i.e. in what
+    order the insertions are shown to a user. Setting either of these fields
+    will override the respective optimized and tuned promoted.ai blending
+    behaviour.
+
+    Blender rules act as filters that reject or select insertion subsets (in
+    the case of negative, positive, and insert rules), or penalize/boost
+    insertion scores (in the case of diversity rules).
+
+    A quality score config is used to construct a relative rank between all insertions
+    by being applied to each insertion and calculating a quality score. A non-positive
+    score (i.e negative or zero) means that an insertion cannot be allocated.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    BLENDER_RULE_FIELD_NUMBER: builtins.int
+    QUALITY_SCORE_CONFIG_FIELD_NUMBER: builtins.int
+    @property
+    def blender_rule(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BlenderRule]:
+        """A list of blender rules. See the `BlenderRule` documentation for more information.
+
+        Default: empty (blender will use optimized promoted.ai blender rules).
+        """
+        pass
+    @property
+    def quality_score_config(self) -> global___QualityScoreConfig:
+        """A quality score config to rank insertions by calculating their individual
+        quality score.
+
+        Default: empty (blender will use promoted.ai models to calculate scores)
+        """
+        pass
+    def __init__(self,
+        *,
+        blender_rule : typing.Optional[typing.Iterable[global___BlenderRule]] = ...,
+        quality_score_config : typing.Optional[global___QualityScoreConfig] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["quality_score_config",b"quality_score_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["blender_rule",b"blender_rule","quality_score_config",b"quality_score_config"]) -> None: ...
+global___BlenderConfig = BlenderConfig
+
 class BlenderRule(google.protobuf.message.Message):
-    """See: https://github.com/promotedai/blender for README
-    Next ID = 11.
+    """`BlenderRule` defines a blender rule that is sent to blender.
+
+    Rules act as filters and are used to a) select a subset of insertions that
+    match a predicate, and b) to select the insertion with maximum score among that
+    group to eventually allocate it to a positoin.
+
+     There are 4 different kinds of rules:
+
+    + Positive rules are the standard filter/selection mechanism. They select a
+      subset of insertions according to some configurable filters. From that
+      subset blender then selects the insertion with the highest score to allocate
+      at a position.
+    + Negative rules reject insertions that *must not be* selected. While
+      positive rule act as a positive filter, negative rules are a negative
+      filter. Negative rules are always run before positive rules and restrict
+      the pool of insertion that any positive rule can select from.
+    + Insert rules look and function very similar to positive rules, but ignore
+      negative rules. They take precedence over positive rules, and always select
+      from the entire pool of not-yet-allocated insertions. Use these if you require
+      that insertions with certain properties must be with higher priority.
+    + Diversity rules are not selection filters. Instead they are used to create more
+      diversity among allocated insertions by applying a penalty (or a boost) to all
+      future insertions depending on the insertion that was just allocated.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
@@ -21,8 +103,18 @@ class BlenderRule(google.protobuf.message.Message):
     INSERT_RULE_FIELD_NUMBER: builtins.int
     NEGATIVE_RULE_FIELD_NUMBER: builtins.int
     DIVERSITY_RULE_FIELD_NUMBER: builtins.int
+    BOOLEAN_FIELD_NUMBER: builtins.int
+    GREATER_THAN_FIELD_NUMBER: builtins.int
+    LESS_THAN_FIELD_NUMBER: builtins.int
+    INTERVAL_FIELD_NUMBER: builtins.int
+    EQUAL_V2_FIELD_NUMBER: builtins.int
     attribute_name: typing.Text = ...
-    """The name of item attribute that this rule applies to. It may be a JSON key path."""
+    """The name of an insertion property that this rule applies to.
+
+    Default: empty (if `attribute_name` is not set, then this rule can't be matched to
+    any property and will be discarded because the subset of insertions it selects will
+    always be empty)
+    """
 
     @property
     def positive_rule(self) -> global___PositiveRule: ...
@@ -32,6 +124,16 @@ class BlenderRule(google.protobuf.message.Message):
     def negative_rule(self) -> global___NegativeRule: ...
     @property
     def diversity_rule(self) -> global___DiversityRule: ...
+    @property
+    def boolean(self) -> global___Boolean: ...
+    @property
+    def greater_than(self) -> global___GreaterThan: ...
+    @property
+    def less_than(self) -> global___LessThan: ...
+    @property
+    def interval(self) -> global___Interval: ...
+    @property
+    def equal_v2(self) -> global___EqualV2: ...
     def __init__(self,
         *,
         attribute_name : typing.Text = ...,
@@ -39,42 +141,221 @@ class BlenderRule(google.protobuf.message.Message):
         insert_rule : typing.Optional[global___InsertRule] = ...,
         negative_rule : typing.Optional[global___NegativeRule] = ...,
         diversity_rule : typing.Optional[global___DiversityRule] = ...,
+        boolean : typing.Optional[global___Boolean] = ...,
+        greater_than : typing.Optional[global___GreaterThan] = ...,
+        less_than : typing.Optional[global___LessThan] = ...,
+        interval : typing.Optional[global___Interval] = ...,
+        equal_v2 : typing.Optional[global___EqualV2] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["diversity_rule",b"diversity_rule","insert_rule",b"insert_rule","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","diversity_rule",b"diversity_rule","insert_rule",b"insert_rule","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["boolean",b"boolean","diversity_rule",b"diversity_rule","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","insert_rule",b"insert_rule","interval",b"interval","less_than",b"less_than","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","boolean",b"boolean","diversity_rule",b"diversity_rule","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","insert_rule",b"insert_rule","interval",b"interval","less_than",b"less_than","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["eval_method",b"eval_method"]) -> typing.Optional[typing_extensions.Literal["boolean","greater_than","less_than","interval","equal_v2"]]: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["positive_rule","insert_rule","negative_rule","diversity_rule"]]: ...
 global___BlenderRule = BlenderRule
 
+class Boolean(google.protobuf.message.Message):
+    """Tests if an insertion has a property with key `attribute_name` and if its value is `true`."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    def __init__(self,
+        ) -> None: ...
+global___Boolean = Boolean
+
+class EqualV2(google.protobuf.message.Message):
+    """Tests if an insertion's property with key `attribute_name` and value `x`
+    is equal to some number or string.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    NUMBER_FIELD_NUMBER: builtins.int
+    STRING_FIELD_NUMBER: builtins.int
+    @property
+    def number(self) -> global___Equal: ...
+    @property
+    def string(self) -> global___StringEquality: ...
+    def __init__(self,
+        *,
+        number : typing.Optional[global___Equal] = ...,
+        string : typing.Optional[global___StringEquality] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["equality_type",b"equality_type","number",b"number","string",b"string"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["equality_type",b"equality_type","number",b"number","string",b"string"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["equality_type",b"equality_type"]) -> typing.Optional[typing_extensions.Literal["number","string"]]: ...
+global___EqualV2 = EqualV2
+
+class Equal(google.protobuf.message.Message):
+    """Tests if an insertion's property with key `attribute_name` and value `x`
+    fulfills `x ∈ compared_to ± tolerance`.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    COMPARED_TO_FIELD_NUMBER: builtins.int
+    TOLERANCE_FIELD_NUMBER: builtins.int
+    compared_to: builtins.float = ...
+    """The value to compare to.
+
+    Default: 0.0
+    """
+
+    tolerance: builtins.float = ...
+    """The tolerance around this value that is acceptable.
+
+    Default: 0.0
+    """
+
+    def __init__(self,
+        *,
+        compared_to : builtins.float = ...,
+        tolerance : builtins.float = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","tolerance",b"tolerance"]) -> None: ...
+global___Equal = Equal
+
+class StringEquality(google.protobuf.message.Message):
+    """Tests if an insertion's property with key `attribute_name` and value `x`
+    fulfills `x == raw`.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    RAW_FIELD_NUMBER: builtins.int
+    raw: typing.Text = ...
+    def __init__(self,
+        *,
+        raw : typing.Text = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["raw",b"raw","value",b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["raw",b"raw","value",b"value"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["value",b"value"]) -> typing.Optional[typing_extensions.Literal["raw"]]: ...
+global___StringEquality = StringEquality
+
+class GreaterThan(google.protobuf.message.Message):
+    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
+    fulfills `x > compared_to` (if `or_equal = false`) or `x ≥ compared_to` (if
+    `or_equal = true`).
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    COMPARED_TO_FIELD_NUMBER: builtins.int
+    OR_EQUAL_FIELD_NUMBER: builtins.int
+    compared_to: builtins.float = ...
+    """The value to compare to.
+
+    Default: 0.0
+    """
+
+    or_equal: builtins.bool = ...
+    """Whether equality can hold (in case of `true`) or if the propery has to
+    be stricter greater than `compared_to`.
+
+    Default: false
+    """
+
+    def __init__(self,
+        *,
+        compared_to : builtins.float = ...,
+        or_equal : builtins.bool = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","or_equal",b"or_equal"]) -> None: ...
+global___GreaterThan = GreaterThan
+
+class LessThan(google.protobuf.message.Message):
+    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
+    fulfills `x < compared_to` (if `or_equal = false`) or `x ≤ compared_to` (if
+    `or_equal = true`).
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    COMPARED_TO_FIELD_NUMBER: builtins.int
+    OR_EQUAL_FIELD_NUMBER: builtins.int
+    compared_to: builtins.float = ...
+    """The value to compare to.
+
+    Default: 0.0
+    """
+
+    or_equal: builtins.bool = ...
+    """Whether equality can hold (in case of `true`) or if the propery has to
+    be stricter less than `compared_to`.
+
+    Default: false
+    """
+
+    def __init__(self,
+        *,
+        compared_to : builtins.float = ...,
+        or_equal : builtins.bool = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","or_equal",b"or_equal"]) -> None: ...
+global___LessThan = LessThan
+
+class Interval(google.protobuf.message.Message):
+    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
+    fulfills `x ∈ (lower_bound, upper_bound)` (open interval). The interval can
+    be closed or half-closed by setting either or both of `lower_inclusive` and
+    `upper_inclusive` to `true`.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    UPPER_BOUND_FIELD_NUMBER: builtins.int
+    LOWER_BOUND_FIELD_NUMBER: builtins.int
+    LOWER_INCLUSIVE_FIELD_NUMBER: builtins.int
+    UPPER_INCLUSIVE_FIELD_NUMBER: builtins.int
+    upper_bound: builtins.float = ...
+    """The upper bound of the interval
+
+    Default: 0.0
+    """
+
+    lower_bound: builtins.float = ...
+    """The lower bound of the interval
+
+    Default: 0.0
+    """
+
+    lower_inclusive: builtins.bool = ...
+    """Whether the lower bound is considered closed (if the compared property can
+    be equal to the lower bound).
+
+    Default: false
+    """
+
+    upper_inclusive: builtins.bool = ...
+    """Whether the upper bound is considered closed (if the compared property can
+    be equal to the upper bound).
+
+    Default: false
+    """
+
+    def __init__(self,
+        *,
+        upper_bound : builtins.float = ...,
+        lower_bound : builtins.float = ...,
+        lower_inclusive : builtins.bool = ...,
+        upper_inclusive : builtins.bool = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["lower_bound",b"lower_bound","lower_inclusive",b"lower_inclusive","upper_bound",b"upper_bound","upper_inclusive",b"upper_inclusive"]) -> None: ...
+global___Interval = Interval
+
 class PositiveRule(google.protobuf.message.Message):
-    """A positive rule selects insertions by their score if they are associated with the same attribute
-    that the rule is associated with.
+    """A positive rule selects insertions by their score if they are associated with
+    the same attribute that the rule is associated with. They always work in
+    conjunction with negative rules and only select among those insertions that
+    were not rejected by a negative rule.
 
-    If one seeks to fill a position `p` with an insertion, then one positive rule is selected by
-    random out of all positive rules. The selection process works in the following way:
+    If two or more positive rules are defined and if one seeks to fill a position
+    `p`, then one positive rule is picked by random out of all positive rules. The
+    process for picking a positive rule works in the following way:
 
-    1. positive rules are filtered by whether for a given rule there exist any insertions that could
-       potentially be selected (meaning there are insertions that are not yet associated with a
-       different position, that are associated with the same attribute as a given rule, and that
-       have not been filtered out by negative rules [see the comment on negative rules for that]);
-    2. the rules remaining after 1. are filtered for the condition
-       `rule.min_pos <= p <= rule.max_pos`;
-    3. from the rules remaining after 2. one is selected by random based on their weight in
-       `rule.select_pct`.
+    1. all positive rules are removed that won't ever apply to any still available
+       insertions (meaning insertions that evaluate to `true` under the evaluation
+       method of this rule and are not yet allocated); 
+    2. then from the remaining rules those are removed that don't fulfill the
+       condition `rule.min_pos <= p <= rule.max_pos`;
+    3. finally, one is picked by random based on their relative weights
+       `rule.select_pct` using a weighted index.
 
-    After a positive rule has been selected, the insertion of the highest score is associated with
-    position `p` (if, remembering point 1., that insertion is available to be allocated, has the
-    same associated attribute as the selected rule, and is not ruled out by application of negative
-    rules).
+    After a positive rule has been chosen, blender will then allocate at position
+    `p` that insertion with maximum score from those insertions that are selected
+    under this rule.
 
-    Note that there is a chance of no rule (and hence no insertion) being selected if the sum of all
-    rules selected in step 3. is less than 100.0. The probability of that happening is `100 - sum`.
-
-    Positive rules are similar to insert rules, but used in a different context. While items can be
-    selected just based on insert rules, positive rules are used in tandem with negative rules.
-    First, negative rules are tested to filter out items. Afterwards, a positive rule is used to
-    select items just like an insert rule (just without the filtered out items).
-
-    Next ID = 4.
+    Note that there is a probability `prob = max(100 - total_sum, 0)` to not select
+    any rule if the total sum of relative weights for the rules in 3. is less than
+    `100.0`.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     SELECT_PCT_FIELD_NUMBER: builtins.int
@@ -83,19 +364,21 @@ class PositiveRule(google.protobuf.message.Message):
     select_pct: builtins.float = ...
     """Value between 0 and 100. The weight of this rule to be selected.
 
-    If the sum `W` of all weights is less than 100, then the chance N of no weight being chosen is
-    assigned the weight `N = 100 - W`.
+    If the sum `W` of all weights is less than 100, then the chance N of no
+    weight being chosen is assigned the weight `N = 100 - W`.
 
-    Examples (given weights `{a, b, ..., z}`, each entry corresponds to a rule with weight `a`,
-    `b`, `c`, etc):
-    + `{100, 100}`: 2 rules with equal weight: 50% chance of each being selected
+    Examples (given weights `{a, b, ..., z}`, each entry corresponds to a rule
+    with weight `a`, `b`, `c`, etc):
+
+    + `{100, 100}`: 2 rules with equal weight: 50% chance of each being
+      selected
     + `{50, 50}`: as above
-    + `{25, 25}`: each rule has a 25% chance of being selected; there is a 50% chance of no rule
-       being selected
-    + `{10, 10, 10, 10, 10`}: each of the 5 rules has a 5% chance of being selected; there is a
-      is a 50% chance of no rule being selected.
-    + `{50, 100}`: 2/3 chance of selecting the rule with weight 100, 1/3 chance to select that of
-      weight 50.
+    + `{25, 25}`: each rule has a 25% chance of being selected; there is a 50%
+      chance of no rule being selected
+    + `{10, 10, 10, 10, 10`}: each of the 5 rules has a 5% chance of being
+      selected; there is a is a 50% chance of no rule being selected.
+    + `{50, 100}`: 2/3 chance of selecting the rule with weight 100, 1/3
+      chance to select that of weight 50.
 
     NOTE: a value of 0 means this rule will never be selected.
 
@@ -103,15 +386,17 @@ class PositiveRule(google.protobuf.message.Message):
     """
 
     min_pos: builtins.int = ...
-    """The minimum position that this rule applies to. If one seeks to fill a position `p < min_pos`,
-    then this rule will not be considered for selection. `min_pos <= max_pos` must hold.
+    """The minimum position that this rule applies to. If one seeks to fill a
+    position `p < min_pos`, then this rule will not be considered for
+    selection. `min_pos <= max_pos` must hold.
 
     Default: `0`
     """
 
     max_pos: builtins.int = ...
-    """The maximum position that this rule applies to. If one seeks to fill a position `p > max_pos`,
-    then this rule will not be considered for selection. `max_pos >= min_pos` must hold.
+    """The maximum position that this rule applies to. If one seeks to fill a
+    position `p > max_pos`, then this rule will not be considered for
+    selection. `max_pos >= min_pos` must hold.
 
     Default `uint64::MAX`
     """
@@ -133,49 +418,53 @@ class PositiveRule(google.protobuf.message.Message):
 global___PositiveRule = PositiveRule
 
 class InsertRule(google.protobuf.message.Message):
-    """An insert rule selects insertions by their score if they are associated with the same attribute
-    that the rule is associated with.
+    """An insert rule selects insertions by their score if they are associated with
+    the same attribute that the rule is associated with.
 
-    If one seeks to fill a position `p` with an insertion, then one insert rule is selected by
-    random out of all insert rules. The selection process works in the following way:
+    If two or more insert rules are defined and if one seeks to fill a position
+    `p`, then one insert rule is picked by random out of all insert rules. The
+    process for piucking an insert rule works in the following way:
 
-    1. insert rules are filtered by whether for a given rule there exist any insertions that could
-       potentially be selected (meaning there are insertions that are not yet associated with a
-       different position, and that are associated with the same attribute as a given rule);
-    2. the rules remaining after 1. are filtered for the condition
-       `rule.min_pos <= p <= rule.max_pos`;
-    3. from the rules remaining after 2. one is selected by random based on their weight in
-       `rule.select_pct`.
+    1. all insert rules are removed that won't ever apply to any still available
+       insertions (meaning insertions that evaluate to `true` under the
+       evaluation method of this rule and are not yet allocated); 
+    2. then from the remaining rules those are removed that don't fulfill the
+       condition `rule.min_pos <= p <= rule.max_pos`;
+    3. finally, one is picked by random based on their relative weights
+       `rule.select_pct` using a weighted index.
 
-    After an insert rule has been selected, the insertion of the highest score is associated with
-    position `p` (if, remembering point 1., that insertion is available to be allocated, and has the
-    same associated attribute as the selected rule).
+    After an insert rule has been chosen, blender will then allocate at position
+    `p` that insertion with maximum score from those insertions that are
+    selected under this rule.
 
-    Note that there is a chance of no rule (and hence no insertion) being selected if the sum of all
-    rules selected in step 3. is less than 100.0. The probability of that happening is `100 - sum`.
-
-    Next ID = 4.
+    Note that there is a probability `prob = max(100 - total_sum, 0)` to not
+    select any rule if the total sum of relative weights for the rules in 3. is
+    less than `100.0`.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     SELECT_PCT_FIELD_NUMBER: builtins.int
     MIN_POS_FIELD_NUMBER: builtins.int
     MAX_POS_FIELD_NUMBER: builtins.int
+    APPLIES_TO_ALL_INSERTIONS_FIELD_NUMBER: builtins.int
+    RANKING_METHOD_FIELD_NUMBER: builtins.int
     select_pct: builtins.float = ...
     """Value between 0 and 100. The weight of this rule to be selected.
 
-    If the sum `W` of all weights is less than 100, then the chance N of no weight being chosen is
-    assigned the weight `N = 100 - W`.
+    If the sum `W` of all weights is less than 100, then the chance N of no
+    weight being chosen is assigned the weight `N = 100 - W`.
 
-    Examples (given weights `{a, b, ..., z}`, each entry corresponds to a rule with weight `a`,
-    `b`, `c`, etc):
-    + `{100, 100}`: 2 rules with equal weight: 50% chance of each being selected
+    Examples (given weights `{a, b, ..., z}`, each entry corresponds to a rule
+    with weight `a`, `b`, `c`, etc):
+
+    + `{100, 100}`: 2 rules with equal weight: 50% chance of each being
+      selected
     + `{50, 50}`: as above
-    + `{25, 25}`: each rule has a 25% chance of being selected; there is a 50% chance of no rule
-       being selected
-    + `{10, 10, 10, 10, 10`}: each of the 5 rules has a 5% chance of being selected; there is a
-      is a 50% chance of no rule being selected.
-    + `{50, 100}`: 2/3 chance of selecting the rule with weight 100, 1/3 chance to select that of
-      weight 50.
+    + `{25, 25}`: each rule has a 25% chance of being selected; there is a 50%
+      chance of no rule being selected
+    + `{10, 10, 10, 10, 10`}: each of the 5 rules has a 5% chance of being
+      selected; there is a is a 50% chance of no rule being selected.
+    + `{50, 100}`: 2/3 chance of selecting the rule with weight 100, 1/3
+      chance to select that of weight 50.
 
     NOTE: a value of 0 means this rule will never be selected.
 
@@ -183,17 +472,35 @@ class InsertRule(google.protobuf.message.Message):
     """
 
     min_pos: builtins.int = ...
-    """The minimum position that this rule applies to. If one seeks to fill a position `p < min_pos`,
-    then this rule will not be considered for selection. `min_pos <= max_pos` must hold.
+    """The minimum position that this rule applies to. If one seeks to fill a
+    position `p < min_pos`, then this rule will not be considered for
+    selection. `min_pos <= max_pos` must hold.
 
     Default: `0`
     """
 
     max_pos: builtins.int = ...
-    """The maximum position that this rule applies to. If one seeks to fill a position `p > max_pos`,
-    then this rule will not be considered for selection. `max_pos >= min_pos` must hold.
+    """The maximum position that this rule applies to. If one seeks to fill a
+    position `p > max_pos`, then this rule will not be considered for
+    selection. `max_pos >= min_pos` must hold.
 
-    Default `uint64::MAX`
+    Default: `uint64::MAX` (the maximum possible value for an unsigned 64 bit integer)
+    """
+
+    applies_to_all_insertions: builtins.bool = ...
+    """Whether to ignore `attribute_name` (the field set in the `BlenderRule`
+    message that contains this `InsertRule`). This causes the present
+    `InsertRule` to apply to all insertions that are sent to blender,
+    irrespective of their properties.
+
+    Default: `false`.
+    """
+
+    ranking_method: global___RankingMethod.V = ...
+    """How this rule should select insertions for allocation (see `RankingMethod`
+    for more information).
+
+    Default: RankingMethod::QUALITY_SCORE (sort by quality score by default)
     """
 
     def __init__(self,
@@ -201,9 +508,11 @@ class InsertRule(google.protobuf.message.Message):
         select_pct : builtins.float = ...,
         min_pos : builtins.int = ...,
         max_pos : builtins.int = ...,
+        applies_to_all_insertions : builtins.bool = ...,
+        ranking_method : global___RankingMethod.V = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","applies_to_all_insertions",b"applies_to_all_insertions","max_pos",b"max_pos","min_pos",b"min_pos","ranking_method",b"ranking_method","select_pct",b"select_pct"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_pos",b"_max_pos"]) -> typing.Optional[typing_extensions.Literal["max_pos"]]: ...
     @typing.overload
@@ -213,15 +522,15 @@ class InsertRule(google.protobuf.message.Message):
 global___InsertRule = InsertRule
 
 class NegativeRule(google.protobuf.message.Message):
-    """A negative rule tests if a given insertion may not be selected under application of positive
-    rules (see the description of positive rules to undertand that process).
+    """A negative rule tests if an insertion must not be selected by positive
+    rules.
 
-    A negative rule is associated with an attribute and applies to all those insertions that are
-    associated with the same attribute. The applicable insertions are tested against the conditions
-    laid out by the negative rule. If they fail one of the conditions, then the item is precluded
-    from being selected under the subsequent application of positive rules.
-
-    Next ID = 6.
+    A negative rule is associated with an attribute and applies to all those
+    insertions that are associated with the same attribute. The applicable
+    insertions are tested against the conditions laid out by the negative rule.
+    If an insertion is flagged by even one negative rule, it cannot be selected
+    by positive rules.they fail one of the conditions, then the item is precluded from being
+    selected under the subsequent application of positive rules.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLUCK_PCT_FIELD_NUMBER: builtins.int
@@ -230,46 +539,51 @@ class NegativeRule(google.protobuf.message.Message):
     FORBID_GREATER_POS_FIELD_NUMBER: builtins.int
     MAX_COUNT_FIELD_NUMBER: builtins.int
     pluck_pct: builtins.float = ...
-    """Value between 0 and 100. The probability that an item will be failed ("plucked) even if it
-    passes all other conditions.
+    """Value between 0 and 100. The probability that an item will be failed
+    ("plucked) even if it passes all other conditions.
 
-    NOTE: a value of 0 means that the item has to fail one of the other conditions to be discarded.
-    A value of 100 means that an item will always be discarded, no matter the other conditions, as
-    as long as it has an attribute matching this rule's.
+    NOTE: a value of 0 means that the item has to fail one of the other
+    conditions to be discarded. A value of 100 means that an item will always
+    be discarded, no matter the other conditions, as as long as it has an
+    attribute matching this rule's.
 
     Default: `100.0`
     """
 
     forbid_less_pos: builtins.int = ...
-    """The minimum position that items with matching associated attribute can be placed in. Items
-    with the same associated attribute as the negative rule will not be considered for selection
-    if one seeks to fill a position `p < forbid_less_pos`.
+    """The minimum position that items with matching associated attribute can be
+    placed in. Items with the same associated attribute as the negative rule
+    will not be considered for selection if one seeks to fill a position `p <
+    forbid_less_pos`.
 
     Default: `0`
     """
 
     min_spacing: builtins.int = ...
-    """The minimum number of positions between the current position and its precursor. For example,
-    if `min_spacing = 1` and one seeks to fill a position `p`, then an item is discarded if the
-    item at position `p-1` and the item under consideration have the same associated attribute as
-    the current rule (note that attribute values do not have to match; only the fact that they
-    have the same associated attribute matters).
+    """The minimum number of positions between the current position and its
+    precursor. For example, if `min_spacing = 1` and one seeks to fill a
+    position `p`, then an item is discarded if the item at position `p-1` and
+    the item under consideration have the same associated attribute as the
+    current rule (note that attribute values do not have to match; only the
+    fact that they have the same associated attribute matters).
 
     Default: `uint64::MAX`
     """
 
     forbid_greater_pos: builtins.int = ...
-    """The maximum position that items with matching associated attribute can be placed in. Items
-    with the same associated attribute as the negative rule will not be considered for selection
-    if one seeks to fill a position `p > forbid_greater_pos`.
+    """The maximum position that items with matching associated attribute can be
+    placed in. Items with the same associated attribute as the negative rule
+    will not be considered for selection if one seeks to fill a position `p >
+    forbid_greater_pos`.
 
     Default: `uint64::MAX`
     """
 
     max_count: builtins.int = ...
-    """The maximum number of items that are allowed to be allocated with the same attribute name as
-    this rule. If `max_count` items have already been allocated in previous positions, then no
-    more items with the attribute name can be allocated.
+    """The maximum number of items that are allowed to be allocated with the same
+    attribute name as this rule. If `max_count` items have already been
+    allocated in previous positions, then no more items with the attribute
+    name can be allocated.
 
     Default: `uint64::MAX`
     """
@@ -297,30 +611,42 @@ class NegativeRule(google.protobuf.message.Message):
 global___NegativeRule = NegativeRule
 
 class DiversityRule(google.protobuf.message.Message):
-    """Diversity rules modify the scores of insertions if equivalent insertions have been previously
-    allocated.
+    """Diversity rules modify the scores of insertions if equivalent insertions have
+    been previously allocated.
 
-    The purpose of diversity rules is to penalize equivalent insertions. Two insertions `i` and `j`
-    are considered equivalent if they are associated with the same attribute as the rule, and if
-    the value of said attribute is the same, i.e. the condition `i[attr] == j[attr]` and
-    `i[attr] != nil`.
-    Next ID = 2.
+    The purpose of diversity rules is to penalize or boost equivalent
+    insertions. Two insertions `i` and `j` are considered equivalent if they
+    have the same property. For example, if we have `i[animal] = dog` and
+    `j[animal] = dog`, and if `i` was just allocated, then the score of `j` will
+    be modified by `score_j = score_j * multi`.
+
+    NOTE: a multiplier `m <= 0.0` means that matched insertions will never be
+    allocated again in subsequent steps (because non-positive scores
+    disqualify items outright). Multipliers `m < 1.0` act as a penalty.
+    Multipliers `m > 1.0` act as a boost, meaning that similar insertions will
+    be allocated with a higher likelihood, which might lead to grouping of
+    insertions.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     MULTI_FIELD_NUMBER: builtins.int
     multi: builtins.float = ...
-    """A factor modifying items' scores. If an item has been allocated at position `p`, then all the
-    allocated item's value of the attribute with matching name is taken. All other items that a)
-    have an attribute that the rule applies to, and b) share the same value as the just allocated
-    item will have their score multiplied by `multi`.
+    """A factor modifying items' scores. If an item has been allocated at
+    position `p`, then all the allocated item's value of the attribute with
+    matching name is taken. All other items that a) have an attribute that the
+    rule applies to, and b) share the same value as the just allocated item
+    will have their score multiplied by `multi`.
 
-    Example: if insertion `i` has been allocated at position `p`, then an insertion `j` will have
-    its score modified by `p.score *= multi` if and only if
-    `a[rule.attribute_name] == b[rule.attribute_name]` and if `a[rule.attribute_name] != nil`.
+    Example: if insertion `i` has been allocated at position `p`, then an
+    insertion `j` will have its score modified by `p.score *= multi` if and
+    only if `a[rule.attribute_name] == b[rule.attribute_name]` and if
+    `a[rule.attribute_name] != nil`.
 
-    NOTE: a multiplier `m <= 0.0` means that modified items will never be allocated again (because
-    non-positive scores disqualify items outright). Multipliers of `m > 1.0` act as as a boost.
-    To act as a penalty, it should be set `0.0 > m < 1.0`, but this is currently not enforced.
+    NOTE (repeating the above): a multiplier `m <= 0.0` means that matched
+    insertions will never be allocated again in subsequent steps (because
+    non-positive scores disqualify items outright). Multipliers `m < 1.0` act
+    as a penalty. Multipliers `m > 1.0` act as a boost, meaning that similar
+    insertions will be allocated with a higher likelihood, which might lead to
+    grouping of insertions.
     """
 
     def __init__(self,
@@ -332,34 +658,27 @@ class DiversityRule(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_multi",b"_multi"]) -> typing.Optional[typing_extensions.Literal["multi"]]: ...
 global___DiversityRule = DiversityRule
 
-class BlenderConfig(google.protobuf.message.Message):
-    """Next ID = 3."""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    BLENDER_RULE_FIELD_NUMBER: builtins.int
-    QUALITY_SCORE_CONFIG_FIELD_NUMBER: builtins.int
-    @property
-    def blender_rule(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BlenderRule]:
-        """List of blender rules."""
-        pass
-    @property
-    def quality_score_config(self) -> global___QualityScoreConfig: ...
-    def __init__(self,
-        *,
-        blender_rule : typing.Optional[typing.Iterable[global___BlenderRule]] = ...,
-        quality_score_config : typing.Optional[global___QualityScoreConfig] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["quality_score_config",b"quality_score_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["blender_rule",b"blender_rule","quality_score_config",b"quality_score_config"]) -> None: ...
-global___BlenderConfig = BlenderConfig
-
 class QualityScoreConfig(google.protobuf.message.Message):
-    """See: https://github.com/promotedai/qualityscore
-    Next ID = 2.
+    """`QualityScoreConfig` defines how a quality score for each insertion is
+    calculated, and by that establishes a ranking of all available insertions.
+    If an insertion's quality score is zero or negative, then that insertion
+    must not be allocated.
+
+    This message allows defining expressions like the one below:
+
+    ```
+    SCORE_i := TERM_1 + (TERM_2 * TERM_3) + TERM_4
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     WEIGHTED_SUM_TERM_FIELD_NUMBER: builtins.int
     @property
-    def weighted_sum_term(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]: ...
+    def weighted_sum_term(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]:
+        """A list of quality score terms. The terms of this list are summed.
+
+        Default: empty (if empty, the optimized promoted.ai default quality score
+        term will be used)
+        """
+        pass
     def __init__(self,
         *,
         weighted_sum_term : typing.Optional[typing.Iterable[global___QualityScoreTerm]] = ...,
@@ -367,77 +686,175 @@ class QualityScoreConfig(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["weighted_sum_term",b"weighted_sum_term"]) -> None: ...
 global___QualityScoreConfig = QualityScoreConfig
 
+class QualityScoreTerms(google.protobuf.message.Message):
+    """`QualityScoreTerms` is a list of quality score terms defining a product of
+    terms.
+
+    This message exists to work around protobuf not permitting `repeatead`
+    inside `oneof` fields.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    QUALITY_SCORE_TERMS_FIELD_NUMBER: builtins.int
+    @property
+    def quality_score_terms(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]:
+        """A list of quality score terms. The terms of this list are always
+        multiplied.
+
+        Default: empty (if empty, the term defined by this list will be dropped)
+        """
+        pass
+    def __init__(self,
+        *,
+        quality_score_terms : typing.Optional[typing.Iterable[global___QualityScoreTerm]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["quality_score_terms",b"quality_score_terms"]) -> None: ...
+global___QualityScoreTerms = QualityScoreTerms
+
 class QualityScoreTerm(google.protobuf.message.Message):
-    """Next ID = 14."""
+    """`QualityScoreTerm` defines a term in either the root level
+    `weighted_sum_term`, or in a product of terms that themselves a quality
+    score term.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
-    RANDOM_NORMAL_FIELD_NUMBER: builtins.int
-    ONES_FIELD_NUMBER: builtins.int
-    MULTIPLY_TERM_FIELD_NUMBER: builtins.int
+    PRODUCT_FIELD_NUMBER: builtins.int
     FETCH_HIGH_FIELD_NUMBER: builtins.int
     FETCH_LOW_FIELD_NUMBER: builtins.int
     WEIGHT_FIELD_NUMBER: builtins.int
     OFFSET_FIELD_NUMBER: builtins.int
+    TERM_CONDITIONAL_EVALUATION_FIELD_NUMBER: builtins.int
     attribute_name: typing.Text = ...
-    """A named vector provided from elsewhere."""
-
-    @property
-    def random_normal(self) -> global___NormalDistribution:
-        """Randomly generated values from a normal distribution."""
-        pass
-    ones: builtins.bool = ...
-    """A constant value of ones. Set to any constant with offset and/or weight.
-    Set to "true" to indicate that this option is set by convention.
+    """The name of the insertion property that will supply the final value to
+    be used to calculate the quality score for an insertion.
     """
 
     @property
-    def multiply_term(self) -> global___QualityScoreTerm:
-        """Recursively evaluate terms and multiply their evaluations."""
+    def product(self) -> global___QualityScoreTerms:
+        """Recursively evaluate terms and multiply their evaluations as a product."""
         pass
     fetch_high: builtins.float = ...
-    """Maximum limit of underlying value (before weight and offset)."""
+    """The upper bound used to clamp the value supplied by an insertion's
+    property (before weight and offset).
+
+    Default: float::MAX (The maximum value of a single precision 32 bit float)
+    """
 
     fetch_low: builtins.float = ...
-    """Minimum limit of underlying value (before weight and offset)."""
+    """The lower bound used to clamp the value supplied by an insertion's
+    property (before weight and offset).
+
+    Default: float::MIN (The minimum value of a single precision 32 bit float)
+    """
 
     weight: builtins.float = ...
-    """Multiply by this value. default =1 (no multiply)."""
+    """The weight of the value supplied by an insertion's property. This constant
+    multiplies the value before it enters into the sum or product of
+    terms.
+
+    Default: 1.0 (no multiply).
+    """
 
     offset: builtins.float = ...
-    """Add by this value. default = 0 (no addition)"""
+    """An offset added to the value supplied by an insertion's property. This constant
+    is added to the value (after it's modified by the weight) before it enters into
+    the sum or product of terms.
 
+    Default: 0.0 (no offset)
+    """
+
+    @property
+    def term_conditional_evaluation(self) -> global___TermConditionalEvaluation:
+        """The value that this term evaluates to if the provided eval method
+        evaluates to false. This field is used to conditionally set or unset
+        terms from the sum of terms.
+
+        For example, this field allows to construct ternary operators to define
+        scores like so ( where `i` is some insertion, and `IMPORTANT`,
+        `p_NAVIGATE`, and `p_POST_CLICK_CONVERSION` are terms and insertion
+        properties):
+
+        ```
+        score_i := i[IMPORTANT] + i[IMPORTANT] : 0 ? 1 * i[p_NAVIGATE] * i[p_POST_CLICK_CONVERSION]
+        ```
+
+        This sets `score_i` to the value of the `IMPORTANT` property or, if it
+        evaluates to `false` the product `p_NAVIGATE * p_POST_CLICK_CONVERSION`.
+
+        Default: none (ignored)
+        """
+        pass
     def __init__(self,
         *,
         attribute_name : typing.Text = ...,
-        random_normal : typing.Optional[global___NormalDistribution] = ...,
-        ones : builtins.bool = ...,
-        multiply_term : typing.Optional[global___QualityScoreTerm] = ...,
+        product : typing.Optional[global___QualityScoreTerms] = ...,
         fetch_high : builtins.float = ...,
         fetch_low : builtins.float = ...,
         weight : builtins.float = ...,
         offset : builtins.float = ...,
+        term_conditional_evaluation : typing.Optional[global___TermConditionalEvaluation] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","multiply_term",b"multiply_term","ones",b"ones","random_normal",b"random_normal"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","multiply_term",b"multiply_term","offset",b"offset","ones",b"ones","random_normal",b"random_normal","weight",b"weight"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","_term_conditional_evaluation",b"_term_conditional_evaluation","_weight",b"_weight","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","product",b"product","term_conditional_evaluation",b"term_conditional_evaluation","weight",b"weight"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","_term_conditional_evaluation",b"_term_conditional_evaluation","_weight",b"_weight","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","offset",b"offset","product",b"product","term_conditional_evaluation",b"term_conditional_evaluation","weight",b"weight"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_high",b"_fetch_high"]) -> typing.Optional[typing_extensions.Literal["fetch_high"]]: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_low",b"_fetch_low"]) -> typing.Optional[typing_extensions.Literal["fetch_low"]]: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","random_normal","ones","multiply_term"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_term_conditional_evaluation",b"_term_conditional_evaluation"]) -> typing.Optional[typing_extensions.Literal["term_conditional_evaluation"]]: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_weight",b"_weight"]) -> typing.Optional[typing_extensions.Literal["weight"]]: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","product"]]: ...
 global___QualityScoreTerm = QualityScoreTerm
 
-class NormalDistribution(google.protobuf.message.Message):
-    """Next ID = 3."""
+class TermConditionalEvaluation(google.protobuf.message.Message):
+    """If `TermConditionalEvaluation` is specified, then the `eval_method` applied
+    to an insertion must evaluate to `true`. If `false`, the quality term that
+    contains this `TermConditionalEvaluation` will be set/evaluate to
+    `value_if_false`.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    MEAN_FIELD_NUMBER: builtins.int
-    VARIANCE_FIELD_NUMBER: builtins.int
-    mean: builtins.float = ...
-    variance: builtins.float = ...
+    VALUE_IF_FALSE_FIELD_NUMBER: builtins.int
+    ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
+    BOOLEAN_FIELD_NUMBER: builtins.int
+    GREATER_THAN_FIELD_NUMBER: builtins.int
+    LESS_THAN_FIELD_NUMBER: builtins.int
+    INTERVAL_FIELD_NUMBER: builtins.int
+    EQUAL_V2_FIELD_NUMBER: builtins.int
+    value_if_false: builtins.float = ...
+    """The value the contained term will be set to if the evaluation yields `false`.
+
+    Default: 0.0
+    """
+
+    attribute_name: typing.Text = ...
+    """The property with key `attribute_name` that will be used for `eval_method`.
+
+    Default: "" (if the attribute name is not set, then this conditional eval
+    will be ignored because it can't be applied to any property).
+    """
+
+    @property
+    def boolean(self) -> global___Boolean: ...
+    @property
+    def greater_than(self) -> global___GreaterThan: ...
+    @property
+    def less_than(self) -> global___LessThan: ...
+    @property
+    def interval(self) -> global___Interval: ...
+    @property
+    def equal_v2(self) -> global___EqualV2: ...
     def __init__(self,
         *,
-        mean : builtins.float = ...,
-        variance : builtins.float = ...,
+        value_if_false : builtins.float = ...,
+        attribute_name : typing.Text = ...,
+        boolean : typing.Optional[global___Boolean] = ...,
+        greater_than : typing.Optional[global___GreaterThan] = ...,
+        less_than : typing.Optional[global___LessThan] = ...,
+        interval : typing.Optional[global___Interval] = ...,
+        equal_v2 : typing.Optional[global___EqualV2] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mean",b"mean","variance",b"variance"]) -> None: ...
-global___NormalDistribution = NormalDistribution
+    def HasField(self, field_name: typing_extensions.Literal["boolean",b"boolean","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","interval",b"interval","less_than",b"less_than"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","boolean",b"boolean","equal_v2",b"equal_v2","eval_method",b"eval_method","greater_than",b"greater_than","interval",b"interval","less_than",b"less_than","value_if_false",b"value_if_false"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["eval_method",b"eval_method"]) -> typing.Optional[typing_extensions.Literal["boolean","greater_than","less_than","interval","equal_v2"]]: ...
+global___TermConditionalEvaluation = TermConditionalEvaluation
