@@ -1,8 +1,6 @@
 # Schema
 
-Contains shared proto definitions.
-
-[Proto design](proto-design.md)
+Protobuf schemas that define Promoted APIs. [About Proto Schema](proto-design.md)
 
 # *Important*
 
