@@ -115,12 +115,13 @@ global___EntityPath = EntityPath
 class UserInfo(google.protobuf.message.Message):
     """Common submessage that scopes helps scope a request/log to a user.
 
-    Next ID = 4.
+    Next ID = 5.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_ID_FIELD_NUMBER: builtins.int
     LOG_USER_ID_FIELD_NUMBER: builtins.int
     IS_INTERNAL_USER_FIELD_NUMBER: builtins.int
+    IGNORE_USAGE_FIELD_NUMBER: builtins.int
     user_id: typing.Text = ...
     """Optional.  The Platform's actual user ID.
     This field will be cleared from our transaction logs.
@@ -139,13 +140,20 @@ class UserInfo(google.protobuf.message.Message):
     marketplace or Promoted team.
     """
 
+    ignore_usage: builtins.bool = ...
+    """Optional, defaults to false.  Can be used to suppress traffic.
+    One use case is to use this field when debugging specific customer
+    experiences by overriding the log_user_id.
+    """
+
     def __init__(self,
         *,
         user_id : typing.Text = ...,
         log_user_id : typing.Text = ...,
         is_internal_user : builtins.bool = ...,
+        ignore_usage : builtins.bool = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["is_internal_user",b"is_internal_user","log_user_id",b"log_user_id","user_id",b"user_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ignore_usage",b"ignore_usage","is_internal_user",b"is_internal_user","log_user_id",b"log_user_id","user_id",b"user_id"]) -> None: ...
 global___UserInfo = UserInfo
 
 class ClientInfo(google.protobuf.message.Message):
@@ -430,25 +438,28 @@ global___ClientHintBrand = ClientHintBrand
 
 class Browser(google.protobuf.message.Message):
     """A sub-message containing Browser info.
-    Next ID = 4.
+    Next ID = 5.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_AGENT_FIELD_NUMBER: builtins.int
     VIEWPORT_SIZE_FIELD_NUMBER: builtins.int
     CLIENT_HINTS_FIELD_NUMBER: builtins.int
+    REFERRER_FIELD_NUMBER: builtins.int
     user_agent: typing.Text = ...
     @property
     def viewport_size(self) -> global___Size: ...
     @property
     def client_hints(self) -> global___ClientHints: ...
+    referrer: typing.Text = ...
     def __init__(self,
         *,
         user_agent : typing.Text = ...,
         viewport_size : typing.Optional[global___Size] = ...,
         client_hints : typing.Optional[global___ClientHints] = ...,
+        referrer : typing.Text = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["client_hints",b"client_hints","viewport_size",b"viewport_size"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["client_hints",b"client_hints","user_agent",b"user_agent","viewport_size",b"viewport_size"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["client_hints",b"client_hints","referrer",b"referrer","user_agent",b"user_agent","viewport_size",b"viewport_size"]) -> None: ...
 global___Browser = Browser
 
 class Location(google.protobuf.message.Message):
