@@ -44,7 +44,7 @@ enum CurrencyCode {
 
 // Common submessage that scopes helps scope a request/log to a user.
 //
-// Next ID = 4.
+// Next ID = 5.
 message UserInfo {
 
   // Optional.  The Platform's actual user ID.
@@ -62,6 +62,10 @@ message UserInfo {
   // marketplace or Promoted team.
   bool is_internal_user = 3;
 
+  // Optional, defaults to false.  Can be used to suppress traffic.
+  // One use case is to use this field when debugging specific customer
+  // experiences by overriding the log_user_id.
+  bool ignore_usage = 4;
 }
 
 // Info about the client.
@@ -199,13 +203,15 @@ message ClientHintBrand {
 }
 
 // A sub-message containing Browser info.
-// Next ID = 4.
+// Next ID = 5.
 message Browser {
   string user_agent = 1;
 
   Size viewport_size = 2;
 
   ClientHints client_hints = 3;
+
+  string referrer = 4;
 }
 
 // Next ID = 4.
