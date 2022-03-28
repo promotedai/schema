@@ -22,7 +22,7 @@ jobs:
     steps:
 
       - name: Cache Bazel
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3
         env:
           cache-name: bazel-cache
         with:
