@@ -69,7 +69,7 @@ jobs:
       # Needed for the generate-go script.
       - name: Install Go
         id: install_go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
           go-version: 1.16.x
 
