@@ -42,6 +42,16 @@ enum CurrencyCode {
   BRL = 20;
 }
 
+// Represents a money value.  e.g. $1 USD.
+// Next ID = 3.
+message Money {
+  CurrencyCode currency_code = 1;
+
+  // 1 million = 1 denomination in the currency.  E.g. 1 USD = 1,000,000 price_micros_per_unit.
+  // We use micros to avoid double aggregation errors.
+  int64 amount_micros = 2;
+}
+
 // Common submessage that scopes helps scope a request/log to a user.
 //
 // Next ID = 5.

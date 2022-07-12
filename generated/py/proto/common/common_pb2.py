@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\030ai.promoted.proto.commonB\013CommonProtoP\001Z6github.com/promotedai/schema/generated/go/proto/common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19proto/common/common.proto\x12\x06\x63ommon\x1a\x1cgoogle/protobuf/struct.proto\"\x89\x01\n\nEntityPath\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x13\n\x0b\x63ustomer_id\x18\x02 \x01(\x04\x12\x12\n\naccount_id\x18\x04 \x01(\x04\x12\x13\n\x0b\x63\x61mpaign_id\x18\x05 \x01(\x04\x12\x14\n\x0cpromotion_id\x18\x06 \x01(\x04\x12\x12\n\ncontent_id\x18\x03 \x01(\x04\"`\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x13\n\x0blog_user_id\x18\x02 \x01(\t\x12\x18\n\x10is_internal_user\x18\x03 \x01(\x08\x12\x14\n\x0cignore_usage\x18\x04 \x01(\x08\"\xad\x02\n\nClientInfo\x12\x32\n\x0b\x63lient_type\x18\x01 \x01(\x0e\x32\x1d.common.ClientInfo.ClientType\x12\x34\n\x0ctraffic_type\x18\x02 \x01(\x0e\x32\x1e.common.ClientInfo.TrafficType\"X\n\nClientType\x12\x1a\n\x16UNKNOWN_REQUEST_CLIENT\x10\x00\x12\x13\n\x0fPLATFORM_SERVER\x10\x01\x12\x13\n\x0fPLATFORM_CLIENT\x10\x02\"\x04\x08\x03\x10\x04\"[\n\x0bTrafficType\x12\x18\n\x14UNKNOWN_TRAFFIC_TYPE\x10\x00\x12\x0e\n\nPRODUCTION\x10\x01\x12\n\n\x06REPLAY\x10\x02\x12\n\n\x06SHADOW\x10\x04\"\x04\x08\x03\x10\x03\"\x04\x08\x05\x10\x05\"4\n\x06Locale\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x13\n\x0bregion_code\x18\x02 \x01(\t\"%\n\x04Size\x12\r\n\x05width\x18\x01 \x01(\r\x12\x0e\n\x06height\x18\x02 \x01(\r\"3\n\x06Screen\x12\x1a\n\x04size\x18\x01 \x01(\x0b\x32\x0c.common.Size\x12\r\n\x05scale\x18\x02 \x01(\x02\"\xdf\x02\n\x06\x44\x65vice\x12\'\n\x0b\x64\x65vice_type\x18\x01 \x01(\x0e\x32\x12.common.DeviceType\x12\r\n\x05\x62rand\x18\x02 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x03 \x01(\t\x12\x12\n\nidentifier\x18\x04 \x01(\t\x12\x12\n\nos_version\x18\x05 \x01(\t\x12\"\n\x06locale\x18\x06 \x01(\x0b\x32\x0e.common.LocaleB\x02\x18\x01\x12\x1e\n\x06screen\x18\x07 \x01(\x0b\x32\x0e.common.Screen\x12\x12\n\nip_address\x18\x08 \x01(\t\x12\"\n\x08location\x18\t \x01(\x0b\x32\x10.common.Location\x12 \n\x07\x62rowser\x18\n \x01(\x0b\x32\x0f.common.Browser\x12\x1c\n\x14platform_app_version\x18\x0b \x01(\t\x12#\n\x1bpromoted_mobile_sdk_version\x18\x0c \x01(\t\"\xb2\x01\n\x0b\x43lientHints\x12\x11\n\tis_mobile\x18\x01 \x01(\x08\x12&\n\x05\x62rand\x18\x02 \x03(\x0b\x32\x17.common.ClientHintBrand\x12\x14\n\x0c\x61rchitecture\x18\x03 \x01(\t\x12\r\n\x05model\x18\x04 \x01(\t\x12\x10\n\x08platform\x18\x05 \x01(\t\x12\x18\n\x10platform_version\x18\x06 \x01(\t\x12\x17\n\x0fua_full_version\x18\x07 \x01(\t\"1\n\x0f\x43lientHintBrand\x12\r\n\x05\x62rand\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"\x7f\n\x07\x42rowser\x12\x12\n\nuser_agent\x18\x01 \x01(\t\x12#\n\rviewport_size\x18\x02 \x01(\x0b\x32\x0c.common.Size\x12)\n\x0c\x63lient_hints\x18\x03 \x01(\x0b\x32\x13.common.ClientHints\x12\x10\n\x08referrer\x18\x04 \x01(\t\"K\n\x08Location\x12\x10\n\x08latitude\x18\x01 \x01(\x01\x12\x11\n\tlongitude\x18\x02 \x01(\x01\x12\x1a\n\x12\x61\x63\x63uracy_in_meters\x18\x03 \x01(\x01\"2\n\x06Timing\x12\x1c\n\x14\x63lient_log_timestamp\x18\x01 \x01(\x04J\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04\"e\n\nProperties\x12\x16\n\x0cstruct_bytes\x18\x01 \x01(\x0cH\x00\x12)\n\x06struct\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x42\x0e\n\x0cstruct_fieldJ\x04\x08\x03\x10\x04*\xdd\x01\n\x0c\x43urrencyCode\x12\x19\n\x15UNKNOWN_CURRENCY_CODE\x10\x00\x12\x07\n\x03USD\x10\x01\x12\x07\n\x03\x45UR\x10\x02\x12\x07\n\x03JPY\x10\x03\x12\x07\n\x03GBP\x10\x04\x12\x07\n\x03\x41UD\x10\x05\x12\x07\n\x03\x43\x41\x44\x10\x06\x12\x07\n\x03\x43HF\x10\x07\x12\x07\n\x03\x43NY\x10\x08\x12\x07\n\x03HKD\x10\t\x12\x07\n\x03NZD\x10\n\x12\x07\n\x03SEK\x10\x0b\x12\x07\n\x03KRW\x10\x0c\x12\x07\n\x03SGD\x10\r\x12\x07\n\x03NOK\x10\x0e\x12\x07\n\x03MXN\x10\x0f\x12\x07\n\x03INR\x10\x10\x12\x07\n\x03RUB\x10\x11\x12\x07\n\x03ZAR\x10\x12\x12\x07\n\x03TRY\x10\x13\x12\x07\n\x03\x42RL\x10\x14*J\n\nDeviceType\x12\x17\n\x13UNKNOWN_DEVICE_TYPE\x10\x00\x12\x0b\n\x07\x44\x45SKTOP\x10\x01\x12\n\n\x06MOBILE\x10\x02\x12\n\n\x06TABLET\x10\x03\x42\x61\n\x18\x61i.promoted.proto.commonB\x0b\x43ommonProtoP\x01Z6github.com/promotedai/schema/generated/go/proto/commonb\x06proto3'
+  serialized_pb=b'\n\x19proto/common/common.proto\x12\x06\x63ommon\x1a\x1cgoogle/protobuf/struct.proto\"\x89\x01\n\nEntityPath\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x13\n\x0b\x63ustomer_id\x18\x02 \x01(\x04\x12\x12\n\naccount_id\x18\x04 \x01(\x04\x12\x13\n\x0b\x63\x61mpaign_id\x18\x05 \x01(\x04\x12\x14\n\x0cpromotion_id\x18\x06 \x01(\x04\x12\x12\n\ncontent_id\x18\x03 \x01(\x04\"K\n\x05Money\x12+\n\rcurrency_code\x18\x01 \x01(\x0e\x32\x14.common.CurrencyCode\x12\x15\n\ramount_micros\x18\x02 \x01(\x03\"`\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x13\n\x0blog_user_id\x18\x02 \x01(\t\x12\x18\n\x10is_internal_user\x18\x03 \x01(\x08\x12\x14\n\x0cignore_usage\x18\x04 \x01(\x08\"\xad\x02\n\nClientInfo\x12\x32\n\x0b\x63lient_type\x18\x01 \x01(\x0e\x32\x1d.common.ClientInfo.ClientType\x12\x34\n\x0ctraffic_type\x18\x02 \x01(\x0e\x32\x1e.common.ClientInfo.TrafficType\"X\n\nClientType\x12\x1a\n\x16UNKNOWN_REQUEST_CLIENT\x10\x00\x12\x13\n\x0fPLATFORM_SERVER\x10\x01\x12\x13\n\x0fPLATFORM_CLIENT\x10\x02\"\x04\x08\x03\x10\x04\"[\n\x0bTrafficType\x12\x18\n\x14UNKNOWN_TRAFFIC_TYPE\x10\x00\x12\x0e\n\nPRODUCTION\x10\x01\x12\n\n\x06REPLAY\x10\x02\x12\n\n\x06SHADOW\x10\x04\"\x04\x08\x03\x10\x03\"\x04\x08\x05\x10\x05\"4\n\x06Locale\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x13\n\x0bregion_code\x18\x02 \x01(\t\"%\n\x04Size\x12\r\n\x05width\x18\x01 \x01(\r\x12\x0e\n\x06height\x18\x02 \x01(\r\"3\n\x06Screen\x12\x1a\n\x04size\x18\x01 \x01(\x0b\x32\x0c.common.Size\x12\r\n\x05scale\x18\x02 \x01(\x02\"\xdf\x02\n\x06\x44\x65vice\x12\'\n\x0b\x64\x65vice_type\x18\x01 \x01(\x0e\x32\x12.common.DeviceType\x12\r\n\x05\x62rand\x18\x02 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x03 \x01(\t\x12\x12\n\nidentifier\x18\x04 \x01(\t\x12\x12\n\nos_version\x18\x05 \x01(\t\x12\"\n\x06locale\x18\x06 \x01(\x0b\x32\x0e.common.LocaleB\x02\x18\x01\x12\x1e\n\x06screen\x18\x07 \x01(\x0b\x32\x0e.common.Screen\x12\x12\n\nip_address\x18\x08 \x01(\t\x12\"\n\x08location\x18\t \x01(\x0b\x32\x10.common.Location\x12 \n\x07\x62rowser\x18\n \x01(\x0b\x32\x0f.common.Browser\x12\x1c\n\x14platform_app_version\x18\x0b \x01(\t\x12#\n\x1bpromoted_mobile_sdk_version\x18\x0c \x01(\t\"\xb2\x01\n\x0b\x43lientHints\x12\x11\n\tis_mobile\x18\x01 \x01(\x08\x12&\n\x05\x62rand\x18\x02 \x03(\x0b\x32\x17.common.ClientHintBrand\x12\x14\n\x0c\x61rchitecture\x18\x03 \x01(\t\x12\r\n\x05model\x18\x04 \x01(\t\x12\x10\n\x08platform\x18\x05 \x01(\t\x12\x18\n\x10platform_version\x18\x06 \x01(\t\x12\x17\n\x0fua_full_version\x18\x07 \x01(\t\"1\n\x0f\x43lientHintBrand\x12\r\n\x05\x62rand\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\"\x7f\n\x07\x42rowser\x12\x12\n\nuser_agent\x18\x01 \x01(\t\x12#\n\rviewport_size\x18\x02 \x01(\x0b\x32\x0c.common.Size\x12)\n\x0c\x63lient_hints\x18\x03 \x01(\x0b\x32\x13.common.ClientHints\x12\x10\n\x08referrer\x18\x04 \x01(\t\"K\n\x08Location\x12\x10\n\x08latitude\x18\x01 \x01(\x01\x12\x11\n\tlongitude\x18\x02 \x01(\x01\x12\x1a\n\x12\x61\x63\x63uracy_in_meters\x18\x03 \x01(\x01\"2\n\x06Timing\x12\x1c\n\x14\x63lient_log_timestamp\x18\x01 \x01(\x04J\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04\"e\n\nProperties\x12\x16\n\x0cstruct_bytes\x18\x01 \x01(\x0cH\x00\x12)\n\x06struct\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x42\x0e\n\x0cstruct_fieldJ\x04\x08\x03\x10\x04*\xdd\x01\n\x0c\x43urrencyCode\x12\x19\n\x15UNKNOWN_CURRENCY_CODE\x10\x00\x12\x07\n\x03USD\x10\x01\x12\x07\n\x03\x45UR\x10\x02\x12\x07\n\x03JPY\x10\x03\x12\x07\n\x03GBP\x10\x04\x12\x07\n\x03\x41UD\x10\x05\x12\x07\n\x03\x43\x41\x44\x10\x06\x12\x07\n\x03\x43HF\x10\x07\x12\x07\n\x03\x43NY\x10\x08\x12\x07\n\x03HKD\x10\t\x12\x07\n\x03NZD\x10\n\x12\x07\n\x03SEK\x10\x0b\x12\x07\n\x03KRW\x10\x0c\x12\x07\n\x03SGD\x10\r\x12\x07\n\x03NOK\x10\x0e\x12\x07\n\x03MXN\x10\x0f\x12\x07\n\x03INR\x10\x10\x12\x07\n\x03RUB\x10\x11\x12\x07\n\x03ZAR\x10\x12\x12\x07\n\x03TRY\x10\x13\x12\x07\n\x03\x42RL\x10\x14*J\n\nDeviceType\x12\x17\n\x13UNKNOWN_DEVICE_TYPE\x10\x00\x12\x0b\n\x07\x44\x45SKTOP\x10\x01\x12\n\n\x06MOBILE\x10\x02\x12\n\n\x06TABLET\x10\x03\x42\x61\n\x18\x61i.promoted.proto.commonB\x0b\x43ommonProtoP\x01Z6github.com/promotedai/schema/generated/go/proto/commonb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -140,8 +140,8 @@ _CURRENCYCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1703,
-  serialized_end=1924,
+  serialized_start=1780,
+  serialized_end=2001,
 )
 _sym_db.RegisterEnumDescriptor(_CURRENCYCODE)
 
@@ -176,8 +176,8 @@ _DEVICETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1926,
-  serialized_end=2000,
+  serialized_start=2003,
+  serialized_end=2077,
 )
 _sym_db.RegisterEnumDescriptor(_DEVICETYPE)
 
@@ -234,8 +234,8 @@ _CLIENTINFO_CLIENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=426,
-  serialized_end=514,
+  serialized_start=503,
+  serialized_end=591,
 )
 _sym_db.RegisterEnumDescriptor(_CLIENTINFO_CLIENTTYPE)
 
@@ -269,8 +269,8 @@ _CLIENTINFO_TRAFFICTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=516,
-  serialized_end=607,
+  serialized_start=593,
+  serialized_end=684,
 )
 _sym_db.RegisterEnumDescriptor(_CLIENTINFO_TRAFFICTYPE)
 
@@ -342,6 +342,45 @@ _ENTITYPATH = _descriptor.Descriptor(
 )
 
 
+_MONEY = _descriptor.Descriptor(
+  name='Money',
+  full_name='common.Money',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='currency_code', full_name='common.Money.currency_code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='amount_micros', full_name='common.Money.amount_micros', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=207,
+  serialized_end=282,
+)
+
+
 _USERINFO = _descriptor.Descriptor(
   name='UserInfo',
   full_name='common.UserInfo',
@@ -390,8 +429,8 @@ _USERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=207,
-  serialized_end=303,
+  serialized_start=284,
+  serialized_end=380,
 )
 
 
@@ -431,8 +470,8 @@ _CLIENTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=306,
-  serialized_end=607,
+  serialized_start=383,
+  serialized_end=684,
 )
 
 
@@ -470,8 +509,8 @@ _LOCALE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=609,
-  serialized_end=661,
+  serialized_start=686,
+  serialized_end=738,
 )
 
 
@@ -509,8 +548,8 @@ _SIZE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=663,
-  serialized_end=700,
+  serialized_start=740,
+  serialized_end=777,
 )
 
 
@@ -548,8 +587,8 @@ _SCREEN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=702,
-  serialized_end=753,
+  serialized_start=779,
+  serialized_end=830,
 )
 
 
@@ -657,8 +696,8 @@ _DEVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=756,
-  serialized_end=1107,
+  serialized_start=833,
+  serialized_end=1184,
 )
 
 
@@ -731,8 +770,8 @@ _CLIENTHINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1110,
-  serialized_end=1288,
+  serialized_start=1187,
+  serialized_end=1365,
 )
 
 
@@ -770,8 +809,8 @@ _CLIENTHINTBRAND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1290,
-  serialized_end=1339,
+  serialized_start=1367,
+  serialized_end=1416,
 )
 
 
@@ -823,8 +862,8 @@ _BROWSER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1341,
-  serialized_end=1468,
+  serialized_start=1418,
+  serialized_end=1545,
 )
 
 
@@ -869,8 +908,8 @@ _LOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1470,
-  serialized_end=1545,
+  serialized_start=1547,
+  serialized_end=1622,
 )
 
 
@@ -901,8 +940,8 @@ _TIMING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1547,
-  serialized_end=1597,
+  serialized_start=1624,
+  serialized_end=1674,
 )
 
 
@@ -945,10 +984,11 @@ _PROPERTIES = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1599,
-  serialized_end=1700,
+  serialized_start=1676,
+  serialized_end=1777,
 )
 
+_MONEY.fields_by_name['currency_code'].enum_type = _CURRENCYCODE
 _CLIENTINFO.fields_by_name['client_type'].enum_type = _CLIENTINFO_CLIENTTYPE
 _CLIENTINFO.fields_by_name['traffic_type'].enum_type = _CLIENTINFO_TRAFFICTYPE
 _CLIENTINFO_CLIENTTYPE.containing_type = _CLIENTINFO
@@ -970,6 +1010,7 @@ _PROPERTIES.oneofs_by_name['struct_field'].fields.append(
   _PROPERTIES.fields_by_name['struct'])
 _PROPERTIES.fields_by_name['struct'].containing_oneof = _PROPERTIES.oneofs_by_name['struct_field']
 DESCRIPTOR.message_types_by_name['EntityPath'] = _ENTITYPATH
+DESCRIPTOR.message_types_by_name['Money'] = _MONEY
 DESCRIPTOR.message_types_by_name['UserInfo'] = _USERINFO
 DESCRIPTOR.message_types_by_name['ClientInfo'] = _CLIENTINFO
 DESCRIPTOR.message_types_by_name['Locale'] = _LOCALE
@@ -992,6 +1033,13 @@ EntityPath = _reflection.GeneratedProtocolMessageType('EntityPath', (_message.Me
   # @@protoc_insertion_point(class_scope:common.EntityPath)
   })
 _sym_db.RegisterMessage(EntityPath)
+
+Money = _reflection.GeneratedProtocolMessageType('Money', (_message.Message,), {
+  'DESCRIPTOR' : _MONEY,
+  '__module__' : 'proto.common.common_pb2'
+  # @@protoc_insertion_point(class_scope:common.Money)
+  })
+_sym_db.RegisterMessage(Money)
 
 UserInfo = _reflection.GeneratedProtocolMessageType('UserInfo', (_message.Message,), {
   'DESCRIPTOR' : _USERINFO,

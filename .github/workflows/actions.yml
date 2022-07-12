@@ -62,11 +62,16 @@ jobs:
           # bazel sync --configure
           bazel build ...
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.8
 
-      # Needed for the generate-go script.
+      # Needed for the generate script.
+      - name: Install pipenv
+        run: |
+          python -m pip install --upgrade pipenv
+
+      # Needed for the generate script.
       - name: Install Go
         id: install_go
         uses: actions/setup-go@v3

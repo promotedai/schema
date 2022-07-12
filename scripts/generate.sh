@@ -14,4 +14,5 @@ if [[ "$current_dir" != "schema" &&  "$current_dir" != "generated-public" ]]; th
 fi
 
 ./scripts/generate-go.sh "$@"
+
 ./scripts/generate-python.sh "$@"
