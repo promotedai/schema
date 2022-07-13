@@ -4,8 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+protobuf = "~=3.18.1"
 
 [dev-packages]
+protobuf = "~=3.18.1"
+mypy-protobuf = "3.0"
 
 [requires]
 python_version = "3.8"

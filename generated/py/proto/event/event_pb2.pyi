@@ -834,7 +834,7 @@ global___NavigateAction = NavigateAction
 class Action(google.protobuf.message.Message):
     """Actions are user actions.  Example: Click.
     Actions are immutable.
-    Next ID = 27.
+    Next ID = 29.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
@@ -859,6 +859,7 @@ class Action(google.protobuf.message.Message):
     ID_PROVENANCES_FIELD_NUMBER: builtins.int
     PROPERTIES_FIELD_NUMBER: builtins.int
     DEVICE_FIELD_NUMBER: builtins.int
+    CART_FIELD_NUMBER: builtins.int
     platform_id: builtins.int = ...
     """Optional.  If not set, set by API servers.
     If not set, API server uses LogRequest.platform_id.
@@ -903,8 +904,13 @@ class Action(google.protobuf.message.Message):
     """Optional."""
 
     content_id: typing.Text = ...
-    """Optional. content_id is used as a hint when impression_id is not set.
+    """Optional.  The content ID for this action.
+    If this is an action with a shopping cart (CHECKOUT, PURCHASE) with multiple items,
+    it is okay to blank and fill in `cart.items.item_id`.
+
+    content_id is used as a hint when impression_id is not set.
     For more accurate results, set impression_id if available.
+    content_id is also useful for debugging.
     """
 
     name: typing.Text = ...
@@ -944,6 +950,10 @@ class Action(google.protobuf.message.Message):
         If the client is fully integrated, this does not need to be filled in.
         """
         pass
+    @property
+    def cart(self) -> global___Cart:
+        """Shopping cart."""
+        pass
     def __init__(self,
         *,
         platform_id : builtins.int = ...,
@@ -968,11 +978,60 @@ class Action(google.protobuf.message.Message):
         id_provenances : typing.Optional[global___IdentifierProvenances] = ...,
         properties : typing.Optional[proto.common.common_pb2.Properties] = ...,
         device : typing.Optional[proto.common.common_pb2.Device] = ...,
+        cart : typing.Optional[global___Cart] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["action",b"action","client_info",b"client_info","client_position",b"client_position","device",b"device","id_provenances",b"id_provenances","navigate_action",b"navigate_action","properties",b"properties","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","action_id",b"action_id","action_type",b"action_type","auto_view_id",b"auto_view_id","client_info",b"client_info","client_position",b"client_position","content_id",b"content_id","custom_action_type",b"custom_action_type","device",b"device","element_id",b"element_id","has_superimposed_views",b"has_superimposed_views","id_provenances",b"id_provenances","impression_id",b"impression_id","insertion_id",b"insertion_id","name",b"name","navigate_action",b"navigate_action","platform_id",b"platform_id","properties",b"properties","request_id",b"request_id","session_id",b"session_id","timing",b"timing","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_cart",b"_cart","action",b"action","cart",b"cart","client_info",b"client_info","client_position",b"client_position","device",b"device","id_provenances",b"id_provenances","navigate_action",b"navigate_action","properties",b"properties","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_cart",b"_cart","action",b"action","action_id",b"action_id","action_type",b"action_type","auto_view_id",b"auto_view_id","cart",b"cart","client_info",b"client_info","client_position",b"client_position","content_id",b"content_id","custom_action_type",b"custom_action_type","device",b"device","element_id",b"element_id","has_superimposed_views",b"has_superimposed_views","id_provenances",b"id_provenances","impression_id",b"impression_id","insertion_id",b"insertion_id","name",b"name","navigate_action",b"navigate_action","platform_id",b"platform_id","properties",b"properties","request_id",b"request_id","session_id",b"session_id","timing",b"timing","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_cart",b"_cart"]) -> typing.Optional[typing_extensions.Literal["cart"]]: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["navigate_action"]]: ...
 global___Action = Action
+
+class Cart(google.protobuf.message.Message):
+    """Shopping cart.
+    Next ID = 2.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    CONTENTS_FIELD_NUMBER: builtins.int
+    @property
+    def contents(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CartContent]:
+        """Some APIs call these `items`."""
+        pass
+    def __init__(self,
+        *,
+        contents : typing.Optional[typing.Iterable[global___CartContent]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["contents",b"contents"]) -> None: ...
+global___Cart = Cart
+
+class CartContent(google.protobuf.message.Message):
+    """Item in a shopping cart.
+    Next ID = 4.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    CONTENT_ID_FIELD_NUMBER: builtins.int
+    QUANTITY_FIELD_NUMBER: builtins.int
+    PRICE_PER_UNIT_FIELD_NUMBER: builtins.int
+    content_id: typing.Text = ...
+    """Same as other `content_id`s."""
+
+    quantity: builtins.int = ...
+    """Required.  Quantity, units, etc.  If there's only 1 item, set to 1."""
+
+    @property
+    def price_per_unit(self) -> proto.common.common_pb2.Money:
+        """Price of a single unit of content.  `A unit` defaults to `quantity=1`."""
+        pass
+    def __init__(self,
+        *,
+        content_id : typing.Text = ...,
+        quantity : builtins.int = ...,
+        price_per_unit : typing.Optional[proto.common.common_pb2.Money] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["price_per_unit",b"price_per_unit"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content_id",b"content_id","price_per_unit",b"price_per_unit","quantity",b"quantity"]) -> None: ...
+global___CartContent = CartContent
 
 class IOSError(google.protobuf.message.Message):
     """Error from iOS client.

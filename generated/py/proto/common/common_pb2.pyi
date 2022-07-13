@@ -112,6 +112,27 @@ class EntityPath(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["account_id",b"account_id","campaign_id",b"campaign_id","content_id",b"content_id","customer_id",b"customer_id","platform_id",b"platform_id","promotion_id",b"promotion_id"]) -> None: ...
 global___EntityPath = EntityPath
 
+class Money(google.protobuf.message.Message):
+    """Represents a money value.  e.g. $1 USD.
+    Next ID = 3.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    CURRENCY_CODE_FIELD_NUMBER: builtins.int
+    AMOUNT_MICROS_FIELD_NUMBER: builtins.int
+    currency_code: global___CurrencyCode.V = ...
+    amount_micros: builtins.int = ...
+    """1 million = 1 denomination in the currency.  E.g. 1 USD = 1,000,000 price_micros_per_unit.
+    We use micros to avoid double aggregation errors.
+    """
+
+    def __init__(self,
+        *,
+        currency_code : global___CurrencyCode.V = ...,
+        amount_micros : builtins.int = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount_micros",b"amount_micros","currency_code",b"currency_code"]) -> None: ...
+global___Money = Money
+
 class UserInfo(google.protobuf.message.Message):
     """Common submessage that scopes helps scope a request/log to a user.
 

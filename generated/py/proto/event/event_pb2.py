@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\027ai.promoted.proto.eventB\005EventP\001Z5github.com/promotedai/schema/generated/go/proto/event',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x17proto/event/event.proto\x12\x05\x65vent\x1a\x19proto/common/common.proto\x1a\x1dproto/delivery/delivery.proto\x1a\x1eproto/delivery/execution.proto\"\xca\x01\n\x11JoinedIdentifiers\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x13\n\x0blog_user_id\x18\x03 \x01(\t\x12\x12\n\nsession_id\x18\x04 \x01(\t\x12\x0f\n\x07view_id\x18\x05 \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\t \x01(\t\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x15\n\rimpression_id\x18\x08 \x01(\t\"\xf0\x04\n\x15IdentifierProvenances\x12\x37\n\x12user_id_provenance\x18\x01 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12;\n\x16log_user_id_provenance\x18\t \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15session_id_provenance\x18\x02 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x37\n\x12view_id_provenance\x18\x03 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12<\n\x17\x61uto_view_id_provenance\x18\x08 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12<\n\x17insertion_id_provenance\x18\n \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12=\n\x18impression_id_provenance\x18\x04 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x39\n\x14\x61\x63tion_id_provenance\x18\x05 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15\x63ontent_id_provenance\x18\x06 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15request_id_provenance\x18\x07 \x01(\x0e\x32\x1b.event.IdentifierProvenance\"\xed\x01\n\x04User\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x34\n\x0eid_provenances\x18\x07 \x01(\x0b\x32\x1c.event.IdentifierProvenances\x12&\n\nproperties\x18\x06 \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"\x92\x02\n\x10\x43ohortMembership\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rmembership_id\x18\x06 \x01(\t\x12\x11\n\tcohort_id\x18\x08 \x01(\t\x12\x1d\n\x03\x61rm\x18\t \x01(\x0e\x32\x10.event.CohortArm\x12&\n\nproperties\x18\n \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x07\x10\x08\"W\n\x0bWebPageView\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x10\n\x08referrer\x18\x03 \x01(\t\x12#\n\rdocument_size\x18\x04 \x01(\x0b\x32\x0c.common.SizeJ\x04\x08\x02\x10\x03\"\x15\n\rAppScreenViewJ\x04\x08\x01\x10\x02\"\xea\x04\n\x04View\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x0f\n\x07view_id\x18\x06 \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x11 \x01(\t\x12\x12\n\nsession_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06locale\x18\x10 \x01(\x0b\x32\x0e.common.Locale\x12\'\n\tview_type\x18\r \x01(\x0e\x32\x14.event.View.ViewType\x12+\n\rweb_page_view\x18\x0e \x01(\x0b\x32\x12.event.WebPageViewH\x00\x12/\n\x0f\x61pp_screen_view\x18\x0f \x01(\x0b\x32\x14.event.AppScreenViewH\x00\x12\x34\n\x0eid_provenances\x18\x12 \x01(\x0b\x32\x1c.event.IdentifierProvenances\"?\n\x08ViewType\x12\x15\n\x11UNKNOWN_VIEW_TYPE\x10\x00\x12\x0c\n\x08WEB_PAGE\x10\x01\x12\x0e\n\nAPP_SCREEN\x10\x02\x42\t\n\x07ui_typeJ\x04\x08\x05\x10\x06J\x04\x08\x0c\x10\r\"\xe8\x03\n\x08\x41utoView\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0c\x61uto_view_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x0e \x01(\t\x12\x12\n\nsession_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12&\n\nproperties\x18\n \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06locale\x18\x0b \x01(\x0b\x32\x0e.common.Locale\x12+\n\rweb_page_view\x18\x0c \x01(\x0b\x32\x12.event.WebPageViewH\x00\x12/\n\x0f\x61pp_screen_view\x18\r \x01(\x0b\x32\x14.event.AppScreenViewH\x00\x12\x34\n\x0eid_provenances\x18\x0f \x01(\x0b\x32\x1c.event.IdentifierProvenancesB\t\n\x07ui_typeJ\x04\x08\x05\x10\x06\"\x1a\n\tIndexPath\x12\r\n\x05index\x18\x01 \x03(\x05\"\x80\x04\n\nImpression\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rimpression_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x12\n\nrequest_id\x18\x08 \x01(\t\x12\x0f\n\x07view_id\x18\n \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x0f \x01(\t\x12\x12\n\nsession_id\x18\t \x01(\t\x12\x12\n\ncontent_id\x18\x0c \x01(\t\x12\x30\n\x0bsource_type\x18\r \x01(\x0e\x32\x1b.event.ImpressionSourceType\x12\x1e\n\x16has_superimposed_views\x18\x0e \x01(\x08\x12)\n\x0f\x63lient_position\x18\x10 \x01(\x0b\x32\x10.event.IndexPath\x12\x34\n\x0eid_provenances\x18\x11 \x01(\x0b\x32\x1c.event.IdentifierProvenances\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"$\n\x0eNavigateAction\x12\x12\n\ntarget_url\x18\x01 \x01(\t\"\xb1\x05\n\x06\x41\x63tion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x11\n\taction_id\x18\x06 \x01(\t\x12\x15\n\rimpression_id\x18\x07 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x08 \x01(\t\x12\x12\n\nrequest_id\x18\t \x01(\t\x12\x0f\n\x07view_id\x18\x0b \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x17 \x01(\t\x12\x12\n\nsession_id\x18\n \x01(\t\x12\x12\n\ncontent_id\x18\x15 \x01(\t\x12\x0c\n\x04name\x18\x0c \x01(\t\x12&\n\x0b\x61\x63tion_type\x18\x0e \x01(\x0e\x32\x11.event.ActionType\x12\x1a\n\x12\x63ustom_action_type\x18\x0f \x01(\t\x12\x12\n\nelement_id\x18\x11 \x01(\t\x12\x30\n\x0fnavigate_action\x18\x12 \x01(\x0b\x32\x15.event.NavigateActionH\x00\x12\x1e\n\x16has_superimposed_views\x18\x16 \x01(\x08\x12)\n\x0f\x63lient_position\x18\x18 \x01(\x0b\x32\x10.event.IndexPath\x12\x34\n\x0eid_provenances\x18\x19 \x01(\x0b\x32\x1c.event.IdentifierProvenances\x12&\n\nproperties\x18\x14 \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06\x64\x65vice\x18\x1a \x01(\x0b\x32\x0e.common.DeviceB\x08\n\x06\x61\x63tionJ\x04\x08\x05\x10\x06J\x04\x08\r\x10\x0eJ\x04\x08\x10\x10\x11J\x04\x08\x13\x10\x14\"S\n\x08IOSError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x64omain\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x14\n\x0c\x62\x61tch_number\x18\x04 \x01(\x05\"I\n\x0c\x45rrorHistory\x12#\n\nios_errors\x18\x01 \x03(\x0b\x32\x0f.event.IOSError\x12\x14\n\x0ctotal_errors\x18\x02 \x01(\x05\"\xea\x01\n\x15\x41ncestorIdHistoryItem\x12\x13\n\x0b\x61ncestor_id\x18\x01 \x01(\t\x12!\n\nuser_event\x18\x02 \x01(\x0b\x32\x0b.event.UserH\x00\x12$\n\x1asession_id_from_user_event\x18\x03 \x01(\tH\x00\x12!\n\nview_event\x18\x04 \x01(\x0b\x32\x0b.event.ViewH\x00\x12*\n\x0f\x61uto_view_event\x18\x06 \x01(\x0b\x32\x0f.event.AutoViewH\x00\x12\x14\n\x0c\x62\x61tch_number\x18\x05 \x01(\x05\x42\x0e\n\x0clogged_event\"\x83\x03\n\x11\x41ncestorIdHistory\x12\x39\n\x13log_user_id_history\x18\x01 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12!\n\x19total_log_user_ids_logged\x18\x02 \x01(\x05\x12\x38\n\x12session_id_history\x18\x03 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12 \n\x18total_session_ids_logged\x18\x04 \x01(\x05\x12\x35\n\x0fview_id_history\x18\x05 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12\x1d\n\x15total_view_ids_logged\x18\x06 \x01(\x05\x12:\n\x14\x61uto_view_id_history\x18\x07 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12\"\n\x1atotal_auto_view_ids_logged\x18\x08 \x01(\x05\"\xae\x02\n\x11MobileDiagnostics\x12\x19\n\x11\x64\x65vice_identifier\x18\x01 \x01(\t\x12\x1a\n\x0e\x63lient_version\x18\x02 \x01(\tB\x02\x18\x01\x12$\n\x18promoted_library_version\x18\x03 \x01(\tB\x02\x18\x01\x12\x19\n\x11\x62\x61tches_attempted\x18\x04 \x01(\x05\x12!\n\x19\x62\x61tches_sent_successfully\x18\x05 \x01(\x05\x12\x1b\n\x13\x62\x61tches_with_errors\x18\x06 \x01(\x05\x12*\n\rerror_history\x18\x07 \x01(\x0b\x32\x13.event.ErrorHistory\x12\x35\n\x13\x61ncestor_id_history\x18\x08 \x01(\x0b\x32\x18.event.AncestorIdHistory\"\xdf\x01\n\x0b\x44iagnostics\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x36\n\x12mobile_diagnostics\x18\x05 \x01(\x0b\x32\x18.event.MobileDiagnosticsH\x00\x42\x15\n\x13\x64iagnostics_message\"\xcf\x04\n\nLogRequest\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x18 \x01(\x0b\x32\x0e.common.Device\x12\x19\n\x04user\x18\x07 \x03(\x0b\x32\x0b.event.User\x12\x32\n\x11\x63ohort_membership\x18\x08 \x03(\x0b\x32\x17.event.CohortMembership\x12\x19\n\x04view\x18\x0b \x03(\x0b\x32\x0b.event.View\x12\"\n\tauto_view\x18\x19 \x03(\x0b\x32\x0f.event.AutoView\x12\"\n\x07request\x18\x0c \x03(\x0b\x32\x11.delivery.Request\x12&\n\tinsertion\x18\r \x03(\x0b\x32\x13.delivery.Insertion\x12%\n\nimpression\x18\x0e \x03(\x0b\x32\x11.event.Impression\x12\x1d\n\x06\x61\x63tion\x18\x0f \x03(\x0b\x32\r.event.Action\x12+\n\x0c\x64\x65livery_log\x18\x12 \x03(\x0b\x32\x15.delivery.DeliveryLog\x12\'\n\x0b\x64iagnostics\x18\x17 \x03(\x0b\x32\x12.event.DiagnosticsJ\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07J\x04\x08\t\x10\nJ\x04\x08\n\x10\x0bJ\x04\x08\x10\x10\x11J\x04\x08\x11\x10\x12J\x04\x08\x13\x10\x17*c\n\x14IdentifierProvenance\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04NULL\x10\x01\x12\t\n\x05\x45MPTY\x10\x02\x12\x11\n\rAUTOGENERATED\x10\x03\x12\x16\n\x12PLATFORM_SPECIFIED\x10\x04*j\n\tCohortArm\x12\x11\n\rUNKNOWN_GROUP\x10\x00\x12\x0b\n\x07\x43ONTROL\x10\x01\x12\r\n\tTREATMENT\x10\x02\x12\x0e\n\nTREATMENT1\x10\x03\x12\x0e\n\nTREATMENT2\x10\x04\x12\x0e\n\nTREATMENT3\x10\x05*\\\n\x14ImpressionSourceType\x12\"\n\x1eUNKNOWN_IMPRESSION_SOURCE_TYPE\x10\x00\x12\x0c\n\x08\x44\x45LIVERY\x10\x01\x12\x12\n\x0e\x43LIENT_BACKEND\x10\x02*\x9f\x02\n\nActionType\x12\x17\n\x13UNKNOWN_ACTION_TYPE\x10\x00\x12\x16\n\x12\x43USTOM_ACTION_TYPE\x10\x01\x12\x0c\n\x08NAVIGATE\x10\x02\x12\x0f\n\x0b\x41\x44\x44_TO_CART\x10\x04\x12\x14\n\x10REMOVE_FROM_CART\x10\n\x12\x0c\n\x08\x43HECKOUT\x10\x08\x12\x0c\n\x08PURCHASE\x10\x03\x12\t\n\x05SHARE\x10\x05\x12\x08\n\x04LIKE\x10\x06\x12\n\n\x06UNLIKE\x10\t\x12\x0b\n\x07\x43OMMENT\x10\x07\x12\x0e\n\nMAKE_OFFER\x10\x0b\x12\x10\n\x0c\x41SK_QUESTION\x10\x0c\x12\x13\n\x0f\x41NSWER_QUESTION\x10\r\x12\x14\n\x10\x43OMPLETE_SIGN_IN\x10\x0e\x12\x14\n\x10\x43OMPLETE_SIGN_UP\x10\x0f\x42Y\n\x17\x61i.promoted.proto.eventB\x05\x45ventP\x01Z5github.com/promotedai/schema/generated/go/proto/eventb\x06proto3'
+  serialized_pb=b'\n\x17proto/event/event.proto\x12\x05\x65vent\x1a\x19proto/common/common.proto\x1a\x1dproto/delivery/delivery.proto\x1a\x1eproto/delivery/execution.proto\"\xca\x01\n\x11JoinedIdentifiers\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x13\n\x0blog_user_id\x18\x03 \x01(\t\x12\x12\n\nsession_id\x18\x04 \x01(\t\x12\x0f\n\x07view_id\x18\x05 \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\t \x01(\t\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x15\n\rimpression_id\x18\x08 \x01(\t\"\xf0\x04\n\x15IdentifierProvenances\x12\x37\n\x12user_id_provenance\x18\x01 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12;\n\x16log_user_id_provenance\x18\t \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15session_id_provenance\x18\x02 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x37\n\x12view_id_provenance\x18\x03 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12<\n\x17\x61uto_view_id_provenance\x18\x08 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12<\n\x17insertion_id_provenance\x18\n \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12=\n\x18impression_id_provenance\x18\x04 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12\x39\n\x14\x61\x63tion_id_provenance\x18\x05 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15\x63ontent_id_provenance\x18\x06 \x01(\x0e\x32\x1b.event.IdentifierProvenance\x12:\n\x15request_id_provenance\x18\x07 \x01(\x0e\x32\x1b.event.IdentifierProvenance\"\xed\x01\n\x04User\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x34\n\x0eid_provenances\x18\x07 \x01(\x0b\x32\x1c.event.IdentifierProvenances\x12&\n\nproperties\x18\x06 \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"\x92\x02\n\x10\x43ohortMembership\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rmembership_id\x18\x06 \x01(\t\x12\x11\n\tcohort_id\x18\x08 \x01(\t\x12\x1d\n\x03\x61rm\x18\t \x01(\x0e\x32\x10.event.CohortArm\x12&\n\nproperties\x18\n \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x07\x10\x08\"W\n\x0bWebPageView\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x10\n\x08referrer\x18\x03 \x01(\t\x12#\n\rdocument_size\x18\x04 \x01(\x0b\x32\x0c.common.SizeJ\x04\x08\x02\x10\x03\"\x15\n\rAppScreenViewJ\x04\x08\x01\x10\x02\"\xea\x04\n\x04View\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x0f\n\x07view_id\x18\x06 \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x11 \x01(\t\x12\x12\n\nsession_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06locale\x18\x10 \x01(\x0b\x32\x0e.common.Locale\x12\'\n\tview_type\x18\r \x01(\x0e\x32\x14.event.View.ViewType\x12+\n\rweb_page_view\x18\x0e \x01(\x0b\x32\x12.event.WebPageViewH\x00\x12/\n\x0f\x61pp_screen_view\x18\x0f \x01(\x0b\x32\x14.event.AppScreenViewH\x00\x12\x34\n\x0eid_provenances\x18\x12 \x01(\x0b\x32\x1c.event.IdentifierProvenances\"?\n\x08ViewType\x12\x15\n\x11UNKNOWN_VIEW_TYPE\x10\x00\x12\x0c\n\x08WEB_PAGE\x10\x01\x12\x0e\n\nAPP_SCREEN\x10\x02\x42\t\n\x07ui_typeJ\x04\x08\x05\x10\x06J\x04\x08\x0c\x10\r\"\xe8\x03\n\x08\x41utoView\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0c\x61uto_view_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x0e \x01(\t\x12\x12\n\nsession_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12&\n\nproperties\x18\n \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06locale\x18\x0b \x01(\x0b\x32\x0e.common.Locale\x12+\n\rweb_page_view\x18\x0c \x01(\x0b\x32\x12.event.WebPageViewH\x00\x12/\n\x0f\x61pp_screen_view\x18\r \x01(\x0b\x32\x14.event.AppScreenViewH\x00\x12\x34\n\x0eid_provenances\x18\x0f \x01(\x0b\x32\x1c.event.IdentifierProvenancesB\t\n\x07ui_typeJ\x04\x08\x05\x10\x06\"\x1a\n\tIndexPath\x12\r\n\x05index\x18\x01 \x03(\x05\"\x80\x04\n\nImpression\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x15\n\rimpression_id\x18\x06 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x07 \x01(\t\x12\x12\n\nrequest_id\x18\x08 \x01(\t\x12\x0f\n\x07view_id\x18\n \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x0f \x01(\t\x12\x12\n\nsession_id\x18\t \x01(\t\x12\x12\n\ncontent_id\x18\x0c \x01(\t\x12\x30\n\x0bsource_type\x18\r \x01(\x0e\x32\x1b.event.ImpressionSourceType\x12\x1e\n\x16has_superimposed_views\x18\x0e \x01(\x08\x12)\n\x0f\x63lient_position\x18\x10 \x01(\x0b\x32\x10.event.IndexPath\x12\x34\n\x0eid_provenances\x18\x11 \x01(\x0b\x32\x1c.event.IdentifierProvenances\x12&\n\nproperties\x18\x0b \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06\"$\n\x0eNavigateAction\x12\x12\n\ntarget_url\x18\x01 \x01(\t\"\xe0\x05\n\x06\x41\x63tion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x11\n\taction_id\x18\x06 \x01(\t\x12\x15\n\rimpression_id\x18\x07 \x01(\t\x12\x14\n\x0cinsertion_id\x18\x08 \x01(\t\x12\x12\n\nrequest_id\x18\t \x01(\t\x12\x0f\n\x07view_id\x18\x0b \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x17 \x01(\t\x12\x12\n\nsession_id\x18\n \x01(\t\x12\x12\n\ncontent_id\x18\x15 \x01(\t\x12\x0c\n\x04name\x18\x0c \x01(\t\x12&\n\x0b\x61\x63tion_type\x18\x0e \x01(\x0e\x32\x11.event.ActionType\x12\x1a\n\x12\x63ustom_action_type\x18\x0f \x01(\t\x12\x12\n\nelement_id\x18\x11 \x01(\t\x12\x30\n\x0fnavigate_action\x18\x12 \x01(\x0b\x32\x15.event.NavigateActionH\x00\x12\x1e\n\x16has_superimposed_views\x18\x16 \x01(\x08\x12)\n\x0f\x63lient_position\x18\x18 \x01(\x0b\x32\x10.event.IndexPath\x12\x34\n\x0eid_provenances\x18\x19 \x01(\x0b\x32\x1c.event.IdentifierProvenances\x12&\n\nproperties\x18\x14 \x01(\x0b\x32\x12.common.Properties\x12\x1e\n\x06\x64\x65vice\x18\x1a \x01(\x0b\x32\x0e.common.Device\x12\x1e\n\x04\x63\x61rt\x18\x1c \x01(\x0b\x32\x0b.event.CartH\x01\x88\x01\x01\x42\x08\n\x06\x61\x63tionB\x07\n\x05_cartJ\x04\x08\x05\x10\x06J\x04\x08\r\x10\x0eJ\x04\x08\x10\x10\x11J\x04\x08\x13\x10\x14J\x04\x08\x1b\x10\x1c\",\n\x04\x43\x61rt\x12$\n\x08\x63ontents\x18\x01 \x03(\x0b\x32\x12.event.CartContent\"Z\n\x0b\x43\x61rtContent\x12\x12\n\ncontent_id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x03\x12%\n\x0eprice_per_unit\x18\x03 \x01(\x0b\x32\r.common.Money\"S\n\x08IOSError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06\x64omain\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x14\n\x0c\x62\x61tch_number\x18\x04 \x01(\x05\"I\n\x0c\x45rrorHistory\x12#\n\nios_errors\x18\x01 \x03(\x0b\x32\x0f.event.IOSError\x12\x14\n\x0ctotal_errors\x18\x02 \x01(\x05\"\xea\x01\n\x15\x41ncestorIdHistoryItem\x12\x13\n\x0b\x61ncestor_id\x18\x01 \x01(\t\x12!\n\nuser_event\x18\x02 \x01(\x0b\x32\x0b.event.UserH\x00\x12$\n\x1asession_id_from_user_event\x18\x03 \x01(\tH\x00\x12!\n\nview_event\x18\x04 \x01(\x0b\x32\x0b.event.ViewH\x00\x12*\n\x0f\x61uto_view_event\x18\x06 \x01(\x0b\x32\x0f.event.AutoViewH\x00\x12\x14\n\x0c\x62\x61tch_number\x18\x05 \x01(\x05\x42\x0e\n\x0clogged_event\"\x83\x03\n\x11\x41ncestorIdHistory\x12\x39\n\x13log_user_id_history\x18\x01 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12!\n\x19total_log_user_ids_logged\x18\x02 \x01(\x05\x12\x38\n\x12session_id_history\x18\x03 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12 \n\x18total_session_ids_logged\x18\x04 \x01(\x05\x12\x35\n\x0fview_id_history\x18\x05 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12\x1d\n\x15total_view_ids_logged\x18\x06 \x01(\x05\x12:\n\x14\x61uto_view_id_history\x18\x07 \x03(\x0b\x32\x1c.event.AncestorIdHistoryItem\x12\"\n\x1atotal_auto_view_ids_logged\x18\x08 \x01(\x05\"\xae\x02\n\x11MobileDiagnostics\x12\x19\n\x11\x64\x65vice_identifier\x18\x01 \x01(\t\x12\x1a\n\x0e\x63lient_version\x18\x02 \x01(\tB\x02\x18\x01\x12$\n\x18promoted_library_version\x18\x03 \x01(\tB\x02\x18\x01\x12\x19\n\x11\x62\x61tches_attempted\x18\x04 \x01(\x05\x12!\n\x19\x62\x61tches_sent_successfully\x18\x05 \x01(\x05\x12\x1b\n\x13\x62\x61tches_with_errors\x18\x06 \x01(\x05\x12*\n\rerror_history\x18\x07 \x01(\x0b\x32\x13.event.ErrorHistory\x12\x35\n\x13\x61ncestor_id_history\x18\x08 \x01(\x0b\x32\x18.event.AncestorIdHistory\"\xdf\x01\n\x0b\x44iagnostics\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x36\n\x12mobile_diagnostics\x18\x05 \x01(\x0b\x32\x18.event.MobileDiagnosticsH\x00\x42\x15\n\x13\x64iagnostics_message\"\xcf\x04\n\nLogRequest\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x18 \x01(\x0b\x32\x0e.common.Device\x12\x19\n\x04user\x18\x07 \x03(\x0b\x32\x0b.event.User\x12\x32\n\x11\x63ohort_membership\x18\x08 \x03(\x0b\x32\x17.event.CohortMembership\x12\x19\n\x04view\x18\x0b \x03(\x0b\x32\x0b.event.View\x12\"\n\tauto_view\x18\x19 \x03(\x0b\x32\x0f.event.AutoView\x12\"\n\x07request\x18\x0c \x03(\x0b\x32\x11.delivery.Request\x12&\n\tinsertion\x18\r \x03(\x0b\x32\x13.delivery.Insertion\x12%\n\nimpression\x18\x0e \x03(\x0b\x32\x11.event.Impression\x12\x1d\n\x06\x61\x63tion\x18\x0f \x03(\x0b\x32\r.event.Action\x12+\n\x0c\x64\x65livery_log\x18\x12 \x03(\x0b\x32\x15.delivery.DeliveryLog\x12\'\n\x0b\x64iagnostics\x18\x17 \x03(\x0b\x32\x12.event.DiagnosticsJ\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07J\x04\x08\t\x10\nJ\x04\x08\n\x10\x0bJ\x04\x08\x10\x10\x11J\x04\x08\x11\x10\x12J\x04\x08\x13\x10\x17*c\n\x14IdentifierProvenance\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04NULL\x10\x01\x12\t\n\x05\x45MPTY\x10\x02\x12\x11\n\rAUTOGENERATED\x10\x03\x12\x16\n\x12PLATFORM_SPECIFIED\x10\x04*j\n\tCohortArm\x12\x11\n\rUNKNOWN_GROUP\x10\x00\x12\x0b\n\x07\x43ONTROL\x10\x01\x12\r\n\tTREATMENT\x10\x02\x12\x0e\n\nTREATMENT1\x10\x03\x12\x0e\n\nTREATMENT2\x10\x04\x12\x0e\n\nTREATMENT3\x10\x05*\\\n\x14ImpressionSourceType\x12\"\n\x1eUNKNOWN_IMPRESSION_SOURCE_TYPE\x10\x00\x12\x0c\n\x08\x44\x45LIVERY\x10\x01\x12\x12\n\x0e\x43LIENT_BACKEND\x10\x02*\x9f\x02\n\nActionType\x12\x17\n\x13UNKNOWN_ACTION_TYPE\x10\x00\x12\x16\n\x12\x43USTOM_ACTION_TYPE\x10\x01\x12\x0c\n\x08NAVIGATE\x10\x02\x12\x0f\n\x0b\x41\x44\x44_TO_CART\x10\x04\x12\x14\n\x10REMOVE_FROM_CART\x10\n\x12\x0c\n\x08\x43HECKOUT\x10\x08\x12\x0c\n\x08PURCHASE\x10\x03\x12\t\n\x05SHARE\x10\x05\x12\x08\n\x04LIKE\x10\x06\x12\n\n\x06UNLIKE\x10\t\x12\x0b\n\x07\x43OMMENT\x10\x07\x12\x0e\n\nMAKE_OFFER\x10\x0b\x12\x10\n\x0c\x41SK_QUESTION\x10\x0c\x12\x13\n\x0f\x41NSWER_QUESTION\x10\r\x12\x14\n\x10\x43OMPLETE_SIGN_IN\x10\x0e\x12\x14\n\x10\x43OMPLETE_SIGN_UP\x10\x0f\x42Y\n\x17\x61i.promoted.proto.eventB\x05\x45ventP\x01Z5github.com/promotedai/schema/generated/go/proto/eventb\x06proto3'
   ,
   dependencies=[proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_delivery__pb2.DESCRIPTOR,proto_dot_delivery_dot_execution__pb2.DESCRIPTOR,])
 
@@ -62,8 +62,8 @@ _IDENTIFIERPROVENANCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5882,
-  serialized_end=5981,
+  serialized_start=6067,
+  serialized_end=6166,
 )
 _sym_db.RegisterEnumDescriptor(_IDENTIFIERPROVENANCE)
 
@@ -108,8 +108,8 @@ _COHORTARM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5983,
-  serialized_end=6089,
+  serialized_start=6168,
+  serialized_end=6274,
 )
 _sym_db.RegisterEnumDescriptor(_COHORTARM)
 
@@ -139,8 +139,8 @@ _IMPRESSIONSOURCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6091,
-  serialized_end=6183,
+  serialized_start=6276,
+  serialized_end=6368,
 )
 _sym_db.RegisterEnumDescriptor(_IMPRESSIONSOURCETYPE)
 
@@ -235,8 +235,8 @@ _ACTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6186,
-  serialized_end=6473,
+  serialized_start=6371,
+  serialized_end=6658,
 )
 _sym_db.RegisterEnumDescriptor(_ACTIONTYPE)
 
@@ -1340,6 +1340,13 @@ _ACTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cart', full_name='event.Action.cart', index=22,
+      number=28, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1356,9 +1363,92 @@ _ACTION = _descriptor.Descriptor(
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_cart', full_name='event.Action._cart',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
   serialized_start=3279,
-  serialized_end=3968,
+  serialized_end=4015,
+)
+
+
+_CART = _descriptor.Descriptor(
+  name='Cart',
+  full_name='event.Cart',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='contents', full_name='event.Cart.contents', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4017,
+  serialized_end=4061,
+)
+
+
+_CARTCONTENT = _descriptor.Descriptor(
+  name='CartContent',
+  full_name='event.CartContent',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='content_id', full_name='event.CartContent.content_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quantity', full_name='event.CartContent.quantity', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='price_per_unit', full_name='event.CartContent.price_per_unit', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4063,
+  serialized_end=4153,
 )
 
 
@@ -1410,8 +1500,8 @@ _IOSERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3970,
-  serialized_end=4053,
+  serialized_start=4155,
+  serialized_end=4238,
 )
 
 
@@ -1449,8 +1539,8 @@ _ERRORHISTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4055,
-  serialized_end=4128,
+  serialized_start=4240,
+  serialized_end=4313,
 )
 
 
@@ -1521,8 +1611,8 @@ _ANCESTORIDHISTORYITEM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4131,
-  serialized_end=4365,
+  serialized_start=4316,
+  serialized_end=4550,
 )
 
 
@@ -1602,8 +1692,8 @@ _ANCESTORIDHISTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4368,
-  serialized_end=4755,
+  serialized_start=4553,
+  serialized_end=4940,
 )
 
 
@@ -1683,8 +1773,8 @@ _MOBILEDIAGNOSTICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4758,
-  serialized_end=5060,
+  serialized_start=4943,
+  serialized_end=5245,
 )
 
 
@@ -1748,8 +1838,8 @@ _DIAGNOSTICS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5063,
-  serialized_end=5286,
+  serialized_start=5248,
+  serialized_end=5471,
 )
 
 
@@ -1878,8 +1968,8 @@ _LOGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5289,
-  serialized_end=5880,
+  serialized_start=5474,
+  serialized_end=6065,
 )
 
 _IDENTIFIERPROVENANCES.fields_by_name['user_id_provenance'].enum_type = _IDENTIFIERPROVENANCE
@@ -1951,9 +2041,15 @@ _ACTION.fields_by_name['client_position'].message_type = _INDEXPATH
 _ACTION.fields_by_name['id_provenances'].message_type = _IDENTIFIERPROVENANCES
 _ACTION.fields_by_name['properties'].message_type = proto_dot_common_dot_common__pb2._PROPERTIES
 _ACTION.fields_by_name['device'].message_type = proto_dot_common_dot_common__pb2._DEVICE
+_ACTION.fields_by_name['cart'].message_type = _CART
 _ACTION.oneofs_by_name['action'].fields.append(
   _ACTION.fields_by_name['navigate_action'])
 _ACTION.fields_by_name['navigate_action'].containing_oneof = _ACTION.oneofs_by_name['action']
+_ACTION.oneofs_by_name['_cart'].fields.append(
+  _ACTION.fields_by_name['cart'])
+_ACTION.fields_by_name['cart'].containing_oneof = _ACTION.oneofs_by_name['_cart']
+_CART.fields_by_name['contents'].message_type = _CARTCONTENT
+_CARTCONTENT.fields_by_name['price_per_unit'].message_type = proto_dot_common_dot_common__pb2._MONEY
 _ERRORHISTORY.fields_by_name['ios_errors'].message_type = _IOSERROR
 _ANCESTORIDHISTORYITEM.fields_by_name['user_event'].message_type = _USER
 _ANCESTORIDHISTORYITEM.fields_by_name['view_event'].message_type = _VIEW
@@ -2009,6 +2105,8 @@ DESCRIPTOR.message_types_by_name['IndexPath'] = _INDEXPATH
 DESCRIPTOR.message_types_by_name['Impression'] = _IMPRESSION
 DESCRIPTOR.message_types_by_name['NavigateAction'] = _NAVIGATEACTION
 DESCRIPTOR.message_types_by_name['Action'] = _ACTION
+DESCRIPTOR.message_types_by_name['Cart'] = _CART
+DESCRIPTOR.message_types_by_name['CartContent'] = _CARTCONTENT
 DESCRIPTOR.message_types_by_name['IOSError'] = _IOSERROR
 DESCRIPTOR.message_types_by_name['ErrorHistory'] = _ERRORHISTORY
 DESCRIPTOR.message_types_by_name['AncestorIdHistoryItem'] = _ANCESTORIDHISTORYITEM
@@ -2105,6 +2203,20 @@ Action = _reflection.GeneratedProtocolMessageType('Action', (_message.Message,),
   # @@protoc_insertion_point(class_scope:event.Action)
   })
 _sym_db.RegisterMessage(Action)
+
+Cart = _reflection.GeneratedProtocolMessageType('Cart', (_message.Message,), {
+  'DESCRIPTOR' : _CART,
+  '__module__' : 'proto.event.event_pb2'
+  # @@protoc_insertion_point(class_scope:event.Cart)
+  })
+_sym_db.RegisterMessage(Cart)
+
+CartContent = _reflection.GeneratedProtocolMessageType('CartContent', (_message.Message,), {
+  'DESCRIPTOR' : _CARTCONTENT,
+  '__module__' : 'proto.event.event_pb2'
+  # @@protoc_insertion_point(class_scope:event.CartContent)
+  })
+_sym_db.RegisterMessage(CartContent)
 
 IOSError = _reflection.GeneratedProtocolMessageType('IOSError', (_message.Message,), {
   'DESCRIPTOR' : _IOSERROR,

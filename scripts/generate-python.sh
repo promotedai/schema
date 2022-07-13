@@ -53,8 +53,7 @@ else
     fi
     ./.local/bin/protoc --version || exit 1
 fi
-pip3 install --upgrade pip || exit 1
-pip3 install mypy-protobuf==3.0 || exit 1
+pipenv install --dev  || exit 1
 
 rm -rf generated/py
 export BAZEL_BIN=$(bazel info bazel-bin)
@@ -67,7 +66,7 @@ do
         if [ $DIR != "proto" ]; then
             echo "Copy pb2s over from $DIR to generated"
             cp $BAZEL_BIN/$DIR/*_pb2.py generated/py/$DIR/
-            ./.local/bin/protoc --mypy_out=generated/py $DIR/*.proto || exit 1
+            pipenv run ./.local/bin/protoc --mypy_out=generated/py $DIR/*.proto || exit 1
         fi
     fi
 done
