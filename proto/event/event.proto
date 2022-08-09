@@ -167,7 +167,7 @@ message AppScreenView {
 }
 
 // A view of a single page/screen (e.g. feed, search results, etc).
-// Next ID = 19.
+// Next ID = 20.
 message View {
 
   // Optional.  If not set, set by API servers.
@@ -196,6 +196,9 @@ message View {
 
   // Optional.
   string session_id = 7;
+
+  // Optional.  Fill this in when this view is a content or product page.
+  string content_id = 19;
 
   // Optional.  The name of the view.
   string name = 8;
