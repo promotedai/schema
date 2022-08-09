@@ -468,7 +468,7 @@ global___AppScreenView = AppScreenView
 
 class View(google.protobuf.message.Message):
     """A view of a single page/screen (e.g. feed, search results, etc).
-    Next ID = 19.
+    Next ID = 20.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     class ViewType(_ViewType, metaclass=_ViewTypeEnumTypeWrapper):
@@ -492,6 +492,7 @@ class View(google.protobuf.message.Message):
     VIEW_ID_FIELD_NUMBER: builtins.int
     AUTO_VIEW_ID_FIELD_NUMBER: builtins.int
     SESSION_ID_FIELD_NUMBER: builtins.int
+    CONTENT_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     USE_CASE_FIELD_NUMBER: builtins.int
     SEARCH_QUERY_FIELD_NUMBER: builtins.int
@@ -531,6 +532,9 @@ class View(google.protobuf.message.Message):
 
     session_id: typing.Text = ...
     """Optional."""
+
+    content_id: typing.Text = ...
+    """Optional.  Fill this in when this view is a content or product page."""
 
     name: typing.Text = ...
     """Optional.  The name of the view."""
@@ -572,6 +576,7 @@ class View(google.protobuf.message.Message):
         view_id : typing.Text = ...,
         auto_view_id : typing.Text = ...,
         session_id : typing.Text = ...,
+        content_id : typing.Text = ...,
         name : typing.Text = ...,
         use_case : proto.delivery.delivery_pb2.UseCase.V = ...,
         search_query : typing.Text = ...,
@@ -583,7 +588,7 @@ class View(google.protobuf.message.Message):
         id_provenances : typing.Optional[global___IdentifierProvenances] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["app_screen_view",b"app_screen_view","client_info",b"client_info","id_provenances",b"id_provenances","locale",b"locale","properties",b"properties","timing",b"timing","ui_type",b"ui_type","user_info",b"user_info","web_page_view",b"web_page_view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_screen_view",b"app_screen_view","auto_view_id",b"auto_view_id","client_info",b"client_info","id_provenances",b"id_provenances","locale",b"locale","name",b"name","platform_id",b"platform_id","properties",b"properties","search_query",b"search_query","session_id",b"session_id","timing",b"timing","ui_type",b"ui_type","use_case",b"use_case","user_info",b"user_info","view_id",b"view_id","view_type",b"view_type","web_page_view",b"web_page_view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_screen_view",b"app_screen_view","auto_view_id",b"auto_view_id","client_info",b"client_info","content_id",b"content_id","id_provenances",b"id_provenances","locale",b"locale","name",b"name","platform_id",b"platform_id","properties",b"properties","search_query",b"search_query","session_id",b"session_id","timing",b"timing","ui_type",b"ui_type","use_case",b"use_case","user_info",b"user_info","view_id",b"view_id","view_type",b"view_type","web_page_view",b"web_page_view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["ui_type",b"ui_type"]) -> typing.Optional[typing_extensions.Literal["web_page_view","app_screen_view"]]: ...
 global___View = View
 
