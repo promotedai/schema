@@ -222,10 +222,11 @@ class Paging(google.protobuf.message.Message):
 global___Paging = Paging
 
 class Response(google.protobuf.message.Message):
-    """Next ID = 4."""
+    """Next ID = 5."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     INSERTION_FIELD_NUMBER: builtins.int
     PAGING_INFO_FIELD_NUMBER: builtins.int
+    INTROSPECTION_DATA_FIELD_NUMBER: builtins.int
     @property
     def insertion(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Insertion]:
         """List of content."""
@@ -234,13 +235,18 @@ class Response(google.protobuf.message.Message):
     def paging_info(self) -> global___PagingInfo:
         """Paging information of this response.  Only returned on paging requests."""
         pass
+    introspection_data: typing.Text = ...
+    """Optionally included support data on the response for use in introspection."""
+
     def __init__(self,
         *,
         insertion : typing.Optional[typing.Iterable[global___Insertion]] = ...,
         paging_info : typing.Optional[global___PagingInfo] = ...,
+        introspection_data : typing.Text = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["paging_info",b"paging_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["insertion",b"insertion","paging_info",b"paging_info"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_introspection_data",b"_introspection_data","introspection_data",b"introspection_data","paging_info",b"paging_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_introspection_data",b"_introspection_data","insertion",b"insertion","introspection_data",b"introspection_data","paging_info",b"paging_info"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_introspection_data",b"_introspection_data"]) -> typing.Optional[typing_extensions.Literal["introspection_data"]]: ...
 global___Response = Response
 
 class PagingInfo(google.protobuf.message.Message):
