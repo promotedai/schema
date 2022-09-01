@@ -117,7 +117,7 @@ message Paging {
   }
 }
 
-// Next ID = 4.
+// Next ID = 5.
 message Response {
 
   reserved 1;
@@ -127,6 +127,9 @@ message Response {
 
   // Paging information of this response.  Only returned on paging requests.
   PagingInfo paging_info = 3;
+
+  // Optionally included support data on the response for use in introspection.
+  optional string introspection_data = 4;
 }
 
 // Next ID = 3.
