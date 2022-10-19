@@ -83,7 +83,7 @@ message BlenderRule {
   //
   // Default: boolean (if `eval_method` is not set, this rule will fall back to
   // boolean evaluation and check if a the property with key `attribute_name` is
-  // `true` or `false)
+  // `true`)
   oneof eval_method {
     Boolean boolean = 11;
     GreaterThan greater_than = 13;
@@ -94,7 +94,10 @@ message BlenderRule {
 }
 
 // Tests if an insertion has a property with key `attribute_name` and if its value is `true`.
-message Boolean {}
+message Boolean {
+  // Does nothing.  Exists purely because of parquet not allowing empty groups (messages).
+  optional bool ignored = 1 [deprecated = true];
+}
 
 // Tests if an insertion's property with key `attribute_name` and value `x`
 // is equal to some number or string.
@@ -540,7 +543,7 @@ message TermConditionalEvaluation {
   //
   // Default: boolean (if `eval_method` is not set, this rule will fall back to
   // boolean evaluation and check if a the property with key `attribute_name` is
-  // `true` or `false)
+  // `true`)
   oneof eval_method {
     Boolean boolean = 4;
     GreaterThan greater_than = 6;

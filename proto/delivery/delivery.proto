@@ -6,6 +6,7 @@ option java_package = "ai.promoted.proto.delivery";
 option java_outer_classname = "Delivery";
 option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
 
+import "google/protobuf/struct.proto";
 import "proto/common/common.proto";
 import "proto/delivery/blender.proto";
 
@@ -13,7 +14,7 @@ import "proto/delivery/blender.proto";
 // Can be used to log existing ranking (not Promoted) or Promoted's Delivery
 // API requests.
 //
-// Next ID = 20.
+// Next ID = 22.
 message Request {
 
   // Optional.  If not set, set by API servers.
@@ -76,6 +77,21 @@ message Request {
   // into separate log records.
   repeated Insertion insertion = 11;
 
+  // Optional. Used to produce smaller requests alongside JSON serialization.
+  // An alternative representation of the `insertion` field. For example,
+  //   insertion_matrix_headers: [a, b.c]
+  //   insertion_matrix: [1, 3.0]
+  // becomes
+  //   insertion: {
+  //     a: 1,
+  //     b: {
+  //       c: 3.0
+  //     }
+  //   }
+  // If present, these fields override `insertion`.
+  repeated string insertion_matrix_headers = 20;
+  google.protobuf.ListValue insertion_matrix = 21;
+
   // Optional.
   BlenderConfig blender_config = 12;
 
@@ -117,7 +133,7 @@ message Paging {
   }
 }
 
-// Next ID = 5.
+// Next ID = 6.
 message Response {
 
   reserved 1;
@@ -130,6 +146,9 @@ message Response {
 
   // Optionally included support data on the response for use in introspection.
   optional string introspection_data = 4;
+
+  // This is the `request_id` from the corresponding `Request` message.
+  string request_id = 5;
 }
 
 // Next ID = 3.
@@ -170,9 +189,10 @@ enum UseCase {
 
 
 
+
 // This Event represents a Content being served at a certain position regardless
 // of it was views by a user. Insertions are immutable.
-// Next ID = 23.
+// Next ID = 24.
 message Insertion {
 
   // Optional.  If not set, set by API servers.
@@ -229,6 +249,8 @@ message Insertion {
   reserved 18;
 
   reserved 22;
+
+  reserved 23;
 
   // Optional. Ranking (if known) of this insertion from the retrieval system.
   optional uint64 retrieval_rank = 19;

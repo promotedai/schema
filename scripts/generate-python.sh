@@ -59,7 +59,7 @@ rm -rf generated/py
 export BAZEL_BIN=$(bazel info bazel-bin)
 for DIR in $(find proto -type d);
 do
-    if [[ $(find $BAZEL_BIN/$DIR/ -type f -name "*.py") ]]; then
+    if [[ $(find $BAZEL_BIN/$DIR/ -type f -name "*.py") ]] && [[ ! $DIR == *"tests"* ]]; then
         mkdir -p generated/py/$DIR
         touch generated/py/$DIR/__init__.py
         touch generated/py/$DIR/py.typed
