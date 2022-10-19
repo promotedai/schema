@@ -386,7 +386,8 @@ message Impression {
 
 // The action that user wants to perform.
 //
-// Next ID = 16.
+// Next ID = 20.  Max = 254.
+// Keep this updated with delivery.private.features.AggMetric.
 enum ActionType {
   UNKNOWN_ACTION_TYPE = 0;
 
@@ -436,6 +437,16 @@ enum ActionType {
   // Complete sign-up.
   // No content_id needed.  If set, set it to the Content's ID (not User).
   COMPLETE_SIGN_UP = 15;
+
+  // Bookmark content.
+  BOOKMARK = 16;
+  REMOVE_BOOKMARK = 17;
+
+  // (Wish)list content.
+  ADD_TO_LIST = 18;
+  REMOVE_FROM_LIST = 19;
+
+  reserved 255;
 }
 
 // Next ID = 2.

@@ -62,6 +62,11 @@ jobs:
           # bazel sync --configure
           bazel build ...
 
+      - name: Run tests
+        id: run_tests
+        run: |
+          bazel test ...
+
       - uses: actions/setup-python@v4
         with:
           python-version: 3.8
