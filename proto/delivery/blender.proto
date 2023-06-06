@@ -81,11 +81,11 @@ message BlenderRule {
   //
   // See the respective eval method entries for more information.
   //
-  // Default: boolean (if `eval_method` is not set, this rule will fall back to
+  // Default: flag (if `eval_method` is not set, this rule will fall back to
   // boolean evaluation and check if a the property with key `attribute_name` is
   // `true`)
   oneof eval_method {
-    Boolean boolean = 11;
+    Flag flag = 11;
     GreaterThan greater_than = 13;
     LessThan less_than = 14;
     Interval interval = 15;
@@ -94,7 +94,7 @@ message BlenderRule {
 }
 
 // Tests if an insertion has a property with key `attribute_name` and if its value is `true`.
-message Boolean {
+message Flag {
   // Does nothing.  Exists purely because of parquet not allowing empty groups (messages).
   optional bool ignored = 1 [deprecated = true];
 }
@@ -108,7 +108,7 @@ message EqualV2 {
     // not be applied and the rule containing it will be dropped)
     oneof equality_type {
         Equal number = 1;
-        StringEquality string = 2;
+        StringEquality string_equality = 2;
     }
 }
 
@@ -541,11 +541,11 @@ message TermConditionalEvaluation {
   //
   // See the respective eval method entries for more information.
   //
-  // Default: boolean (if `eval_method` is not set, this rule will fall back to
+  // Default: flag (if `eval_method` is not set, this rule will fall back to
   // boolean evaluation and check if a the property with key `attribute_name` is
   // `true`)
   oneof eval_method {
-    Boolean boolean = 4;
+    Flag flag = 4;
     GreaterThan greater_than = 6;
     LessThan less_than = 7;
     Interval interval = 8;

@@ -299,8 +299,10 @@ class PagingInfo(google.protobuf.message.Message):
 global___PagingInfo = PagingInfo
 
 class Insertion(google.protobuf.message.Message):
-    """Define Model Type
-    Next ID = 4
+    """Next ID = 11
+
+    Define Prediction Type
+    Next ID = 8
 
     This Event represents a Content being served at a certain position regardless
     of it was views by a user. Insertions are immutable.

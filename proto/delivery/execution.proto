@@ -36,13 +36,14 @@ message DeliveryLog {
 }
 
 // Contains the inner execution details for a Delivery call.
-// Next ID = 11.
+// Next ID = 12.
 message DeliveryExecution {
 
   // Where delivery happened, i.e. via the SDK or some approach on the API side.
   ExecutionServer execution_server = 2;
   reserved 1;
   reserved 3;
+  reserved 11;
   reserved 4;
   reserved 5;
 

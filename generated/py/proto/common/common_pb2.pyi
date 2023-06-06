@@ -134,26 +134,37 @@ class Money(google.protobuf.message.Message):
 global___Money = Money
 
 class UserInfo(google.protobuf.message.Message):
-    """Common submessage that scopes helps scope a request/log to a user.
+    """Common submessage that indicates the user for a record.
 
-    Next ID = 5.
+    Summary of fields:
+    - `user_id` = the platform's auth user ID.
+    - `anon_user_id` = the platform's anonymous user ID.
+    - `log_user_id` = internal Promoted forgettable, longer-term user ID.
+
+    Next ID = 6.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_ID_FIELD_NUMBER: builtins.int
     LOG_USER_ID_FIELD_NUMBER: builtins.int
     IS_INTERNAL_USER_FIELD_NUMBER: builtins.int
     IGNORE_USAGE_FIELD_NUMBER: builtins.int
+    ANON_USER_ID_FIELD_NUMBER: builtins.int
+    HAS_USER_ID_FIELD_NUMBER: builtins.int
     user_id: typing.Text = ...
-    """Optional.  The Platform's actual user ID.
-    This field will be cleared from our transaction logs.
+    """Optional.  The platform's authenticated user ID.
+    This field will be cleared in our long-term transaction logs to
+    make it easier to forget `user_id`s.
+    Internally, this field gets mapped over to `log_user_id`.
     """
 
     log_user_id: typing.Text = ...
-    """Optional.  This is a user UUID that is different from user_id and
-    can quickly be disassociated from the actual user ID.  This is useful:
-    1. in case the user wants to be forgotten.
-    2. logging unauthenticated users.
-    The user UUID is in a different ID space than user_id.
+    """Internal.  Optional.  The `log_user_id` is another type of user ID.
+    It's different than the `anon_user_id` and auth `user_id`.
+    The goal is to have a user ID that lives longer than
+    anon_user_id but different from the auth `user_id` so we can
+    decouple our long-term logs in case the user wants to be forgotten.
+    Multiple `anon_user_id`s can be mapped to the same `log_user_id`.
+    Most of Promoted's internal systems use `log_user_id`.
     """
 
     is_internal_user: builtins.bool = ...
@@ -167,14 +178,33 @@ class UserInfo(google.protobuf.message.Message):
     experiences by overriding the log_user_id.
     """
 
+    anon_user_id: typing.Text = ...
+    """Optional vs Required is complicated.  The platform's anonymous user ID.
+
+    Currently, the field is optional.  Clients need to migrate from setting
+    `log_user_id` to setting the `anon_user_id` field.
+
+    After the migration, we'll temporarily treat anon_user_id as required.
+    Then we staff another project to not require anon_user_id if user_id is
+    specified.  This is useful when there are delayed conversion events.
+    """
+
+    has_user_id: builtins.bool = ...
+    """Read-only for most of the system.  This is an extra indicator that
+    Promoted sets when scrubbing user_id.  This indicates that
+    the log_user_id is logged in.
+    """
+
     def __init__(self,
         *,
         user_id : typing.Text = ...,
         log_user_id : typing.Text = ...,
         is_internal_user : builtins.bool = ...,
         ignore_usage : builtins.bool = ...,
+        anon_user_id : typing.Text = ...,
+        has_user_id : builtins.bool = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ignore_usage",b"ignore_usage","is_internal_user",b"is_internal_user","log_user_id",b"log_user_id","user_id",b"user_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["anon_user_id",b"anon_user_id","has_user_id",b"has_user_id","ignore_usage",b"ignore_usage","is_internal_user",b"is_internal_user","log_user_id",b"log_user_id","user_id",b"user_id"]) -> None: ...
 global___UserInfo = UserInfo
 
 class ClientInfo(google.protobuf.message.Message):

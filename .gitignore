@@ -4,8 +4,10 @@ bazel-schema
 bazel-testlogs
 bazel-generated-public
 bin
+build
 .ijwb
 .idea
 .local
 .DS_Store
 .history
+.vscode

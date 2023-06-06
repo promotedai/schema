@@ -18,11 +18,12 @@ import "proto/delivery/execution.proto";
 
 // This structure is used to help deduplicate identifiers that live in many
 // event types.
-// Next ID = 10.
+// Next ID = 11.
 message JoinedIdentifiers {
   uint64 platform_id = 1;
   string user_id = 2;
   string log_user_id = 3;
+  string anon_user_id = 10;
 
   string session_id = 4;
   string view_id = 5;

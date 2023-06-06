@@ -80,13 +80,13 @@ jobs:
       # Needed for the generate script.
       - name: Install Go
         id: install_go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v4
         with:
           go-version: 1.16.x
 
-      - name: Generate Python and Golang library
-        # Generate Python library on both push and pull_requests
-        id: generate_py_and_golang
+      - name: Generate libraries
+        # Generate libraries on both push and pull_requests
+        id: generate_libraries
         run: |
           ./scripts/generate.sh -s || exit 1
           git remote set-url origin https://x-access-token:${{ secrets.PROMOTED_PUBLIC_DEPLOYER_GITHUB_ACTIONS }}@github.com/${{ github.repository }}
@@ -100,11 +100,11 @@ jobs:
           echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
           echo $(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
 
-      - name: Commit generated Python library
+      - name: Commit generated libraries
         # Only commit if there is a change.
-        id: commit_generated_py
+        id: commit_generated
         # Check if the PR is not from a fork
         if: steps.git-check.outputs.modified == 'true'
         run: |
-          git commit -m "Generate Python Library"
+          git commit -m "Generate libraries"
           git push
