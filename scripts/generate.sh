@@ -16,3 +16,5 @@ fi
 ./scripts/generate-go.sh "$@"
 
 ./scripts/generate-python.sh "$@"
+
+./scripts/generate-cpp.sh "$@"

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\007BlenderP\001Z8github.com/promotedai/schema/generated/go/proto/delivery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1cproto/delivery/blender.proto\x12\x08\x64\x65livery\"x\n\rBlenderConfig\x12+\n\x0c\x62lender_rule\x18\x01 \x03(\x0b\x32\x15.delivery.BlenderRule\x12:\n\x14quality_score_config\x18\x02 \x01(\x0b\x32\x1c.delivery.QualityScoreConfig\"\xd1\x03\n\x0b\x42lenderRule\x12\x16\n\x0e\x61ttribute_name\x18\x01 \x01(\t\x12/\n\rpositive_rule\x18\x06 \x01(\x0b\x32\x16.delivery.PositiveRuleH\x00\x12+\n\x0binsert_rule\x18\x07 \x01(\x0b\x32\x14.delivery.InsertRuleH\x00\x12/\n\rnegative_rule\x18\x08 \x01(\x0b\x32\x16.delivery.NegativeRuleH\x00\x12\x31\n\x0e\x64iversity_rule\x18\t \x01(\x0b\x32\x17.delivery.DiversityRuleH\x00\x12$\n\x07\x62oolean\x18\x0b \x01(\x0b\x32\x11.delivery.BooleanH\x01\x12-\n\x0cgreater_than\x18\r \x01(\x0b\x32\x15.delivery.GreaterThanH\x01\x12\'\n\tless_than\x18\x0e \x01(\x0b\x32\x12.delivery.LessThanH\x01\x12&\n\x08interval\x18\x0f \x01(\x0b\x32\x12.delivery.IntervalH\x01\x12%\n\x08\x65qual_v2\x18\x10 \x01(\x0b\x32\x11.delivery.EqualV2H\x01\x42\x06\n\x04ruleB\r\n\x0b\x65val_methodJ\x04\x08\x02\x10\x06\"/\n\x07\x42oolean\x12\x18\n\x07ignored\x18\x01 \x01(\x08\x42\x02\x18\x01H\x00\x88\x01\x01\x42\n\n\x08_ignored\"i\n\x07\x45qualV2\x12!\n\x06number\x18\x01 \x01(\x0b\x32\x0f.delivery.EqualH\x00\x12*\n\x06string\x18\x02 \x01(\x0b\x32\x18.delivery.StringEqualityH\x00\x42\x0f\n\requality_type\"/\n\x05\x45qual\x12\x13\n\x0b\x63ompared_to\x18\x01 \x01(\x02\x12\x11\n\ttolerance\x18\x02 \x01(\x02\"(\n\x0eStringEquality\x12\r\n\x03raw\x18\x01 \x01(\tH\x00\x42\x07\n\x05value\"4\n\x0bGreaterThan\x12\x13\n\x0b\x63ompared_to\x18\x01 \x01(\x02\x12\x10\n\x08or_equal\x18\x02 \x01(\x08\"1\n\x08LessThan\x12\x13\n\x0b\x63ompared_to\x18\x01 \x01(\x02\x12\x10\n\x08or_equal\x18\x02 \x01(\x08\"f\n\x08Interval\x12\x13\n\x0bupper_bound\x18\x01 \x01(\x02\x12\x13\n\x0blower_bound\x18\x02 \x01(\x02\x12\x17\n\x0flower_inclusive\x18\x03 \x01(\x08\x12\x17\n\x0fupper_inclusive\x18\x04 \x01(\x08\"z\n\x0cPositiveRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x42\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"\xcc\x01\n\nInsertRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x12!\n\x19\x61pplies_to_all_insertions\x18\x05 \x01(\x08\x12/\n\x0eranking_method\x18\x06 \x01(\x0e\x32\x17.delivery.RankingMethodB\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"\xee\x01\n\x0cNegativeRule\x12\x16\n\tpluck_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x1c\n\x0f\x66orbid_less_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x18\n\x0bmin_spacing\x18\x03 \x01(\x04H\x02\x88\x01\x01\x12\x1f\n\x12\x66orbid_greater_pos\x18\x04 \x01(\x04H\x03\x88\x01\x01\x12\x16\n\tmax_count\x18\x05 \x01(\x04H\x04\x88\x01\x01\x42\x0c\n\n_pluck_pctB\x12\n\x10_forbid_less_posB\x0e\n\x0c_min_spacingB\x15\n\x13_forbid_greater_posB\x0c\n\n_max_count\"-\n\rDiversityRule\x12\x12\n\x05multi\x18\x01 \x01(\x01H\x00\x88\x01\x01\x42\x08\n\x06_multi\"K\n\x12QualityScoreConfig\x12\x35\n\x11weighted_sum_term\x18\x01 \x03(\x0b\x32\x1a.delivery.QualityScoreTerm\"L\n\x11QualityScoreTerms\x12\x37\n\x13quality_score_terms\x18\x01 \x03(\x0b\x32\x1a.delivery.QualityScoreTerm\"\xdf\x02\n\x10QualityScoreTerm\x12\x18\n\x0e\x61ttribute_name\x18\x01 \x01(\tH\x00\x12.\n\x07product\x18\x03 \x01(\x0b\x32\x1b.delivery.QualityScoreTermsH\x00\x12\x17\n\nfetch_high\x18\n \x01(\x02H\x01\x88\x01\x01\x12\x16\n\tfetch_low\x18\x0b \x01(\x02H\x02\x88\x01\x01\x12\x13\n\x06weight\x18\x0c \x01(\x02H\x03\x88\x01\x01\x12\x0e\n\x06offset\x18\r \x01(\x02\x12M\n\x1bterm_conditional_evaluation\x18\x0e \x01(\x0b\x32#.delivery.TermConditionalEvaluationH\x04\x88\x01\x01\x42\x0e\n\x0c\x66\x65tch_methodB\r\n\x0b_fetch_highB\x0c\n\n_fetch_lowB\t\n\x07_weightB\x1e\n\x1c_term_conditional_evaluationJ\x04\x08\x04\x10\n\"\xa7\x02\n\x19TermConditionalEvaluation\x12\x16\n\x0evalue_if_false\x18\x01 \x01(\x02\x12\x16\n\x0e\x61ttribute_name\x18\x02 \x01(\t\x12$\n\x07\x62oolean\x18\x04 \x01(\x0b\x32\x11.delivery.BooleanH\x00\x12-\n\x0cgreater_than\x18\x06 \x01(\x0b\x32\x15.delivery.GreaterThanH\x00\x12\'\n\tless_than\x18\x07 \x01(\x0b\x32\x12.delivery.LessThanH\x00\x12&\n\x08interval\x18\x08 \x01(\x0b\x32\x12.delivery.IntervalH\x00\x12%\n\x08\x65qual_v2\x18\n \x01(\x0b\x32\x11.delivery.EqualV2H\x00\x42\r\n\x0b\x65val_method*5\n\rRankingMethod\x12\x11\n\rQUALITY_SCORE\x10\x00\x12\x11\n\rREQUEST_ORDER\x10\x01\x42\x61\n\x1a\x61i.promoted.proto.deliveryB\x07\x42lenderP\x01Z8github.com/promotedai/schema/generated/go/proto/deliveryb\x06proto3'
+  serialized_pb=b'\n\x1cproto/delivery/blender.proto\x12\x08\x64\x65livery\"x\n\rBlenderConfig\x12+\n\x0c\x62lender_rule\x18\x01 \x03(\x0b\x32\x15.delivery.BlenderRule\x12:\n\x14quality_score_config\x18\x02 \x01(\x0b\x32\x1c.delivery.QualityScoreConfig\"\xcb\x03\n\x0b\x42lenderRule\x12\x16\n\x0e\x61ttribute_name\x18\x01 \x01(\t\x12/\n\rpositive_rule\x18\x06 \x01(\x0b\x32\x16.delivery.PositiveRuleH\x00\x12+\n\x0binsert_rule\x18\x07 \x01(\x0b\x32\x14.delivery.InsertRuleH\x00\x12/\n\rnegative_rule\x18\x08 \x01(\x0b\x32\x16.delivery.NegativeRuleH\x00\x12\x31\n\x0e\x64iversity_rule\x18\t \x01(\x0b\x32\x17.delivery.DiversityRuleH\x00\x12\x1e\n\x04\x66lag\x18\x0b \x01(\x0b\x32\x0e.delivery.FlagH\x01\x12-\n\x0cgreater_than\x18\r \x01(\x0b\x32\x15.delivery.GreaterThanH\x01\x12\'\n\tless_than\x18\x0e \x01(\x0b\x32\x12.delivery.LessThanH\x01\x12&\n\x08interval\x18\x0f \x01(\x0b\x32\x12.delivery.IntervalH\x01\x12%\n\x08\x65qual_v2\x18\x10 \x01(\x0b\x32\x11.delivery.EqualV2H\x01\x42\x06\n\x04ruleB\r\n\x0b\x65val_methodJ\x04\x08\x02\x10\x06\",\n\x04\x46lag\x12\x18\n\x07ignored\x18\x01 \x01(\x08\x42\x02\x18\x01H\x00\x88\x01\x01\x42\n\n\x08_ignored\"r\n\x07\x45qualV2\x12!\n\x06number\x18\x01 \x01(\x0b\x32\x0f.delivery.EqualH\x00\x12\x33\n\x0fstring_equality\x18\x02 \x01(\x0b\x32\x18.delivery.StringEqualityH\x00\x42\x0f\n\requality_type\"/\n\x05\x45qual\x12\x13\n\x0b\x63ompared_to\x18\x01 \x01(\x02\x12\x11\n\ttolerance\x18\x02 \x01(\x02\"(\n\x0eStringEquality\x12\r\n\x03raw\x18\x01 \x01(\tH\x00\x42\x07\n\x05value\"4\n\x0bGreaterThan\x12\x13\n\x0b\x63ompared_to\x18\x01 \x01(\x02\x12\x10\n\x08or_equal\x18\x02 \x01(\x08\"1\n\x08LessThan\x12\x13\n\x0b\x63ompared_to\x18\x01 \x01(\x02\x12\x10\n\x08or_equal\x18\x02 \x01(\x08\"f\n\x08Interval\x12\x13\n\x0bupper_bound\x18\x01 \x01(\x02\x12\x13\n\x0blower_bound\x18\x02 \x01(\x02\x12\x17\n\x0flower_inclusive\x18\x03 \x01(\x08\x12\x17\n\x0fupper_inclusive\x18\x04 \x01(\x08\"z\n\x0cPositiveRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x42\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"\xcc\x01\n\nInsertRule\x12\x17\n\nselect_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x14\n\x07min_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x14\n\x07max_pos\x18\x03 \x01(\x04H\x02\x88\x01\x01\x12!\n\x19\x61pplies_to_all_insertions\x18\x05 \x01(\x08\x12/\n\x0eranking_method\x18\x06 \x01(\x0e\x32\x17.delivery.RankingMethodB\r\n\x0b_select_pctB\n\n\x08_min_posB\n\n\x08_max_pos\"\xee\x01\n\x0cNegativeRule\x12\x16\n\tpluck_pct\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x1c\n\x0f\x66orbid_less_pos\x18\x02 \x01(\x04H\x01\x88\x01\x01\x12\x18\n\x0bmin_spacing\x18\x03 \x01(\x04H\x02\x88\x01\x01\x12\x1f\n\x12\x66orbid_greater_pos\x18\x04 \x01(\x04H\x03\x88\x01\x01\x12\x16\n\tmax_count\x18\x05 \x01(\x04H\x04\x88\x01\x01\x42\x0c\n\n_pluck_pctB\x12\n\x10_forbid_less_posB\x0e\n\x0c_min_spacingB\x15\n\x13_forbid_greater_posB\x0c\n\n_max_count\"-\n\rDiversityRule\x12\x12\n\x05multi\x18\x01 \x01(\x01H\x00\x88\x01\x01\x42\x08\n\x06_multi\"K\n\x12QualityScoreConfig\x12\x35\n\x11weighted_sum_term\x18\x01 \x03(\x0b\x32\x1a.delivery.QualityScoreTerm\"L\n\x11QualityScoreTerms\x12\x37\n\x13quality_score_terms\x18\x01 \x03(\x0b\x32\x1a.delivery.QualityScoreTerm\"\xdf\x02\n\x10QualityScoreTerm\x12\x18\n\x0e\x61ttribute_name\x18\x01 \x01(\tH\x00\x12.\n\x07product\x18\x03 \x01(\x0b\x32\x1b.delivery.QualityScoreTermsH\x00\x12\x17\n\nfetch_high\x18\n \x01(\x02H\x01\x88\x01\x01\x12\x16\n\tfetch_low\x18\x0b \x01(\x02H\x02\x88\x01\x01\x12\x13\n\x06weight\x18\x0c \x01(\x02H\x03\x88\x01\x01\x12\x0e\n\x06offset\x18\r \x01(\x02\x12M\n\x1bterm_conditional_evaluation\x18\x0e \x01(\x0b\x32#.delivery.TermConditionalEvaluationH\x04\x88\x01\x01\x42\x0e\n\x0c\x66\x65tch_methodB\r\n\x0b_fetch_highB\x0c\n\n_fetch_lowB\t\n\x07_weightB\x1e\n\x1c_term_conditional_evaluationJ\x04\x08\x04\x10\n\"\xa1\x02\n\x19TermConditionalEvaluation\x12\x16\n\x0evalue_if_false\x18\x01 \x01(\x02\x12\x16\n\x0e\x61ttribute_name\x18\x02 \x01(\t\x12\x1e\n\x04\x66lag\x18\x04 \x01(\x0b\x32\x0e.delivery.FlagH\x00\x12-\n\x0cgreater_than\x18\x06 \x01(\x0b\x32\x15.delivery.GreaterThanH\x00\x12\'\n\tless_than\x18\x07 \x01(\x0b\x32\x12.delivery.LessThanH\x00\x12&\n\x08interval\x18\x08 \x01(\x0b\x32\x12.delivery.IntervalH\x00\x12%\n\x08\x65qual_v2\x18\n \x01(\x0b\x32\x11.delivery.EqualV2H\x00\x42\r\n\x0b\x65val_method*5\n\rRankingMethod\x12\x11\n\rQUALITY_SCORE\x10\x00\x12\x11\n\rREQUEST_ORDER\x10\x01\x42\x61\n\x1a\x61i.promoted.proto.deliveryB\x07\x42lenderP\x01Z8github.com/promotedai/schema/generated/go/proto/deliveryb\x06proto3'
 )
 
 _RANKINGMETHOD = _descriptor.EnumDescriptor(
@@ -43,8 +43,8 @@ _RANKINGMETHOD = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2514,
-  serialized_end=2567,
+  serialized_start=2508,
+  serialized_end=2561,
 )
 _sym_db.RegisterEnumDescriptor(_RANKINGMETHOD)
 
@@ -137,7 +137,7 @@ _BLENDERRULE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='boolean', full_name='delivery.BlenderRule.boolean', index=5,
+      name='flag', full_name='delivery.BlenderRule.flag', index=5,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -194,20 +194,20 @@ _BLENDERRULE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=165,
-  serialized_end=630,
+  serialized_end=624,
 )
 
 
-_BOOLEAN = _descriptor.Descriptor(
-  name='Boolean',
-  full_name='delivery.Boolean',
+_FLAG = _descriptor.Descriptor(
+  name='Flag',
+  full_name='delivery.Flag',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ignored', full_name='delivery.Boolean.ignored', index=0,
+      name='ignored', full_name='delivery.Flag.ignored', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -225,13 +225,13 @@ _BOOLEAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='_ignored', full_name='delivery.Boolean._ignored',
+      name='_ignored', full_name='delivery.Flag._ignored',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=632,
-  serialized_end=679,
+  serialized_start=626,
+  serialized_end=670,
 )
 
 
@@ -251,7 +251,7 @@ _EQUALV2 = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='string', full_name='delivery.EqualV2.string', index=1,
+      name='string_equality', full_name='delivery.EqualV2.string_equality', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -274,7 +274,7 @@ _EQUALV2 = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=681,
+  serialized_start=672,
   serialized_end=786,
 )
 
@@ -930,7 +930,7 @@ _TERMCONDITIONALEVALUATION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='boolean', full_name='delivery.TermConditionalEvaluation.boolean', index=2,
+      name='flag', full_name='delivery.TermConditionalEvaluation.flag', index=2,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -982,7 +982,7 @@ _TERMCONDITIONALEVALUATION = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=2217,
-  serialized_end=2512,
+  serialized_end=2506,
 )
 
 _BLENDERCONFIG.fields_by_name['blender_rule'].message_type = _BLENDERRULE
@@ -991,7 +991,7 @@ _BLENDERRULE.fields_by_name['positive_rule'].message_type = _POSITIVERULE
 _BLENDERRULE.fields_by_name['insert_rule'].message_type = _INSERTRULE
 _BLENDERRULE.fields_by_name['negative_rule'].message_type = _NEGATIVERULE
 _BLENDERRULE.fields_by_name['diversity_rule'].message_type = _DIVERSITYRULE
-_BLENDERRULE.fields_by_name['boolean'].message_type = _BOOLEAN
+_BLENDERRULE.fields_by_name['flag'].message_type = _FLAG
 _BLENDERRULE.fields_by_name['greater_than'].message_type = _GREATERTHAN
 _BLENDERRULE.fields_by_name['less_than'].message_type = _LESSTHAN
 _BLENDERRULE.fields_by_name['interval'].message_type = _INTERVAL
@@ -1009,8 +1009,8 @@ _BLENDERRULE.oneofs_by_name['rule'].fields.append(
   _BLENDERRULE.fields_by_name['diversity_rule'])
 _BLENDERRULE.fields_by_name['diversity_rule'].containing_oneof = _BLENDERRULE.oneofs_by_name['rule']
 _BLENDERRULE.oneofs_by_name['eval_method'].fields.append(
-  _BLENDERRULE.fields_by_name['boolean'])
-_BLENDERRULE.fields_by_name['boolean'].containing_oneof = _BLENDERRULE.oneofs_by_name['eval_method']
+  _BLENDERRULE.fields_by_name['flag'])
+_BLENDERRULE.fields_by_name['flag'].containing_oneof = _BLENDERRULE.oneofs_by_name['eval_method']
 _BLENDERRULE.oneofs_by_name['eval_method'].fields.append(
   _BLENDERRULE.fields_by_name['greater_than'])
 _BLENDERRULE.fields_by_name['greater_than'].containing_oneof = _BLENDERRULE.oneofs_by_name['eval_method']
@@ -1023,17 +1023,17 @@ _BLENDERRULE.fields_by_name['interval'].containing_oneof = _BLENDERRULE.oneofs_b
 _BLENDERRULE.oneofs_by_name['eval_method'].fields.append(
   _BLENDERRULE.fields_by_name['equal_v2'])
 _BLENDERRULE.fields_by_name['equal_v2'].containing_oneof = _BLENDERRULE.oneofs_by_name['eval_method']
-_BOOLEAN.oneofs_by_name['_ignored'].fields.append(
-  _BOOLEAN.fields_by_name['ignored'])
-_BOOLEAN.fields_by_name['ignored'].containing_oneof = _BOOLEAN.oneofs_by_name['_ignored']
+_FLAG.oneofs_by_name['_ignored'].fields.append(
+  _FLAG.fields_by_name['ignored'])
+_FLAG.fields_by_name['ignored'].containing_oneof = _FLAG.oneofs_by_name['_ignored']
 _EQUALV2.fields_by_name['number'].message_type = _EQUAL
-_EQUALV2.fields_by_name['string'].message_type = _STRINGEQUALITY
+_EQUALV2.fields_by_name['string_equality'].message_type = _STRINGEQUALITY
 _EQUALV2.oneofs_by_name['equality_type'].fields.append(
   _EQUALV2.fields_by_name['number'])
 _EQUALV2.fields_by_name['number'].containing_oneof = _EQUALV2.oneofs_by_name['equality_type']
 _EQUALV2.oneofs_by_name['equality_type'].fields.append(
-  _EQUALV2.fields_by_name['string'])
-_EQUALV2.fields_by_name['string'].containing_oneof = _EQUALV2.oneofs_by_name['equality_type']
+  _EQUALV2.fields_by_name['string_equality'])
+_EQUALV2.fields_by_name['string_equality'].containing_oneof = _EQUALV2.oneofs_by_name['equality_type']
 _STRINGEQUALITY.oneofs_by_name['value'].fields.append(
   _STRINGEQUALITY.fields_by_name['raw'])
 _STRINGEQUALITY.fields_by_name['raw'].containing_oneof = _STRINGEQUALITY.oneofs_by_name['value']
@@ -1096,14 +1096,14 @@ _QUALITYSCORETERM.fields_by_name['weight'].containing_oneof = _QUALITYSCORETERM.
 _QUALITYSCORETERM.oneofs_by_name['_term_conditional_evaluation'].fields.append(
   _QUALITYSCORETERM.fields_by_name['term_conditional_evaluation'])
 _QUALITYSCORETERM.fields_by_name['term_conditional_evaluation'].containing_oneof = _QUALITYSCORETERM.oneofs_by_name['_term_conditional_evaluation']
-_TERMCONDITIONALEVALUATION.fields_by_name['boolean'].message_type = _BOOLEAN
+_TERMCONDITIONALEVALUATION.fields_by_name['flag'].message_type = _FLAG
 _TERMCONDITIONALEVALUATION.fields_by_name['greater_than'].message_type = _GREATERTHAN
 _TERMCONDITIONALEVALUATION.fields_by_name['less_than'].message_type = _LESSTHAN
 _TERMCONDITIONALEVALUATION.fields_by_name['interval'].message_type = _INTERVAL
 _TERMCONDITIONALEVALUATION.fields_by_name['equal_v2'].message_type = _EQUALV2
 _TERMCONDITIONALEVALUATION.oneofs_by_name['eval_method'].fields.append(
-  _TERMCONDITIONALEVALUATION.fields_by_name['boolean'])
-_TERMCONDITIONALEVALUATION.fields_by_name['boolean'].containing_oneof = _TERMCONDITIONALEVALUATION.oneofs_by_name['eval_method']
+  _TERMCONDITIONALEVALUATION.fields_by_name['flag'])
+_TERMCONDITIONALEVALUATION.fields_by_name['flag'].containing_oneof = _TERMCONDITIONALEVALUATION.oneofs_by_name['eval_method']
 _TERMCONDITIONALEVALUATION.oneofs_by_name['eval_method'].fields.append(
   _TERMCONDITIONALEVALUATION.fields_by_name['greater_than'])
 _TERMCONDITIONALEVALUATION.fields_by_name['greater_than'].containing_oneof = _TERMCONDITIONALEVALUATION.oneofs_by_name['eval_method']
@@ -1118,7 +1118,7 @@ _TERMCONDITIONALEVALUATION.oneofs_by_name['eval_method'].fields.append(
 _TERMCONDITIONALEVALUATION.fields_by_name['equal_v2'].containing_oneof = _TERMCONDITIONALEVALUATION.oneofs_by_name['eval_method']
 DESCRIPTOR.message_types_by_name['BlenderConfig'] = _BLENDERCONFIG
 DESCRIPTOR.message_types_by_name['BlenderRule'] = _BLENDERRULE
-DESCRIPTOR.message_types_by_name['Boolean'] = _BOOLEAN
+DESCRIPTOR.message_types_by_name['Flag'] = _FLAG
 DESCRIPTOR.message_types_by_name['EqualV2'] = _EQUALV2
 DESCRIPTOR.message_types_by_name['Equal'] = _EQUAL
 DESCRIPTOR.message_types_by_name['StringEquality'] = _STRINGEQUALITY
@@ -1150,12 +1150,12 @@ BlenderRule = _reflection.GeneratedProtocolMessageType('BlenderRule', (_message.
   })
 _sym_db.RegisterMessage(BlenderRule)
 
-Boolean = _reflection.GeneratedProtocolMessageType('Boolean', (_message.Message,), {
-  'DESCRIPTOR' : _BOOLEAN,
+Flag = _reflection.GeneratedProtocolMessageType('Flag', (_message.Message,), {
+  'DESCRIPTOR' : _FLAG,
   '__module__' : 'proto.delivery.blender_pb2'
-  # @@protoc_insertion_point(class_scope:delivery.Boolean)
+  # @@protoc_insertion_point(class_scope:delivery.Flag)
   })
-_sym_db.RegisterMessage(Boolean)
+_sym_db.RegisterMessage(Flag)
 
 EqualV2 = _reflection.GeneratedProtocolMessageType('EqualV2', (_message.Message,), {
   'DESCRIPTOR' : _EQUALV2,
@@ -1257,5 +1257,5 @@ _sym_db.RegisterMessage(TermConditionalEvaluation)
 
 
 DESCRIPTOR._options = None
-_BOOLEAN.fields_by_name['ignored']._options = None
+_FLAG.fields_by_name['ignored']._options = None
 # @@protoc_insertion_point(module_scope)

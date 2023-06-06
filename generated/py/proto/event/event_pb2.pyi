@@ -253,12 +253,13 @@ class JoinedIdentifiers(google.protobuf.message.Message):
 
     This structure is used to help deduplicate identifiers that live in many
     event types.
-    Next ID = 10.
+    Next ID = 11.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     USER_ID_FIELD_NUMBER: builtins.int
     LOG_USER_ID_FIELD_NUMBER: builtins.int
+    ANON_USER_ID_FIELD_NUMBER: builtins.int
     SESSION_ID_FIELD_NUMBER: builtins.int
     VIEW_ID_FIELD_NUMBER: builtins.int
     AUTO_VIEW_ID_FIELD_NUMBER: builtins.int
@@ -268,6 +269,7 @@ class JoinedIdentifiers(google.protobuf.message.Message):
     platform_id: builtins.int = ...
     user_id: typing.Text = ...
     log_user_id: typing.Text = ...
+    anon_user_id: typing.Text = ...
     session_id: typing.Text = ...
     view_id: typing.Text = ...
     auto_view_id: typing.Text = ...
@@ -279,6 +281,7 @@ class JoinedIdentifiers(google.protobuf.message.Message):
         platform_id : builtins.int = ...,
         user_id : typing.Text = ...,
         log_user_id : typing.Text = ...,
+        anon_user_id : typing.Text = ...,
         session_id : typing.Text = ...,
         view_id : typing.Text = ...,
         auto_view_id : typing.Text = ...,
@@ -286,7 +289,7 @@ class JoinedIdentifiers(google.protobuf.message.Message):
         insertion_id : typing.Text = ...,
         impression_id : typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_view_id",b"auto_view_id","impression_id",b"impression_id","insertion_id",b"insertion_id","log_user_id",b"log_user_id","platform_id",b"platform_id","request_id",b"request_id","session_id",b"session_id","user_id",b"user_id","view_id",b"view_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["anon_user_id",b"anon_user_id","auto_view_id",b"auto_view_id","impression_id",b"impression_id","insertion_id",b"insertion_id","log_user_id",b"log_user_id","platform_id",b"platform_id","request_id",b"request_id","session_id",b"session_id","user_id",b"user_id","view_id",b"view_id"]) -> None: ...
 global___JoinedIdentifiers = JoinedIdentifiers
 
 class IdentifierProvenances(google.protobuf.message.Message):

@@ -179,8 +179,10 @@ enum UseCase {
   DISCOVER = 11;
 }
 
-// Define Model Type
-// Next ID = 4
+// Next ID = 11
+
+// Define Prediction Type
+// Next ID = 8
 
 
 

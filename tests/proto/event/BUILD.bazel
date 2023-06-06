@@ -1,0 +1,11 @@
+TESTS = glob(["test_*.py"])
+DEPS = [
+    "//proto/event:event_py_proto",
+]
+
+[ py_test(
+        name = src[:-3],
+        srcs = [src],
+        visibility = ["//visibility:public"],
+        deps = DEPS,
+) for src in TESTS ]
