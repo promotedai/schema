@@ -55,7 +55,6 @@ else
 fi
 pipenv install --dev  || exit 1
 
-echo "Copy pb2s over to generated directory"
 rm -rf generated/py
 export BAZEL_BIN=$(bazel info bazel-bin)
 for DIR in $(find proto -type d);

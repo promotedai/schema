@@ -14,18 +14,17 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from proto.common import common_pb2 as proto_dot_common_dot_common__pb2
-from proto.delivery import blender_pb2 as proto_dot_delivery_dot_blender__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/delivery/delivery.proto',
   package='delivery',
   syntax='proto3',
-  serialized_options=b'\n\032ai.promoted.proto.deliveryB\010DeliveryP\001Z8github.com/promotedai/schema/generated/go/proto/delivery',
+  serialized_options=b'\n\032ai.promoted.proto.deliveryB\010DeliveryP\001Z8github.com/promotedai/schema/generated/go/proto/delivery\252\002\021Promoted.Delivery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\"\xd8\x04\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x12 \x01(\x0b\x32\x0e.common.Device\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x13 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12 \n\x06paging\x18\x11 \x01(\x0b\x32\x10.delivery.Paging\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12 \n\x18insertion_matrix_headers\x18\x14 \x03(\t\x12\x34\n\x10insertion_matrix\x18\x15 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12/\n\x0e\x62lender_config\x18\x0c \x01(\x0b\x32\x17.delivery.BlenderConfig\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x0f\x10\x10\"Y\n\x06Paging\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x05\x12\x10\n\x06\x63ursor\x18\x03 \x01(\tH\x00\x12\x10\n\x06offset\x18\x04 \x01(\x05H\x00\x42\n\n\x08starting\"\xaf\x01\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.Insertion\x12)\n\x0bpaging_info\x18\x03 \x01(\x0b\x32\x14.delivery.PagingInfo\x12\x1f\n\x12introspection_data\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x12\n\nrequest_id\x18\x05 \x01(\tB\x15\n\x13_introspection_dataJ\x04\x08\x01\x10\x02\"/\n\nPagingInfo\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0e\n\x06\x63ursor\x18\x02 \x01(\t\"\xeb\x03\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x15 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x15\n\x08position\x18\x0c \x01(\x04H\x00\x88\x01\x01\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.Properties\x12\x1b\n\x0eretrieval_rank\x18\x13 \x01(\x04H\x01\x88\x01\x01\x12\x1c\n\x0fretrieval_score\x18\x14 \x01(\x02H\x02\x88\x01\x01\x42\x0b\n\t_positionB\x11\n\x0f_retrieval_rankB\x12\n\x10_retrieval_scoreJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x10\x10\x11J\x04\x08\x11\x10\x12J\x04\x08\x12\x10\x13J\x04\x08\x16\x10\x17J\x04\x08\x17\x10\x18*\xda\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\n\x12\x0c\n\x08\x44ISCOVER\x10\x0b\x42\x62\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01Z8github.com/promotedai/schema/generated/go/proto/deliveryb\x06proto3'
+  serialized_pb=b'\n\x1dproto/delivery/delivery.proto\x12\x08\x64\x65livery\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19proto/common/common.proto\"\xad\x04\n\x07Request\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x1e\n\x06\x64\x65vice\x18\x12 \x01(\x0b\x32\x0e.common.Device\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12\x0f\n\x07view_id\x18\x07 \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x13 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x19\n\x11\x63lient_request_id\x18\x0e \x01(\t\x12#\n\x08use_case\x18\t \x01(\x0e\x32\x11.delivery.UseCase\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12 \n\x06paging\x18\x11 \x01(\x0b\x32\x10.delivery.Paging\x12&\n\tinsertion\x18\x0b \x03(\x0b\x32\x13.delivery.Insertion\x12 \n\x18insertion_matrix_headers\x18\x14 \x03(\t\x12\x34\n\x10insertion_matrix\x18\x15 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.PropertiesJ\x04\x08\x05\x10\x06J\x04\x08\x0f\x10\x10J\x04\x08\x0c\x10\r\"Y\n\x06Paging\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x05\x12\x10\n\x06\x63ursor\x18\x03 \x01(\tH\x00\x12\x10\n\x06offset\x18\x04 \x01(\x05H\x00\x42\n\n\x08starting\"\xaf\x01\n\x08Response\x12&\n\tinsertion\x18\x02 \x03(\x0b\x32\x13.delivery.Insertion\x12)\n\x0bpaging_info\x18\x03 \x01(\x0b\x32\x14.delivery.PagingInfo\x12\x1f\n\x12introspection_data\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x12\n\nrequest_id\x18\x05 \x01(\tB\x15\n\x13_introspection_dataJ\x04\x08\x01\x10\x02\"/\n\nPagingInfo\x12\x11\n\tpaging_id\x18\x01 \x01(\t\x12\x0e\n\x06\x63ursor\x18\x02 \x01(\t\"\xe5\x03\n\tInsertion\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.common.UserInfo\x12\x1e\n\x06timing\x18\x03 \x01(\x0b\x32\x0e.common.Timing\x12\'\n\x0b\x63lient_info\x18\x04 \x01(\x0b\x32\x12.common.ClientInfo\x12\x14\n\x0cinsertion_id\x18\x06 \x01(\t\x12\x12\n\nrequest_id\x18\x07 \x01(\t\x12\x0f\n\x07view_id\x18\t \x01(\t\x12\x14\n\x0c\x61uto_view_id\x18\x15 \x01(\t\x12\x12\n\nsession_id\x18\x08 \x01(\t\x12\x12\n\ncontent_id\x18\n \x01(\t\x12\x15\n\x08position\x18\x0c \x01(\x04H\x00\x88\x01\x01\x12&\n\nproperties\x18\r \x01(\x0b\x32\x12.common.Properties\x12\x1b\n\x0eretrieval_rank\x18\x13 \x01(\x04H\x01\x88\x01\x01\x12\x1c\n\x0fretrieval_score\x18\x14 \x01(\x02H\x02\x88\x01\x01\x42\x0b\n\t_positionB\x11\n\x0f_retrieval_rankB\x12\n\x10_retrieval_scoreJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cJ\x04\x08\x0e\x10\x0fJ\x04\x08\x0f\x10\x10J\x04\x08\x11\x10\x12J\x04\x08\x12\x10\x13J\x04\x08\x16\x10\x17J\x04\x08\x17\x10\x18*\xda\x01\n\x07UseCase\x12\x14\n\x10UNKNOWN_USE_CASE\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\n\n\x06SEARCH\x10\x02\x12\x16\n\x12SEARCH_SUGGESTIONS\x10\x03\x12\x08\n\x04\x46\x45\x45\x44\x10\x04\x12\x13\n\x0fRELATED_CONTENT\x10\x05\x12\x0c\n\x08\x43LOSE_UP\x10\x06\x12\x14\n\x10\x43\x41TEGORY_CONTENT\x10\x07\x12\x0e\n\nMY_CONTENT\x10\x08\x12\x14\n\x10MY_SAVED_CONTENT\x10\t\x12\x12\n\x0eSELLER_CONTENT\x10\n\x12\x0c\n\x08\x44ISCOVER\x10\x0b\x42v\n\x1a\x61i.promoted.proto.deliveryB\x08\x44\x65liveryP\x01Z8github.com/promotedai/schema/generated/go/proto/delivery\xaa\x02\x11Promoted.Deliveryb\x06proto3'
   ,
-  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_blender__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,proto_dot_common_dot_common__pb2.DESCRIPTOR,])
 
 _USECASE = _descriptor.EnumDescriptor(
   name='UseCase',
@@ -97,8 +96,8 @@ _USECASE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1546,
-  serialized_end=1764,
+  serialized_start=1467,
+  serialized_end=1685,
 )
 _sym_db.RegisterEnumDescriptor(_USECASE)
 
@@ -239,14 +238,7 @@ _REQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='blender_config', full_name='delivery.Request.blender_config', index=16,
-      number=12, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='properties', full_name='delivery.Request.properties', index=17,
+      name='properties', full_name='delivery.Request.properties', index=16,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -264,8 +256,8 @@ _REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=131,
-  serialized_end=731,
+  serialized_start=101,
+  serialized_end=658,
 )
 
 
@@ -322,8 +314,8 @@ _PAGING = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=733,
-  serialized_end=822,
+  serialized_start=660,
+  serialized_end=749,
 )
 
 
@@ -380,8 +372,8 @@ _RESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=825,
-  serialized_end=1000,
+  serialized_start=752,
+  serialized_end=927,
 )
 
 
@@ -419,8 +411,8 @@ _PAGINGINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1002,
-  serialized_end=1049,
+  serialized_start=929,
+  serialized_end=976,
 )
 
 
@@ -557,8 +549,8 @@ _INSERTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1052,
-  serialized_end=1543,
+  serialized_start=979,
+  serialized_end=1464,
 )
 
 _REQUEST.fields_by_name['user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
@@ -569,7 +561,6 @@ _REQUEST.fields_by_name['use_case'].enum_type = _USECASE
 _REQUEST.fields_by_name['paging'].message_type = _PAGING
 _REQUEST.fields_by_name['insertion'].message_type = _INSERTION
 _REQUEST.fields_by_name['insertion_matrix'].message_type = google_dot_protobuf_dot_struct__pb2._LISTVALUE
-_REQUEST.fields_by_name['blender_config'].message_type = proto_dot_delivery_dot_blender__pb2._BLENDERCONFIG
 _REQUEST.fields_by_name['properties'].message_type = proto_dot_common_dot_common__pb2._PROPERTIES
 _PAGING.oneofs_by_name['starting'].fields.append(
   _PAGING.fields_by_name['cursor'])

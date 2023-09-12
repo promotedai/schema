@@ -387,7 +387,7 @@ message Impression {
 
 // The action that user wants to perform.
 //
-// Next ID = 20.  Max = 254.
+// Next ID = 22.  Max = 254.
 // Keep this updated with delivery.private.features.AggMetric.
 enum ActionType {
   UNKNOWN_ACTION_TYPE = 0;
@@ -446,6 +446,12 @@ enum ActionType {
   // (Wish)list content.
   ADD_TO_LIST = 18;
   REMOVE_FROM_LIST = 19;
+
+  // Follow a seller or creator.
+  FOLLOW = 20;
+
+  // Unfollow a followed seller or creator.
+  UNFOLLOW = 21;
 
   reserved 255;
 }
@@ -573,6 +579,21 @@ message CartContent {
   common.Money price_per_unit = 3;
 }
 
+// Details about how the Action is attributed to a touchpoint (Insertion, Impression and/or Action).
+//
+// Next ID = 3.
+message Attribution {
+  // The attribution model ID to use.
+  // - 0 should not be used.  This means we have a bug.
+  // - 1 is the last event attribution.
+  // - 2 is even attribution for the same priority group.
+  // TODO - write up a constants file with attribution model ID numbers.
+  uint64 model_id = 1;
+  // A weight from [0, 1000] that represents the credit that the `action` gets associated with the `attributed_event`.
+  // Int millis is used so aggregation is accurate and precise.
+  int32 credit_millis = 2;
+}
+
 
 // Error from iOS client.
 // Next ID = 5.
@@ -693,7 +714,6 @@ message Diagnostics {
 
 // A way to batch up log requests into the same request.
 // Clients can reference logs in different batches.
-// Keep in sync with FlatEvent and FlatResponseInsertion.
 // Next ID = 26.
 message LogRequest {
 
@@ -718,7 +738,6 @@ message LogRequest {
   common.Device device = 24;
 
   reserved 5; // Reserving fields for future common fields.
-  reserved 6; // To keep numbers similar to FlatEvent.  We can use this for Rpc Header.
   repeated User user = 7;
   repeated CohortMembership cohort_membership = 8;
   reserved 9;

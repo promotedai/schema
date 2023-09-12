@@ -6,6 +6,7 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import proto.delivery.blender_pb2
 import proto.delivery.delivery_pb2
 import typing
 import typing_extensions
@@ -72,11 +73,13 @@ global___DeliveryLog = DeliveryLog
 
 class DeliveryExecution(google.protobuf.message.Message):
     """Contains the inner execution details for a Delivery call.
-    Next ID = 12.
+    Next ID = 14.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     EXECUTION_SERVER_FIELD_NUMBER: builtins.int
     SERVER_VERSION_FIELD_NUMBER: builtins.int
+    BLENDER_CONFIG_FIELD_NUMBER: builtins.int
+    HYPERLOOP_LOG_FIELD_NUMBER: builtins.int
     execution_server: global___ExecutionServer.V = ...
     """Where delivery happened, i.e. via the SDK or some approach on the API side."""
 
@@ -85,10 +88,20 @@ class DeliveryExecution(google.protobuf.message.Message):
     or public repo release version.
     """
 
+    blender_config: typing.Text = ...
+    """This is the Blender config for the execution, serialized to JSON."""
+
+    @property
+    def hyperloop_log(self) -> proto.delivery.blender_pb2.HyperloopLog:
+        """Records what all Hyperloop parameters evaluated to."""
+        pass
     def __init__(self,
         *,
         execution_server : global___ExecutionServer.V = ...,
         server_version : typing.Text = ...,
+        blender_config : typing.Text = ...,
+        hyperloop_log : typing.Optional[proto.delivery.blender_pb2.HyperloopLog] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["execution_server",b"execution_server","server_version",b"server_version"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["hyperloop_log",b"hyperloop_log"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["blender_config",b"blender_config","execution_server",b"execution_server","hyperloop_log",b"hyperloop_log","server_version",b"server_version"]) -> None: ...
 global___DeliveryExecution = DeliveryExecution

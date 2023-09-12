@@ -1,23 +1,14 @@
 on:
   workflow_dispatch:
   push:
-    branches:
-      - develop
-      - main
-      - master
-      - "release/**"
-      - "hotfix/**"
-  pull_request:
 
-name: Build protos
+name: Build, test and generate libraries
 
 jobs:
-  build:
-    name: Build
-    # TODO - how to handle forks?
-    # if: github.event.pull_request.head.repo.full_name == github.repository
+  build-test-generate:
+    name: Build, test and generate libraries
 
-    # This has bazelisk already
+    # This has bazelisk already.
     runs-on: ubuntu-latest
     steps:
 
@@ -36,11 +27,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ env.cache-name }}-
 
-      - name: Schema repo checkout
-        id: schema_repo_checkout
+      - name: Git checkout
+        id: checkout
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Setup SSH Keys and known_hosts
         id: setup_ssh_keys
@@ -66,7 +55,12 @@ jobs:
         id: run_tests
         run: |
           TESTS=$(bazel query 'tests(//...)')
-          [[ ! -z "$TESTS" ]] && bazel test ... || echo "No tests.  Skipping tests."
+          if [[ ! -z "$TESTS" ]]
+          then
+            bazel test ...
+          else
+            echo "No tests.  Skipping tests."
+          fi
 
       - uses: actions/setup-python@v4
         with:

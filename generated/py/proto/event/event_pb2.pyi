@@ -116,7 +116,7 @@ global___ImpressionSourceType = ImpressionSourceType
 class ActionType(_ActionType, metaclass=_ActionTypeEnumTypeWrapper):
     """The action that user wants to perform.
 
-    Next ID = 20.  Max = 254.
+    Next ID = 22.  Max = 254.
     Keep this updated with delivery.private.features.AggMetric.
     """
     pass
@@ -182,6 +182,12 @@ class _ActionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """(Wish)list content."""
 
     REMOVE_FROM_LIST = ActionType.V(19)
+    FOLLOW = ActionType.V(20)
+    """Follow a seller or creator."""
+
+    UNFOLLOW = ActionType.V(21)
+    """Unfollow a followed seller or creator."""
+
 
 UNKNOWN_ACTION_TYPE = ActionType.V(0)
 CUSTOM_ACTION_TYPE = ActionType.V(1)
@@ -241,6 +247,12 @@ ADD_TO_LIST = ActionType.V(18)
 """(Wish)list content."""
 
 REMOVE_FROM_LIST = ActionType.V(19)
+FOLLOW = ActionType.V(20)
+"""Follow a seller or creator."""
+
+UNFOLLOW = ActionType.V(21)
+"""Unfollow a followed seller or creator."""
+
 global___ActionType = ActionType
 
 
@@ -1058,6 +1070,35 @@ class CartContent(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["content_id",b"content_id","price_per_unit",b"price_per_unit","quantity",b"quantity"]) -> None: ...
 global___CartContent = CartContent
 
+class Attribution(google.protobuf.message.Message):
+    """Details about how the Action is attributed to a touchpoint (Insertion, Impression and/or Action).
+
+    Next ID = 3.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    CREDIT_MILLIS_FIELD_NUMBER: builtins.int
+    model_id: builtins.int = ...
+    """The attribution model ID to use.
+    - 0 should not be used.  This means we have a bug.
+    - 1 is the last event attribution.
+    - 2 is even attribution for the same priority group.
+    TODO - write up a constants file with attribution model ID numbers.
+    """
+
+    credit_millis: builtins.int = ...
+    """A weight from [0, 1000] that represents the credit that the `action` gets associated with the `attributed_event`.
+    Int millis is used so aggregation is accurate and precise.
+    """
+
+    def __init__(self,
+        *,
+        model_id : builtins.int = ...,
+        credit_millis : builtins.int = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["credit_millis",b"credit_millis","model_id",b"model_id"]) -> None: ...
+global___Attribution = Attribution
+
 class IOSError(google.protobuf.message.Message):
     """Error from iOS client.
     Next ID = 5.
@@ -1301,7 +1342,6 @@ global___Diagnostics = Diagnostics
 class LogRequest(google.protobuf.message.Message):
     """A way to batch up log requests into the same request.
     Clients can reference logs in different batches.
-    Keep in sync with FlatEvent and FlatResponseInsertion.
     Next ID = 26.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...

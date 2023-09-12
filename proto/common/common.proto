@@ -5,6 +5,8 @@ option java_multiple_files = true;
 option java_package = "ai.promoted.proto.common";
 option java_outer_classname = "CommonProto";
 option go_package = "github.com/promotedai/schema/generated/go/proto/common";
+option csharp_namespace = "Promoted.Common";
+
 import "google/protobuf/struct.proto";
 
 // Next ID = 7.
@@ -266,7 +268,7 @@ message Location {
 // make more specific Timing messages (e.g. MetricsTiming).  We can reuse
 // the field numbers.
 //
-// Next ID = 4.
+// Next ID = 5.
 message Timing {
 
   // Optional.  Client timestamp when event was created.

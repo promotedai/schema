@@ -9,7 +9,6 @@ import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.struct_pb2
 import proto.common.common_pb2
-import proto.delivery.blender_pb2
 import typing
 import typing_extensions
 
@@ -81,7 +80,6 @@ class Request(google.protobuf.message.Message):
     INSERTION_FIELD_NUMBER: builtins.int
     INSERTION_MATRIX_HEADERS_FIELD_NUMBER: builtins.int
     INSERTION_MATRIX_FIELD_NUMBER: builtins.int
-    BLENDER_CONFIG_FIELD_NUMBER: builtins.int
     PROPERTIES_FIELD_NUMBER: builtins.int
     platform_id: builtins.int = ...
     """Optional.  If not set, set by API servers.
@@ -169,10 +167,6 @@ class Request(google.protobuf.message.Message):
     @property
     def insertion_matrix(self) -> google.protobuf.struct_pb2.ListValue: ...
     @property
-    def blender_config(self) -> proto.delivery.blender_pb2.BlenderConfig:
-        """Optional."""
-        pass
-    @property
     def properties(self) -> proto.common.common_pb2.Properties:
         """Optional.  Custom properties per platform."""
         pass
@@ -194,11 +188,10 @@ class Request(google.protobuf.message.Message):
         insertion : typing.Optional[typing.Iterable[global___Insertion]] = ...,
         insertion_matrix_headers : typing.Optional[typing.Iterable[typing.Text]] = ...,
         insertion_matrix : typing.Optional[google.protobuf.struct_pb2.ListValue] = ...,
-        blender_config : typing.Optional[proto.delivery.blender_pb2.BlenderConfig] = ...,
         properties : typing.Optional[proto.common.common_pb2.Properties] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["blender_config",b"blender_config","client_info",b"client_info","device",b"device","insertion_matrix",b"insertion_matrix","paging",b"paging","properties",b"properties","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_view_id",b"auto_view_id","blender_config",b"blender_config","client_info",b"client_info","client_request_id",b"client_request_id","device",b"device","insertion",b"insertion","insertion_matrix",b"insertion_matrix","insertion_matrix_headers",b"insertion_matrix_headers","paging",b"paging","platform_id",b"platform_id","properties",b"properties","request_id",b"request_id","search_query",b"search_query","session_id",b"session_id","timing",b"timing","use_case",b"use_case","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["client_info",b"client_info","device",b"device","insertion_matrix",b"insertion_matrix","paging",b"paging","properties",b"properties","timing",b"timing","user_info",b"user_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_view_id",b"auto_view_id","client_info",b"client_info","client_request_id",b"client_request_id","device",b"device","insertion",b"insertion","insertion_matrix",b"insertion_matrix","insertion_matrix_headers",b"insertion_matrix_headers","paging",b"paging","platform_id",b"platform_id","properties",b"properties","request_id",b"request_id","search_query",b"search_query","session_id",b"session_id","timing",b"timing","use_case",b"use_case","user_info",b"user_info","view_id",b"view_id"]) -> None: ...
 global___Request = Request
 
 class Paging(google.protobuf.message.Message):
