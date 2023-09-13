@@ -14,10 +14,9 @@ class EventTest(unittest.TestCase):
         # IMPORTANT
         # - If you want to add new Messages to this list, you need to create a Flat{Message} and a unit test for keeping the Flat{Message}s in sync.
         # - If you want to add a new Message or field to this set, you need to update the Metrics code that flattens Avro schemas.
-        self.assertEquals({
+        self.assertEqual({
             'common.Properties.struct',
             'delivery.Request.insertion_matrix',
-            'delivery.QualityScoreConfig.weighted_sum_term'
         },
         finder.starting_recursive_fields)
 
@@ -29,7 +28,7 @@ class RecursiveMessageFinderTest(unittest.TestCase):
         finder = RecursiveMessageFinder()
         finder.process_descriptor(Value.DESCRIPTOR)
 
-        self.assertEquals({
+        self.assertEqual({
             'google.protobuf.ListValue',
             'google.protobuf.Struct',
             'google.protobuf.Value',
@@ -39,13 +38,11 @@ class RecursiveMessageFinderTest(unittest.TestCase):
     def test_catch_recursive_messages(self):
         finder = RecursiveMessageFinder()
         finder.process_descriptor(LogRequest.DESCRIPTOR)
-        self.assertEquals({
+        self.assertEqual({
             'google.protobuf.Struct',
-            'delivery.QualityScoreTerm',
             'google.protobuf.ListValue',
             'google.protobuf.Value',
             'google.protobuf.Struct.FieldsEntry',
-            'delivery.QualityScoreTerms'
         }, finder.recursive_messages)
 
 

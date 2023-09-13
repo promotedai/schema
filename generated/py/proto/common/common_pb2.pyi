@@ -544,7 +544,7 @@ class Timing(google.protobuf.message.Message):
     make more specific Timing messages (e.g. MetricsTiming).  We can reuse
     the field numbers.
 
-    Next ID = 4.
+    Next ID = 5.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     CLIENT_LOG_TIMESTAMP_FIELD_NUMBER: builtins.int

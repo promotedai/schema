@@ -6,6 +6,7 @@ load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
 load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
 load("@rules_proto_grpc//python:defs.bzl", "python_grpc_compile")
 load("@rules_proto_grpc//cpp:defs.bzl", "cpp_proto_library")
+load("@rules_proto_grpc//csharp:defs.bzl", "csharp_proto_compile")
 
 # Protobufs
 
@@ -66,6 +67,15 @@ py_proto_library(
 
 cpp_proto_library(
     name = "delivery_cpp_proto",
+    protos = [
+        ":delivery_proto",
+        "//proto/common:common_proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+csharp_proto_compile(
+    name = "delivery_csharp_proto",
     protos = [
         ":delivery_proto",
         "//proto/common:common_proto",

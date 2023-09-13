@@ -5,10 +5,10 @@ option java_multiple_files = true;
 option java_package = "ai.promoted.proto.delivery";
 option java_outer_classname = "Delivery";
 option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
+option csharp_namespace = "Promoted.Delivery";
 
 import "google/protobuf/struct.proto";
 import "proto/common/common.proto";
-import "proto/delivery/blender.proto";
 
 // Represents a Request for Insertions (Content).
 // Can be used to log existing ranking (not Promoted) or Promoted's Delivery
@@ -92,8 +92,7 @@ message Request {
   repeated string insertion_matrix_headers = 20;
   google.protobuf.ListValue insertion_matrix = 21;
 
-  // Optional.
-  BlenderConfig blender_config = 12;
+  reserved 12;
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 13;
@@ -246,7 +245,7 @@ message Insertion {
 
   // Optional. Custom item attributes and features set by customers.
   common.Properties properties = 13;
-  reserved 16;
+ 
   reserved 17;
   reserved 18;
 

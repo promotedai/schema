@@ -12,858 +12,500 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor = ...
 
-class RankingMethod(_RankingMethod, metaclass=_RankingMethodEnumTypeWrapper):
-    """How to rank insertions. This enum is used in `InsertRule`s to specify how
-    insertions matched under that rule shall be selected. `QUALITY_SCORE` (the
-    default) selects available insertions in order highest score, while
-    `REQUEST_ORDER` selects availle insertions in the order they were received.
+class LeafExpression(google.protobuf.message.Message):
+    """This behaves like a COALESCE in SQL. Lookups are performed in order until one
+    succeeds. If they all fail, the default value is produced.
+
+    A leaf with constant value can be represented by a default with no lookups.
+
+    Next ID = 3.
     """
-    pass
-class _RankingMethod:
-    V = typing.NewType('V', builtins.int)
-class _RankingMethodEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RankingMethod.V], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
-    QUALITY_SCORE = RankingMethod.V(0)
-    REQUEST_ORDER = RankingMethod.V(1)
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    LOOKUPS_FIELD_NUMBER: builtins.int
+    DEFAULT_FIELD_NUMBER: builtins.int
+    @property
+    def lookups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Lookup]: ...
+    default: builtins.float = ...
+    def __init__(self,
+        *,
+        lookups : typing.Optional[typing.Iterable[global___Lookup]] = ...,
+        default : builtins.float = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default",b"default","lookups",b"lookups"]) -> None: ...
+global___LeafExpression = LeafExpression
 
-QUALITY_SCORE = RankingMethod.V(0)
-REQUEST_ORDER = RankingMethod.V(1)
-global___RankingMethod = RankingMethod
+class Lookup(google.protobuf.message.Message):
+    """This represents a lookup into data structures outside of the syntax tree
+    (e.g. a feature map).
 
+    Next ID = 3.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    FEATURE_ID_FIELD_NUMBER: builtins.int
+    PARAMETER_KEY_FIELD_NUMBER: builtins.int
+    feature_id: builtins.int = ...
+    parameter_key: builtins.int = ...
+    def __init__(self,
+        *,
+        feature_id : builtins.int = ...,
+        parameter_key : builtins.int = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["feature_id",b"feature_id","lookup_type",b"lookup_type","parameter_key",b"parameter_key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["feature_id",b"feature_id","lookup_type",b"lookup_type","parameter_key",b"parameter_key"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["lookup_type",b"lookup_type"]) -> typing.Optional[typing_extensions.Literal["feature_id","parameter_key"]]: ...
+global___Lookup = Lookup
 
 class BlenderConfig(google.protobuf.message.Message):
-    """`BlenderConfig` configures how a set of insertions is blended, i.e. in what
-    order the insertions are shown to a user. Setting either of these fields
-    will override the respective optimized and tuned promoted.ai blending
-    behaviour.
+    """This describes the executor built and used by Blender.
 
-    Blender rules act as filters that reject or select insertion subsets (in
-    the case of negative, positive, and insert rules), or penalize/boost
-    insertion scores (in the case of diversity rules).
-
-    A quality score config is used to construct a relative rank between all insertions
-    by being applied to each insertion and calculating a quality score. A non-positive
-    score (i.e negative or zero) means that an insertion cannot be allocated.
+    Next ID = 3.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    BLENDER_RULE_FIELD_NUMBER: builtins.int
-    QUALITY_SCORE_CONFIG_FIELD_NUMBER: builtins.int
+    QUALITY_SCORE_FIELD_NUMBER: builtins.int
+    SORT_KEY_FIELD_NUMBER: builtins.int
     @property
-    def blender_rule(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BlenderRule]:
-        """A list of blender rules. See the `BlenderRule` documentation for more information.
-
-        Default: empty (blender will use optimized promoted.ai blender rules).
+    def quality_score(self) -> global___BlenderExpression:
+        """How to compute the quality score. The final decision for an allocation will
+        will always be a (descending) sort based on this score. Quality score ties
+        are ignored.
         """
         pass
     @property
-    def quality_score_config(self) -> global___QualityScoreConfig:
-        """A quality score config to rank insertions by calculating their individual
-        quality score.
-
-        Default: empty (blender will use promoted.ai models to calculate scores)
+    def sort_key(self) -> global___BlenderSortKey:
+        """Additional, preliminary sorting logic. Quality score-based sorting is a
+        backstop for ties resulting from this.
         """
         pass
     def __init__(self,
         *,
-        blender_rule : typing.Optional[typing.Iterable[global___BlenderRule]] = ...,
-        quality_score_config : typing.Optional[global___QualityScoreConfig] = ...,
+        quality_score : typing.Optional[global___BlenderExpression] = ...,
+        sort_key : typing.Optional[global___BlenderSortKey] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["quality_score_config",b"quality_score_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["blender_rule",b"blender_rule","quality_score_config",b"quality_score_config"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["quality_score",b"quality_score","sort_key",b"sort_key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["quality_score",b"quality_score","sort_key",b"sort_key"]) -> None: ...
 global___BlenderConfig = BlenderConfig
 
-class BlenderRule(google.protobuf.message.Message):
-    """`BlenderRule` defines a blender rule that is sent to blender.
+class BlenderExpression(google.protobuf.message.Message):
+    """Each expression type must represent the production of a single float. This is
+    the only supported output data type. Expressions are not allowed to produce
+    nulls or errors.
 
-    Rules act as filters and are used to a) select a subset of insertions that
-    match a predicate, and b) to select the insertion with maximum score among that
-    group to eventually allocate it to a positoin.
+    (Floating point arithmetic can produce special values, or simply overflow.
+    These are not considered errors and handling is not defined here.)
 
-     There are 4 different kinds of rules:
-
-    + Positive rules are the standard filter/selection mechanism. They select a
-      subset of insertions according to some configurable filters. From that
-      subset blender then selects the insertion with the highest score to allocate
-      at a position.
-    + Negative rules reject insertions that *must not be* selected. While
-      positive rule act as a positive filter, negative rules are a negative
-      filter. Negative rules are always run before positive rules and restrict
-      the pool of insertion that any positive rule can select from.
-    + Insert rules look and function very similar to positive rules, but ignore
-      negative rules. They take precedence over positive rules, and always select
-      from the entire pool of not-yet-allocated insertions. Use these if you require
-      that insertions with certain properties must be with higher priority.
-    + Diversity rules are not selection filters. Instead they are used to create more
-      diversity among allocated insertions by applying a penalty (or a boost) to all
-      future insertions depending on the insertion that was just allocated.
+    Next ID = 4.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
-    POSITIVE_RULE_FIELD_NUMBER: builtins.int
-    INSERT_RULE_FIELD_NUMBER: builtins.int
-    NEGATIVE_RULE_FIELD_NUMBER: builtins.int
-    DIVERSITY_RULE_FIELD_NUMBER: builtins.int
-    FLAG_FIELD_NUMBER: builtins.int
-    GREATER_THAN_FIELD_NUMBER: builtins.int
-    LESS_THAN_FIELD_NUMBER: builtins.int
-    INTERVAL_FIELD_NUMBER: builtins.int
-    EQUAL_V2_FIELD_NUMBER: builtins.int
-    attribute_name: typing.Text = ...
-    """The name of an insertion property that this rule applies to.
-
-    Default: empty (if `attribute_name` is not set, then this rule can't be matched to
-    any property and will be discarded because the subset of insertions it selects will
-    always be empty)
-    """
-
+    LEAF_FIELD_NUMBER: builtins.int
+    ARITHMETIC_EXP_FIELD_NUMBER: builtins.int
+    CONDITIONAL_EXP_FIELD_NUMBER: builtins.int
     @property
-    def positive_rule(self) -> global___PositiveRule: ...
+    def leaf(self) -> global___LeafExpression: ...
     @property
-    def insert_rule(self) -> global___InsertRule: ...
+    def arithmetic_exp(self) -> global___BlenderArithmeticExpression: ...
     @property
-    def negative_rule(self) -> global___NegativeRule: ...
-    @property
-    def diversity_rule(self) -> global___DiversityRule: ...
-    @property
-    def flag(self) -> global___Flag: ...
-    @property
-    def greater_than(self) -> global___GreaterThan: ...
-    @property
-    def less_than(self) -> global___LessThan: ...
-    @property
-    def interval(self) -> global___Interval: ...
-    @property
-    def equal_v2(self) -> global___EqualV2: ...
+    def conditional_exp(self) -> global___BlenderConditionalExpression: ...
     def __init__(self,
         *,
-        attribute_name : typing.Text = ...,
-        positive_rule : typing.Optional[global___PositiveRule] = ...,
-        insert_rule : typing.Optional[global___InsertRule] = ...,
-        negative_rule : typing.Optional[global___NegativeRule] = ...,
-        diversity_rule : typing.Optional[global___DiversityRule] = ...,
-        flag : typing.Optional[global___Flag] = ...,
-        greater_than : typing.Optional[global___GreaterThan] = ...,
-        less_than : typing.Optional[global___LessThan] = ...,
-        interval : typing.Optional[global___Interval] = ...,
-        equal_v2 : typing.Optional[global___EqualV2] = ...,
+        leaf : typing.Optional[global___LeafExpression] = ...,
+        arithmetic_exp : typing.Optional[global___BlenderArithmeticExpression] = ...,
+        conditional_exp : typing.Optional[global___BlenderConditionalExpression] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["diversity_rule",b"diversity_rule","equal_v2",b"equal_v2","eval_method",b"eval_method","flag",b"flag","greater_than",b"greater_than","insert_rule",b"insert_rule","interval",b"interval","less_than",b"less_than","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","diversity_rule",b"diversity_rule","equal_v2",b"equal_v2","eval_method",b"eval_method","flag",b"flag","greater_than",b"greater_than","insert_rule",b"insert_rule","interval",b"interval","less_than",b"less_than","negative_rule",b"negative_rule","positive_rule",b"positive_rule","rule",b"rule"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["eval_method",b"eval_method"]) -> typing.Optional[typing_extensions.Literal["flag","greater_than","less_than","interval","equal_v2"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["positive_rule","insert_rule","negative_rule","diversity_rule"]]: ...
-global___BlenderRule = BlenderRule
+    def HasField(self, field_name: typing_extensions.Literal["arithmetic_exp",b"arithmetic_exp","conditional_exp",b"conditional_exp","exp_type",b"exp_type","leaf",b"leaf"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["arithmetic_exp",b"arithmetic_exp","conditional_exp",b"conditional_exp","exp_type",b"exp_type","leaf",b"leaf"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["exp_type",b"exp_type"]) -> typing.Optional[typing_extensions.Literal["leaf","arithmetic_exp","conditional_exp"]]: ...
+global___BlenderExpression = BlenderExpression
 
-class Flag(google.protobuf.message.Message):
-    """Tests if an insertion has a property with key `attribute_name` and if its value is `true`."""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    IGNORED_FIELD_NUMBER: builtins.int
-    ignored: builtins.bool = ...
-    """Does nothing.  Exists purely because of parquet not allowing empty groups (messages)."""
+class BlenderArithmeticExpression(google.protobuf.message.Message):
+    """The specified operator is used across all inputs
+    (e.g. inputs[0] + inputs[1] + inputs[2])
 
-    def __init__(self,
-        *,
-        ignored : builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_ignored",b"_ignored","ignored",b"ignored"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_ignored",b"_ignored","ignored",b"ignored"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_ignored",b"_ignored"]) -> typing.Optional[typing_extensions.Literal["ignored"]]: ...
-global___Flag = Flag
-
-class EqualV2(google.protobuf.message.Message):
-    """Tests if an insertion's property with key `attribute_name` and value `x`
-    is equal to some number or string.
+    Next ID = 7.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    NUMBER_FIELD_NUMBER: builtins.int
-    STRING_EQUALITY_FIELD_NUMBER: builtins.int
+    class Operator(_Operator, metaclass=_OperatorEnumTypeWrapper):
+        pass
+    class _Operator:
+        V = typing.NewType('V', builtins.int)
+    class _OperatorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Operator.V], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN = BlenderArithmeticExpression.Operator.V(0)
+        ADD = BlenderArithmeticExpression.Operator.V(1)
+        MULTIPLY = BlenderArithmeticExpression.Operator.V(2)
+        SUBTRACT = BlenderArithmeticExpression.Operator.V(3)
+        DIVIDE = BlenderArithmeticExpression.Operator.V(4)
+        MIN = BlenderArithmeticExpression.Operator.V(5)
+        MAX = BlenderArithmeticExpression.Operator.V(6)
+
+    UNKNOWN = BlenderArithmeticExpression.Operator.V(0)
+    ADD = BlenderArithmeticExpression.Operator.V(1)
+    MULTIPLY = BlenderArithmeticExpression.Operator.V(2)
+    SUBTRACT = BlenderArithmeticExpression.Operator.V(3)
+    DIVIDE = BlenderArithmeticExpression.Operator.V(4)
+    MIN = BlenderArithmeticExpression.Operator.V(5)
+    MAX = BlenderArithmeticExpression.Operator.V(6)
+
+    OP_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    op: global___BlenderArithmeticExpression.Operator.V = ...
     @property
-    def number(self) -> global___Equal: ...
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BlenderExpression]: ...
+    def __init__(self,
+        *,
+        op : global___BlenderArithmeticExpression.Operator.V = ...,
+        inputs : typing.Optional[typing.Iterable[global___BlenderExpression]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["inputs",b"inputs","op",b"op"]) -> None: ...
+global___BlenderArithmeticExpression = BlenderArithmeticExpression
+
+class BlenderConditionalExpression(google.protobuf.message.Message):
+    """This represents if(-else) branches in processing. For a single execution of
+    the expression:
+    - Both sides of the predicate are computed
+    - Only one of the branches is computed
+
+    Conjunction/disjunctions (i.e. AND/OR) can be formed by nesting conditionals.
+
+    Next ID = 6.
+    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    class Operator(_Operator, metaclass=_OperatorEnumTypeWrapper):
+        pass
+    class _Operator:
+        V = typing.NewType('V', builtins.int)
+    class _OperatorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Operator.V], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN = BlenderConditionalExpression.Operator.V(0)
+        EQUAL = BlenderConditionalExpression.Operator.V(1)
+        GREATER_THAN = BlenderConditionalExpression.Operator.V(2)
+        GREATER_THAN_OR_EQUAL = BlenderConditionalExpression.Operator.V(3)
+
+    UNKNOWN = BlenderConditionalExpression.Operator.V(0)
+    EQUAL = BlenderConditionalExpression.Operator.V(1)
+    GREATER_THAN = BlenderConditionalExpression.Operator.V(2)
+    GREATER_THAN_OR_EQUAL = BlenderConditionalExpression.Operator.V(3)
+
+    OP_FIELD_NUMBER: builtins.int
+    PREDICATE_LHS_FIELD_NUMBER: builtins.int
+    PREDICATE_RHS_FIELD_NUMBER: builtins.int
+    THEN_BRANCH_FIELD_NUMBER: builtins.int
+    ELSE_BRANCH_FIELD_NUMBER: builtins.int
+    op: global___BlenderConditionalExpression.Operator.V = ...
     @property
-    def string_equality(self) -> global___StringEquality: ...
+    def predicate_lhs(self) -> global___BlenderExpression: ...
+    @property
+    def predicate_rhs(self) -> global___BlenderExpression: ...
+    @property
+    def then_branch(self) -> global___BlenderExpression: ...
+    @property
+    def else_branch(self) -> global___BlenderExpression: ...
     def __init__(self,
         *,
-        number : typing.Optional[global___Equal] = ...,
-        string_equality : typing.Optional[global___StringEquality] = ...,
+        op : global___BlenderConditionalExpression.Operator.V = ...,
+        predicate_lhs : typing.Optional[global___BlenderExpression] = ...,
+        predicate_rhs : typing.Optional[global___BlenderExpression] = ...,
+        then_branch : typing.Optional[global___BlenderExpression] = ...,
+        else_branch : typing.Optional[global___BlenderExpression] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["equality_type",b"equality_type","number",b"number","string_equality",b"string_equality"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["equality_type",b"equality_type","number",b"number","string_equality",b"string_equality"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["equality_type",b"equality_type"]) -> typing.Optional[typing_extensions.Literal["number","string_equality"]]: ...
-global___EqualV2 = EqualV2
+    def HasField(self, field_name: typing_extensions.Literal["else_branch",b"else_branch","predicate_lhs",b"predicate_lhs","predicate_rhs",b"predicate_rhs","then_branch",b"then_branch"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["else_branch",b"else_branch","op",b"op","predicate_lhs",b"predicate_lhs","predicate_rhs",b"predicate_rhs","then_branch",b"then_branch"]) -> None: ...
+global___BlenderConditionalExpression = BlenderConditionalExpression
 
-class Equal(google.protobuf.message.Message):
-    """Tests if an insertion's property with key `attribute_name` and value `x`
-    fulfills `x ∈ compared_to ± tolerance`.
+class BlenderSortKey(google.protobuf.message.Message):
+    """This defines a tuple of expressions that Blender should use for sorting. All
+    sorts are assumed to be descending, as is done with quality scores.
+
+    Next ID = 2.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    COMPARED_TO_FIELD_NUMBER: builtins.int
-    TOLERANCE_FIELD_NUMBER: builtins.int
-    compared_to: builtins.float = ...
-    """The value to compare to.
-
-    Default: 0.0
-    """
-
-    tolerance: builtins.float = ...
-    """The tolerance around this value that is acceptable.
-
-    Default: 0.0
-    """
-
+    ELEMENTS_FIELD_NUMBER: builtins.int
+    @property
+    def elements(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___BlenderExpression]:
+        """Positions correspond to sort priority. elements[0] ties are broken using
+        elements[1], elements[1] ties are broken using elements[2], and so on. Ties
+        of the last element are broken by the overall quality score.
+        """
+        pass
     def __init__(self,
         *,
-        compared_to : builtins.float = ...,
-        tolerance : builtins.float = ...,
+        elements : typing.Optional[typing.Iterable[global___BlenderExpression]] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","tolerance",b"tolerance"]) -> None: ...
-global___Equal = Equal
+    def ClearField(self, field_name: typing_extensions.Literal["elements",b"elements"]) -> None: ...
+global___BlenderSortKey = BlenderSortKey
 
-class StringEquality(google.protobuf.message.Message):
-    """Tests if an insertion's property with key `attribute_name` and value `x`
-    fulfills `x == raw`.
+class HyperloopConfig(google.protobuf.message.Message):
+    """This is only capable of exploring values in simple ways. More complex logic
+    description (e.g. conditionals) is left to Blender.
+
+    Next ID = 2.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    RAW_FIELD_NUMBER: builtins.int
-    raw: typing.Text = ...
+    class ParametersEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.int = ...
+        @property
+        def value(self) -> global___HyperloopParameter: ...
+        def __init__(self,
+            *,
+            key : builtins.int = ...,
+            value : typing.Optional[global___HyperloopParameter] = ...,
+            ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value",b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+
+    PARAMETERS_FIELD_NUMBER: builtins.int
+    @property
+    def parameters(self) -> google.protobuf.internal.containers.MessageMap[builtins.int, global___HyperloopParameter]:
+        """Parameter keys in Blender correspond to this map."""
+        pass
     def __init__(self,
         *,
-        raw : typing.Text = ...,
+        parameters : typing.Optional[typing.Mapping[builtins.int, global___HyperloopParameter]] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["raw",b"raw","value",b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["raw",b"raw","value",b"value"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["value",b"value"]) -> typing.Optional[typing_extensions.Literal["raw"]]: ...
-global___StringEquality = StringEquality
+    def ClearField(self, field_name: typing_extensions.Literal["parameters",b"parameters"]) -> None: ...
+global___HyperloopConfig = HyperloopConfig
 
-class GreaterThan(google.protobuf.message.Message):
-    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
-    fulfills `x > compared_to` (if `or_equal = false`) or `x ≥ compared_to` (if
-    `or_equal = true`).
+class HyperloopParameter(google.protobuf.message.Message):
+    """A parameter is effectively an experiment. Invalid parameter descriptions are
+    skipped.
+
+    Next ID = 3.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    COMPARED_TO_FIELD_NUMBER: builtins.int
-    OR_EQUAL_FIELD_NUMBER: builtins.int
-    compared_to: builtins.float = ...
-    """The value to compare to.
-
-    Default: 0.0
-    """
-
-    or_equal: builtins.bool = ...
-    """Whether equality can hold (in case of `true`) or if the propery has to
-    be stricter greater than `compared_to`.
-
-    Default: false
-    """
-
-    def __init__(self,
-        *,
-        compared_to : builtins.float = ...,
-        or_equal : builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","or_equal",b"or_equal"]) -> None: ...
-global___GreaterThan = GreaterThan
-
-class LessThan(google.protobuf.message.Message):
-    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
-    fulfills `x < compared_to` (if `or_equal = false`) or `x ≤ compared_to` (if
-    `or_equal = true`).
-    """
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    COMPARED_TO_FIELD_NUMBER: builtins.int
-    OR_EQUAL_FIELD_NUMBER: builtins.int
-    compared_to: builtins.float = ...
-    """The value to compare to.
-
-    Default: 0.0
-    """
-
-    or_equal: builtins.bool = ...
-    """Whether equality can hold (in case of `true`) or if the propery has to
-    be stricter less than `compared_to`.
-
-    Default: false
-    """
+    GROUPS_FIELD_NUMBER: builtins.int
+    DEFAULT_FIELD_NUMBER: builtins.int
+    @property
+    def groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HyperloopGroup]:
+        """Each parameter has 1000 buckets, shared among the groups. A parameter is
+        considered invalid if:
+        - Groups have overlapping bucket ranges
+        - Any bucket range starts below 0 or ends above 1000
+        """
+        pass
+    default: builtins.float = ...
+    """Any buckets which are not claimed by a group produce this value."""
 
     def __init__(self,
         *,
-        compared_to : builtins.float = ...,
-        or_equal : builtins.bool = ...,
+        groups : typing.Optional[typing.Iterable[global___HyperloopGroup]] = ...,
+        default : builtins.float = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["compared_to",b"compared_to","or_equal",b"or_equal"]) -> None: ...
-global___LessThan = LessThan
+    def ClearField(self, field_name: typing_extensions.Literal["default",b"default","groups",b"groups"]) -> None: ...
+global___HyperloopParameter = HyperloopParameter
 
-class Interval(google.protobuf.message.Message):
-    """Tests if an an insertion's attribute of name `attribute_name` and value `x`
-    fulfills `x ∈ (lower_bound, upper_bound)` (open interval). The interval can
-    be closed or half-closed by setting either or both of `lower_inclusive` and
-    `upper_inclusive` to `true`.
+class HyperloopGroup(google.protobuf.message.Message):
+    """A group is a bucket range and method of value generation.
+
+    Next ID = 4.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    UPPER_BOUND_FIELD_NUMBER: builtins.int
-    LOWER_BOUND_FIELD_NUMBER: builtins.int
-    LOWER_INCLUSIVE_FIELD_NUMBER: builtins.int
-    UPPER_INCLUSIVE_FIELD_NUMBER: builtins.int
-    upper_bound: builtins.float = ...
-    """The upper bound of the interval
+    LOW_BUCKET_FIELD_NUMBER: builtins.int
+    HIGH_BUCKET_FIELD_NUMBER: builtins.int
+    EXP_FIELD_NUMBER: builtins.int
+    low_bucket: builtins.int = ...
+    """[low_bucket, high_bucket]"""
 
-    Default: 0.0
-    """
-
-    lower_bound: builtins.float = ...
-    """The lower bound of the interval
-
-    Default: 0.0
-    """
-
-    lower_inclusive: builtins.bool = ...
-    """Whether the lower bound is considered closed (if the compared property can
-    be equal to the lower bound).
-
-    Default: false
-    """
-
-    upper_inclusive: builtins.bool = ...
-    """Whether the upper bound is considered closed (if the compared property can
-    be equal to the upper bound).
-
-    Default: false
-    """
-
+    high_bucket: builtins.int = ...
+    @property
+    def exp(self) -> global___HyperloopExpression: ...
     def __init__(self,
         *,
-        upper_bound : builtins.float = ...,
-        lower_bound : builtins.float = ...,
-        lower_inclusive : builtins.bool = ...,
-        upper_inclusive : builtins.bool = ...,
+        low_bucket : builtins.int = ...,
+        high_bucket : builtins.int = ...,
+        exp : typing.Optional[global___HyperloopExpression] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["lower_bound",b"lower_bound","lower_inclusive",b"lower_inclusive","upper_bound",b"upper_bound","upper_inclusive",b"upper_inclusive"]) -> None: ...
-global___Interval = Interval
+    def HasField(self, field_name: typing_extensions.Literal["exp",b"exp"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["exp",b"exp","high_bucket",b"high_bucket","low_bucket",b"low_bucket"]) -> None: ...
+global___HyperloopGroup = HyperloopGroup
 
-class PositiveRule(google.protobuf.message.Message):
-    """A positive rule selects insertions by their score if they are associated with
-    the same attribute that the rule is associated with. They always work in
-    conjunction with negative rules and only select among those insertions that
-    were not rejected by a negative rule.
+class HyperloopExpression(google.protobuf.message.Message):
+    """See the comment for BlenderExpression.
 
-    If two or more positive rules are defined and if one seeks to fill a position
-    `p`, then one positive rule is picked by random out of all positive rules. The
-    process for picking a positive rule works in the following way:
-
-    1. all positive rules are removed that won't ever apply to any still available
-       insertions (meaning insertions that evaluate to `true` under the evaluation
-       method of this rule and are not yet allocated); 
-    2. then from the remaining rules those are removed that don't fulfill the
-       condition `rule.min_pos <= p <= rule.max_pos`;
-    3. finally, one is picked by random based on their relative weights
-       `rule.select_pct` using a weighted index.
-
-    After a positive rule has been chosen, blender will then allocate at position
-    `p` that insertion with maximum score from those insertions that are selected
-    under this rule.
-
-    Note that there is a probability `prob = max(100 - total_sum, 0)` to not select
-    any rule if the total sum of relative weights for the rules in 3. is less than
-    `100.0`.
+    Next ID = 4.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    SELECT_PCT_FIELD_NUMBER: builtins.int
-    MIN_POS_FIELD_NUMBER: builtins.int
-    MAX_POS_FIELD_NUMBER: builtins.int
-    select_pct: builtins.float = ...
-    """Value between 0 and 100. The weight of this rule to be selected.
-
-    If the sum `W` of all weights is less than 100, then the chance N of no
-    weight being chosen is assigned the weight `N = 100 - W`.
-
-    Examples (given weights `{a, b, ..., z}`, each entry corresponds to a rule
-    with weight `a`, `b`, `c`, etc):
-
-    + `{100, 100}`: 2 rules with equal weight: 50% chance of each being
-      selected
-    + `{50, 50}`: as above
-    + `{25, 25}`: each rule has a 25% chance of being selected; there is a 50%
-      chance of no rule being selected
-    + `{10, 10, 10, 10, 10`}: each of the 5 rules has a 5% chance of being
-      selected; there is a is a 50% chance of no rule being selected.
-    + `{50, 100}`: 2/3 chance of selecting the rule with weight 100, 1/3
-      chance to select that of weight 50.
-
-    NOTE: a value of 0 means this rule will never be selected.
-
-    Default: `100.0`
-    """
-
-    min_pos: builtins.int = ...
-    """The minimum position that this rule applies to. If one seeks to fill a
-    position `p < min_pos`, then this rule will not be considered for
-    selection. `min_pos <= max_pos` must hold.
-
-    Default: `0`
-    """
-
-    max_pos: builtins.int = ...
-    """The maximum position that this rule applies to. If one seeks to fill a
-    position `p > max_pos`, then this rule will not be considered for
-    selection. `max_pos >= min_pos` must hold.
-
-    Default `uint64::MAX`
-    """
-
+    LEAF_FIELD_NUMBER: builtins.int
+    GENERATOR_EXP_FIELD_NUMBER: builtins.int
+    CONDITIONAL_EXP_FIELD_NUMBER: builtins.int
+    @property
+    def leaf(self) -> global___LeafExpression: ...
+    @property
+    def generator_exp(self) -> global___HyperloopGeneratorExpression: ...
+    @property
+    def conditional_exp(self) -> global___HyperloopConditionalExpression: ...
     def __init__(self,
         *,
-        select_pct : builtins.float = ...,
-        min_pos : builtins.int = ...,
-        max_pos : builtins.int = ...,
+        leaf : typing.Optional[global___LeafExpression] = ...,
+        generator_exp : typing.Optional[global___HyperloopGeneratorExpression] = ...,
+        conditional_exp : typing.Optional[global___HyperloopConditionalExpression] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_pos",b"_max_pos"]) -> typing.Optional[typing_extensions.Literal["max_pos"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_min_pos",b"_min_pos"]) -> typing.Optional[typing_extensions.Literal["min_pos"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_select_pct",b"_select_pct"]) -> typing.Optional[typing_extensions.Literal["select_pct"]]: ...
-global___PositiveRule = PositiveRule
+    def HasField(self, field_name: typing_extensions.Literal["conditional_exp",b"conditional_exp","generator_exp",b"generator_exp","leaf",b"leaf","node_type",b"node_type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["conditional_exp",b"conditional_exp","generator_exp",b"generator_exp","leaf",b"leaf","node_type",b"node_type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["node_type",b"node_type"]) -> typing.Optional[typing_extensions.Literal["leaf","generator_exp","conditional_exp"]]: ...
+global___HyperloopExpression = HyperloopExpression
 
-class InsertRule(google.protobuf.message.Message):
-    """An insert rule selects insertions by their score if they are associated with
-    the same attribute that the rule is associated with.
+class HyperloopGeneratorExpression(google.protobuf.message.Message):
+    """This is distinct from leaf in case we ever want to do generation based on
+    other expressions.
 
-    If two or more insert rules are defined and if one seeks to fill a position
-    `p`, then one insert rule is picked by random out of all insert rules. The
-    process for piucking an insert rule works in the following way:
-
-    1. all insert rules are removed that won't ever apply to any still available
-       insertions (meaning insertions that evaluate to `true` under the
-       evaluation method of this rule and are not yet allocated); 
-    2. then from the remaining rules those are removed that don't fulfill the
-       condition `rule.min_pos <= p <= rule.max_pos`;
-    3. finally, one is picked by random based on their relative weights
-       `rule.select_pct` using a weighted index.
-
-    After an insert rule has been chosen, blender will then allocate at position
-    `p` that insertion with maximum score from those insertions that are
-    selected under this rule.
-
-    Note that there is a probability `prob = max(100 - total_sum, 0)` to not
-    select any rule if the total sum of relative weights for the rules in 3. is
-    less than `100.0`.
+    Next ID = 3.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    SELECT_PCT_FIELD_NUMBER: builtins.int
-    MIN_POS_FIELD_NUMBER: builtins.int
-    MAX_POS_FIELD_NUMBER: builtins.int
-    APPLIES_TO_ALL_INSERTIONS_FIELD_NUMBER: builtins.int
-    RANKING_METHOD_FIELD_NUMBER: builtins.int
-    select_pct: builtins.float = ...
-    """Value between 0 and 100. The weight of this rule to be selected.
-
-    If the sum `W` of all weights is less than 100, then the chance N of no
-    weight being chosen is assigned the weight `N = 100 - W`.
-
-    Examples (given weights `{a, b, ..., z}`, each entry corresponds to a rule
-    with weight `a`, `b`, `c`, etc):
-
-    + `{100, 100}`: 2 rules with equal weight: 50% chance of each being
-      selected
-    + `{50, 50}`: as above
-    + `{25, 25}`: each rule has a 25% chance of being selected; there is a 50%
-      chance of no rule being selected
-    + `{10, 10, 10, 10, 10`}: each of the 5 rules has a 5% chance of being
-      selected; there is a is a 50% chance of no rule being selected.
-    + `{50, 100}`: 2/3 chance of selecting the rule with weight 100, 1/3
-      chance to select that of weight 50.
-
-    NOTE: a value of 0 means this rule will never be selected.
-
-    Default: `100.0`
-    """
-
-    min_pos: builtins.int = ...
-    """The minimum position that this rule applies to. If one seeks to fill a
-    position `p < min_pos`, then this rule will not be considered for
-    selection. `min_pos <= max_pos` must hold.
-
-    Default: `0`
-    """
-
-    max_pos: builtins.int = ...
-    """The maximum position that this rule applies to. If one seeks to fill a
-    position `p > max_pos`, then this rule will not be considered for
-    selection. `max_pos >= min_pos` must hold.
-
-    Default: `uint64::MAX` (the maximum possible value for an unsigned 64 bit integer)
-    """
-
-    applies_to_all_insertions: builtins.bool = ...
-    """Whether to ignore `attribute_name` (the field set in the `BlenderRule`
-    message that contains this `InsertRule`). This causes the present
-    `InsertRule` to apply to all insertions that are sent to blender,
-    irrespective of their properties.
-
-    Default: `false`.
-    """
-
-    ranking_method: global___RankingMethod.V = ...
-    """How this rule should select insertions for allocation (see `RankingMethod`
-    for more information).
-
-    Default: RankingMethod::QUALITY_SCORE (sort by quality score by default)
-    """
-
+    UNIFORM_FIELD_NUMBER: builtins.int
+    UNIFORM_MULTI_FIELD_NUMBER: builtins.int
+    @property
+    def uniform(self) -> global___HyperloopUniformGenerator: ...
+    @property
+    def uniform_multi(self) -> global___HyperloopUniformMultiGenerator: ...
     def __init__(self,
         *,
-        select_pct : builtins.float = ...,
-        min_pos : builtins.int = ...,
-        max_pos : builtins.int = ...,
-        applies_to_all_insertions : builtins.bool = ...,
-        ranking_method : global___RankingMethod.V = ...,
+        uniform : typing.Optional[global___HyperloopUniformGenerator] = ...,
+        uniform_multi : typing.Optional[global___HyperloopUniformMultiGenerator] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","max_pos",b"max_pos","min_pos",b"min_pos","select_pct",b"select_pct"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_max_pos",b"_max_pos","_min_pos",b"_min_pos","_select_pct",b"_select_pct","applies_to_all_insertions",b"applies_to_all_insertions","max_pos",b"max_pos","min_pos",b"min_pos","ranking_method",b"ranking_method","select_pct",b"select_pct"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_pos",b"_max_pos"]) -> typing.Optional[typing_extensions.Literal["max_pos"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_min_pos",b"_min_pos"]) -> typing.Optional[typing_extensions.Literal["min_pos"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_select_pct",b"_select_pct"]) -> typing.Optional[typing_extensions.Literal["select_pct"]]: ...
-global___InsertRule = InsertRule
+    def HasField(self, field_name: typing_extensions.Literal["generator",b"generator","uniform",b"uniform","uniform_multi",b"uniform_multi"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["generator",b"generator","uniform",b"uniform","uniform_multi",b"uniform_multi"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["generator",b"generator"]) -> typing.Optional[typing_extensions.Literal["uniform","uniform_multi"]]: ...
+global___HyperloopGeneratorExpression = HyperloopGeneratorExpression
 
-class NegativeRule(google.protobuf.message.Message):
-    """A negative rule tests if an insertion must not be selected by positive
-    rules.
+class HyperloopUniformGenerator(google.protobuf.message.Message):
+    """Generates a value from a uniform distribution.
 
-    A negative rule is associated with an attribute and applies to all those
-    insertions that are associated with the same attribute. The applicable
-    insertions are tested against the conditions laid out by the negative rule.
-    If an insertion is flagged by even one negative rule, it cannot be selected
-    by positive rules.they fail one of the conditions, then the item is precluded from being
-    selected under the subsequent application of positive rules.
+    Next ID = 3.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    PLUCK_PCT_FIELD_NUMBER: builtins.int
-    FORBID_LESS_POS_FIELD_NUMBER: builtins.int
-    MIN_SPACING_FIELD_NUMBER: builtins.int
-    FORBID_GREATER_POS_FIELD_NUMBER: builtins.int
-    MAX_COUNT_FIELD_NUMBER: builtins.int
-    pluck_pct: builtins.float = ...
-    """Value between 0 and 100. The probability that an item will be failed
-    ("plucked) even if it passes all other conditions.
+    LOW_BOUND_FIELD_NUMBER: builtins.int
+    HIGH_BOUND_FIELD_NUMBER: builtins.int
+    low_bound: builtins.float = ...
+    """[low_bound, high_bound]"""
 
-    NOTE: a value of 0 means that the item has to fail one of the other
-    conditions to be discarded. A value of 100 means that an item will always
-    be discarded, no matter the other conditions, as as long as it has an
-    attribute matching this rule's.
-
-    Default: `100.0`
-    """
-
-    forbid_less_pos: builtins.int = ...
-    """The minimum position that items with matching associated attribute can be
-    placed in. Items with the same associated attribute as the negative rule
-    will not be considered for selection if one seeks to fill a position `p <
-    forbid_less_pos`.
-
-    Default: `0`
-    """
-
-    min_spacing: builtins.int = ...
-    """The minimum number of positions between the current position and its
-    precursor. For example, if `min_spacing = 1` and one seeks to fill a
-    position `p`, then an item is discarded if the item at position `p-1` and
-    the item under consideration have the same associated attribute as the
-    current rule (note that attribute values do not have to match; only the
-    fact that they have the same associated attribute matters).
-
-    Default: `uint64::MAX`
-    """
-
-    forbid_greater_pos: builtins.int = ...
-    """The maximum position that items with matching associated attribute can be
-    placed in. Items with the same associated attribute as the negative rule
-    will not be considered for selection if one seeks to fill a position `p >
-    forbid_greater_pos`.
-
-    Default: `uint64::MAX`
-    """
-
-    max_count: builtins.int = ...
-    """The maximum number of items that are allowed to be allocated with the same
-    attribute name as this rule. If `max_count` items have already been
-    allocated in previous positions, then no more items with the attribute
-    name can be allocated.
-
-    Default: `uint64::MAX`
-    """
-
+    high_bound: builtins.float = ...
     def __init__(self,
         *,
-        pluck_pct : builtins.float = ...,
-        forbid_less_pos : builtins.int = ...,
-        min_spacing : builtins.int = ...,
-        forbid_greater_pos : builtins.int = ...,
-        max_count : builtins.int = ...,
+        low_bound : builtins.float = ...,
+        high_bound : builtins.float = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_forbid_greater_pos",b"_forbid_greater_pos","_forbid_less_pos",b"_forbid_less_pos","_max_count",b"_max_count","_min_spacing",b"_min_spacing","_pluck_pct",b"_pluck_pct","forbid_greater_pos",b"forbid_greater_pos","forbid_less_pos",b"forbid_less_pos","max_count",b"max_count","min_spacing",b"min_spacing","pluck_pct",b"pluck_pct"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_forbid_greater_pos",b"_forbid_greater_pos","_forbid_less_pos",b"_forbid_less_pos","_max_count",b"_max_count","_min_spacing",b"_min_spacing","_pluck_pct",b"_pluck_pct","forbid_greater_pos",b"forbid_greater_pos","forbid_less_pos",b"forbid_less_pos","max_count",b"max_count","min_spacing",b"min_spacing","pluck_pct",b"pluck_pct"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_forbid_greater_pos",b"_forbid_greater_pos"]) -> typing.Optional[typing_extensions.Literal["forbid_greater_pos"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_forbid_less_pos",b"_forbid_less_pos"]) -> typing.Optional[typing_extensions.Literal["forbid_less_pos"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_count",b"_max_count"]) -> typing.Optional[typing_extensions.Literal["max_count"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_min_spacing",b"_min_spacing"]) -> typing.Optional[typing_extensions.Literal["min_spacing"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_pluck_pct",b"_pluck_pct"]) -> typing.Optional[typing_extensions.Literal["pluck_pct"]]: ...
-global___NegativeRule = NegativeRule
+    def ClearField(self, field_name: typing_extensions.Literal["high_bound",b"high_bound","low_bound",b"low_bound"]) -> None: ...
+global___HyperloopUniformGenerator = HyperloopUniformGenerator
 
-class DiversityRule(google.protobuf.message.Message):
-    """Diversity rules modify the scores of insertions if equivalent insertions have
-    been previously allocated.
+class HyperloopUniformMultiGenerator(google.protobuf.message.Message):
+    """Uses a uniform distribution to choose a multiplier, but not to actually
+    generate the final value. The final value is bounded by (base / multi, base *
+    multi). There's a 50/50 chance whether multiplication or division is done.
 
-    The purpose of diversity rules is to penalize or boost equivalent
-    insertions. Two insertions `i` and `j` are considered equivalent if they
-    have the same property. For example, if we have `i[animal] = dog` and
-    `j[animal] = dog`, and if `i` was just allocated, then the score of `j` will
-    be modified by `score_j = score_j * multi`.
-
-    NOTE: a multiplier `m <= 0.0` means that matched insertions will never be
-    allocated again in subsequent steps (because non-positive scores
-    disqualify items outright). Multipliers `m < 1.0` act as a penalty.
-    Multipliers `m > 1.0` act as a boost, meaning that similar insertions will
-    be allocated with a higher likelihood, which might lead to grouping of
-    insertions.
+    Next ID = 3.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+    BASE_FIELD_NUMBER: builtins.int
     MULTI_FIELD_NUMBER: builtins.int
+    base: builtins.float = ...
     multi: builtins.float = ...
-    """A factor modifying items' scores. If an item has been allocated at
-    position `p`, then all the allocated item's value of the attribute with
-    matching name is taken. All other items that a) have an attribute that the
-    rule applies to, and b) share the same value as the just allocated item
-    will have their score multiplied by `multi`.
-
-    Example: if insertion `i` has been allocated at position `p`, then an
-    insertion `j` will have its score modified by `p.score *= multi` if and
-    only if `a[rule.attribute_name] == b[rule.attribute_name]` and if
-    `a[rule.attribute_name] != nil`.
-
-    NOTE (repeating the above): a multiplier `m <= 0.0` means that matched
-    insertions will never be allocated again in subsequent steps (because
-    non-positive scores disqualify items outright). Multipliers `m < 1.0` act
-    as a penalty. Multipliers `m > 1.0` act as a boost, meaning that similar
-    insertions will be allocated with a higher likelihood, which might lead to
-    grouping of insertions.
-    """
+    """A multi of <= 1 is invalid."""
 
     def __init__(self,
         *,
+        base : builtins.float = ...,
         multi : builtins.float = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_multi",b"_multi","multi",b"multi"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_multi",b"_multi","multi",b"multi"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_multi",b"_multi"]) -> typing.Optional[typing_extensions.Literal["multi"]]: ...
-global___DiversityRule = DiversityRule
+    def ClearField(self, field_name: typing_extensions.Literal["base",b"base","multi",b"multi"]) -> None: ...
+global___HyperloopUniformMultiGenerator = HyperloopUniformMultiGenerator
 
-class QualityScoreConfig(google.protobuf.message.Message):
-    """`QualityScoreConfig` defines how a quality score for each insertion is
-    calculated, and by that establishes a ranking of all available insertions.
-    If an insertion's quality score is zero or negative, then that insertion
-    must not be allocated.
+class HyperloopConditionalExpression(google.protobuf.message.Message):
+    """This is intended to be redundant with BlenderConditionalExpression but for
+    Hyperloop messages. Protobuf doesn't have the metaprogramming to reuse that
+    definition here without bringing in all Blender expressions. Unlikely our
+    definition of conditional expression will ever have to change (outside of
+    additional operator support).
 
-    This message allows defining expressions like the one below:
-
-    ```
-    SCORE_i := TERM_1 + (TERM_2 * TERM_3) + TERM_4
+    Next ID = 6.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    WEIGHTED_SUM_TERM_FIELD_NUMBER: builtins.int
-    @property
-    def weighted_sum_term(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]:
-        """A list of quality score terms. The terms of this list are summed.
-
-        Default: empty (if empty, the optimized promoted.ai default quality score
-        term will be used)
-        """
+    class Operator(_Operator, metaclass=_OperatorEnumTypeWrapper):
         pass
+    class _Operator:
+        V = typing.NewType('V', builtins.int)
+    class _OperatorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Operator.V], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
+        UNKNOWN = HyperloopConditionalExpression.Operator.V(0)
+        EQUAL = HyperloopConditionalExpression.Operator.V(1)
+        GREATER_THAN = HyperloopConditionalExpression.Operator.V(2)
+        GREATER_THAN_OR_EQUAL = HyperloopConditionalExpression.Operator.V(3)
+
+    UNKNOWN = HyperloopConditionalExpression.Operator.V(0)
+    EQUAL = HyperloopConditionalExpression.Operator.V(1)
+    GREATER_THAN = HyperloopConditionalExpression.Operator.V(2)
+    GREATER_THAN_OR_EQUAL = HyperloopConditionalExpression.Operator.V(3)
+
+    OP_FIELD_NUMBER: builtins.int
+    PREDICATE_LHS_FIELD_NUMBER: builtins.int
+    PREDICATE_RHS_FIELD_NUMBER: builtins.int
+    THEN_BRANCH_FIELD_NUMBER: builtins.int
+    ELSE_BRANCH_FIELD_NUMBER: builtins.int
+    op: global___HyperloopConditionalExpression.Operator.V = ...
+    @property
+    def predicate_lhs(self) -> global___HyperloopExpression: ...
+    @property
+    def predicate_rhs(self) -> global___HyperloopExpression: ...
+    @property
+    def then_branch(self) -> global___HyperloopExpression: ...
+    @property
+    def else_branch(self) -> global___HyperloopExpression: ...
     def __init__(self,
         *,
-        weighted_sum_term : typing.Optional[typing.Iterable[global___QualityScoreTerm]] = ...,
+        op : global___HyperloopConditionalExpression.Operator.V = ...,
+        predicate_lhs : typing.Optional[global___HyperloopExpression] = ...,
+        predicate_rhs : typing.Optional[global___HyperloopExpression] = ...,
+        then_branch : typing.Optional[global___HyperloopExpression] = ...,
+        else_branch : typing.Optional[global___HyperloopExpression] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["weighted_sum_term",b"weighted_sum_term"]) -> None: ...
-global___QualityScoreConfig = QualityScoreConfig
+    def HasField(self, field_name: typing_extensions.Literal["else_branch",b"else_branch","predicate_lhs",b"predicate_lhs","predicate_rhs",b"predicate_rhs","then_branch",b"then_branch"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["else_branch",b"else_branch","op",b"op","predicate_lhs",b"predicate_lhs","predicate_rhs",b"predicate_rhs","then_branch",b"then_branch"]) -> None: ...
+global___HyperloopConditionalExpression = HyperloopConditionalExpression
 
-class QualityScoreTerms(google.protobuf.message.Message):
-    """`QualityScoreTerms` is a list of quality score terms defining a product of
-    terms.
+class HyperloopLog(google.protobuf.message.Message):
+    """These correspond to the above Hyperloop messages, but group assignment and
+    values have been realized.
 
-    This message exists to work around protobuf not permitting `repeatead`
-    inside `oneof` fields.
+    Next ID = 2.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    QUALITY_SCORE_TERMS_FIELD_NUMBER: builtins.int
-    @property
-    def quality_score_terms(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QualityScoreTerm]:
-        """A list of quality score terms. The terms of this list are always
-        multiplied.
+    class ParameterLogsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.int = ...
+        @property
+        def value(self) -> global___HyperloopParameterLog: ...
+        def __init__(self,
+            *,
+            key : builtins.int = ...,
+            value : typing.Optional[global___HyperloopParameterLog] = ...,
+            ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value",b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
 
-        Default: empty (if empty, the term defined by this list will be dropped)
-        """
-        pass
+    PARAMETER_LOGS_FIELD_NUMBER: builtins.int
+    @property
+    def parameter_logs(self) -> google.protobuf.internal.containers.MessageMap[builtins.int, global___HyperloopParameterLog]: ...
     def __init__(self,
         *,
-        quality_score_terms : typing.Optional[typing.Iterable[global___QualityScoreTerm]] = ...,
+        parameter_logs : typing.Optional[typing.Mapping[builtins.int, global___HyperloopParameterLog]] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["quality_score_terms",b"quality_score_terms"]) -> None: ...
-global___QualityScoreTerms = QualityScoreTerms
+    def ClearField(self, field_name: typing_extensions.Literal["parameter_logs",b"parameter_logs"]) -> None: ...
+global___HyperloopLog = HyperloopLog
 
-class QualityScoreTerm(google.protobuf.message.Message):
-    """`QualityScoreTerm` defines a term in either the root level
-    `weighted_sum_term`, or in a product of terms that themselves a quality
-    score term.
-    """
+class HyperloopParameterLog(google.protobuf.message.Message):
+    """Next ID = 3."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
-    PRODUCT_FIELD_NUMBER: builtins.int
-    FETCH_HIGH_FIELD_NUMBER: builtins.int
-    FETCH_LOW_FIELD_NUMBER: builtins.int
-    WEIGHT_FIELD_NUMBER: builtins.int
-    OFFSET_FIELD_NUMBER: builtins.int
-    TERM_CONDITIONAL_EVALUATION_FIELD_NUMBER: builtins.int
-    attribute_name: typing.Text = ...
-    """The name of the insertion property that will supply the final value to
-    be used to calculate the quality score for an insertion.
-    """
-
-    @property
-    def product(self) -> global___QualityScoreTerms:
-        """Recursively evaluate terms and multiply their evaluations as a product."""
-        pass
-    fetch_high: builtins.float = ...
-    """The upper bound used to clamp the value supplied by an insertion's
-    property (before weight and offset).
-
-    Default: float::MAX (The maximum value of a single precision 32 bit float)
-    """
-
-    fetch_low: builtins.float = ...
-    """The lower bound used to clamp the value supplied by an insertion's
-    property (before weight and offset).
-
-    Default: float::MIN (The minimum value of a single precision 32 bit float)
-    """
-
-    weight: builtins.float = ...
-    """The weight of the value supplied by an insertion's property. This constant
-    multiplies the value before it enters into the sum or product of
-    terms.
-
-    Default: 1.0 (no multiply).
-    """
-
-    offset: builtins.float = ...
-    """An offset added to the value supplied by an insertion's property. This constant
-    is added to the value (after it's modified by the weight) before it enters into
-    the sum or product of terms.
-
-    Default: 0.0 (no offset)
-    """
-
-    @property
-    def term_conditional_evaluation(self) -> global___TermConditionalEvaluation:
-        """The value that this term evaluates to if the provided eval method
-        evaluates to false. This field is used to conditionally set or unset
-        terms from the sum of terms.
-
-        For example, this field allows to construct ternary operators to define
-        scores like so ( where `i` is some insertion, and `IMPORTANT`,
-        `p_NAVIGATE`, and `p_POST_CLICK_CONVERSION` are terms and insertion
-        properties):
-
-        ```
-        score_i := i[IMPORTANT] + i[IMPORTANT] : 0 ? 1 * i[p_NAVIGATE] * i[p_POST_CLICK_CONVERSION]
-        ```
-
-        This sets `score_i` to the value of the `IMPORTANT` property or, if it
-        evaluates to `false` the product `p_NAVIGATE * p_POST_CLICK_CONVERSION`.
-
-        Default: none (ignored)
-        """
-        pass
+    BUCKET_FIELD_NUMBER: builtins.int
+    VALUE_FIELD_NUMBER: builtins.int
+    bucket: builtins.int = ...
+    value: builtins.float = ...
     def __init__(self,
         *,
-        attribute_name : typing.Text = ...,
-        product : typing.Optional[global___QualityScoreTerms] = ...,
-        fetch_high : builtins.float = ...,
-        fetch_low : builtins.float = ...,
-        weight : builtins.float = ...,
-        offset : builtins.float = ...,
-        term_conditional_evaluation : typing.Optional[global___TermConditionalEvaluation] = ...,
+        bucket : builtins.int = ...,
+        value : builtins.float = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","_term_conditional_evaluation",b"_term_conditional_evaluation","_weight",b"_weight","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","product",b"product","term_conditional_evaluation",b"term_conditional_evaluation","weight",b"weight"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_fetch_high",b"_fetch_high","_fetch_low",b"_fetch_low","_term_conditional_evaluation",b"_term_conditional_evaluation","_weight",b"_weight","attribute_name",b"attribute_name","fetch_high",b"fetch_high","fetch_low",b"fetch_low","fetch_method",b"fetch_method","offset",b"offset","product",b"product","term_conditional_evaluation",b"term_conditional_evaluation","weight",b"weight"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_high",b"_fetch_high"]) -> typing.Optional[typing_extensions.Literal["fetch_high"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_fetch_low",b"_fetch_low"]) -> typing.Optional[typing_extensions.Literal["fetch_low"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_term_conditional_evaluation",b"_term_conditional_evaluation"]) -> typing.Optional[typing_extensions.Literal["term_conditional_evaluation"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_weight",b"_weight"]) -> typing.Optional[typing_extensions.Literal["weight"]]: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["fetch_method",b"fetch_method"]) -> typing.Optional[typing_extensions.Literal["attribute_name","product"]]: ...
-global___QualityScoreTerm = QualityScoreTerm
-
-class TermConditionalEvaluation(google.protobuf.message.Message):
-    """If `TermConditionalEvaluation` is specified, then the `eval_method` applied
-    to an insertion must evaluate to `true`. If `false`, the quality term that
-    contains this `TermConditionalEvaluation` will be set/evaluate to
-    `value_if_false`.
-    """
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
-    VALUE_IF_FALSE_FIELD_NUMBER: builtins.int
-    ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
-    FLAG_FIELD_NUMBER: builtins.int
-    GREATER_THAN_FIELD_NUMBER: builtins.int
-    LESS_THAN_FIELD_NUMBER: builtins.int
-    INTERVAL_FIELD_NUMBER: builtins.int
-    EQUAL_V2_FIELD_NUMBER: builtins.int
-    value_if_false: builtins.float = ...
-    """The value the contained term will be set to if the evaluation yields `false`.
-
-    Default: 0.0
-    """
-
-    attribute_name: typing.Text = ...
-    """The property with key `attribute_name` that will be used for `eval_method`.
-
-    Default: "" (if the attribute name is not set, then this conditional eval
-    will be ignored because it can't be applied to any property).
-    """
-
-    @property
-    def flag(self) -> global___Flag: ...
-    @property
-    def greater_than(self) -> global___GreaterThan: ...
-    @property
-    def less_than(self) -> global___LessThan: ...
-    @property
-    def interval(self) -> global___Interval: ...
-    @property
-    def equal_v2(self) -> global___EqualV2: ...
-    def __init__(self,
-        *,
-        value_if_false : builtins.float = ...,
-        attribute_name : typing.Text = ...,
-        flag : typing.Optional[global___Flag] = ...,
-        greater_than : typing.Optional[global___GreaterThan] = ...,
-        less_than : typing.Optional[global___LessThan] = ...,
-        interval : typing.Optional[global___Interval] = ...,
-        equal_v2 : typing.Optional[global___EqualV2] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["equal_v2",b"equal_v2","eval_method",b"eval_method","flag",b"flag","greater_than",b"greater_than","interval",b"interval","less_than",b"less_than"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attribute_name",b"attribute_name","equal_v2",b"equal_v2","eval_method",b"eval_method","flag",b"flag","greater_than",b"greater_than","interval",b"interval","less_than",b"less_than","value_if_false",b"value_if_false"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["eval_method",b"eval_method"]) -> typing.Optional[typing_extensions.Literal["flag","greater_than","less_than","interval","equal_v2"]]: ...
-global___TermConditionalEvaluation = TermConditionalEvaluation
+    def ClearField(self, field_name: typing_extensions.Literal["bucket",b"bucket","value",b"value"]) -> None: ...
+global___HyperloopParameterLog = HyperloopParameterLog

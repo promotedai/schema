@@ -5,7 +5,9 @@ option java_multiple_files = true;
 option java_package = "ai.promoted.proto.delivery";
 option java_outer_classname = "DeliveryExecutionLog";
 option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
+option csharp_namespace = "Promoted.Delivery";
 
+import "proto/delivery/blender.proto";
 import "proto/delivery/delivery.proto";
 
 // The system repsonsible for doing delivery.
@@ -36,7 +38,7 @@ message DeliveryLog {
 }
 
 // Contains the inner execution details for a Delivery call.
-// Next ID = 12.
+// Next ID = 14.
 message DeliveryExecution {
 
   // Where delivery happened, i.e. via the SDK or some approach on the API side.
@@ -58,4 +60,10 @@ message DeliveryExecution {
   reserved 9;
 
   reserved 10;
+
+  // This is the Blender config for the execution, serialized to JSON.
+  string blender_config = 12;
+
+  // Records what all Hyperloop parameters evaluated to.
+  HyperloopLog hyperloop_log = 13;
 }
