@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Event {
+namespace Promoted.Event {
 
   /// <summary>Holder for reflection information generated from proto/event/event.proto</summary>
   public static partial class EventReflection {
@@ -222,34 +222,35 @@ namespace Event {
             "U1RJT04QDRIUChBDT01QTEVURV9TSUdOX0lOEA4SFAoQQ09NUExFVEVfU0lH",
             "Tl9VUBAPEgwKCEJPT0tNQVJLEBASEwoPUkVNT1ZFX0JPT0tNQVJLEBESDwoL",
             "QUREX1RPX0xJU1QQEhIUChBSRU1PVkVfRlJPTV9MSVNUEBMSCgoGRk9MTE9X",
-            "EBQSDAoIVU5GT0xMT1cQFSIGCP8BEP8BQlkKF2FpLnByb21vdGVkLnByb3Rv",
+            "EBQSDAoIVU5GT0xMT1cQFSIGCP8BEP8BQmoKF2FpLnByb21vdGVkLnByb3Rv",
             "LmV2ZW50QgVFdmVudFABWjVnaXRodWIuY29tL3Byb21vdGVkYWkvc2NoZW1h",
-            "L2dlbmVyYXRlZC9nby9wcm90by9ldmVudGIGcHJvdG8z"));
+            "L2dlbmVyYXRlZC9nby9wcm90by9ldmVudKoCDlByb21vdGVkLkV2ZW50YgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Promoted.Common.CommonReflection.Descriptor, global::Promoted.Delivery.DeliveryReflection.Descriptor, global::Promoted.Delivery.ExecutionReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Event.IdentifierProvenance), typeof(global::Event.CohortArm), typeof(global::Event.ImpressionSourceType), typeof(global::Event.ActionType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.JoinedIdentifiers), global::Event.JoinedIdentifiers.Parser, new[]{ "PlatformId", "UserId", "LogUserId", "AnonUserId", "SessionId", "ViewId", "AutoViewId", "RequestId", "InsertionId", "ImpressionId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.IdentifierProvenances), global::Event.IdentifierProvenances.Parser, new[]{ "UserIdProvenance", "LogUserIdProvenance", "SessionIdProvenance", "ViewIdProvenance", "AutoViewIdProvenance", "InsertionIdProvenance", "ImpressionIdProvenance", "ActionIdProvenance", "ContentIdProvenance", "RequestIdProvenance" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.User), global::Event.User.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "IdProvenances", "Properties" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.CohortMembership), global::Event.CohortMembership.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "MembershipId", "CohortId", "Arm", "Properties" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.WebPageView), global::Event.WebPageView.Parser, new[]{ "Url", "Referrer", "DocumentSize" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.AppScreenView), global::Event.AppScreenView.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.View), global::Event.View.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "ViewId", "AutoViewId", "SessionId", "ContentId", "Name", "UseCase", "SearchQuery", "Properties", "Locale", "ViewType", "WebPageView", "AppScreenView", "IdProvenances" }, new[]{ "UiType" }, new[]{ typeof(global::Event.View.Types.ViewType) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.AutoView), global::Event.AutoView.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "AutoViewId", "ViewId", "SessionId", "Name", "UseCase", "Properties", "Locale", "WebPageView", "AppScreenView", "IdProvenances" }, new[]{ "UiType" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.IndexPath), global::Event.IndexPath.Parser, new[]{ "Index" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.Impression), global::Event.Impression.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "ImpressionId", "InsertionId", "RequestId", "ViewId", "AutoViewId", "SessionId", "ContentId", "SourceType", "HasSuperimposedViews", "ClientPosition", "IdProvenances", "Properties" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.NavigateAction), global::Event.NavigateAction.Parser, new[]{ "TargetUrl" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.Action), global::Event.Action.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "ActionId", "ImpressionId", "InsertionId", "RequestId", "ViewId", "AutoViewId", "SessionId", "ContentId", "Name", "ActionType", "CustomActionType", "ElementId", "NavigateAction", "HasSuperimposedViews", "ClientPosition", "IdProvenances", "Properties", "Device", "Cart" }, new[]{ "Action", "Cart" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.Cart), global::Event.Cart.Parser, new[]{ "Contents" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.CartContent), global::Event.CartContent.Parser, new[]{ "ContentId", "Quantity", "PricePerUnit" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.Attribution), global::Event.Attribution.Parser, new[]{ "ModelId", "CreditMillis" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.IOSError), global::Event.IOSError.Parser, new[]{ "Code", "Domain", "Description", "BatchNumber" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.ErrorHistory), global::Event.ErrorHistory.Parser, new[]{ "IosErrors", "TotalErrors" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.AncestorIdHistoryItem), global::Event.AncestorIdHistoryItem.Parser, new[]{ "AncestorId", "UserEvent", "SessionIdFromUserEvent", "ViewEvent", "AutoViewEvent", "BatchNumber" }, new[]{ "LoggedEvent" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.AncestorIdHistory), global::Event.AncestorIdHistory.Parser, new[]{ "LogUserIdHistory", "TotalLogUserIdsLogged", "SessionIdHistory", "TotalSessionIdsLogged", "ViewIdHistory", "TotalViewIdsLogged", "AutoViewIdHistory", "TotalAutoViewIdsLogged" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.MobileDiagnostics), global::Event.MobileDiagnostics.Parser, new[]{ "DeviceIdentifier", "ClientVersion", "PromotedLibraryVersion", "BatchesAttempted", "BatchesSentSuccessfully", "BatchesWithErrors", "ErrorHistory", "AncestorIdHistory" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.Diagnostics), global::Event.Diagnostics.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "MobileDiagnostics" }, new[]{ "DiagnosticsMessage" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Event.LogRequest), global::Event.LogRequest.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "Device", "User", "CohortMembership", "View", "AutoView", "Request", "Insertion", "Impression", "Action", "DeliveryLog", "Diagnostics" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Promoted.Event.IdentifierProvenance), typeof(global::Promoted.Event.CohortArm), typeof(global::Promoted.Event.ImpressionSourceType), typeof(global::Promoted.Event.ActionType), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.JoinedIdentifiers), global::Promoted.Event.JoinedIdentifiers.Parser, new[]{ "PlatformId", "UserId", "LogUserId", "AnonUserId", "SessionId", "ViewId", "AutoViewId", "RequestId", "InsertionId", "ImpressionId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.IdentifierProvenances), global::Promoted.Event.IdentifierProvenances.Parser, new[]{ "UserIdProvenance", "LogUserIdProvenance", "SessionIdProvenance", "ViewIdProvenance", "AutoViewIdProvenance", "InsertionIdProvenance", "ImpressionIdProvenance", "ActionIdProvenance", "ContentIdProvenance", "RequestIdProvenance" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.User), global::Promoted.Event.User.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "IdProvenances", "Properties" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.CohortMembership), global::Promoted.Event.CohortMembership.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "MembershipId", "CohortId", "Arm", "Properties" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.WebPageView), global::Promoted.Event.WebPageView.Parser, new[]{ "Url", "Referrer", "DocumentSize" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.AppScreenView), global::Promoted.Event.AppScreenView.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.View), global::Promoted.Event.View.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "ViewId", "AutoViewId", "SessionId", "ContentId", "Name", "UseCase", "SearchQuery", "Properties", "Locale", "ViewType", "WebPageView", "AppScreenView", "IdProvenances" }, new[]{ "UiType" }, new[]{ typeof(global::Promoted.Event.View.Types.ViewType) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.AutoView), global::Promoted.Event.AutoView.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "AutoViewId", "ViewId", "SessionId", "Name", "UseCase", "Properties", "Locale", "WebPageView", "AppScreenView", "IdProvenances" }, new[]{ "UiType" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.IndexPath), global::Promoted.Event.IndexPath.Parser, new[]{ "Index" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.Impression), global::Promoted.Event.Impression.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "ImpressionId", "InsertionId", "RequestId", "ViewId", "AutoViewId", "SessionId", "ContentId", "SourceType", "HasSuperimposedViews", "ClientPosition", "IdProvenances", "Properties" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.NavigateAction), global::Promoted.Event.NavigateAction.Parser, new[]{ "TargetUrl" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.Action), global::Promoted.Event.Action.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "ActionId", "ImpressionId", "InsertionId", "RequestId", "ViewId", "AutoViewId", "SessionId", "ContentId", "Name", "ActionType", "CustomActionType", "ElementId", "NavigateAction", "HasSuperimposedViews", "ClientPosition", "IdProvenances", "Properties", "Device", "Cart" }, new[]{ "Action", "Cart" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.Cart), global::Promoted.Event.Cart.Parser, new[]{ "Contents" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.CartContent), global::Promoted.Event.CartContent.Parser, new[]{ "ContentId", "Quantity", "PricePerUnit" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.Attribution), global::Promoted.Event.Attribution.Parser, new[]{ "ModelId", "CreditMillis" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.IOSError), global::Promoted.Event.IOSError.Parser, new[]{ "Code", "Domain", "Description", "BatchNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.ErrorHistory), global::Promoted.Event.ErrorHistory.Parser, new[]{ "IosErrors", "TotalErrors" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.AncestorIdHistoryItem), global::Promoted.Event.AncestorIdHistoryItem.Parser, new[]{ "AncestorId", "UserEvent", "SessionIdFromUserEvent", "ViewEvent", "AutoViewEvent", "BatchNumber" }, new[]{ "LoggedEvent" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.AncestorIdHistory), global::Promoted.Event.AncestorIdHistory.Parser, new[]{ "LogUserIdHistory", "TotalLogUserIdsLogged", "SessionIdHistory", "TotalSessionIdsLogged", "ViewIdHistory", "TotalViewIdsLogged", "AutoViewIdHistory", "TotalAutoViewIdsLogged" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.MobileDiagnostics), global::Promoted.Event.MobileDiagnostics.Parser, new[]{ "DeviceIdentifier", "ClientVersion", "PromotedLibraryVersion", "BatchesAttempted", "BatchesSentSuccessfully", "BatchesWithErrors", "ErrorHistory", "AncestorIdHistory" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.Diagnostics), global::Promoted.Event.Diagnostics.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "MobileDiagnostics" }, new[]{ "DiagnosticsMessage" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Event.LogRequest), global::Promoted.Event.LogRequest.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "Device", "User", "CohortMembership", "View", "AutoView", "Request", "Insertion", "Impression", "Action", "DeliveryLog", "Diagnostics" }, null, null, null, null)
           }));
     }
     #endregion
@@ -319,7 +320,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -815,7 +816,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -852,9 +853,9 @@ namespace Event {
 
     /// <summary>Field number for the "user_id_provenance" field.</summary>
     public const int UserIdProvenanceFieldNumber = 1;
-    private global::Event.IdentifierProvenance userIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance userIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance UserIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance UserIdProvenance {
       get { return userIdProvenance_; }
       set {
         userIdProvenance_ = value;
@@ -863,9 +864,9 @@ namespace Event {
 
     /// <summary>Field number for the "log_user_id_provenance" field.</summary>
     public const int LogUserIdProvenanceFieldNumber = 9;
-    private global::Event.IdentifierProvenance logUserIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance logUserIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance LogUserIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance LogUserIdProvenance {
       get { return logUserIdProvenance_; }
       set {
         logUserIdProvenance_ = value;
@@ -874,9 +875,9 @@ namespace Event {
 
     /// <summary>Field number for the "session_id_provenance" field.</summary>
     public const int SessionIdProvenanceFieldNumber = 2;
-    private global::Event.IdentifierProvenance sessionIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance sessionIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance SessionIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance SessionIdProvenance {
       get { return sessionIdProvenance_; }
       set {
         sessionIdProvenance_ = value;
@@ -885,9 +886,9 @@ namespace Event {
 
     /// <summary>Field number for the "view_id_provenance" field.</summary>
     public const int ViewIdProvenanceFieldNumber = 3;
-    private global::Event.IdentifierProvenance viewIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance viewIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance ViewIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance ViewIdProvenance {
       get { return viewIdProvenance_; }
       set {
         viewIdProvenance_ = value;
@@ -896,9 +897,9 @@ namespace Event {
 
     /// <summary>Field number for the "auto_view_id_provenance" field.</summary>
     public const int AutoViewIdProvenanceFieldNumber = 8;
-    private global::Event.IdentifierProvenance autoViewIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance autoViewIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance AutoViewIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance AutoViewIdProvenance {
       get { return autoViewIdProvenance_; }
       set {
         autoViewIdProvenance_ = value;
@@ -907,9 +908,9 @@ namespace Event {
 
     /// <summary>Field number for the "insertion_id_provenance" field.</summary>
     public const int InsertionIdProvenanceFieldNumber = 10;
-    private global::Event.IdentifierProvenance insertionIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance insertionIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance InsertionIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance InsertionIdProvenance {
       get { return insertionIdProvenance_; }
       set {
         insertionIdProvenance_ = value;
@@ -918,9 +919,9 @@ namespace Event {
 
     /// <summary>Field number for the "impression_id_provenance" field.</summary>
     public const int ImpressionIdProvenanceFieldNumber = 4;
-    private global::Event.IdentifierProvenance impressionIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance impressionIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance ImpressionIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance ImpressionIdProvenance {
       get { return impressionIdProvenance_; }
       set {
         impressionIdProvenance_ = value;
@@ -929,9 +930,9 @@ namespace Event {
 
     /// <summary>Field number for the "action_id_provenance" field.</summary>
     public const int ActionIdProvenanceFieldNumber = 5;
-    private global::Event.IdentifierProvenance actionIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance actionIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance ActionIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance ActionIdProvenance {
       get { return actionIdProvenance_; }
       set {
         actionIdProvenance_ = value;
@@ -940,9 +941,9 @@ namespace Event {
 
     /// <summary>Field number for the "content_id_provenance" field.</summary>
     public const int ContentIdProvenanceFieldNumber = 6;
-    private global::Event.IdentifierProvenance contentIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance contentIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance ContentIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance ContentIdProvenance {
       get { return contentIdProvenance_; }
       set {
         contentIdProvenance_ = value;
@@ -951,9 +952,9 @@ namespace Event {
 
     /// <summary>Field number for the "request_id_provenance" field.</summary>
     public const int RequestIdProvenanceFieldNumber = 7;
-    private global::Event.IdentifierProvenance requestIdProvenance_ = global::Event.IdentifierProvenance.Unknown;
+    private global::Promoted.Event.IdentifierProvenance requestIdProvenance_ = global::Promoted.Event.IdentifierProvenance.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenance RequestIdProvenance {
+    public global::Promoted.Event.IdentifierProvenance RequestIdProvenance {
       get { return requestIdProvenance_; }
       set {
         requestIdProvenance_ = value;
@@ -989,16 +990,16 @@ namespace Event {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (UserIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= UserIdProvenance.GetHashCode();
-      if (LogUserIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= LogUserIdProvenance.GetHashCode();
-      if (SessionIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= SessionIdProvenance.GetHashCode();
-      if (ViewIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= ViewIdProvenance.GetHashCode();
-      if (AutoViewIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= AutoViewIdProvenance.GetHashCode();
-      if (InsertionIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= InsertionIdProvenance.GetHashCode();
-      if (ImpressionIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= ImpressionIdProvenance.GetHashCode();
-      if (ActionIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= ActionIdProvenance.GetHashCode();
-      if (ContentIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= ContentIdProvenance.GetHashCode();
-      if (RequestIdProvenance != global::Event.IdentifierProvenance.Unknown) hash ^= RequestIdProvenance.GetHashCode();
+      if (UserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= UserIdProvenance.GetHashCode();
+      if (LogUserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= LogUserIdProvenance.GetHashCode();
+      if (SessionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= SessionIdProvenance.GetHashCode();
+      if (ViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= ViewIdProvenance.GetHashCode();
+      if (AutoViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= AutoViewIdProvenance.GetHashCode();
+      if (InsertionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= InsertionIdProvenance.GetHashCode();
+      if (ImpressionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= ImpressionIdProvenance.GetHashCode();
+      if (ActionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= ActionIdProvenance.GetHashCode();
+      if (ContentIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= ContentIdProvenance.GetHashCode();
+      if (RequestIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) hash ^= RequestIdProvenance.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1015,43 +1016,43 @@ namespace Event {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (UserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (UserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) UserIdProvenance);
       }
-      if (SessionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (SessionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(16);
         output.WriteEnum((int) SessionIdProvenance);
       }
-      if (ViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ViewIdProvenance);
       }
-      if (ImpressionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ImpressionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(32);
         output.WriteEnum((int) ImpressionIdProvenance);
       }
-      if (ActionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ActionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(40);
         output.WriteEnum((int) ActionIdProvenance);
       }
-      if (ContentIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ContentIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ContentIdProvenance);
       }
-      if (RequestIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (RequestIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(56);
         output.WriteEnum((int) RequestIdProvenance);
       }
-      if (AutoViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (AutoViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(64);
         output.WriteEnum((int) AutoViewIdProvenance);
       }
-      if (LogUserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (LogUserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(72);
         output.WriteEnum((int) LogUserIdProvenance);
       }
-      if (InsertionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (InsertionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(80);
         output.WriteEnum((int) InsertionIdProvenance);
       }
@@ -1064,43 +1065,43 @@ namespace Event {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (UserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (UserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) UserIdProvenance);
       }
-      if (SessionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (SessionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(16);
         output.WriteEnum((int) SessionIdProvenance);
       }
-      if (ViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ViewIdProvenance);
       }
-      if (ImpressionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ImpressionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(32);
         output.WriteEnum((int) ImpressionIdProvenance);
       }
-      if (ActionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ActionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(40);
         output.WriteEnum((int) ActionIdProvenance);
       }
-      if (ContentIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ContentIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ContentIdProvenance);
       }
-      if (RequestIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (RequestIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(56);
         output.WriteEnum((int) RequestIdProvenance);
       }
-      if (AutoViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (AutoViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(64);
         output.WriteEnum((int) AutoViewIdProvenance);
       }
-      if (LogUserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (LogUserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(72);
         output.WriteEnum((int) LogUserIdProvenance);
       }
-      if (InsertionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (InsertionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         output.WriteRawTag(80);
         output.WriteEnum((int) InsertionIdProvenance);
       }
@@ -1113,34 +1114,34 @@ namespace Event {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (UserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (UserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) UserIdProvenance);
       }
-      if (LogUserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (LogUserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) LogUserIdProvenance);
       }
-      if (SessionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (SessionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SessionIdProvenance);
       }
-      if (ViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ViewIdProvenance);
       }
-      if (AutoViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (AutoViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AutoViewIdProvenance);
       }
-      if (InsertionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (InsertionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) InsertionIdProvenance);
       }
-      if (ImpressionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ImpressionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ImpressionIdProvenance);
       }
-      if (ActionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ActionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ActionIdProvenance);
       }
-      if (ContentIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (ContentIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ContentIdProvenance);
       }
-      if (RequestIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (RequestIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RequestIdProvenance);
       }
       if (_unknownFields != null) {
@@ -1154,34 +1155,34 @@ namespace Event {
       if (other == null) {
         return;
       }
-      if (other.UserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.UserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         UserIdProvenance = other.UserIdProvenance;
       }
-      if (other.LogUserIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.LogUserIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         LogUserIdProvenance = other.LogUserIdProvenance;
       }
-      if (other.SessionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.SessionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         SessionIdProvenance = other.SessionIdProvenance;
       }
-      if (other.ViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.ViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         ViewIdProvenance = other.ViewIdProvenance;
       }
-      if (other.AutoViewIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.AutoViewIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         AutoViewIdProvenance = other.AutoViewIdProvenance;
       }
-      if (other.InsertionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.InsertionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         InsertionIdProvenance = other.InsertionIdProvenance;
       }
-      if (other.ImpressionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.ImpressionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         ImpressionIdProvenance = other.ImpressionIdProvenance;
       }
-      if (other.ActionIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.ActionIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         ActionIdProvenance = other.ActionIdProvenance;
       }
-      if (other.ContentIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.ContentIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         ContentIdProvenance = other.ContentIdProvenance;
       }
-      if (other.RequestIdProvenance != global::Event.IdentifierProvenance.Unknown) {
+      if (other.RequestIdProvenance != global::Promoted.Event.IdentifierProvenance.Unknown) {
         RequestIdProvenance = other.RequestIdProvenance;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1199,43 +1200,43 @@ namespace Event {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            UserIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            UserIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 16: {
-            SessionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            SessionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 24: {
-            ViewIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ViewIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 32: {
-            ImpressionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ImpressionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 40: {
-            ActionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ActionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 48: {
-            ContentIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ContentIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 56: {
-            RequestIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            RequestIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 64: {
-            AutoViewIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            AutoViewIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 72: {
-            LogUserIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            LogUserIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 80: {
-            InsertionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            InsertionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
         }
@@ -1253,43 +1254,43 @@ namespace Event {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            UserIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            UserIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 16: {
-            SessionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            SessionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 24: {
-            ViewIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ViewIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 32: {
-            ImpressionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ImpressionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 40: {
-            ActionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ActionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 48: {
-            ContentIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            ContentIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 56: {
-            RequestIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            RequestIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 64: {
-            AutoViewIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            AutoViewIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 72: {
-            LogUserIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            LogUserIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
           case 80: {
-            InsertionIdProvenance = (global::Event.IdentifierProvenance) input.ReadEnum();
+            InsertionIdProvenance = (global::Promoted.Event.IdentifierProvenance) input.ReadEnum();
             break;
           }
         }
@@ -1311,7 +1312,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1388,9 +1389,9 @@ namespace Event {
 
     /// <summary>Field number for the "id_provenances" field.</summary>
     public const int IdProvenancesFieldNumber = 7;
-    private global::Event.IdentifierProvenances idProvenances_;
+    private global::Promoted.Event.IdentifierProvenances idProvenances_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenances IdProvenances {
+    public global::Promoted.Event.IdentifierProvenances IdProvenances {
       get { return idProvenances_; }
       set {
         idProvenances_ = value;
@@ -1573,7 +1574,7 @@ namespace Event {
       }
       if (other.idProvenances_ != null) {
         if (idProvenances_ == null) {
-          IdProvenances = new global::Event.IdentifierProvenances();
+          IdProvenances = new global::Promoted.Event.IdentifierProvenances();
         }
         IdProvenances.MergeFrom(other.IdProvenances);
       }
@@ -1631,7 +1632,7 @@ namespace Event {
           }
           case 58: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -1684,7 +1685,7 @@ namespace Event {
           }
           case 58: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -1708,7 +1709,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1809,9 +1810,9 @@ namespace Event {
 
     /// <summary>Field number for the "arm" field.</summary>
     public const int ArmFieldNumber = 9;
-    private global::Event.CohortArm arm_ = global::Event.CohortArm.UnknownGroup;
+    private global::Promoted.Event.CohortArm arm_ = global::Promoted.Event.CohortArm.UnknownGroup;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.CohortArm Arm {
+    public global::Promoted.Event.CohortArm Arm {
       get { return arm_; }
       set {
         arm_ = value;
@@ -1862,7 +1863,7 @@ namespace Event {
       if (clientInfo_ != null) hash ^= ClientInfo.GetHashCode();
       if (MembershipId.Length != 0) hash ^= MembershipId.GetHashCode();
       if (CohortId.Length != 0) hash ^= CohortId.GetHashCode();
-      if (Arm != global::Event.CohortArm.UnknownGroup) hash ^= Arm.GetHashCode();
+      if (Arm != global::Promoted.Event.CohortArm.UnknownGroup) hash ^= Arm.GetHashCode();
       if (properties_ != null) hash ^= Properties.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1904,7 +1905,7 @@ namespace Event {
         output.WriteRawTag(66);
         output.WriteString(CohortId);
       }
-      if (Arm != global::Event.CohortArm.UnknownGroup) {
+      if (Arm != global::Promoted.Event.CohortArm.UnknownGroup) {
         output.WriteRawTag(72);
         output.WriteEnum((int) Arm);
       }
@@ -1945,7 +1946,7 @@ namespace Event {
         output.WriteRawTag(66);
         output.WriteString(CohortId);
       }
-      if (Arm != global::Event.CohortArm.UnknownGroup) {
+      if (Arm != global::Promoted.Event.CohortArm.UnknownGroup) {
         output.WriteRawTag(72);
         output.WriteEnum((int) Arm);
       }
@@ -1980,7 +1981,7 @@ namespace Event {
       if (CohortId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(CohortId);
       }
-      if (Arm != global::Event.CohortArm.UnknownGroup) {
+      if (Arm != global::Promoted.Event.CohortArm.UnknownGroup) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Arm);
       }
       if (properties_ != null) {
@@ -2024,7 +2025,7 @@ namespace Event {
       if (other.CohortId.Length != 0) {
         CohortId = other.CohortId;
       }
-      if (other.Arm != global::Event.CohortArm.UnknownGroup) {
+      if (other.Arm != global::Promoted.Event.CohortArm.UnknownGroup) {
         Arm = other.Arm;
       }
       if (other.properties_ != null) {
@@ -2081,7 +2082,7 @@ namespace Event {
             break;
           }
           case 72: {
-            Arm = (global::Event.CohortArm) input.ReadEnum();
+            Arm = (global::Promoted.Event.CohortArm) input.ReadEnum();
             break;
           }
           case 82: {
@@ -2139,7 +2140,7 @@ namespace Event {
             break;
           }
           case 72: {
-            Arm = (global::Event.CohortArm) input.ReadEnum();
+            Arm = (global::Promoted.Event.CohortArm) input.ReadEnum();
             break;
           }
           case 82: {
@@ -2168,7 +2169,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2421,7 +2422,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2557,7 +2558,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2751,9 +2752,9 @@ namespace Event {
 
     /// <summary>Field number for the "view_type" field.</summary>
     public const int ViewTypeFieldNumber = 13;
-    private global::Event.View.Types.ViewType viewType_ = global::Event.View.Types.ViewType.UnknownViewType;
+    private global::Promoted.Event.View.Types.ViewType viewType_ = global::Promoted.Event.View.Types.ViewType.UnknownViewType;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.View.Types.ViewType ViewType {
+    public global::Promoted.Event.View.Types.ViewType ViewType {
       get { return viewType_; }
       set {
         viewType_ = value;
@@ -2763,8 +2764,8 @@ namespace Event {
     /// <summary>Field number for the "web_page_view" field.</summary>
     public const int WebPageViewFieldNumber = 14;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.WebPageView WebPageView {
-      get { return uiTypeCase_ == UiTypeOneofCase.WebPageView ? (global::Event.WebPageView) uiType_ : null; }
+    public global::Promoted.Event.WebPageView WebPageView {
+      get { return uiTypeCase_ == UiTypeOneofCase.WebPageView ? (global::Promoted.Event.WebPageView) uiType_ : null; }
       set {
         uiType_ = value;
         uiTypeCase_ = value == null ? UiTypeOneofCase.None : UiTypeOneofCase.WebPageView;
@@ -2774,8 +2775,8 @@ namespace Event {
     /// <summary>Field number for the "app_screen_view" field.</summary>
     public const int AppScreenViewFieldNumber = 15;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.AppScreenView AppScreenView {
-      get { return uiTypeCase_ == UiTypeOneofCase.AppScreenView ? (global::Event.AppScreenView) uiType_ : null; }
+    public global::Promoted.Event.AppScreenView AppScreenView {
+      get { return uiTypeCase_ == UiTypeOneofCase.AppScreenView ? (global::Promoted.Event.AppScreenView) uiType_ : null; }
       set {
         uiType_ = value;
         uiTypeCase_ = value == null ? UiTypeOneofCase.None : UiTypeOneofCase.AppScreenView;
@@ -2784,9 +2785,9 @@ namespace Event {
 
     /// <summary>Field number for the "id_provenances" field.</summary>
     public const int IdProvenancesFieldNumber = 18;
-    private global::Event.IdentifierProvenances idProvenances_;
+    private global::Promoted.Event.IdentifierProvenances idProvenances_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenances IdProvenances {
+    public global::Promoted.Event.IdentifierProvenances IdProvenances {
       get { return idProvenances_; }
       set {
         idProvenances_ = value;
@@ -2862,7 +2863,7 @@ namespace Event {
       if (SearchQuery.Length != 0) hash ^= SearchQuery.GetHashCode();
       if (properties_ != null) hash ^= Properties.GetHashCode();
       if (locale_ != null) hash ^= Locale.GetHashCode();
-      if (ViewType != global::Event.View.Types.ViewType.UnknownViewType) hash ^= ViewType.GetHashCode();
+      if (ViewType != global::Promoted.Event.View.Types.ViewType.UnknownViewType) hash ^= ViewType.GetHashCode();
       if (uiTypeCase_ == UiTypeOneofCase.WebPageView) hash ^= WebPageView.GetHashCode();
       if (uiTypeCase_ == UiTypeOneofCase.AppScreenView) hash ^= AppScreenView.GetHashCode();
       if (idProvenances_ != null) hash ^= IdProvenances.GetHashCode();
@@ -2923,7 +2924,7 @@ namespace Event {
         output.WriteRawTag(90);
         output.WriteMessage(Properties);
       }
-      if (ViewType != global::Event.View.Types.ViewType.UnknownViewType) {
+      if (ViewType != global::Promoted.Event.View.Types.ViewType.UnknownViewType) {
         output.WriteRawTag(104);
         output.WriteEnum((int) ViewType);
       }
@@ -3000,7 +3001,7 @@ namespace Event {
         output.WriteRawTag(90);
         output.WriteMessage(Properties);
       }
-      if (ViewType != global::Event.View.Types.ViewType.UnknownViewType) {
+      if (ViewType != global::Promoted.Event.View.Types.ViewType.UnknownViewType) {
         output.WriteRawTag(104);
         output.WriteEnum((int) ViewType);
       }
@@ -3076,7 +3077,7 @@ namespace Event {
       if (locale_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Locale);
       }
-      if (ViewType != global::Event.View.Types.ViewType.UnknownViewType) {
+      if (ViewType != global::Promoted.Event.View.Types.ViewType.UnknownViewType) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ViewType);
       }
       if (uiTypeCase_ == UiTypeOneofCase.WebPageView) {
@@ -3153,25 +3154,25 @@ namespace Event {
         }
         Locale.MergeFrom(other.Locale);
       }
-      if (other.ViewType != global::Event.View.Types.ViewType.UnknownViewType) {
+      if (other.ViewType != global::Promoted.Event.View.Types.ViewType.UnknownViewType) {
         ViewType = other.ViewType;
       }
       if (other.idProvenances_ != null) {
         if (idProvenances_ == null) {
-          IdProvenances = new global::Event.IdentifierProvenances();
+          IdProvenances = new global::Promoted.Event.IdentifierProvenances();
         }
         IdProvenances.MergeFrom(other.IdProvenances);
       }
       switch (other.UiTypeCase) {
         case UiTypeOneofCase.WebPageView:
           if (WebPageView == null) {
-            WebPageView = new global::Event.WebPageView();
+            WebPageView = new global::Promoted.Event.WebPageView();
           }
           WebPageView.MergeFrom(other.WebPageView);
           break;
         case UiTypeOneofCase.AppScreenView:
           if (AppScreenView == null) {
-            AppScreenView = new global::Event.AppScreenView();
+            AppScreenView = new global::Promoted.Event.AppScreenView();
           }
           AppScreenView.MergeFrom(other.AppScreenView);
           break;
@@ -3244,11 +3245,11 @@ namespace Event {
             break;
           }
           case 104: {
-            ViewType = (global::Event.View.Types.ViewType) input.ReadEnum();
+            ViewType = (global::Promoted.Event.View.Types.ViewType) input.ReadEnum();
             break;
           }
           case 114: {
-            global::Event.WebPageView subBuilder = new global::Event.WebPageView();
+            global::Promoted.Event.WebPageView subBuilder = new global::Promoted.Event.WebPageView();
             if (uiTypeCase_ == UiTypeOneofCase.WebPageView) {
               subBuilder.MergeFrom(WebPageView);
             }
@@ -3257,7 +3258,7 @@ namespace Event {
             break;
           }
           case 122: {
-            global::Event.AppScreenView subBuilder = new global::Event.AppScreenView();
+            global::Promoted.Event.AppScreenView subBuilder = new global::Promoted.Event.AppScreenView();
             if (uiTypeCase_ == UiTypeOneofCase.AppScreenView) {
               subBuilder.MergeFrom(AppScreenView);
             }
@@ -3278,7 +3279,7 @@ namespace Event {
           }
           case 146: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -3354,11 +3355,11 @@ namespace Event {
             break;
           }
           case 104: {
-            ViewType = (global::Event.View.Types.ViewType) input.ReadEnum();
+            ViewType = (global::Promoted.Event.View.Types.ViewType) input.ReadEnum();
             break;
           }
           case 114: {
-            global::Event.WebPageView subBuilder = new global::Event.WebPageView();
+            global::Promoted.Event.WebPageView subBuilder = new global::Promoted.Event.WebPageView();
             if (uiTypeCase_ == UiTypeOneofCase.WebPageView) {
               subBuilder.MergeFrom(WebPageView);
             }
@@ -3367,7 +3368,7 @@ namespace Event {
             break;
           }
           case 122: {
-            global::Event.AppScreenView subBuilder = new global::Event.AppScreenView();
+            global::Promoted.Event.AppScreenView subBuilder = new global::Promoted.Event.AppScreenView();
             if (uiTypeCase_ == UiTypeOneofCase.AppScreenView) {
               subBuilder.MergeFrom(AppScreenView);
             }
@@ -3388,7 +3389,7 @@ namespace Event {
           }
           case 146: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -3429,7 +3430,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3599,8 +3600,8 @@ namespace Event {
     /// <summary>Field number for the "web_page_view" field.</summary>
     public const int WebPageViewFieldNumber = 12;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.WebPageView WebPageView {
-      get { return uiTypeCase_ == UiTypeOneofCase.WebPageView ? (global::Event.WebPageView) uiType_ : null; }
+    public global::Promoted.Event.WebPageView WebPageView {
+      get { return uiTypeCase_ == UiTypeOneofCase.WebPageView ? (global::Promoted.Event.WebPageView) uiType_ : null; }
       set {
         uiType_ = value;
         uiTypeCase_ = value == null ? UiTypeOneofCase.None : UiTypeOneofCase.WebPageView;
@@ -3610,8 +3611,8 @@ namespace Event {
     /// <summary>Field number for the "app_screen_view" field.</summary>
     public const int AppScreenViewFieldNumber = 13;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.AppScreenView AppScreenView {
-      get { return uiTypeCase_ == UiTypeOneofCase.AppScreenView ? (global::Event.AppScreenView) uiType_ : null; }
+    public global::Promoted.Event.AppScreenView AppScreenView {
+      get { return uiTypeCase_ == UiTypeOneofCase.AppScreenView ? (global::Promoted.Event.AppScreenView) uiType_ : null; }
       set {
         uiType_ = value;
         uiTypeCase_ = value == null ? UiTypeOneofCase.None : UiTypeOneofCase.AppScreenView;
@@ -3620,9 +3621,9 @@ namespace Event {
 
     /// <summary>Field number for the "id_provenances" field.</summary>
     public const int IdProvenancesFieldNumber = 15;
-    private global::Event.IdentifierProvenances idProvenances_;
+    private global::Promoted.Event.IdentifierProvenances idProvenances_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenances IdProvenances {
+    public global::Promoted.Event.IdentifierProvenances IdProvenances {
       get { return idProvenances_; }
       set {
         idProvenances_ = value;
@@ -3946,20 +3947,20 @@ namespace Event {
       }
       if (other.idProvenances_ != null) {
         if (idProvenances_ == null) {
-          IdProvenances = new global::Event.IdentifierProvenances();
+          IdProvenances = new global::Promoted.Event.IdentifierProvenances();
         }
         IdProvenances.MergeFrom(other.IdProvenances);
       }
       switch (other.UiTypeCase) {
         case UiTypeOneofCase.WebPageView:
           if (WebPageView == null) {
-            WebPageView = new global::Event.WebPageView();
+            WebPageView = new global::Promoted.Event.WebPageView();
           }
           WebPageView.MergeFrom(other.WebPageView);
           break;
         case UiTypeOneofCase.AppScreenView:
           if (AppScreenView == null) {
-            AppScreenView = new global::Event.AppScreenView();
+            AppScreenView = new global::Promoted.Event.AppScreenView();
           }
           AppScreenView.MergeFrom(other.AppScreenView);
           break;
@@ -4035,7 +4036,7 @@ namespace Event {
             break;
           }
           case 98: {
-            global::Event.WebPageView subBuilder = new global::Event.WebPageView();
+            global::Promoted.Event.WebPageView subBuilder = new global::Promoted.Event.WebPageView();
             if (uiTypeCase_ == UiTypeOneofCase.WebPageView) {
               subBuilder.MergeFrom(WebPageView);
             }
@@ -4044,7 +4045,7 @@ namespace Event {
             break;
           }
           case 106: {
-            global::Event.AppScreenView subBuilder = new global::Event.AppScreenView();
+            global::Promoted.Event.AppScreenView subBuilder = new global::Promoted.Event.AppScreenView();
             if (uiTypeCase_ == UiTypeOneofCase.AppScreenView) {
               subBuilder.MergeFrom(AppScreenView);
             }
@@ -4058,7 +4059,7 @@ namespace Event {
           }
           case 122: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -4133,7 +4134,7 @@ namespace Event {
             break;
           }
           case 98: {
-            global::Event.WebPageView subBuilder = new global::Event.WebPageView();
+            global::Promoted.Event.WebPageView subBuilder = new global::Promoted.Event.WebPageView();
             if (uiTypeCase_ == UiTypeOneofCase.WebPageView) {
               subBuilder.MergeFrom(WebPageView);
             }
@@ -4142,7 +4143,7 @@ namespace Event {
             break;
           }
           case 106: {
-            global::Event.AppScreenView subBuilder = new global::Event.AppScreenView();
+            global::Promoted.Event.AppScreenView subBuilder = new global::Promoted.Event.AppScreenView();
             if (uiTypeCase_ == UiTypeOneofCase.AppScreenView) {
               subBuilder.MergeFrom(AppScreenView);
             }
@@ -4156,7 +4157,7 @@ namespace Event {
           }
           case 122: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -4180,7 +4181,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4343,7 +4344,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4507,9 +4508,9 @@ namespace Event {
 
     /// <summary>Field number for the "source_type" field.</summary>
     public const int SourceTypeFieldNumber = 13;
-    private global::Event.ImpressionSourceType sourceType_ = global::Event.ImpressionSourceType.UnknownImpressionSourceType;
+    private global::Promoted.Event.ImpressionSourceType sourceType_ = global::Promoted.Event.ImpressionSourceType.UnknownImpressionSourceType;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.ImpressionSourceType SourceType {
+    public global::Promoted.Event.ImpressionSourceType SourceType {
       get { return sourceType_; }
       set {
         sourceType_ = value;
@@ -4529,9 +4530,9 @@ namespace Event {
 
     /// <summary>Field number for the "client_position" field.</summary>
     public const int ClientPositionFieldNumber = 16;
-    private global::Event.IndexPath clientPosition_;
+    private global::Promoted.Event.IndexPath clientPosition_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IndexPath ClientPosition {
+    public global::Promoted.Event.IndexPath ClientPosition {
       get { return clientPosition_; }
       set {
         clientPosition_ = value;
@@ -4540,9 +4541,9 @@ namespace Event {
 
     /// <summary>Field number for the "id_provenances" field.</summary>
     public const int IdProvenancesFieldNumber = 17;
-    private global::Event.IdentifierProvenances idProvenances_;
+    private global::Promoted.Event.IdentifierProvenances idProvenances_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenances IdProvenances {
+    public global::Promoted.Event.IdentifierProvenances IdProvenances {
       get { return idProvenances_; }
       set {
         idProvenances_ = value;
@@ -4606,7 +4607,7 @@ namespace Event {
       if (AutoViewId.Length != 0) hash ^= AutoViewId.GetHashCode();
       if (SessionId.Length != 0) hash ^= SessionId.GetHashCode();
       if (ContentId.Length != 0) hash ^= ContentId.GetHashCode();
-      if (SourceType != global::Event.ImpressionSourceType.UnknownImpressionSourceType) hash ^= SourceType.GetHashCode();
+      if (SourceType != global::Promoted.Event.ImpressionSourceType.UnknownImpressionSourceType) hash ^= SourceType.GetHashCode();
       if (HasSuperimposedViews != false) hash ^= HasSuperimposedViews.GetHashCode();
       if (clientPosition_ != null) hash ^= ClientPosition.GetHashCode();
       if (idProvenances_ != null) hash ^= IdProvenances.GetHashCode();
@@ -4671,7 +4672,7 @@ namespace Event {
         output.WriteRawTag(98);
         output.WriteString(ContentId);
       }
-      if (SourceType != global::Event.ImpressionSourceType.UnknownImpressionSourceType) {
+      if (SourceType != global::Promoted.Event.ImpressionSourceType.UnknownImpressionSourceType) {
         output.WriteRawTag(104);
         output.WriteEnum((int) SourceType);
       }
@@ -4744,7 +4745,7 @@ namespace Event {
         output.WriteRawTag(98);
         output.WriteString(ContentId);
       }
-      if (SourceType != global::Event.ImpressionSourceType.UnknownImpressionSourceType) {
+      if (SourceType != global::Promoted.Event.ImpressionSourceType.UnknownImpressionSourceType) {
         output.WriteRawTag(104);
         output.WriteEnum((int) SourceType);
       }
@@ -4806,7 +4807,7 @@ namespace Event {
       if (ContentId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ContentId);
       }
-      if (SourceType != global::Event.ImpressionSourceType.UnknownImpressionSourceType) {
+      if (SourceType != global::Promoted.Event.ImpressionSourceType.UnknownImpressionSourceType) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SourceType);
       }
       if (HasSuperimposedViews != false) {
@@ -4874,7 +4875,7 @@ namespace Event {
       if (other.ContentId.Length != 0) {
         ContentId = other.ContentId;
       }
-      if (other.SourceType != global::Event.ImpressionSourceType.UnknownImpressionSourceType) {
+      if (other.SourceType != global::Promoted.Event.ImpressionSourceType.UnknownImpressionSourceType) {
         SourceType = other.SourceType;
       }
       if (other.HasSuperimposedViews != false) {
@@ -4882,13 +4883,13 @@ namespace Event {
       }
       if (other.clientPosition_ != null) {
         if (clientPosition_ == null) {
-          ClientPosition = new global::Event.IndexPath();
+          ClientPosition = new global::Promoted.Event.IndexPath();
         }
         ClientPosition.MergeFrom(other.ClientPosition);
       }
       if (other.idProvenances_ != null) {
         if (idProvenances_ == null) {
-          IdProvenances = new global::Event.IdentifierProvenances();
+          IdProvenances = new global::Promoted.Event.IdentifierProvenances();
         }
         IdProvenances.MergeFrom(other.IdProvenances);
       }
@@ -4969,7 +4970,7 @@ namespace Event {
             break;
           }
           case 104: {
-            SourceType = (global::Event.ImpressionSourceType) input.ReadEnum();
+            SourceType = (global::Promoted.Event.ImpressionSourceType) input.ReadEnum();
             break;
           }
           case 112: {
@@ -4982,14 +4983,14 @@ namespace Event {
           }
           case 130: {
             if (clientPosition_ == null) {
-              ClientPosition = new global::Event.IndexPath();
+              ClientPosition = new global::Promoted.Event.IndexPath();
             }
             input.ReadMessage(ClientPosition);
             break;
           }
           case 138: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -5065,7 +5066,7 @@ namespace Event {
             break;
           }
           case 104: {
-            SourceType = (global::Event.ImpressionSourceType) input.ReadEnum();
+            SourceType = (global::Promoted.Event.ImpressionSourceType) input.ReadEnum();
             break;
           }
           case 112: {
@@ -5078,14 +5079,14 @@ namespace Event {
           }
           case 130: {
             if (clientPosition_ == null) {
-              ClientPosition = new global::Event.IndexPath();
+              ClientPosition = new global::Promoted.Event.IndexPath();
             }
             input.ReadMessage(ClientPosition);
             break;
           }
           case 138: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -5109,7 +5110,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5281,7 +5282,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5479,9 +5480,9 @@ namespace Event {
 
     /// <summary>Field number for the "action_type" field.</summary>
     public const int ActionTypeFieldNumber = 14;
-    private global::Event.ActionType actionType_ = global::Event.ActionType.UnknownActionType;
+    private global::Promoted.Event.ActionType actionType_ = global::Promoted.Event.ActionType.UnknownActionType;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.ActionType ActionType {
+    public global::Promoted.Event.ActionType ActionType {
       get { return actionType_; }
       set {
         actionType_ = value;
@@ -5513,8 +5514,8 @@ namespace Event {
     /// <summary>Field number for the "navigate_action" field.</summary>
     public const int NavigateActionFieldNumber = 18;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.NavigateAction NavigateAction {
-      get { return actionCase_ == ActionOneofCase.NavigateAction ? (global::Event.NavigateAction) action_ : null; }
+    public global::Promoted.Event.NavigateAction NavigateAction {
+      get { return actionCase_ == ActionOneofCase.NavigateAction ? (global::Promoted.Event.NavigateAction) action_ : null; }
       set {
         action_ = value;
         actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.NavigateAction;
@@ -5534,9 +5535,9 @@ namespace Event {
 
     /// <summary>Field number for the "client_position" field.</summary>
     public const int ClientPositionFieldNumber = 24;
-    private global::Event.IndexPath clientPosition_;
+    private global::Promoted.Event.IndexPath clientPosition_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IndexPath ClientPosition {
+    public global::Promoted.Event.IndexPath ClientPosition {
       get { return clientPosition_; }
       set {
         clientPosition_ = value;
@@ -5545,9 +5546,9 @@ namespace Event {
 
     /// <summary>Field number for the "id_provenances" field.</summary>
     public const int IdProvenancesFieldNumber = 25;
-    private global::Event.IdentifierProvenances idProvenances_;
+    private global::Promoted.Event.IdentifierProvenances idProvenances_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.IdentifierProvenances IdProvenances {
+    public global::Promoted.Event.IdentifierProvenances IdProvenances {
       get { return idProvenances_; }
       set {
         idProvenances_ = value;
@@ -5578,9 +5579,9 @@ namespace Event {
 
     /// <summary>Field number for the "cart" field.</summary>
     public const int CartFieldNumber = 28;
-    private global::Event.Cart cart_;
+    private global::Promoted.Event.Cart cart_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.Cart Cart {
+    public global::Promoted.Event.Cart Cart {
       get { return cart_; }
       set {
         cart_ = value;
@@ -5661,7 +5662,7 @@ namespace Event {
       if (SessionId.Length != 0) hash ^= SessionId.GetHashCode();
       if (ContentId.Length != 0) hash ^= ContentId.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (ActionType != global::Event.ActionType.UnknownActionType) hash ^= ActionType.GetHashCode();
+      if (ActionType != global::Promoted.Event.ActionType.UnknownActionType) hash ^= ActionType.GetHashCode();
       if (CustomActionType.Length != 0) hash ^= CustomActionType.GetHashCode();
       if (ElementId.Length != 0) hash ^= ElementId.GetHashCode();
       if (actionCase_ == ActionOneofCase.NavigateAction) hash ^= NavigateAction.GetHashCode();
@@ -5732,7 +5733,7 @@ namespace Event {
         output.WriteRawTag(98);
         output.WriteString(Name);
       }
-      if (ActionType != global::Event.ActionType.UnknownActionType) {
+      if (ActionType != global::Promoted.Event.ActionType.UnknownActionType) {
         output.WriteRawTag(112);
         output.WriteEnum((int) ActionType);
       }
@@ -5833,7 +5834,7 @@ namespace Event {
         output.WriteRawTag(98);
         output.WriteString(Name);
       }
-      if (ActionType != global::Event.ActionType.UnknownActionType) {
+      if (ActionType != global::Promoted.Event.ActionType.UnknownActionType) {
         output.WriteRawTag(112);
         output.WriteEnum((int) ActionType);
       }
@@ -5929,7 +5930,7 @@ namespace Event {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (ActionType != global::Event.ActionType.UnknownActionType) {
+      if (ActionType != global::Promoted.Event.ActionType.UnknownActionType) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ActionType);
       }
       if (CustomActionType.Length != 0) {
@@ -6018,7 +6019,7 @@ namespace Event {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.ActionType != global::Event.ActionType.UnknownActionType) {
+      if (other.ActionType != global::Promoted.Event.ActionType.UnknownActionType) {
         ActionType = other.ActionType;
       }
       if (other.CustomActionType.Length != 0) {
@@ -6032,13 +6033,13 @@ namespace Event {
       }
       if (other.clientPosition_ != null) {
         if (clientPosition_ == null) {
-          ClientPosition = new global::Event.IndexPath();
+          ClientPosition = new global::Promoted.Event.IndexPath();
         }
         ClientPosition.MergeFrom(other.ClientPosition);
       }
       if (other.idProvenances_ != null) {
         if (idProvenances_ == null) {
-          IdProvenances = new global::Event.IdentifierProvenances();
+          IdProvenances = new global::Promoted.Event.IdentifierProvenances();
         }
         IdProvenances.MergeFrom(other.IdProvenances);
       }
@@ -6056,14 +6057,14 @@ namespace Event {
       }
       if (other.cart_ != null) {
         if (cart_ == null) {
-          Cart = new global::Event.Cart();
+          Cart = new global::Promoted.Event.Cart();
         }
         Cart.MergeFrom(other.Cart);
       }
       switch (other.ActionCase) {
         case ActionOneofCase.NavigateAction:
           if (NavigateAction == null) {
-            NavigateAction = new global::Event.NavigateAction();
+            NavigateAction = new global::Promoted.Event.NavigateAction();
           }
           NavigateAction.MergeFrom(other.NavigateAction);
           break;
@@ -6137,7 +6138,7 @@ namespace Event {
             break;
           }
           case 112: {
-            ActionType = (global::Event.ActionType) input.ReadEnum();
+            ActionType = (global::Promoted.Event.ActionType) input.ReadEnum();
             break;
           }
           case 122: {
@@ -6149,7 +6150,7 @@ namespace Event {
             break;
           }
           case 146: {
-            global::Event.NavigateAction subBuilder = new global::Event.NavigateAction();
+            global::Promoted.Event.NavigateAction subBuilder = new global::Promoted.Event.NavigateAction();
             if (actionCase_ == ActionOneofCase.NavigateAction) {
               subBuilder.MergeFrom(NavigateAction);
             }
@@ -6178,14 +6179,14 @@ namespace Event {
           }
           case 194: {
             if (clientPosition_ == null) {
-              ClientPosition = new global::Event.IndexPath();
+              ClientPosition = new global::Promoted.Event.IndexPath();
             }
             input.ReadMessage(ClientPosition);
             break;
           }
           case 202: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -6199,7 +6200,7 @@ namespace Event {
           }
           case 226: {
             if (cart_ == null) {
-              Cart = new global::Event.Cart();
+              Cart = new global::Promoted.Event.Cart();
             }
             input.ReadMessage(Cart);
             break;
@@ -6272,7 +6273,7 @@ namespace Event {
             break;
           }
           case 112: {
-            ActionType = (global::Event.ActionType) input.ReadEnum();
+            ActionType = (global::Promoted.Event.ActionType) input.ReadEnum();
             break;
           }
           case 122: {
@@ -6284,7 +6285,7 @@ namespace Event {
             break;
           }
           case 146: {
-            global::Event.NavigateAction subBuilder = new global::Event.NavigateAction();
+            global::Promoted.Event.NavigateAction subBuilder = new global::Promoted.Event.NavigateAction();
             if (actionCase_ == ActionOneofCase.NavigateAction) {
               subBuilder.MergeFrom(NavigateAction);
             }
@@ -6313,14 +6314,14 @@ namespace Event {
           }
           case 194: {
             if (clientPosition_ == null) {
-              ClientPosition = new global::Event.IndexPath();
+              ClientPosition = new global::Promoted.Event.IndexPath();
             }
             input.ReadMessage(ClientPosition);
             break;
           }
           case 202: {
             if (idProvenances_ == null) {
-              IdProvenances = new global::Event.IdentifierProvenances();
+              IdProvenances = new global::Promoted.Event.IdentifierProvenances();
             }
             input.ReadMessage(IdProvenances);
             break;
@@ -6334,7 +6335,7 @@ namespace Event {
           }
           case 226: {
             if (cart_ == null) {
-              Cart = new global::Event.Cart();
+              Cart = new global::Promoted.Event.Cart();
             }
             input.ReadMessage(Cart);
             break;
@@ -6358,7 +6359,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6386,11 +6387,11 @@ namespace Event {
 
     /// <summary>Field number for the "contents" field.</summary>
     public const int ContentsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Event.CartContent> _repeated_contents_codec
-        = pb::FieldCodec.ForMessage(10, global::Event.CartContent.Parser);
-    private readonly pbc::RepeatedField<global::Event.CartContent> contents_ = new pbc::RepeatedField<global::Event.CartContent>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.CartContent> _repeated_contents_codec
+        = pb::FieldCodec.ForMessage(10, global::Promoted.Event.CartContent.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.CartContent> contents_ = new pbc::RepeatedField<global::Promoted.Event.CartContent>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.CartContent> Contents {
+    public pbc::RepeatedField<global::Promoted.Event.CartContent> Contents {
       get { return contents_; }
     }
 
@@ -6519,7 +6520,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6772,7 +6773,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6980,7 +6981,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7260,7 +7261,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7289,11 +7290,11 @@ namespace Event {
 
     /// <summary>Field number for the "ios_errors" field.</summary>
     public const int IosErrorsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Event.IOSError> _repeated_iosErrors_codec
-        = pb::FieldCodec.ForMessage(10, global::Event.IOSError.Parser);
-    private readonly pbc::RepeatedField<global::Event.IOSError> iosErrors_ = new pbc::RepeatedField<global::Event.IOSError>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.IOSError> _repeated_iosErrors_codec
+        = pb::FieldCodec.ForMessage(10, global::Promoted.Event.IOSError.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.IOSError> iosErrors_ = new pbc::RepeatedField<global::Promoted.Event.IOSError>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.IOSError> IosErrors {
+    public pbc::RepeatedField<global::Promoted.Event.IOSError> IosErrors {
       get { return iosErrors_; }
     }
 
@@ -7457,7 +7458,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7513,8 +7514,8 @@ namespace Event {
     /// <summary>Field number for the "user_event" field.</summary>
     public const int UserEventFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.User UserEvent {
-      get { return loggedEventCase_ == LoggedEventOneofCase.UserEvent ? (global::Event.User) loggedEvent_ : null; }
+    public global::Promoted.Event.User UserEvent {
+      get { return loggedEventCase_ == LoggedEventOneofCase.UserEvent ? (global::Promoted.Event.User) loggedEvent_ : null; }
       set {
         loggedEvent_ = value;
         loggedEventCase_ = value == null ? LoggedEventOneofCase.None : LoggedEventOneofCase.UserEvent;
@@ -7535,8 +7536,8 @@ namespace Event {
     /// <summary>Field number for the "view_event" field.</summary>
     public const int ViewEventFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.View ViewEvent {
-      get { return loggedEventCase_ == LoggedEventOneofCase.ViewEvent ? (global::Event.View) loggedEvent_ : null; }
+    public global::Promoted.Event.View ViewEvent {
+      get { return loggedEventCase_ == LoggedEventOneofCase.ViewEvent ? (global::Promoted.Event.View) loggedEvent_ : null; }
       set {
         loggedEvent_ = value;
         loggedEventCase_ = value == null ? LoggedEventOneofCase.None : LoggedEventOneofCase.ViewEvent;
@@ -7546,8 +7547,8 @@ namespace Event {
     /// <summary>Field number for the "auto_view_event" field.</summary>
     public const int AutoViewEventFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.AutoView AutoViewEvent {
-      get { return loggedEventCase_ == LoggedEventOneofCase.AutoViewEvent ? (global::Event.AutoView) loggedEvent_ : null; }
+    public global::Promoted.Event.AutoView AutoViewEvent {
+      get { return loggedEventCase_ == LoggedEventOneofCase.AutoViewEvent ? (global::Promoted.Event.AutoView) loggedEvent_ : null; }
       set {
         loggedEvent_ = value;
         loggedEventCase_ = value == null ? LoggedEventOneofCase.None : LoggedEventOneofCase.AutoViewEvent;
@@ -7739,7 +7740,7 @@ namespace Event {
       switch (other.LoggedEventCase) {
         case LoggedEventOneofCase.UserEvent:
           if (UserEvent == null) {
-            UserEvent = new global::Event.User();
+            UserEvent = new global::Promoted.Event.User();
           }
           UserEvent.MergeFrom(other.UserEvent);
           break;
@@ -7748,13 +7749,13 @@ namespace Event {
           break;
         case LoggedEventOneofCase.ViewEvent:
           if (ViewEvent == null) {
-            ViewEvent = new global::Event.View();
+            ViewEvent = new global::Promoted.Event.View();
           }
           ViewEvent.MergeFrom(other.ViewEvent);
           break;
         case LoggedEventOneofCase.AutoViewEvent:
           if (AutoViewEvent == null) {
-            AutoViewEvent = new global::Event.AutoView();
+            AutoViewEvent = new global::Promoted.Event.AutoView();
           }
           AutoViewEvent.MergeFrom(other.AutoViewEvent);
           break;
@@ -7779,7 +7780,7 @@ namespace Event {
             break;
           }
           case 18: {
-            global::Event.User subBuilder = new global::Event.User();
+            global::Promoted.Event.User subBuilder = new global::Promoted.Event.User();
             if (loggedEventCase_ == LoggedEventOneofCase.UserEvent) {
               subBuilder.MergeFrom(UserEvent);
             }
@@ -7792,7 +7793,7 @@ namespace Event {
             break;
           }
           case 34: {
-            global::Event.View subBuilder = new global::Event.View();
+            global::Promoted.Event.View subBuilder = new global::Promoted.Event.View();
             if (loggedEventCase_ == LoggedEventOneofCase.ViewEvent) {
               subBuilder.MergeFrom(ViewEvent);
             }
@@ -7805,7 +7806,7 @@ namespace Event {
             break;
           }
           case 50: {
-            global::Event.AutoView subBuilder = new global::Event.AutoView();
+            global::Promoted.Event.AutoView subBuilder = new global::Promoted.Event.AutoView();
             if (loggedEventCase_ == LoggedEventOneofCase.AutoViewEvent) {
               subBuilder.MergeFrom(AutoViewEvent);
             }
@@ -7832,7 +7833,7 @@ namespace Event {
             break;
           }
           case 18: {
-            global::Event.User subBuilder = new global::Event.User();
+            global::Promoted.Event.User subBuilder = new global::Promoted.Event.User();
             if (loggedEventCase_ == LoggedEventOneofCase.UserEvent) {
               subBuilder.MergeFrom(UserEvent);
             }
@@ -7845,7 +7846,7 @@ namespace Event {
             break;
           }
           case 34: {
-            global::Event.View subBuilder = new global::Event.View();
+            global::Promoted.Event.View subBuilder = new global::Promoted.Event.View();
             if (loggedEventCase_ == LoggedEventOneofCase.ViewEvent) {
               subBuilder.MergeFrom(ViewEvent);
             }
@@ -7858,7 +7859,7 @@ namespace Event {
             break;
           }
           case 50: {
-            global::Event.AutoView subBuilder = new global::Event.AutoView();
+            global::Promoted.Event.AutoView subBuilder = new global::Promoted.Event.AutoView();
             if (loggedEventCase_ == LoggedEventOneofCase.AutoViewEvent) {
               subBuilder.MergeFrom(AutoViewEvent);
             }
@@ -7885,7 +7886,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7920,11 +7921,11 @@ namespace Event {
 
     /// <summary>Field number for the "log_user_id_history" field.</summary>
     public const int LogUserIdHistoryFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Event.AncestorIdHistoryItem> _repeated_logUserIdHistory_codec
-        = pb::FieldCodec.ForMessage(10, global::Event.AncestorIdHistoryItem.Parser);
-    private readonly pbc::RepeatedField<global::Event.AncestorIdHistoryItem> logUserIdHistory_ = new pbc::RepeatedField<global::Event.AncestorIdHistoryItem>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.AncestorIdHistoryItem> _repeated_logUserIdHistory_codec
+        = pb::FieldCodec.ForMessage(10, global::Promoted.Event.AncestorIdHistoryItem.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> logUserIdHistory_ = new pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.AncestorIdHistoryItem> LogUserIdHistory {
+    public pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> LogUserIdHistory {
       get { return logUserIdHistory_; }
     }
 
@@ -7941,11 +7942,11 @@ namespace Event {
 
     /// <summary>Field number for the "session_id_history" field.</summary>
     public const int SessionIdHistoryFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::Event.AncestorIdHistoryItem> _repeated_sessionIdHistory_codec
-        = pb::FieldCodec.ForMessage(26, global::Event.AncestorIdHistoryItem.Parser);
-    private readonly pbc::RepeatedField<global::Event.AncestorIdHistoryItem> sessionIdHistory_ = new pbc::RepeatedField<global::Event.AncestorIdHistoryItem>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.AncestorIdHistoryItem> _repeated_sessionIdHistory_codec
+        = pb::FieldCodec.ForMessage(26, global::Promoted.Event.AncestorIdHistoryItem.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> sessionIdHistory_ = new pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.AncestorIdHistoryItem> SessionIdHistory {
+    public pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> SessionIdHistory {
       get { return sessionIdHistory_; }
     }
 
@@ -7962,11 +7963,11 @@ namespace Event {
 
     /// <summary>Field number for the "view_id_history" field.</summary>
     public const int ViewIdHistoryFieldNumber = 5;
-    private static readonly pb::FieldCodec<global::Event.AncestorIdHistoryItem> _repeated_viewIdHistory_codec
-        = pb::FieldCodec.ForMessage(42, global::Event.AncestorIdHistoryItem.Parser);
-    private readonly pbc::RepeatedField<global::Event.AncestorIdHistoryItem> viewIdHistory_ = new pbc::RepeatedField<global::Event.AncestorIdHistoryItem>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.AncestorIdHistoryItem> _repeated_viewIdHistory_codec
+        = pb::FieldCodec.ForMessage(42, global::Promoted.Event.AncestorIdHistoryItem.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> viewIdHistory_ = new pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.AncestorIdHistoryItem> ViewIdHistory {
+    public pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> ViewIdHistory {
       get { return viewIdHistory_; }
     }
 
@@ -7983,11 +7984,11 @@ namespace Event {
 
     /// <summary>Field number for the "auto_view_id_history" field.</summary>
     public const int AutoViewIdHistoryFieldNumber = 7;
-    private static readonly pb::FieldCodec<global::Event.AncestorIdHistoryItem> _repeated_autoViewIdHistory_codec
-        = pb::FieldCodec.ForMessage(58, global::Event.AncestorIdHistoryItem.Parser);
-    private readonly pbc::RepeatedField<global::Event.AncestorIdHistoryItem> autoViewIdHistory_ = new pbc::RepeatedField<global::Event.AncestorIdHistoryItem>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.AncestorIdHistoryItem> _repeated_autoViewIdHistory_codec
+        = pb::FieldCodec.ForMessage(58, global::Promoted.Event.AncestorIdHistoryItem.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> autoViewIdHistory_ = new pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.AncestorIdHistoryItem> AutoViewIdHistory {
+    public pbc::RepeatedField<global::Promoted.Event.AncestorIdHistoryItem> AutoViewIdHistory {
       get { return autoViewIdHistory_; }
     }
 
@@ -8265,7 +8266,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8368,9 +8369,9 @@ namespace Event {
 
     /// <summary>Field number for the "error_history" field.</summary>
     public const int ErrorHistoryFieldNumber = 7;
-    private global::Event.ErrorHistory errorHistory_;
+    private global::Promoted.Event.ErrorHistory errorHistory_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.ErrorHistory ErrorHistory {
+    public global::Promoted.Event.ErrorHistory ErrorHistory {
       get { return errorHistory_; }
       set {
         errorHistory_ = value;
@@ -8379,9 +8380,9 @@ namespace Event {
 
     /// <summary>Field number for the "ancestor_id_history" field.</summary>
     public const int AncestorIdHistoryFieldNumber = 8;
-    private global::Event.AncestorIdHistory ancestorIdHistory_;
+    private global::Promoted.Event.AncestorIdHistory ancestorIdHistory_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.AncestorIdHistory AncestorIdHistory {
+    public global::Promoted.Event.AncestorIdHistory AncestorIdHistory {
       get { return ancestorIdHistory_; }
       set {
         ancestorIdHistory_ = value;
@@ -8576,13 +8577,13 @@ namespace Event {
       }
       if (other.errorHistory_ != null) {
         if (errorHistory_ == null) {
-          ErrorHistory = new global::Event.ErrorHistory();
+          ErrorHistory = new global::Promoted.Event.ErrorHistory();
         }
         ErrorHistory.MergeFrom(other.ErrorHistory);
       }
       if (other.ancestorIdHistory_ != null) {
         if (ancestorIdHistory_ == null) {
-          AncestorIdHistory = new global::Event.AncestorIdHistory();
+          AncestorIdHistory = new global::Promoted.Event.AncestorIdHistory();
         }
         AncestorIdHistory.MergeFrom(other.AncestorIdHistory);
       }
@@ -8626,14 +8627,14 @@ namespace Event {
           }
           case 58: {
             if (errorHistory_ == null) {
-              ErrorHistory = new global::Event.ErrorHistory();
+              ErrorHistory = new global::Promoted.Event.ErrorHistory();
             }
             input.ReadMessage(ErrorHistory);
             break;
           }
           case 66: {
             if (ancestorIdHistory_ == null) {
-              AncestorIdHistory = new global::Event.AncestorIdHistory();
+              AncestorIdHistory = new global::Promoted.Event.AncestorIdHistory();
             }
             input.ReadMessage(AncestorIdHistory);
             break;
@@ -8678,14 +8679,14 @@ namespace Event {
           }
           case 58: {
             if (errorHistory_ == null) {
-              ErrorHistory = new global::Event.ErrorHistory();
+              ErrorHistory = new global::Promoted.Event.ErrorHistory();
             }
             input.ReadMessage(ErrorHistory);
             break;
           }
           case 66: {
             if (ancestorIdHistory_ == null) {
-              AncestorIdHistory = new global::Event.AncestorIdHistory();
+              AncestorIdHistory = new global::Promoted.Event.AncestorIdHistory();
             }
             input.ReadMessage(AncestorIdHistory);
             break;
@@ -8709,7 +8710,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8791,8 +8792,8 @@ namespace Event {
     /// <summary>Field number for the "mobile_diagnostics" field.</summary>
     public const int MobileDiagnosticsFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Event.MobileDiagnostics MobileDiagnostics {
-      get { return diagnosticsMessageCase_ == DiagnosticsMessageOneofCase.MobileDiagnostics ? (global::Event.MobileDiagnostics) diagnosticsMessage_ : null; }
+    public global::Promoted.Event.MobileDiagnostics MobileDiagnostics {
+      get { return diagnosticsMessageCase_ == DiagnosticsMessageOneofCase.MobileDiagnostics ? (global::Promoted.Event.MobileDiagnostics) diagnosticsMessage_ : null; }
       set {
         diagnosticsMessage_ = value;
         diagnosticsMessageCase_ = value == null ? DiagnosticsMessageOneofCase.None : DiagnosticsMessageOneofCase.MobileDiagnostics;
@@ -8972,7 +8973,7 @@ namespace Event {
       switch (other.DiagnosticsMessageCase) {
         case DiagnosticsMessageOneofCase.MobileDiagnostics:
           if (MobileDiagnostics == null) {
-            MobileDiagnostics = new global::Event.MobileDiagnostics();
+            MobileDiagnostics = new global::Promoted.Event.MobileDiagnostics();
           }
           MobileDiagnostics.MergeFrom(other.MobileDiagnostics);
           break;
@@ -9018,7 +9019,7 @@ namespace Event {
             break;
           }
           case 42: {
-            global::Event.MobileDiagnostics subBuilder = new global::Event.MobileDiagnostics();
+            global::Promoted.Event.MobileDiagnostics subBuilder = new global::Promoted.Event.MobileDiagnostics();
             if (diagnosticsMessageCase_ == DiagnosticsMessageOneofCase.MobileDiagnostics) {
               subBuilder.MergeFrom(MobileDiagnostics);
             }
@@ -9066,7 +9067,7 @@ namespace Event {
             break;
           }
           case 42: {
-            global::Event.MobileDiagnostics subBuilder = new global::Event.MobileDiagnostics();
+            global::Promoted.Event.MobileDiagnostics subBuilder = new global::Promoted.Event.MobileDiagnostics();
             if (diagnosticsMessageCase_ == DiagnosticsMessageOneofCase.MobileDiagnostics) {
               subBuilder.MergeFrom(MobileDiagnostics);
             }
@@ -9093,7 +9094,7 @@ namespace Event {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Event.EventReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Promoted.Event.EventReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9190,41 +9191,41 @@ namespace Event {
 
     /// <summary>Field number for the "user" field.</summary>
     public const int UserFieldNumber = 7;
-    private static readonly pb::FieldCodec<global::Event.User> _repeated_user_codec
-        = pb::FieldCodec.ForMessage(58, global::Event.User.Parser);
-    private readonly pbc::RepeatedField<global::Event.User> user_ = new pbc::RepeatedField<global::Event.User>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.User> _repeated_user_codec
+        = pb::FieldCodec.ForMessage(58, global::Promoted.Event.User.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.User> user_ = new pbc::RepeatedField<global::Promoted.Event.User>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.User> User {
+    public pbc::RepeatedField<global::Promoted.Event.User> User {
       get { return user_; }
     }
 
     /// <summary>Field number for the "cohort_membership" field.</summary>
     public const int CohortMembershipFieldNumber = 8;
-    private static readonly pb::FieldCodec<global::Event.CohortMembership> _repeated_cohortMembership_codec
-        = pb::FieldCodec.ForMessage(66, global::Event.CohortMembership.Parser);
-    private readonly pbc::RepeatedField<global::Event.CohortMembership> cohortMembership_ = new pbc::RepeatedField<global::Event.CohortMembership>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.CohortMembership> _repeated_cohortMembership_codec
+        = pb::FieldCodec.ForMessage(66, global::Promoted.Event.CohortMembership.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.CohortMembership> cohortMembership_ = new pbc::RepeatedField<global::Promoted.Event.CohortMembership>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.CohortMembership> CohortMembership {
+    public pbc::RepeatedField<global::Promoted.Event.CohortMembership> CohortMembership {
       get { return cohortMembership_; }
     }
 
     /// <summary>Field number for the "view" field.</summary>
     public const int ViewFieldNumber = 11;
-    private static readonly pb::FieldCodec<global::Event.View> _repeated_view_codec
-        = pb::FieldCodec.ForMessage(90, global::Event.View.Parser);
-    private readonly pbc::RepeatedField<global::Event.View> view_ = new pbc::RepeatedField<global::Event.View>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.View> _repeated_view_codec
+        = pb::FieldCodec.ForMessage(90, global::Promoted.Event.View.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.View> view_ = new pbc::RepeatedField<global::Promoted.Event.View>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.View> View {
+    public pbc::RepeatedField<global::Promoted.Event.View> View {
       get { return view_; }
     }
 
     /// <summary>Field number for the "auto_view" field.</summary>
     public const int AutoViewFieldNumber = 25;
-    private static readonly pb::FieldCodec<global::Event.AutoView> _repeated_autoView_codec
-        = pb::FieldCodec.ForMessage(202, global::Event.AutoView.Parser);
-    private readonly pbc::RepeatedField<global::Event.AutoView> autoView_ = new pbc::RepeatedField<global::Event.AutoView>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.AutoView> _repeated_autoView_codec
+        = pb::FieldCodec.ForMessage(202, global::Promoted.Event.AutoView.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.AutoView> autoView_ = new pbc::RepeatedField<global::Promoted.Event.AutoView>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.AutoView> AutoView {
+    public pbc::RepeatedField<global::Promoted.Event.AutoView> AutoView {
       get { return autoView_; }
     }
 
@@ -9250,21 +9251,21 @@ namespace Event {
 
     /// <summary>Field number for the "impression" field.</summary>
     public const int ImpressionFieldNumber = 14;
-    private static readonly pb::FieldCodec<global::Event.Impression> _repeated_impression_codec
-        = pb::FieldCodec.ForMessage(114, global::Event.Impression.Parser);
-    private readonly pbc::RepeatedField<global::Event.Impression> impression_ = new pbc::RepeatedField<global::Event.Impression>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.Impression> _repeated_impression_codec
+        = pb::FieldCodec.ForMessage(114, global::Promoted.Event.Impression.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.Impression> impression_ = new pbc::RepeatedField<global::Promoted.Event.Impression>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.Impression> Impression {
+    public pbc::RepeatedField<global::Promoted.Event.Impression> Impression {
       get { return impression_; }
     }
 
     /// <summary>Field number for the "action" field.</summary>
     public const int ActionFieldNumber = 15;
-    private static readonly pb::FieldCodec<global::Event.Action> _repeated_action_codec
-        = pb::FieldCodec.ForMessage(122, global::Event.Action.Parser);
-    private readonly pbc::RepeatedField<global::Event.Action> action_ = new pbc::RepeatedField<global::Event.Action>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.Action> _repeated_action_codec
+        = pb::FieldCodec.ForMessage(122, global::Promoted.Event.Action.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.Action> action_ = new pbc::RepeatedField<global::Promoted.Event.Action>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.Action> Action {
+    public pbc::RepeatedField<global::Promoted.Event.Action> Action {
       get { return action_; }
     }
 
@@ -9280,11 +9281,11 @@ namespace Event {
 
     /// <summary>Field number for the "diagnostics" field.</summary>
     public const int DiagnosticsFieldNumber = 23;
-    private static readonly pb::FieldCodec<global::Event.Diagnostics> _repeated_diagnostics_codec
-        = pb::FieldCodec.ForMessage(186, global::Event.Diagnostics.Parser);
-    private readonly pbc::RepeatedField<global::Event.Diagnostics> diagnostics_ = new pbc::RepeatedField<global::Event.Diagnostics>();
+    private static readonly pb::FieldCodec<global::Promoted.Event.Diagnostics> _repeated_diagnostics_codec
+        = pb::FieldCodec.ForMessage(186, global::Promoted.Event.Diagnostics.Parser);
+    private readonly pbc::RepeatedField<global::Promoted.Event.Diagnostics> diagnostics_ = new pbc::RepeatedField<global::Promoted.Event.Diagnostics>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Event.Diagnostics> Diagnostics {
+    public pbc::RepeatedField<global::Promoted.Event.Diagnostics> Diagnostics {
       get { return diagnostics_; }
     }
 
