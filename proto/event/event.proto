@@ -5,6 +5,7 @@ option java_multiple_files = true;
 option java_package = "ai.promoted.proto.event";
 option java_outer_classname = "Event";
 option go_package = "github.com/promotedai/schema/generated/go/proto/event";
+option csharp_namespace = "Promoted.Event";
 
 import "proto/common/common.proto";
 import "proto/delivery/delivery.proto";
