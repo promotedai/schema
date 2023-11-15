@@ -53,9 +53,9 @@ constexpr UserInfo::UserInfo(
   : user_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , log_user_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , anon_user_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , retained_user_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , is_internal_user_(false)
-  , ignore_usage_(false)
-  , has_user_id_(false){}
+  , ignore_usage_(false){}
 struct UserInfoDefaultTypeInternal {
   constexpr UserInfoDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -261,7 +261,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_proto_2fcommon_2fcommon_2eprot
   PROTOBUF_FIELD_OFFSET(::common::UserInfo, is_internal_user_),
   PROTOBUF_FIELD_OFFSET(::common::UserInfo, ignore_usage_),
   PROTOBUF_FIELD_OFFSET(::common::UserInfo, anon_user_id_),
-  PROTOBUF_FIELD_OFFSET(::common::UserInfo, has_user_id_),
+  PROTOBUF_FIELD_OFFSET(::common::UserInfo, retained_user_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::common::ClientInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -402,76 +402,76 @@ const char descriptor_table_protodef_proto_2fcommon_2fcommon_2eproto[] PROTOBUF_
   "ionId\022\035\n\ncontent_id\030\003 \001(\004R\tcontentId\"g\n\005"
   "Money\0229\n\rcurrency_code\030\001 \001(\0162\024.common.Cu"
   "rrencyCodeR\014currencyCode\022#\n\ramount_micro"
-  "s\030\002 \001(\003R\014amountMicros\"\322\001\n\010UserInfo\022\027\n\007us"
+  "s\030\002 \001(\003R\014amountMicros\"\334\001\n\010UserInfo\022\027\n\007us"
   "er_id\030\001 \001(\tR\006userId\022\036\n\013log_user_id\030\002 \001(\t"
   "R\tlogUserId\022(\n\020is_internal_user\030\003 \001(\010R\016i"
   "sInternalUser\022!\n\014ignore_usage\030\004 \001(\010R\013ign"
   "oreUsage\022 \n\014anon_user_id\030\005 \001(\tR\nanonUser"
-  "Id\022\036\n\013has_user_id\030\006 \001(\010R\thasUserId\"\306\002\n\nC"
-  "lientInfo\022>\n\013client_type\030\001 \001(\0162\035.common."
-  "ClientInfo.ClientTypeR\nclientType\022A\n\014tra"
-  "ffic_type\030\002 \001(\0162\036.common.ClientInfo.Traf"
-  "ficTypeR\013trafficType\"X\n\nClientType\022\032\n\026UN"
-  "KNOWN_REQUEST_CLIENT\020\000\022\023\n\017PLATFORM_SERVE"
-  "R\020\001\022\023\n\017PLATFORM_CLIENT\020\002\"\004\010\003\020\004\"[\n\013Traffi"
-  "cType\022\030\n\024UNKNOWN_TRAFFIC_TYPE\020\000\022\016\n\nPRODU"
-  "CTION\020\001\022\n\n\006REPLAY\020\002\022\n\n\006SHADOW\020\004\"\004\010\003\020\003\"\004\010"
-  "\005\020\005\"N\n\006Locale\022#\n\rlanguage_code\030\001 \001(\tR\014la"
-  "nguageCode\022\037\n\013region_code\030\002 \001(\tR\nregionC"
-  "ode\"4\n\004Size\022\024\n\005width\030\001 \001(\rR\005width\022\026\n\006hei"
-  "ght\030\002 \001(\rR\006height\"@\n\006Screen\022 \n\004size\030\001 \001("
-  "\0132\014.common.SizeR\004size\022\024\n\005scale\030\002 \001(\002R\005sc"
-  "ale\"\363\003\n\006Device\0223\n\013device_type\030\001 \001(\0162\022.co"
-  "mmon.DeviceTypeR\ndeviceType\022\024\n\005brand\030\002 \001"
-  "(\tR\005brand\022\"\n\014manufacturer\030\003 \001(\tR\014manufac"
-  "turer\022\036\n\nidentifier\030\004 \001(\tR\nidentifier\022\035\n"
-  "\nos_version\030\005 \001(\tR\tosVersion\022*\n\006locale\030\006"
-  " \001(\0132\016.common.LocaleB\002\030\001R\006locale\022&\n\006scre"
-  "en\030\007 \001(\0132\016.common.ScreenR\006screen\022\035\n\nip_a"
-  "ddress\030\010 \001(\tR\tipAddress\022,\n\010location\030\t \001("
-  "\0132\020.common.LocationR\010location\022)\n\007browser"
-  "\030\n \001(\0132\017.common.BrowserR\007browser\0220\n\024plat"
-  "form_app_version\030\013 \001(\tR\022platformAppVersi"
-  "on\022=\n\033promoted_mobile_sdk_version\030\014 \001(\tR"
-  "\030promotedMobileSdkVersion\"\202\002\n\013ClientHint"
-  "s\022\033\n\tis_mobile\030\001 \001(\010R\010isMobile\022-\n\005brand\030"
-  "\002 \003(\0132\027.common.ClientHintBrandR\005brand\022\"\n"
-  "\014architecture\030\003 \001(\tR\014architecture\022\024\n\005mod"
-  "el\030\004 \001(\tR\005model\022\032\n\010platform\030\005 \001(\tR\010platf"
-  "orm\022)\n\020platform_version\030\006 \001(\tR\017platformV"
-  "ersion\022&\n\017ua_full_version\030\007 \001(\tR\ruaFullV"
-  "ersion\"A\n\017ClientHintBrand\022\024\n\005brand\030\001 \001(\t"
-  "R\005brand\022\030\n\007version\030\002 \001(\tR\007version\"\257\001\n\007Br"
-  "owser\022\035\n\nuser_agent\030\001 \001(\tR\tuserAgent\0221\n\r"
-  "viewport_size\030\002 \001(\0132\014.common.SizeR\014viewp"
-  "ortSize\0226\n\014client_hints\030\003 \001(\0132\023.common.C"
-  "lientHintsR\013clientHints\022\032\n\010referrer\030\004 \001("
-  "\tR\010referrer\"r\n\010Location\022\032\n\010latitude\030\001 \001("
-  "\001R\010latitude\022\034\n\tlongitude\030\002 \001(\001R\tlongitud"
-  "e\022,\n\022accuracy_in_meters\030\003 \001(\001R\020accuracyI"
-  "nMeters\"F\n\006Timing\0220\n\024client_log_timestam"
-  "p\030\001 \001(\004R\022clientLogTimestampJ\004\010\002\020\003J\004\010\003\020\004\""
-  "z\n\nProperties\022#\n\014struct_bytes\030\001 \001(\014H\000R\013s"
-  "tructBytes\0221\n\006struct\030\002 \001(\0132\027.google.prot"
-  "obuf.StructH\000R\006structB\016\n\014struct_fieldJ\004\010"
-  "\003\020\004*\335\001\n\014CurrencyCode\022\031\n\025UNKNOWN_CURRENCY"
-  "_CODE\020\000\022\007\n\003USD\020\001\022\007\n\003EUR\020\002\022\007\n\003JPY\020\003\022\007\n\003GB"
-  "P\020\004\022\007\n\003AUD\020\005\022\007\n\003CAD\020\006\022\007\n\003CHF\020\007\022\007\n\003CNY\020\010\022"
-  "\007\n\003HKD\020\t\022\007\n\003NZD\020\n\022\007\n\003SEK\020\013\022\007\n\003KRW\020\014\022\007\n\003S"
-  "GD\020\r\022\007\n\003NOK\020\016\022\007\n\003MXN\020\017\022\007\n\003INR\020\020\022\007\n\003RUB\020\021"
-  "\022\007\n\003ZAR\020\022\022\007\n\003TRY\020\023\022\007\n\003BRL\020\024*J\n\nDeviceTyp"
-  "e\022\027\n\023UNKNOWN_DEVICE_TYPE\020\000\022\013\n\007DESKTOP\020\001\022"
-  "\n\n\006MOBILE\020\002\022\n\n\006TABLET\020\003Ba\n\030ai.promoted.p"
-  "roto.commonB\013CommonProtoP\001Z6github.com/p"
-  "romotedai/schema/generated/go/proto/comm"
-  "onb\006proto3"
+  "Id\022(\n\020retained_user_id\030\007 \001(\tR\016retainedUs"
+  "erId\"\306\002\n\nClientInfo\022>\n\013client_type\030\001 \001(\016"
+  "2\035.common.ClientInfo.ClientTypeR\nclientT"
+  "ype\022A\n\014traffic_type\030\002 \001(\0162\036.common.Clien"
+  "tInfo.TrafficTypeR\013trafficType\"X\n\nClient"
+  "Type\022\032\n\026UNKNOWN_REQUEST_CLIENT\020\000\022\023\n\017PLAT"
+  "FORM_SERVER\020\001\022\023\n\017PLATFORM_CLIENT\020\002\"\004\010\003\020\004"
+  "\"[\n\013TrafficType\022\030\n\024UNKNOWN_TRAFFIC_TYPE\020"
+  "\000\022\016\n\nPRODUCTION\020\001\022\n\n\006REPLAY\020\002\022\n\n\006SHADOW\020"
+  "\004\"\004\010\003\020\003\"\004\010\005\020\005\"N\n\006Locale\022#\n\rlanguage_code"
+  "\030\001 \001(\tR\014languageCode\022\037\n\013region_code\030\002 \001("
+  "\tR\nregionCode\"4\n\004Size\022\024\n\005width\030\001 \001(\rR\005wi"
+  "dth\022\026\n\006height\030\002 \001(\rR\006height\"@\n\006Screen\022 \n"
+  "\004size\030\001 \001(\0132\014.common.SizeR\004size\022\024\n\005scale"
+  "\030\002 \001(\002R\005scale\"\363\003\n\006Device\0223\n\013device_type\030"
+  "\001 \001(\0162\022.common.DeviceTypeR\ndeviceType\022\024\n"
+  "\005brand\030\002 \001(\tR\005brand\022\"\n\014manufacturer\030\003 \001("
+  "\tR\014manufacturer\022\036\n\nidentifier\030\004 \001(\tR\nide"
+  "ntifier\022\035\n\nos_version\030\005 \001(\tR\tosVersion\022*"
+  "\n\006locale\030\006 \001(\0132\016.common.LocaleB\002\030\001R\006loca"
+  "le\022&\n\006screen\030\007 \001(\0132\016.common.ScreenR\006scre"
+  "en\022\035\n\nip_address\030\010 \001(\tR\tipAddress\022,\n\010loc"
+  "ation\030\t \001(\0132\020.common.LocationR\010location\022"
+  ")\n\007browser\030\n \001(\0132\017.common.BrowserR\007brows"
+  "er\0220\n\024platform_app_version\030\013 \001(\tR\022platfo"
+  "rmAppVersion\022=\n\033promoted_mobile_sdk_vers"
+  "ion\030\014 \001(\tR\030promotedMobileSdkVersion\"\202\002\n\013"
+  "ClientHints\022\033\n\tis_mobile\030\001 \001(\010R\010isMobile"
+  "\022-\n\005brand\030\002 \003(\0132\027.common.ClientHintBrand"
+  "R\005brand\022\"\n\014architecture\030\003 \001(\tR\014architect"
+  "ure\022\024\n\005model\030\004 \001(\tR\005model\022\032\n\010platform\030\005 "
+  "\001(\tR\010platform\022)\n\020platform_version\030\006 \001(\tR"
+  "\017platformVersion\022&\n\017ua_full_version\030\007 \001("
+  "\tR\ruaFullVersion\"A\n\017ClientHintBrand\022\024\n\005b"
+  "rand\030\001 \001(\tR\005brand\022\030\n\007version\030\002 \001(\tR\007vers"
+  "ion\"\257\001\n\007Browser\022\035\n\nuser_agent\030\001 \001(\tR\tuse"
+  "rAgent\0221\n\rviewport_size\030\002 \001(\0132\014.common.S"
+  "izeR\014viewportSize\0226\n\014client_hints\030\003 \001(\0132"
+  "\023.common.ClientHintsR\013clientHints\022\032\n\010ref"
+  "errer\030\004 \001(\tR\010referrer\"r\n\010Location\022\032\n\010lat"
+  "itude\030\001 \001(\001R\010latitude\022\034\n\tlongitude\030\002 \001(\001"
+  "R\tlongitude\022,\n\022accuracy_in_meters\030\003 \001(\001R"
+  "\020accuracyInMeters\"F\n\006Timing\0220\n\024client_lo"
+  "g_timestamp\030\001 \001(\004R\022clientLogTimestampJ\004\010"
+  "\002\020\003J\004\010\003\020\004\"z\n\nProperties\022#\n\014struct_bytes\030"
+  "\001 \001(\014H\000R\013structBytes\0221\n\006struct\030\002 \001(\0132\027.g"
+  "oogle.protobuf.StructH\000R\006structB\016\n\014struc"
+  "t_fieldJ\004\010\003\020\004*\335\001\n\014CurrencyCode\022\031\n\025UNKNOW"
+  "N_CURRENCY_CODE\020\000\022\007\n\003USD\020\001\022\007\n\003EUR\020\002\022\007\n\003J"
+  "PY\020\003\022\007\n\003GBP\020\004\022\007\n\003AUD\020\005\022\007\n\003CAD\020\006\022\007\n\003CHF\020\007"
+  "\022\007\n\003CNY\020\010\022\007\n\003HKD\020\t\022\007\n\003NZD\020\n\022\007\n\003SEK\020\013\022\007\n\003"
+  "KRW\020\014\022\007\n\003SGD\020\r\022\007\n\003NOK\020\016\022\007\n\003MXN\020\017\022\007\n\003INR\020"
+  "\020\022\007\n\003RUB\020\021\022\007\n\003ZAR\020\022\022\007\n\003TRY\020\023\022\007\n\003BRL\020\024*J\n"
+  "\nDeviceType\022\027\n\023UNKNOWN_DEVICE_TYPE\020\000\022\013\n\007"
+  "DESKTOP\020\001\022\n\n\006MOBILE\020\002\022\n\n\006TABLET\020\003Bs\n\030ai."
+  "promoted.proto.commonB\013CommonProtoP\001Z6gi"
+  "thub.com/promotedai/schema/generated/go/"
+  "proto/common\252\002\017Promoted.Commonb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fcommon_2fcommon_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fstruct_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_2fcommon_2fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fcommon_2fcommon_2eproto = {
-  false, false, 2850, descriptor_table_protodef_proto_2fcommon_2fcommon_2eproto, "proto/common/common.proto", 
+  false, false, 2878, descriptor_table_protodef_proto_2fcommon_2fcommon_2eproto, "proto/common/common.proto", 
   &descriptor_table_proto_2fcommon_2fcommon_2eproto_once, descriptor_table_proto_2fcommon_2fcommon_2eproto_deps, 1, 14,
   schemas, file_default_instances, TableStruct_proto_2fcommon_2fcommon_2eproto::offsets,
   file_level_metadata_proto_2fcommon_2fcommon_2eproto, file_level_enum_descriptors_proto_2fcommon_2fcommon_2eproto, file_level_service_descriptors_proto_2fcommon_2fcommon_2eproto,
@@ -1154,9 +1154,14 @@ UserInfo::UserInfo(const UserInfo& from)
     anon_user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_anon_user_id(), 
       GetArena());
   }
+  retained_user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_retained_user_id().empty()) {
+    retained_user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_retained_user_id(), 
+      GetArena());
+  }
   ::memcpy(&is_internal_user_, &from.is_internal_user_,
-    static_cast<size_t>(reinterpret_cast<char*>(&has_user_id_) -
-    reinterpret_cast<char*>(&is_internal_user_)) + sizeof(has_user_id_));
+    static_cast<size_t>(reinterpret_cast<char*>(&ignore_usage_) -
+    reinterpret_cast<char*>(&is_internal_user_)) + sizeof(ignore_usage_));
   // @@protoc_insertion_point(copy_constructor:common.UserInfo)
 }
 
@@ -1164,10 +1169,11 @@ void UserInfo::SharedCtor() {
 user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 log_user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 anon_user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+retained_user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&is_internal_user_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&has_user_id_) -
-    reinterpret_cast<char*>(&is_internal_user_)) + sizeof(has_user_id_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&ignore_usage_) -
+    reinterpret_cast<char*>(&is_internal_user_)) + sizeof(ignore_usage_));
 }
 
 UserInfo::~UserInfo() {
@@ -1181,6 +1187,7 @@ void UserInfo::SharedDtor() {
   user_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   log_user_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   anon_user_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  retained_user_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void UserInfo::ArenaDtor(void* object) {
@@ -1202,9 +1209,10 @@ void UserInfo::Clear() {
   user_id_.ClearToEmpty();
   log_user_id_.ClearToEmpty();
   anon_user_id_.ClearToEmpty();
+  retained_user_id_.ClearToEmpty();
   ::memset(&is_internal_user_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&has_user_id_) -
-      reinterpret_cast<char*>(&is_internal_user_)) + sizeof(has_user_id_));
+      reinterpret_cast<char*>(&ignore_usage_) -
+      reinterpret_cast<char*>(&is_internal_user_)) + sizeof(ignore_usage_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1256,10 +1264,12 @@ const char* UserInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool has_user_id = 6 [json_name = "hasUserId"];
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          has_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+      // string retained_user_id = 7 [json_name = "retainedUserId"];
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          auto str = _internal_mutable_retained_user_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "common.UserInfo.retained_user_id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1333,10 +1343,14 @@ failure:
         5, this->_internal_anon_user_id(), target);
   }
 
-  // bool has_user_id = 6 [json_name = "hasUserId"];
-  if (this->has_user_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_has_user_id(), target);
+  // string retained_user_id = 7 [json_name = "retainedUserId"];
+  if (this->retained_user_id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_retained_user_id().data(), static_cast<int>(this->_internal_retained_user_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "common.UserInfo.retained_user_id");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_retained_user_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1376,6 +1390,13 @@ size_t UserInfo::ByteSizeLong() const {
         this->_internal_anon_user_id());
   }
 
+  // string retained_user_id = 7 [json_name = "retainedUserId"];
+  if (this->retained_user_id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_retained_user_id());
+  }
+
   // bool is_internal_user = 3 [json_name = "isInternalUser"];
   if (this->is_internal_user() != 0) {
     total_size += 1 + 1;
@@ -1383,11 +1404,6 @@ size_t UserInfo::ByteSizeLong() const {
 
   // bool ignore_usage = 4 [json_name = "ignoreUsage"];
   if (this->ignore_usage() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool has_user_id = 6 [json_name = "hasUserId"];
-  if (this->has_user_id() != 0) {
     total_size += 1 + 1;
   }
 
@@ -1431,14 +1447,14 @@ void UserInfo::MergeFrom(const UserInfo& from) {
   if (from.anon_user_id().size() > 0) {
     _internal_set_anon_user_id(from._internal_anon_user_id());
   }
+  if (from.retained_user_id().size() > 0) {
+    _internal_set_retained_user_id(from._internal_retained_user_id());
+  }
   if (from.is_internal_user() != 0) {
     _internal_set_is_internal_user(from._internal_is_internal_user());
   }
   if (from.ignore_usage() != 0) {
     _internal_set_ignore_usage(from._internal_ignore_usage());
-  }
-  if (from.has_user_id() != 0) {
-    _internal_set_has_user_id(from._internal_has_user_id());
   }
 }
 
@@ -1466,9 +1482,10 @@ void UserInfo::InternalSwap(UserInfo* other) {
   user_id_.Swap(&other->user_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   log_user_id_.Swap(&other->log_user_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   anon_user_id_.Swap(&other->anon_user_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  retained_user_id_.Swap(&other->retained_user_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UserInfo, has_user_id_)
-      + sizeof(UserInfo::has_user_id_)
+      PROTOBUF_FIELD_OFFSET(UserInfo, ignore_usage_)
+      + sizeof(UserInfo::ignore_usage_)
       - PROTOBUF_FIELD_OFFSET(UserInfo, is_internal_user_)>(
           reinterpret_cast<char*>(&is_internal_user_),
           reinterpret_cast<char*>(&other->is_internal_user_));

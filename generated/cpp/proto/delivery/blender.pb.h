@@ -30,6 +30,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
@@ -47,7 +50,7 @@ struct TableStruct_proto_2fdelivery_2fblender_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[19]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,105 +59,506 @@ struct TableStruct_proto_2fdelivery_2fblender_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fdelivery_2fblender_2eproto;
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_proto_2fdelivery_2fblender_2eproto_metadata_getter(int index);
 namespace delivery {
+class BlenderArithmeticExpression;
+struct BlenderArithmeticExpressionDefaultTypeInternal;
+extern BlenderArithmeticExpressionDefaultTypeInternal _BlenderArithmeticExpression_default_instance_;
+class BlenderConditionalExpression;
+struct BlenderConditionalExpressionDefaultTypeInternal;
+extern BlenderConditionalExpressionDefaultTypeInternal _BlenderConditionalExpression_default_instance_;
 class BlenderConfig;
 struct BlenderConfigDefaultTypeInternal;
 extern BlenderConfigDefaultTypeInternal _BlenderConfig_default_instance_;
-class BlenderRule;
-struct BlenderRuleDefaultTypeInternal;
-extern BlenderRuleDefaultTypeInternal _BlenderRule_default_instance_;
-class DiversityRule;
-struct DiversityRuleDefaultTypeInternal;
-extern DiversityRuleDefaultTypeInternal _DiversityRule_default_instance_;
-class Equal;
-struct EqualDefaultTypeInternal;
-extern EqualDefaultTypeInternal _Equal_default_instance_;
-class EqualV2;
-struct EqualV2DefaultTypeInternal;
-extern EqualV2DefaultTypeInternal _EqualV2_default_instance_;
-class Flag;
-struct FlagDefaultTypeInternal;
-extern FlagDefaultTypeInternal _Flag_default_instance_;
-class GreaterThan;
-struct GreaterThanDefaultTypeInternal;
-extern GreaterThanDefaultTypeInternal _GreaterThan_default_instance_;
-class InsertRule;
-struct InsertRuleDefaultTypeInternal;
-extern InsertRuleDefaultTypeInternal _InsertRule_default_instance_;
-class Interval;
-struct IntervalDefaultTypeInternal;
-extern IntervalDefaultTypeInternal _Interval_default_instance_;
-class LessThan;
-struct LessThanDefaultTypeInternal;
-extern LessThanDefaultTypeInternal _LessThan_default_instance_;
-class NegativeRule;
-struct NegativeRuleDefaultTypeInternal;
-extern NegativeRuleDefaultTypeInternal _NegativeRule_default_instance_;
-class PositiveRule;
-struct PositiveRuleDefaultTypeInternal;
-extern PositiveRuleDefaultTypeInternal _PositiveRule_default_instance_;
-class QualityScoreConfig;
-struct QualityScoreConfigDefaultTypeInternal;
-extern QualityScoreConfigDefaultTypeInternal _QualityScoreConfig_default_instance_;
-class QualityScoreTerm;
-struct QualityScoreTermDefaultTypeInternal;
-extern QualityScoreTermDefaultTypeInternal _QualityScoreTerm_default_instance_;
-class QualityScoreTerms;
-struct QualityScoreTermsDefaultTypeInternal;
-extern QualityScoreTermsDefaultTypeInternal _QualityScoreTerms_default_instance_;
-class StringEquality;
-struct StringEqualityDefaultTypeInternal;
-extern StringEqualityDefaultTypeInternal _StringEquality_default_instance_;
-class TermConditionalEvaluation;
-struct TermConditionalEvaluationDefaultTypeInternal;
-extern TermConditionalEvaluationDefaultTypeInternal _TermConditionalEvaluation_default_instance_;
+class BlenderExpression;
+struct BlenderExpressionDefaultTypeInternal;
+extern BlenderExpressionDefaultTypeInternal _BlenderExpression_default_instance_;
+class BlenderSortKey;
+struct BlenderSortKeyDefaultTypeInternal;
+extern BlenderSortKeyDefaultTypeInternal _BlenderSortKey_default_instance_;
+class HyperloopConditionalExpression;
+struct HyperloopConditionalExpressionDefaultTypeInternal;
+extern HyperloopConditionalExpressionDefaultTypeInternal _HyperloopConditionalExpression_default_instance_;
+class HyperloopConfig;
+struct HyperloopConfigDefaultTypeInternal;
+extern HyperloopConfigDefaultTypeInternal _HyperloopConfig_default_instance_;
+class HyperloopConfig_ParametersEntry_DoNotUse;
+struct HyperloopConfig_ParametersEntry_DoNotUseDefaultTypeInternal;
+extern HyperloopConfig_ParametersEntry_DoNotUseDefaultTypeInternal _HyperloopConfig_ParametersEntry_DoNotUse_default_instance_;
+class HyperloopExpression;
+struct HyperloopExpressionDefaultTypeInternal;
+extern HyperloopExpressionDefaultTypeInternal _HyperloopExpression_default_instance_;
+class HyperloopGeneratorExpression;
+struct HyperloopGeneratorExpressionDefaultTypeInternal;
+extern HyperloopGeneratorExpressionDefaultTypeInternal _HyperloopGeneratorExpression_default_instance_;
+class HyperloopGroup;
+struct HyperloopGroupDefaultTypeInternal;
+extern HyperloopGroupDefaultTypeInternal _HyperloopGroup_default_instance_;
+class HyperloopLog;
+struct HyperloopLogDefaultTypeInternal;
+extern HyperloopLogDefaultTypeInternal _HyperloopLog_default_instance_;
+class HyperloopLog_ParameterLogsEntry_DoNotUse;
+struct HyperloopLog_ParameterLogsEntry_DoNotUseDefaultTypeInternal;
+extern HyperloopLog_ParameterLogsEntry_DoNotUseDefaultTypeInternal _HyperloopLog_ParameterLogsEntry_DoNotUse_default_instance_;
+class HyperloopParameter;
+struct HyperloopParameterDefaultTypeInternal;
+extern HyperloopParameterDefaultTypeInternal _HyperloopParameter_default_instance_;
+class HyperloopParameterLog;
+struct HyperloopParameterLogDefaultTypeInternal;
+extern HyperloopParameterLogDefaultTypeInternal _HyperloopParameterLog_default_instance_;
+class HyperloopUniformGenerator;
+struct HyperloopUniformGeneratorDefaultTypeInternal;
+extern HyperloopUniformGeneratorDefaultTypeInternal _HyperloopUniformGenerator_default_instance_;
+class HyperloopUniformMultiGenerator;
+struct HyperloopUniformMultiGeneratorDefaultTypeInternal;
+extern HyperloopUniformMultiGeneratorDefaultTypeInternal _HyperloopUniformMultiGenerator_default_instance_;
+class LeafExpression;
+struct LeafExpressionDefaultTypeInternal;
+extern LeafExpressionDefaultTypeInternal _LeafExpression_default_instance_;
+class Lookup;
+struct LookupDefaultTypeInternal;
+extern LookupDefaultTypeInternal _Lookup_default_instance_;
 }  // namespace delivery
 PROTOBUF_NAMESPACE_OPEN
+template<> ::delivery::BlenderArithmeticExpression* Arena::CreateMaybeMessage<::delivery::BlenderArithmeticExpression>(Arena*);
+template<> ::delivery::BlenderConditionalExpression* Arena::CreateMaybeMessage<::delivery::BlenderConditionalExpression>(Arena*);
 template<> ::delivery::BlenderConfig* Arena::CreateMaybeMessage<::delivery::BlenderConfig>(Arena*);
-template<> ::delivery::BlenderRule* Arena::CreateMaybeMessage<::delivery::BlenderRule>(Arena*);
-template<> ::delivery::DiversityRule* Arena::CreateMaybeMessage<::delivery::DiversityRule>(Arena*);
-template<> ::delivery::Equal* Arena::CreateMaybeMessage<::delivery::Equal>(Arena*);
-template<> ::delivery::EqualV2* Arena::CreateMaybeMessage<::delivery::EqualV2>(Arena*);
-template<> ::delivery::Flag* Arena::CreateMaybeMessage<::delivery::Flag>(Arena*);
-template<> ::delivery::GreaterThan* Arena::CreateMaybeMessage<::delivery::GreaterThan>(Arena*);
-template<> ::delivery::InsertRule* Arena::CreateMaybeMessage<::delivery::InsertRule>(Arena*);
-template<> ::delivery::Interval* Arena::CreateMaybeMessage<::delivery::Interval>(Arena*);
-template<> ::delivery::LessThan* Arena::CreateMaybeMessage<::delivery::LessThan>(Arena*);
-template<> ::delivery::NegativeRule* Arena::CreateMaybeMessage<::delivery::NegativeRule>(Arena*);
-template<> ::delivery::PositiveRule* Arena::CreateMaybeMessage<::delivery::PositiveRule>(Arena*);
-template<> ::delivery::QualityScoreConfig* Arena::CreateMaybeMessage<::delivery::QualityScoreConfig>(Arena*);
-template<> ::delivery::QualityScoreTerm* Arena::CreateMaybeMessage<::delivery::QualityScoreTerm>(Arena*);
-template<> ::delivery::QualityScoreTerms* Arena::CreateMaybeMessage<::delivery::QualityScoreTerms>(Arena*);
-template<> ::delivery::StringEquality* Arena::CreateMaybeMessage<::delivery::StringEquality>(Arena*);
-template<> ::delivery::TermConditionalEvaluation* Arena::CreateMaybeMessage<::delivery::TermConditionalEvaluation>(Arena*);
+template<> ::delivery::BlenderExpression* Arena::CreateMaybeMessage<::delivery::BlenderExpression>(Arena*);
+template<> ::delivery::BlenderSortKey* Arena::CreateMaybeMessage<::delivery::BlenderSortKey>(Arena*);
+template<> ::delivery::HyperloopConditionalExpression* Arena::CreateMaybeMessage<::delivery::HyperloopConditionalExpression>(Arena*);
+template<> ::delivery::HyperloopConfig* Arena::CreateMaybeMessage<::delivery::HyperloopConfig>(Arena*);
+template<> ::delivery::HyperloopConfig_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage<::delivery::HyperloopConfig_ParametersEntry_DoNotUse>(Arena*);
+template<> ::delivery::HyperloopExpression* Arena::CreateMaybeMessage<::delivery::HyperloopExpression>(Arena*);
+template<> ::delivery::HyperloopGeneratorExpression* Arena::CreateMaybeMessage<::delivery::HyperloopGeneratorExpression>(Arena*);
+template<> ::delivery::HyperloopGroup* Arena::CreateMaybeMessage<::delivery::HyperloopGroup>(Arena*);
+template<> ::delivery::HyperloopLog* Arena::CreateMaybeMessage<::delivery::HyperloopLog>(Arena*);
+template<> ::delivery::HyperloopLog_ParameterLogsEntry_DoNotUse* Arena::CreateMaybeMessage<::delivery::HyperloopLog_ParameterLogsEntry_DoNotUse>(Arena*);
+template<> ::delivery::HyperloopParameter* Arena::CreateMaybeMessage<::delivery::HyperloopParameter>(Arena*);
+template<> ::delivery::HyperloopParameterLog* Arena::CreateMaybeMessage<::delivery::HyperloopParameterLog>(Arena*);
+template<> ::delivery::HyperloopUniformGenerator* Arena::CreateMaybeMessage<::delivery::HyperloopUniformGenerator>(Arena*);
+template<> ::delivery::HyperloopUniformMultiGenerator* Arena::CreateMaybeMessage<::delivery::HyperloopUniformMultiGenerator>(Arena*);
+template<> ::delivery::LeafExpression* Arena::CreateMaybeMessage<::delivery::LeafExpression>(Arena*);
+template<> ::delivery::Lookup* Arena::CreateMaybeMessage<::delivery::Lookup>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace delivery {
 
-enum RankingMethod : int {
-  QUALITY_SCORE = 0,
-  REQUEST_ORDER = 1,
-  RankingMethod_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  RankingMethod_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+enum BlenderArithmeticExpression_Operator : int {
+  BlenderArithmeticExpression_Operator_UNKNOWN = 0,
+  BlenderArithmeticExpression_Operator_ADD = 1,
+  BlenderArithmeticExpression_Operator_MULTIPLY = 2,
+  BlenderArithmeticExpression_Operator_SUBTRACT = 3,
+  BlenderArithmeticExpression_Operator_DIVIDE = 4,
+  BlenderArithmeticExpression_Operator_MIN = 5,
+  BlenderArithmeticExpression_Operator_MAX = 6,
+  BlenderArithmeticExpression_Operator_FLOOR = 7,
+  BlenderArithmeticExpression_Operator_CEILING = 8,
+  BlenderArithmeticExpression_Operator_BlenderArithmeticExpression_Operator_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  BlenderArithmeticExpression_Operator_BlenderArithmeticExpression_Operator_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
-bool RankingMethod_IsValid(int value);
-constexpr RankingMethod RankingMethod_MIN = QUALITY_SCORE;
-constexpr RankingMethod RankingMethod_MAX = REQUEST_ORDER;
-constexpr int RankingMethod_ARRAYSIZE = RankingMethod_MAX + 1;
+bool BlenderArithmeticExpression_Operator_IsValid(int value);
+constexpr BlenderArithmeticExpression_Operator BlenderArithmeticExpression_Operator_Operator_MIN = BlenderArithmeticExpression_Operator_UNKNOWN;
+constexpr BlenderArithmeticExpression_Operator BlenderArithmeticExpression_Operator_Operator_MAX = BlenderArithmeticExpression_Operator_CEILING;
+constexpr int BlenderArithmeticExpression_Operator_Operator_ARRAYSIZE = BlenderArithmeticExpression_Operator_Operator_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RankingMethod_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BlenderArithmeticExpression_Operator_descriptor();
 template<typename T>
-inline const std::string& RankingMethod_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, RankingMethod>::value ||
+inline const std::string& BlenderArithmeticExpression_Operator_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, BlenderArithmeticExpression_Operator>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function RankingMethod_Name.");
+    "Incorrect type passed to function BlenderArithmeticExpression_Operator_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    RankingMethod_descriptor(), enum_t_value);
+    BlenderArithmeticExpression_Operator_descriptor(), enum_t_value);
 }
-inline bool RankingMethod_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RankingMethod* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<RankingMethod>(
-    RankingMethod_descriptor(), name, value);
+inline bool BlenderArithmeticExpression_Operator_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BlenderArithmeticExpression_Operator* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<BlenderArithmeticExpression_Operator>(
+    BlenderArithmeticExpression_Operator_descriptor(), name, value);
+}
+enum BlenderConditionalExpression_Operator : int {
+  BlenderConditionalExpression_Operator_UNKNOWN = 0,
+  BlenderConditionalExpression_Operator_EQUAL = 1,
+  BlenderConditionalExpression_Operator_GREATER_THAN = 2,
+  BlenderConditionalExpression_Operator_GREATER_THAN_OR_EQUAL = 3,
+  BlenderConditionalExpression_Operator_BlenderConditionalExpression_Operator_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  BlenderConditionalExpression_Operator_BlenderConditionalExpression_Operator_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool BlenderConditionalExpression_Operator_IsValid(int value);
+constexpr BlenderConditionalExpression_Operator BlenderConditionalExpression_Operator_Operator_MIN = BlenderConditionalExpression_Operator_UNKNOWN;
+constexpr BlenderConditionalExpression_Operator BlenderConditionalExpression_Operator_Operator_MAX = BlenderConditionalExpression_Operator_GREATER_THAN_OR_EQUAL;
+constexpr int BlenderConditionalExpression_Operator_Operator_ARRAYSIZE = BlenderConditionalExpression_Operator_Operator_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BlenderConditionalExpression_Operator_descriptor();
+template<typename T>
+inline const std::string& BlenderConditionalExpression_Operator_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, BlenderConditionalExpression_Operator>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function BlenderConditionalExpression_Operator_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    BlenderConditionalExpression_Operator_descriptor(), enum_t_value);
+}
+inline bool BlenderConditionalExpression_Operator_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BlenderConditionalExpression_Operator* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<BlenderConditionalExpression_Operator>(
+    BlenderConditionalExpression_Operator_descriptor(), name, value);
+}
+enum HyperloopConditionalExpression_Operator : int {
+  HyperloopConditionalExpression_Operator_UNKNOWN = 0,
+  HyperloopConditionalExpression_Operator_EQUAL = 1,
+  HyperloopConditionalExpression_Operator_GREATER_THAN = 2,
+  HyperloopConditionalExpression_Operator_GREATER_THAN_OR_EQUAL = 3,
+  HyperloopConditionalExpression_Operator_HyperloopConditionalExpression_Operator_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  HyperloopConditionalExpression_Operator_HyperloopConditionalExpression_Operator_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool HyperloopConditionalExpression_Operator_IsValid(int value);
+constexpr HyperloopConditionalExpression_Operator HyperloopConditionalExpression_Operator_Operator_MIN = HyperloopConditionalExpression_Operator_UNKNOWN;
+constexpr HyperloopConditionalExpression_Operator HyperloopConditionalExpression_Operator_Operator_MAX = HyperloopConditionalExpression_Operator_GREATER_THAN_OR_EQUAL;
+constexpr int HyperloopConditionalExpression_Operator_Operator_ARRAYSIZE = HyperloopConditionalExpression_Operator_Operator_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* HyperloopConditionalExpression_Operator_descriptor();
+template<typename T>
+inline const std::string& HyperloopConditionalExpression_Operator_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, HyperloopConditionalExpression_Operator>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function HyperloopConditionalExpression_Operator_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    HyperloopConditionalExpression_Operator_descriptor(), enum_t_value);
+}
+inline bool HyperloopConditionalExpression_Operator_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, HyperloopConditionalExpression_Operator* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<HyperloopConditionalExpression_Operator>(
+    HyperloopConditionalExpression_Operator_descriptor(), name, value);
 }
 // ===================================================================
+
+class LeafExpression PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.LeafExpression) */ {
+ public:
+  inline LeafExpression() : LeafExpression(nullptr) {}
+  virtual ~LeafExpression();
+  explicit constexpr LeafExpression(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LeafExpression(const LeafExpression& from);
+  LeafExpression(LeafExpression&& from) noexcept
+    : LeafExpression() {
+    *this = ::std::move(from);
+  }
+
+  inline LeafExpression& operator=(const LeafExpression& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LeafExpression& operator=(LeafExpression&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const LeafExpression& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LeafExpression* internal_default_instance() {
+    return reinterpret_cast<const LeafExpression*>(
+               &_LeafExpression_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(LeafExpression& a, LeafExpression& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LeafExpression* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LeafExpression* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LeafExpression* New() const final {
+    return CreateMaybeMessage<LeafExpression>(nullptr);
+  }
+
+  LeafExpression* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<LeafExpression>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const LeafExpression& from);
+  void MergeFrom(const LeafExpression& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LeafExpression* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "delivery.LeafExpression";
+  }
+  protected:
+  explicit LeafExpression(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLookupsFieldNumber = 1,
+    kDefaultFieldNumber = 2,
+  };
+  // repeated .delivery.Lookup lookups = 1 [json_name = "lookups"];
+  int lookups_size() const;
+  private:
+  int _internal_lookups_size() const;
+  public:
+  void clear_lookups();
+  ::delivery::Lookup* mutable_lookups(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::Lookup >*
+      mutable_lookups();
+  private:
+  const ::delivery::Lookup& _internal_lookups(int index) const;
+  ::delivery::Lookup* _internal_add_lookups();
+  public:
+  const ::delivery::Lookup& lookups(int index) const;
+  ::delivery::Lookup* add_lookups();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::Lookup >&
+      lookups() const;
+
+  // float default = 2 [json_name = "default"];
+  void clear_default_();
+  float default_() const;
+  void set_default_(float value);
+  private:
+  float _internal_default_() const;
+  void _internal_set_default_(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:delivery.LeafExpression)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::Lookup > lookups_;
+  float default__;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Lookup PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.Lookup) */ {
+ public:
+  inline Lookup() : Lookup(nullptr) {}
+  virtual ~Lookup();
+  explicit constexpr Lookup(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Lookup(const Lookup& from);
+  Lookup(Lookup&& from) noexcept
+    : Lookup() {
+    *this = ::std::move(from);
+  }
+
+  inline Lookup& operator=(const Lookup& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Lookup& operator=(Lookup&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Lookup& default_instance() {
+    return *internal_default_instance();
+  }
+  enum LookupTypeCase {
+    kFeatureId = 1,
+    kParameterKey = 2,
+    LOOKUP_TYPE_NOT_SET = 0,
+  };
+
+  static inline const Lookup* internal_default_instance() {
+    return reinterpret_cast<const Lookup*>(
+               &_Lookup_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Lookup& a, Lookup& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Lookup* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Lookup* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Lookup* New() const final {
+    return CreateMaybeMessage<Lookup>(nullptr);
+  }
+
+  Lookup* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Lookup>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Lookup& from);
+  void MergeFrom(const Lookup& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Lookup* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "delivery.Lookup";
+  }
+  protected:
+  explicit Lookup(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFeatureIdFieldNumber = 1,
+    kParameterKeyFieldNumber = 2,
+  };
+  // uint64 feature_id = 1 [json_name = "featureId"];
+  bool has_feature_id() const;
+  private:
+  bool _internal_has_feature_id() const;
+  public:
+  void clear_feature_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 feature_id() const;
+  void set_feature_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_feature_id() const;
+  void _internal_set_feature_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 parameter_key = 2 [json_name = "parameterKey"];
+  bool has_parameter_key() const;
+  private:
+  bool _internal_has_parameter_key() const;
+  public:
+  void clear_parameter_key();
+  ::PROTOBUF_NAMESPACE_ID::uint64 parameter_key() const;
+  void set_parameter_key(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_parameter_key() const;
+  void _internal_set_parameter_key(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  void clear_lookup_type();
+  LookupTypeCase lookup_type_case() const;
+  // @@protoc_insertion_point(class_scope:delivery.Lookup)
+ private:
+  class _Internal;
+  void set_has_feature_id();
+  void set_has_parameter_key();
+
+  inline bool has_lookup_type() const;
+  inline void clear_has_lookup_type();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  union LookupTypeUnion {
+    constexpr LookupTypeUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::PROTOBUF_NAMESPACE_ID::uint64 feature_id_;
+    ::PROTOBUF_NAMESPACE_ID::uint64 parameter_key_;
+  } lookup_type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
+  friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
+};
+// -------------------------------------------------------------------
 
 class BlenderConfig PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.BlenderConfig) */ {
@@ -199,7 +603,7 @@ class BlenderConfig PROTOBUF_FINAL :
                &_BlenderConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    2;
 
   friend void swap(BlenderConfig& a, BlenderConfig& b) {
     a.Swap(&b);
@@ -269,44 +673,44 @@ class BlenderConfig PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kBlenderRuleFieldNumber = 1,
-    kQualityScoreConfigFieldNumber = 2,
+    kQualityScoreFieldNumber = 1,
+    kSortKeyFieldNumber = 2,
   };
-  // repeated .delivery.BlenderRule blender_rule = 1 [json_name = "blenderRule"];
-  int blender_rule_size() const;
+  // .delivery.BlenderExpression quality_score = 1 [json_name = "qualityScore"];
+  bool has_quality_score() const;
   private:
-  int _internal_blender_rule_size() const;
+  bool _internal_has_quality_score() const;
   public:
-  void clear_blender_rule();
-  ::delivery::BlenderRule* mutable_blender_rule(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderRule >*
-      mutable_blender_rule();
+  void clear_quality_score();
+  const ::delivery::BlenderExpression& quality_score() const;
+  ::delivery::BlenderExpression* release_quality_score();
+  ::delivery::BlenderExpression* mutable_quality_score();
+  void set_allocated_quality_score(::delivery::BlenderExpression* quality_score);
   private:
-  const ::delivery::BlenderRule& _internal_blender_rule(int index) const;
-  ::delivery::BlenderRule* _internal_add_blender_rule();
+  const ::delivery::BlenderExpression& _internal_quality_score() const;
+  ::delivery::BlenderExpression* _internal_mutable_quality_score();
   public:
-  const ::delivery::BlenderRule& blender_rule(int index) const;
-  ::delivery::BlenderRule* add_blender_rule();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderRule >&
-      blender_rule() const;
+  void unsafe_arena_set_allocated_quality_score(
+      ::delivery::BlenderExpression* quality_score);
+  ::delivery::BlenderExpression* unsafe_arena_release_quality_score();
 
-  // .delivery.QualityScoreConfig quality_score_config = 2 [json_name = "qualityScoreConfig"];
-  bool has_quality_score_config() const;
+  // .delivery.BlenderSortKey sort_key = 2 [json_name = "sortKey"];
+  bool has_sort_key() const;
   private:
-  bool _internal_has_quality_score_config() const;
+  bool _internal_has_sort_key() const;
   public:
-  void clear_quality_score_config();
-  const ::delivery::QualityScoreConfig& quality_score_config() const;
-  ::delivery::QualityScoreConfig* release_quality_score_config();
-  ::delivery::QualityScoreConfig* mutable_quality_score_config();
-  void set_allocated_quality_score_config(::delivery::QualityScoreConfig* quality_score_config);
+  void clear_sort_key();
+  const ::delivery::BlenderSortKey& sort_key() const;
+  ::delivery::BlenderSortKey* release_sort_key();
+  ::delivery::BlenderSortKey* mutable_sort_key();
+  void set_allocated_sort_key(::delivery::BlenderSortKey* sort_key);
   private:
-  const ::delivery::QualityScoreConfig& _internal_quality_score_config() const;
-  ::delivery::QualityScoreConfig* _internal_mutable_quality_score_config();
+  const ::delivery::BlenderSortKey& _internal_sort_key() const;
+  ::delivery::BlenderSortKey* _internal_mutable_sort_key();
   public:
-  void unsafe_arena_set_allocated_quality_score_config(
-      ::delivery::QualityScoreConfig* quality_score_config);
-  ::delivery::QualityScoreConfig* unsafe_arena_release_quality_score_config();
+  void unsafe_arena_set_allocated_sort_key(
+      ::delivery::BlenderSortKey* sort_key);
+  ::delivery::BlenderSortKey* unsafe_arena_release_sort_key();
 
   // @@protoc_insertion_point(class_scope:delivery.BlenderConfig)
  private:
@@ -315,31 +719,31 @@ class BlenderConfig PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderRule > blender_rule_;
-  ::delivery::QualityScoreConfig* quality_score_config_;
+  ::delivery::BlenderExpression* quality_score_;
+  ::delivery::BlenderSortKey* sort_key_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class BlenderRule PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.BlenderRule) */ {
+class BlenderExpression PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.BlenderExpression) */ {
  public:
-  inline BlenderRule() : BlenderRule(nullptr) {}
-  virtual ~BlenderRule();
-  explicit constexpr BlenderRule(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline BlenderExpression() : BlenderExpression(nullptr) {}
+  virtual ~BlenderExpression();
+  explicit constexpr BlenderExpression(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  BlenderRule(const BlenderRule& from);
-  BlenderRule(BlenderRule&& from) noexcept
-    : BlenderRule() {
+  BlenderExpression(const BlenderExpression& from);
+  BlenderExpression(BlenderExpression&& from) noexcept
+    : BlenderExpression() {
     *this = ::std::move(from);
   }
 
-  inline BlenderRule& operator=(const BlenderRule& from) {
+  inline BlenderExpression& operator=(const BlenderExpression& from) {
     CopyFrom(from);
     return *this;
   }
-  inline BlenderRule& operator=(BlenderRule&& from) noexcept {
+  inline BlenderExpression& operator=(BlenderExpression&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -357,538 +761,27 @@ class BlenderRule PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const BlenderRule& default_instance() {
+  static const BlenderExpression& default_instance() {
     return *internal_default_instance();
   }
-  enum RuleCase {
-    kPositiveRule = 6,
-    kInsertRule = 7,
-    kNegativeRule = 8,
-    kDiversityRule = 9,
-    RULE_NOT_SET = 0,
+  enum ExpTypeCase {
+    kLeaf = 1,
+    kArithmeticExp = 2,
+    kConditionalExp = 3,
+    EXP_TYPE_NOT_SET = 0,
   };
 
-  enum EvalMethodCase {
-    kFlag = 11,
-    kGreaterThan = 13,
-    kLessThan = 14,
-    kInterval = 15,
-    kEqualV2 = 16,
-    EVAL_METHOD_NOT_SET = 0,
-  };
-
-  static inline const BlenderRule* internal_default_instance() {
-    return reinterpret_cast<const BlenderRule*>(
-               &_BlenderRule_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(BlenderRule& a, BlenderRule& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(BlenderRule* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(BlenderRule* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline BlenderRule* New() const final {
-    return CreateMaybeMessage<BlenderRule>(nullptr);
-  }
-
-  BlenderRule* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<BlenderRule>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const BlenderRule& from);
-  void MergeFrom(const BlenderRule& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(BlenderRule* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.BlenderRule";
-  }
-  protected:
-  explicit BlenderRule(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAttributeNameFieldNumber = 1,
-    kPositiveRuleFieldNumber = 6,
-    kInsertRuleFieldNumber = 7,
-    kNegativeRuleFieldNumber = 8,
-    kDiversityRuleFieldNumber = 9,
-    kFlagFieldNumber = 11,
-    kGreaterThanFieldNumber = 13,
-    kLessThanFieldNumber = 14,
-    kIntervalFieldNumber = 15,
-    kEqualV2FieldNumber = 16,
-  };
-  // string attribute_name = 1 [json_name = "attributeName"];
-  void clear_attribute_name();
-  const std::string& attribute_name() const;
-  void set_attribute_name(const std::string& value);
-  void set_attribute_name(std::string&& value);
-  void set_attribute_name(const char* value);
-  void set_attribute_name(const char* value, size_t size);
-  std::string* mutable_attribute_name();
-  std::string* release_attribute_name();
-  void set_allocated_attribute_name(std::string* attribute_name);
-  private:
-  const std::string& _internal_attribute_name() const;
-  void _internal_set_attribute_name(const std::string& value);
-  std::string* _internal_mutable_attribute_name();
-  public:
-
-  // .delivery.PositiveRule positive_rule = 6 [json_name = "positiveRule"];
-  bool has_positive_rule() const;
-  private:
-  bool _internal_has_positive_rule() const;
-  public:
-  void clear_positive_rule();
-  const ::delivery::PositiveRule& positive_rule() const;
-  ::delivery::PositiveRule* release_positive_rule();
-  ::delivery::PositiveRule* mutable_positive_rule();
-  void set_allocated_positive_rule(::delivery::PositiveRule* positive_rule);
-  private:
-  const ::delivery::PositiveRule& _internal_positive_rule() const;
-  ::delivery::PositiveRule* _internal_mutable_positive_rule();
-  public:
-  void unsafe_arena_set_allocated_positive_rule(
-      ::delivery::PositiveRule* positive_rule);
-  ::delivery::PositiveRule* unsafe_arena_release_positive_rule();
-
-  // .delivery.InsertRule insert_rule = 7 [json_name = "insertRule"];
-  bool has_insert_rule() const;
-  private:
-  bool _internal_has_insert_rule() const;
-  public:
-  void clear_insert_rule();
-  const ::delivery::InsertRule& insert_rule() const;
-  ::delivery::InsertRule* release_insert_rule();
-  ::delivery::InsertRule* mutable_insert_rule();
-  void set_allocated_insert_rule(::delivery::InsertRule* insert_rule);
-  private:
-  const ::delivery::InsertRule& _internal_insert_rule() const;
-  ::delivery::InsertRule* _internal_mutable_insert_rule();
-  public:
-  void unsafe_arena_set_allocated_insert_rule(
-      ::delivery::InsertRule* insert_rule);
-  ::delivery::InsertRule* unsafe_arena_release_insert_rule();
-
-  // .delivery.NegativeRule negative_rule = 8 [json_name = "negativeRule"];
-  bool has_negative_rule() const;
-  private:
-  bool _internal_has_negative_rule() const;
-  public:
-  void clear_negative_rule();
-  const ::delivery::NegativeRule& negative_rule() const;
-  ::delivery::NegativeRule* release_negative_rule();
-  ::delivery::NegativeRule* mutable_negative_rule();
-  void set_allocated_negative_rule(::delivery::NegativeRule* negative_rule);
-  private:
-  const ::delivery::NegativeRule& _internal_negative_rule() const;
-  ::delivery::NegativeRule* _internal_mutable_negative_rule();
-  public:
-  void unsafe_arena_set_allocated_negative_rule(
-      ::delivery::NegativeRule* negative_rule);
-  ::delivery::NegativeRule* unsafe_arena_release_negative_rule();
-
-  // .delivery.DiversityRule diversity_rule = 9 [json_name = "diversityRule"];
-  bool has_diversity_rule() const;
-  private:
-  bool _internal_has_diversity_rule() const;
-  public:
-  void clear_diversity_rule();
-  const ::delivery::DiversityRule& diversity_rule() const;
-  ::delivery::DiversityRule* release_diversity_rule();
-  ::delivery::DiversityRule* mutable_diversity_rule();
-  void set_allocated_diversity_rule(::delivery::DiversityRule* diversity_rule);
-  private:
-  const ::delivery::DiversityRule& _internal_diversity_rule() const;
-  ::delivery::DiversityRule* _internal_mutable_diversity_rule();
-  public:
-  void unsafe_arena_set_allocated_diversity_rule(
-      ::delivery::DiversityRule* diversity_rule);
-  ::delivery::DiversityRule* unsafe_arena_release_diversity_rule();
-
-  // .delivery.Flag flag = 11 [json_name = "flag"];
-  bool has_flag() const;
-  private:
-  bool _internal_has_flag() const;
-  public:
-  void clear_flag();
-  const ::delivery::Flag& flag() const;
-  ::delivery::Flag* release_flag();
-  ::delivery::Flag* mutable_flag();
-  void set_allocated_flag(::delivery::Flag* flag);
-  private:
-  const ::delivery::Flag& _internal_flag() const;
-  ::delivery::Flag* _internal_mutable_flag();
-  public:
-  void unsafe_arena_set_allocated_flag(
-      ::delivery::Flag* flag);
-  ::delivery::Flag* unsafe_arena_release_flag();
-
-  // .delivery.GreaterThan greater_than = 13 [json_name = "greaterThan"];
-  bool has_greater_than() const;
-  private:
-  bool _internal_has_greater_than() const;
-  public:
-  void clear_greater_than();
-  const ::delivery::GreaterThan& greater_than() const;
-  ::delivery::GreaterThan* release_greater_than();
-  ::delivery::GreaterThan* mutable_greater_than();
-  void set_allocated_greater_than(::delivery::GreaterThan* greater_than);
-  private:
-  const ::delivery::GreaterThan& _internal_greater_than() const;
-  ::delivery::GreaterThan* _internal_mutable_greater_than();
-  public:
-  void unsafe_arena_set_allocated_greater_than(
-      ::delivery::GreaterThan* greater_than);
-  ::delivery::GreaterThan* unsafe_arena_release_greater_than();
-
-  // .delivery.LessThan less_than = 14 [json_name = "lessThan"];
-  bool has_less_than() const;
-  private:
-  bool _internal_has_less_than() const;
-  public:
-  void clear_less_than();
-  const ::delivery::LessThan& less_than() const;
-  ::delivery::LessThan* release_less_than();
-  ::delivery::LessThan* mutable_less_than();
-  void set_allocated_less_than(::delivery::LessThan* less_than);
-  private:
-  const ::delivery::LessThan& _internal_less_than() const;
-  ::delivery::LessThan* _internal_mutable_less_than();
-  public:
-  void unsafe_arena_set_allocated_less_than(
-      ::delivery::LessThan* less_than);
-  ::delivery::LessThan* unsafe_arena_release_less_than();
-
-  // .delivery.Interval interval = 15 [json_name = "interval"];
-  bool has_interval() const;
-  private:
-  bool _internal_has_interval() const;
-  public:
-  void clear_interval();
-  const ::delivery::Interval& interval() const;
-  ::delivery::Interval* release_interval();
-  ::delivery::Interval* mutable_interval();
-  void set_allocated_interval(::delivery::Interval* interval);
-  private:
-  const ::delivery::Interval& _internal_interval() const;
-  ::delivery::Interval* _internal_mutable_interval();
-  public:
-  void unsafe_arena_set_allocated_interval(
-      ::delivery::Interval* interval);
-  ::delivery::Interval* unsafe_arena_release_interval();
-
-  // .delivery.EqualV2 equal_v2 = 16 [json_name = "equalV2"];
-  bool has_equal_v2() const;
-  private:
-  bool _internal_has_equal_v2() const;
-  public:
-  void clear_equal_v2();
-  const ::delivery::EqualV2& equal_v2() const;
-  ::delivery::EqualV2* release_equal_v2();
-  ::delivery::EqualV2* mutable_equal_v2();
-  void set_allocated_equal_v2(::delivery::EqualV2* equal_v2);
-  private:
-  const ::delivery::EqualV2& _internal_equal_v2() const;
-  ::delivery::EqualV2* _internal_mutable_equal_v2();
-  public:
-  void unsafe_arena_set_allocated_equal_v2(
-      ::delivery::EqualV2* equal_v2);
-  ::delivery::EqualV2* unsafe_arena_release_equal_v2();
-
-  void clear_rule();
-  RuleCase rule_case() const;
-  void clear_eval_method();
-  EvalMethodCase eval_method_case() const;
-  // @@protoc_insertion_point(class_scope:delivery.BlenderRule)
- private:
-  class _Internal;
-  void set_has_positive_rule();
-  void set_has_insert_rule();
-  void set_has_negative_rule();
-  void set_has_diversity_rule();
-  void set_has_flag();
-  void set_has_greater_than();
-  void set_has_less_than();
-  void set_has_interval();
-  void set_has_equal_v2();
-
-  inline bool has_rule() const;
-  inline void clear_has_rule();
-
-  inline bool has_eval_method() const;
-  inline void clear_has_eval_method();
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attribute_name_;
-  union RuleUnion {
-    constexpr RuleUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::delivery::PositiveRule* positive_rule_;
-    ::delivery::InsertRule* insert_rule_;
-    ::delivery::NegativeRule* negative_rule_;
-    ::delivery::DiversityRule* diversity_rule_;
-  } rule_;
-  union EvalMethodUnion {
-    constexpr EvalMethodUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::delivery::Flag* flag_;
-    ::delivery::GreaterThan* greater_than_;
-    ::delivery::LessThan* less_than_;
-    ::delivery::Interval* interval_;
-    ::delivery::EqualV2* equal_v2_;
-  } eval_method_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[2];
-
-  friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Flag PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.Flag) */ {
- public:
-  inline Flag() : Flag(nullptr) {}
-  virtual ~Flag();
-  explicit constexpr Flag(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  Flag(const Flag& from);
-  Flag(Flag&& from) noexcept
-    : Flag() {
-    *this = ::std::move(from);
-  }
-
-  inline Flag& operator=(const Flag& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Flag& operator=(Flag&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Flag& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Flag* internal_default_instance() {
-    return reinterpret_cast<const Flag*>(
-               &_Flag_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(Flag& a, Flag& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Flag* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Flag* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Flag* New() const final {
-    return CreateMaybeMessage<Flag>(nullptr);
-  }
-
-  Flag* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Flag>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Flag& from);
-  void MergeFrom(const Flag& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Flag* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.Flag";
-  }
-  protected:
-  explicit Flag(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kIgnoredFieldNumber = 1,
-  };
-  // bool ignored = 1 [json_name = "ignored", deprecated = true];
-  PROTOBUF_DEPRECATED bool has_ignored() const;
-  private:
-  bool _internal_has_ignored() const;
-  public:
-  PROTOBUF_DEPRECATED void clear_ignored();
-  PROTOBUF_DEPRECATED bool ignored() const;
-  PROTOBUF_DEPRECATED void set_ignored(bool value);
-  private:
-  bool _internal_ignored() const;
-  void _internal_set_ignored(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:delivery.Flag)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  bool ignored_;
-  friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
-};
-// -------------------------------------------------------------------
-
-class EqualV2 PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.EqualV2) */ {
- public:
-  inline EqualV2() : EqualV2(nullptr) {}
-  virtual ~EqualV2();
-  explicit constexpr EqualV2(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  EqualV2(const EqualV2& from);
-  EqualV2(EqualV2&& from) noexcept
-    : EqualV2() {
-    *this = ::std::move(from);
-  }
-
-  inline EqualV2& operator=(const EqualV2& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline EqualV2& operator=(EqualV2&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const EqualV2& default_instance() {
-    return *internal_default_instance();
-  }
-  enum EqualityTypeCase {
-    kNumber = 1,
-    kStringEquality = 2,
-    EQUALITY_TYPE_NOT_SET = 0,
-  };
-
-  static inline const EqualV2* internal_default_instance() {
-    return reinterpret_cast<const EqualV2*>(
-               &_EqualV2_default_instance_);
+  static inline const BlenderExpression* internal_default_instance() {
+    return reinterpret_cast<const BlenderExpression*>(
+               &_BlenderExpression_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     3;
 
-  friend void swap(EqualV2& a, EqualV2& b) {
+  friend void swap(BlenderExpression& a, BlenderExpression& b) {
     a.Swap(&b);
   }
-  inline void Swap(EqualV2* other) {
+  inline void Swap(BlenderExpression* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -896,7 +789,7 @@ class EqualV2 PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(EqualV2* other) {
+  void UnsafeArenaSwap(BlenderExpression* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -904,17 +797,17 @@ class EqualV2 PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline EqualV2* New() const final {
-    return CreateMaybeMessage<EqualV2>(nullptr);
+  inline BlenderExpression* New() const final {
+    return CreateMaybeMessage<BlenderExpression>(nullptr);
   }
 
-  EqualV2* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<EqualV2>(arena);
+  BlenderExpression* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BlenderExpression>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const EqualV2& from);
-  void MergeFrom(const EqualV2& from);
+  void CopyFrom(const BlenderExpression& from);
+  void MergeFrom(const BlenderExpression& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -928,13 +821,13 @@ class EqualV2 PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(EqualV2* other);
+  void InternalSwap(BlenderExpression* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.EqualV2";
+    return "delivery.BlenderExpression";
   }
   protected:
-  explicit EqualV2(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit BlenderExpression(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -953,65 +846,86 @@ class EqualV2 PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNumberFieldNumber = 1,
-    kStringEqualityFieldNumber = 2,
+    kLeafFieldNumber = 1,
+    kArithmeticExpFieldNumber = 2,
+    kConditionalExpFieldNumber = 3,
   };
-  // .delivery.Equal number = 1 [json_name = "number"];
-  bool has_number() const;
+  // .delivery.LeafExpression leaf = 1 [json_name = "leaf"];
+  bool has_leaf() const;
   private:
-  bool _internal_has_number() const;
+  bool _internal_has_leaf() const;
   public:
-  void clear_number();
-  const ::delivery::Equal& number() const;
-  ::delivery::Equal* release_number();
-  ::delivery::Equal* mutable_number();
-  void set_allocated_number(::delivery::Equal* number);
+  void clear_leaf();
+  const ::delivery::LeafExpression& leaf() const;
+  ::delivery::LeafExpression* release_leaf();
+  ::delivery::LeafExpression* mutable_leaf();
+  void set_allocated_leaf(::delivery::LeafExpression* leaf);
   private:
-  const ::delivery::Equal& _internal_number() const;
-  ::delivery::Equal* _internal_mutable_number();
+  const ::delivery::LeafExpression& _internal_leaf() const;
+  ::delivery::LeafExpression* _internal_mutable_leaf();
   public:
-  void unsafe_arena_set_allocated_number(
-      ::delivery::Equal* number);
-  ::delivery::Equal* unsafe_arena_release_number();
+  void unsafe_arena_set_allocated_leaf(
+      ::delivery::LeafExpression* leaf);
+  ::delivery::LeafExpression* unsafe_arena_release_leaf();
 
-  // .delivery.StringEquality string_equality = 2 [json_name = "stringEquality"];
-  bool has_string_equality() const;
+  // .delivery.BlenderArithmeticExpression arithmetic_exp = 2 [json_name = "arithmeticExp"];
+  bool has_arithmetic_exp() const;
   private:
-  bool _internal_has_string_equality() const;
+  bool _internal_has_arithmetic_exp() const;
   public:
-  void clear_string_equality();
-  const ::delivery::StringEquality& string_equality() const;
-  ::delivery::StringEquality* release_string_equality();
-  ::delivery::StringEquality* mutable_string_equality();
-  void set_allocated_string_equality(::delivery::StringEquality* string_equality);
+  void clear_arithmetic_exp();
+  const ::delivery::BlenderArithmeticExpression& arithmetic_exp() const;
+  ::delivery::BlenderArithmeticExpression* release_arithmetic_exp();
+  ::delivery::BlenderArithmeticExpression* mutable_arithmetic_exp();
+  void set_allocated_arithmetic_exp(::delivery::BlenderArithmeticExpression* arithmetic_exp);
   private:
-  const ::delivery::StringEquality& _internal_string_equality() const;
-  ::delivery::StringEquality* _internal_mutable_string_equality();
+  const ::delivery::BlenderArithmeticExpression& _internal_arithmetic_exp() const;
+  ::delivery::BlenderArithmeticExpression* _internal_mutable_arithmetic_exp();
   public:
-  void unsafe_arena_set_allocated_string_equality(
-      ::delivery::StringEquality* string_equality);
-  ::delivery::StringEquality* unsafe_arena_release_string_equality();
+  void unsafe_arena_set_allocated_arithmetic_exp(
+      ::delivery::BlenderArithmeticExpression* arithmetic_exp);
+  ::delivery::BlenderArithmeticExpression* unsafe_arena_release_arithmetic_exp();
 
-  void clear_equality_type();
-  EqualityTypeCase equality_type_case() const;
-  // @@protoc_insertion_point(class_scope:delivery.EqualV2)
+  // .delivery.BlenderConditionalExpression conditional_exp = 3 [json_name = "conditionalExp"];
+  bool has_conditional_exp() const;
+  private:
+  bool _internal_has_conditional_exp() const;
+  public:
+  void clear_conditional_exp();
+  const ::delivery::BlenderConditionalExpression& conditional_exp() const;
+  ::delivery::BlenderConditionalExpression* release_conditional_exp();
+  ::delivery::BlenderConditionalExpression* mutable_conditional_exp();
+  void set_allocated_conditional_exp(::delivery::BlenderConditionalExpression* conditional_exp);
+  private:
+  const ::delivery::BlenderConditionalExpression& _internal_conditional_exp() const;
+  ::delivery::BlenderConditionalExpression* _internal_mutable_conditional_exp();
+  public:
+  void unsafe_arena_set_allocated_conditional_exp(
+      ::delivery::BlenderConditionalExpression* conditional_exp);
+  ::delivery::BlenderConditionalExpression* unsafe_arena_release_conditional_exp();
+
+  void clear_exp_type();
+  ExpTypeCase exp_type_case() const;
+  // @@protoc_insertion_point(class_scope:delivery.BlenderExpression)
  private:
   class _Internal;
-  void set_has_number();
-  void set_has_string_equality();
+  void set_has_leaf();
+  void set_has_arithmetic_exp();
+  void set_has_conditional_exp();
 
-  inline bool has_equality_type() const;
-  inline void clear_has_equality_type();
+  inline bool has_exp_type() const;
+  inline void clear_has_exp_type();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  union EqualityTypeUnion {
-    constexpr EqualityTypeUnion() : _constinit_{} {}
+  union ExpTypeUnion {
+    constexpr ExpTypeUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::delivery::Equal* number_;
-    ::delivery::StringEquality* string_equality_;
-  } equality_type_;
+    ::delivery::LeafExpression* leaf_;
+    ::delivery::BlenderArithmeticExpression* arithmetic_exp_;
+    ::delivery::BlenderConditionalExpression* conditional_exp_;
+  } exp_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
 
@@ -1019,24 +933,24 @@ class EqualV2 PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class Equal PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.Equal) */ {
+class BlenderArithmeticExpression PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.BlenderArithmeticExpression) */ {
  public:
-  inline Equal() : Equal(nullptr) {}
-  virtual ~Equal();
-  explicit constexpr Equal(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline BlenderArithmeticExpression() : BlenderArithmeticExpression(nullptr) {}
+  virtual ~BlenderArithmeticExpression();
+  explicit constexpr BlenderArithmeticExpression(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Equal(const Equal& from);
-  Equal(Equal&& from) noexcept
-    : Equal() {
+  BlenderArithmeticExpression(const BlenderArithmeticExpression& from);
+  BlenderArithmeticExpression(BlenderArithmeticExpression&& from) noexcept
+    : BlenderArithmeticExpression() {
     *this = ::std::move(from);
   }
 
-  inline Equal& operator=(const Equal& from) {
+  inline BlenderArithmeticExpression& operator=(const BlenderArithmeticExpression& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Equal& operator=(Equal&& from) noexcept {
+  inline BlenderArithmeticExpression& operator=(BlenderArithmeticExpression&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1054,20 +968,20 @@ class Equal PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Equal& default_instance() {
+  static const BlenderArithmeticExpression& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Equal* internal_default_instance() {
-    return reinterpret_cast<const Equal*>(
-               &_Equal_default_instance_);
+  static inline const BlenderArithmeticExpression* internal_default_instance() {
+    return reinterpret_cast<const BlenderArithmeticExpression*>(
+               &_BlenderArithmeticExpression_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     4;
 
-  friend void swap(Equal& a, Equal& b) {
+  friend void swap(BlenderArithmeticExpression& a, BlenderArithmeticExpression& b) {
     a.Swap(&b);
   }
-  inline void Swap(Equal* other) {
+  inline void Swap(BlenderArithmeticExpression* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1075,7 +989,7 @@ class Equal PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Equal* other) {
+  void UnsafeArenaSwap(BlenderArithmeticExpression* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1083,17 +997,17 @@ class Equal PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Equal* New() const final {
-    return CreateMaybeMessage<Equal>(nullptr);
+  inline BlenderArithmeticExpression* New() const final {
+    return CreateMaybeMessage<BlenderArithmeticExpression>(nullptr);
   }
 
-  Equal* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Equal>(arena);
+  BlenderArithmeticExpression* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BlenderArithmeticExpression>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Equal& from);
-  void MergeFrom(const Equal& from);
+  void CopyFrom(const BlenderArithmeticExpression& from);
+  void MergeFrom(const BlenderArithmeticExpression& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1107,13 +1021,13 @@ class Equal PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Equal* other);
+  void InternalSwap(BlenderArithmeticExpression* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.Equal";
+    return "delivery.BlenderArithmeticExpression";
   }
   protected:
-  explicit Equal(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit BlenderArithmeticExpression(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1129,62 +1043,115 @@ class Equal PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef BlenderArithmeticExpression_Operator Operator;
+  static constexpr Operator UNKNOWN =
+    BlenderArithmeticExpression_Operator_UNKNOWN;
+  static constexpr Operator ADD =
+    BlenderArithmeticExpression_Operator_ADD;
+  static constexpr Operator MULTIPLY =
+    BlenderArithmeticExpression_Operator_MULTIPLY;
+  static constexpr Operator SUBTRACT =
+    BlenderArithmeticExpression_Operator_SUBTRACT;
+  static constexpr Operator DIVIDE =
+    BlenderArithmeticExpression_Operator_DIVIDE;
+  static constexpr Operator MIN =
+    BlenderArithmeticExpression_Operator_MIN;
+  static constexpr Operator MAX =
+    BlenderArithmeticExpression_Operator_MAX;
+  static constexpr Operator FLOOR =
+    BlenderArithmeticExpression_Operator_FLOOR;
+  static constexpr Operator CEILING =
+    BlenderArithmeticExpression_Operator_CEILING;
+  static inline bool Operator_IsValid(int value) {
+    return BlenderArithmeticExpression_Operator_IsValid(value);
+  }
+  static constexpr Operator Operator_MIN =
+    BlenderArithmeticExpression_Operator_Operator_MIN;
+  static constexpr Operator Operator_MAX =
+    BlenderArithmeticExpression_Operator_Operator_MAX;
+  static constexpr int Operator_ARRAYSIZE =
+    BlenderArithmeticExpression_Operator_Operator_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Operator_descriptor() {
+    return BlenderArithmeticExpression_Operator_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Operator_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Operator>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Operator_Name.");
+    return BlenderArithmeticExpression_Operator_Name(enum_t_value);
+  }
+  static inline bool Operator_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Operator* value) {
+    return BlenderArithmeticExpression_Operator_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
-    kComparedToFieldNumber = 1,
-    kToleranceFieldNumber = 2,
+    kInputsFieldNumber = 2,
+    kOpFieldNumber = 1,
   };
-  // float compared_to = 1 [json_name = "comparedTo"];
-  void clear_compared_to();
-  float compared_to() const;
-  void set_compared_to(float value);
+  // repeated .delivery.BlenderExpression inputs = 2 [json_name = "inputs"];
+  int inputs_size() const;
   private:
-  float _internal_compared_to() const;
-  void _internal_set_compared_to(float value);
+  int _internal_inputs_size() const;
+  public:
+  void clear_inputs();
+  ::delivery::BlenderExpression* mutable_inputs(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >*
+      mutable_inputs();
+  private:
+  const ::delivery::BlenderExpression& _internal_inputs(int index) const;
+  ::delivery::BlenderExpression* _internal_add_inputs();
+  public:
+  const ::delivery::BlenderExpression& inputs(int index) const;
+  ::delivery::BlenderExpression* add_inputs();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >&
+      inputs() const;
+
+  // .delivery.BlenderArithmeticExpression.Operator op = 1 [json_name = "op"];
+  void clear_op();
+  ::delivery::BlenderArithmeticExpression_Operator op() const;
+  void set_op(::delivery::BlenderArithmeticExpression_Operator value);
+  private:
+  ::delivery::BlenderArithmeticExpression_Operator _internal_op() const;
+  void _internal_set_op(::delivery::BlenderArithmeticExpression_Operator value);
   public:
 
-  // float tolerance = 2 [json_name = "tolerance"];
-  void clear_tolerance();
-  float tolerance() const;
-  void set_tolerance(float value);
-  private:
-  float _internal_tolerance() const;
-  void _internal_set_tolerance(float value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:delivery.Equal)
+  // @@protoc_insertion_point(class_scope:delivery.BlenderArithmeticExpression)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  float compared_to_;
-  float tolerance_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression > inputs_;
+  int op_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class StringEquality PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.StringEquality) */ {
+class BlenderConditionalExpression PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.BlenderConditionalExpression) */ {
  public:
-  inline StringEquality() : StringEquality(nullptr) {}
-  virtual ~StringEquality();
-  explicit constexpr StringEquality(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline BlenderConditionalExpression() : BlenderConditionalExpression(nullptr) {}
+  virtual ~BlenderConditionalExpression();
+  explicit constexpr BlenderConditionalExpression(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  StringEquality(const StringEquality& from);
-  StringEquality(StringEquality&& from) noexcept
-    : StringEquality() {
+  BlenderConditionalExpression(const BlenderConditionalExpression& from);
+  BlenderConditionalExpression(BlenderConditionalExpression&& from) noexcept
+    : BlenderConditionalExpression() {
     *this = ::std::move(from);
   }
 
-  inline StringEquality& operator=(const StringEquality& from) {
+  inline BlenderConditionalExpression& operator=(const BlenderConditionalExpression& from) {
     CopyFrom(from);
     return *this;
   }
-  inline StringEquality& operator=(StringEquality&& from) noexcept {
+  inline BlenderConditionalExpression& operator=(BlenderConditionalExpression&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1202,25 +1169,20 @@ class StringEquality PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const StringEquality& default_instance() {
+  static const BlenderConditionalExpression& default_instance() {
     return *internal_default_instance();
   }
-  enum ValueCase {
-    kRaw = 1,
-    VALUE_NOT_SET = 0,
-  };
-
-  static inline const StringEquality* internal_default_instance() {
-    return reinterpret_cast<const StringEquality*>(
-               &_StringEquality_default_instance_);
+  static inline const BlenderConditionalExpression* internal_default_instance() {
+    return reinterpret_cast<const BlenderConditionalExpression*>(
+               &_BlenderConditionalExpression_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     5;
 
-  friend void swap(StringEquality& a, StringEquality& b) {
+  friend void swap(BlenderConditionalExpression& a, BlenderConditionalExpression& b) {
     a.Swap(&b);
   }
-  inline void Swap(StringEquality* other) {
+  inline void Swap(BlenderConditionalExpression* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1228,7 +1190,7 @@ class StringEquality PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(StringEquality* other) {
+  void UnsafeArenaSwap(BlenderConditionalExpression* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1236,17 +1198,17 @@ class StringEquality PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline StringEquality* New() const final {
-    return CreateMaybeMessage<StringEquality>(nullptr);
+  inline BlenderConditionalExpression* New() const final {
+    return CreateMaybeMessage<BlenderConditionalExpression>(nullptr);
   }
 
-  StringEquality* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<StringEquality>(arena);
+  BlenderConditionalExpression* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BlenderConditionalExpression>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const StringEquality& from);
-  void MergeFrom(const StringEquality& from);
+  void CopyFrom(const BlenderConditionalExpression& from);
+  void MergeFrom(const BlenderConditionalExpression& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1260,13 +1222,13 @@ class StringEquality PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(StringEquality* other);
+  void InternalSwap(BlenderConditionalExpression* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.StringEquality";
+    return "delivery.BlenderConditionalExpression";
   }
   protected:
-  explicit StringEquality(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit BlenderConditionalExpression(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1282,74 +1244,165 @@ class StringEquality PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef BlenderConditionalExpression_Operator Operator;
+  static constexpr Operator UNKNOWN =
+    BlenderConditionalExpression_Operator_UNKNOWN;
+  static constexpr Operator EQUAL =
+    BlenderConditionalExpression_Operator_EQUAL;
+  static constexpr Operator GREATER_THAN =
+    BlenderConditionalExpression_Operator_GREATER_THAN;
+  static constexpr Operator GREATER_THAN_OR_EQUAL =
+    BlenderConditionalExpression_Operator_GREATER_THAN_OR_EQUAL;
+  static inline bool Operator_IsValid(int value) {
+    return BlenderConditionalExpression_Operator_IsValid(value);
+  }
+  static constexpr Operator Operator_MIN =
+    BlenderConditionalExpression_Operator_Operator_MIN;
+  static constexpr Operator Operator_MAX =
+    BlenderConditionalExpression_Operator_Operator_MAX;
+  static constexpr int Operator_ARRAYSIZE =
+    BlenderConditionalExpression_Operator_Operator_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Operator_descriptor() {
+    return BlenderConditionalExpression_Operator_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Operator_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Operator>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Operator_Name.");
+    return BlenderConditionalExpression_Operator_Name(enum_t_value);
+  }
+  static inline bool Operator_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Operator* value) {
+    return BlenderConditionalExpression_Operator_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRawFieldNumber = 1,
+    kPredicateLhsFieldNumber = 2,
+    kPredicateRhsFieldNumber = 3,
+    kThenBranchFieldNumber = 4,
+    kElseBranchFieldNumber = 5,
+    kOpFieldNumber = 1,
   };
-  // string raw = 1 [json_name = "raw"];
-  bool has_raw() const;
+  // .delivery.BlenderExpression predicate_lhs = 2 [json_name = "predicateLhs"];
+  bool has_predicate_lhs() const;
   private:
-  bool _internal_has_raw() const;
+  bool _internal_has_predicate_lhs() const;
   public:
-  void clear_raw();
-  const std::string& raw() const;
-  void set_raw(const std::string& value);
-  void set_raw(std::string&& value);
-  void set_raw(const char* value);
-  void set_raw(const char* value, size_t size);
-  std::string* mutable_raw();
-  std::string* release_raw();
-  void set_allocated_raw(std::string* raw);
+  void clear_predicate_lhs();
+  const ::delivery::BlenderExpression& predicate_lhs() const;
+  ::delivery::BlenderExpression* release_predicate_lhs();
+  ::delivery::BlenderExpression* mutable_predicate_lhs();
+  void set_allocated_predicate_lhs(::delivery::BlenderExpression* predicate_lhs);
   private:
-  const std::string& _internal_raw() const;
-  void _internal_set_raw(const std::string& value);
-  std::string* _internal_mutable_raw();
+  const ::delivery::BlenderExpression& _internal_predicate_lhs() const;
+  ::delivery::BlenderExpression* _internal_mutable_predicate_lhs();
+  public:
+  void unsafe_arena_set_allocated_predicate_lhs(
+      ::delivery::BlenderExpression* predicate_lhs);
+  ::delivery::BlenderExpression* unsafe_arena_release_predicate_lhs();
+
+  // .delivery.BlenderExpression predicate_rhs = 3 [json_name = "predicateRhs"];
+  bool has_predicate_rhs() const;
+  private:
+  bool _internal_has_predicate_rhs() const;
+  public:
+  void clear_predicate_rhs();
+  const ::delivery::BlenderExpression& predicate_rhs() const;
+  ::delivery::BlenderExpression* release_predicate_rhs();
+  ::delivery::BlenderExpression* mutable_predicate_rhs();
+  void set_allocated_predicate_rhs(::delivery::BlenderExpression* predicate_rhs);
+  private:
+  const ::delivery::BlenderExpression& _internal_predicate_rhs() const;
+  ::delivery::BlenderExpression* _internal_mutable_predicate_rhs();
+  public:
+  void unsafe_arena_set_allocated_predicate_rhs(
+      ::delivery::BlenderExpression* predicate_rhs);
+  ::delivery::BlenderExpression* unsafe_arena_release_predicate_rhs();
+
+  // .delivery.BlenderExpression then_branch = 4 [json_name = "thenBranch"];
+  bool has_then_branch() const;
+  private:
+  bool _internal_has_then_branch() const;
+  public:
+  void clear_then_branch();
+  const ::delivery::BlenderExpression& then_branch() const;
+  ::delivery::BlenderExpression* release_then_branch();
+  ::delivery::BlenderExpression* mutable_then_branch();
+  void set_allocated_then_branch(::delivery::BlenderExpression* then_branch);
+  private:
+  const ::delivery::BlenderExpression& _internal_then_branch() const;
+  ::delivery::BlenderExpression* _internal_mutable_then_branch();
+  public:
+  void unsafe_arena_set_allocated_then_branch(
+      ::delivery::BlenderExpression* then_branch);
+  ::delivery::BlenderExpression* unsafe_arena_release_then_branch();
+
+  // .delivery.BlenderExpression else_branch = 5 [json_name = "elseBranch"];
+  bool has_else_branch() const;
+  private:
+  bool _internal_has_else_branch() const;
+  public:
+  void clear_else_branch();
+  const ::delivery::BlenderExpression& else_branch() const;
+  ::delivery::BlenderExpression* release_else_branch();
+  ::delivery::BlenderExpression* mutable_else_branch();
+  void set_allocated_else_branch(::delivery::BlenderExpression* else_branch);
+  private:
+  const ::delivery::BlenderExpression& _internal_else_branch() const;
+  ::delivery::BlenderExpression* _internal_mutable_else_branch();
+  public:
+  void unsafe_arena_set_allocated_else_branch(
+      ::delivery::BlenderExpression* else_branch);
+  ::delivery::BlenderExpression* unsafe_arena_release_else_branch();
+
+  // .delivery.BlenderConditionalExpression.Operator op = 1 [json_name = "op"];
+  void clear_op();
+  ::delivery::BlenderConditionalExpression_Operator op() const;
+  void set_op(::delivery::BlenderConditionalExpression_Operator value);
+  private:
+  ::delivery::BlenderConditionalExpression_Operator _internal_op() const;
+  void _internal_set_op(::delivery::BlenderConditionalExpression_Operator value);
   public:
 
-  void clear_value();
-  ValueCase value_case() const;
-  // @@protoc_insertion_point(class_scope:delivery.StringEquality)
+  // @@protoc_insertion_point(class_scope:delivery.BlenderConditionalExpression)
  private:
   class _Internal;
-  void set_has_raw();
-
-  inline bool has_value() const;
-  inline void clear_has_value();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  union ValueUnion {
-    constexpr ValueUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr raw_;
-  } value_;
+  ::delivery::BlenderExpression* predicate_lhs_;
+  ::delivery::BlenderExpression* predicate_rhs_;
+  ::delivery::BlenderExpression* then_branch_;
+  ::delivery::BlenderExpression* else_branch_;
+  int op_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class GreaterThan PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.GreaterThan) */ {
+class BlenderSortKey PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.BlenderSortKey) */ {
  public:
-  inline GreaterThan() : GreaterThan(nullptr) {}
-  virtual ~GreaterThan();
-  explicit constexpr GreaterThan(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline BlenderSortKey() : BlenderSortKey(nullptr) {}
+  virtual ~BlenderSortKey();
+  explicit constexpr BlenderSortKey(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  GreaterThan(const GreaterThan& from);
-  GreaterThan(GreaterThan&& from) noexcept
-    : GreaterThan() {
+  BlenderSortKey(const BlenderSortKey& from);
+  BlenderSortKey(BlenderSortKey&& from) noexcept
+    : BlenderSortKey() {
     *this = ::std::move(from);
   }
 
-  inline GreaterThan& operator=(const GreaterThan& from) {
+  inline BlenderSortKey& operator=(const BlenderSortKey& from) {
     CopyFrom(from);
     return *this;
   }
-  inline GreaterThan& operator=(GreaterThan&& from) noexcept {
+  inline BlenderSortKey& operator=(BlenderSortKey&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1367,20 +1420,20 @@ class GreaterThan PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const GreaterThan& default_instance() {
+  static const BlenderSortKey& default_instance() {
     return *internal_default_instance();
   }
-  static inline const GreaterThan* internal_default_instance() {
-    return reinterpret_cast<const GreaterThan*>(
-               &_GreaterThan_default_instance_);
+  static inline const BlenderSortKey* internal_default_instance() {
+    return reinterpret_cast<const BlenderSortKey*>(
+               &_BlenderSortKey_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     6;
 
-  friend void swap(GreaterThan& a, GreaterThan& b) {
+  friend void swap(BlenderSortKey& a, BlenderSortKey& b) {
     a.Swap(&b);
   }
-  inline void Swap(GreaterThan* other) {
+  inline void Swap(BlenderSortKey* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1388,7 +1441,7 @@ class GreaterThan PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(GreaterThan* other) {
+  void UnsafeArenaSwap(BlenderSortKey* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1396,17 +1449,17 @@ class GreaterThan PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline GreaterThan* New() const final {
-    return CreateMaybeMessage<GreaterThan>(nullptr);
+  inline BlenderSortKey* New() const final {
+    return CreateMaybeMessage<BlenderSortKey>(nullptr);
   }
 
-  GreaterThan* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GreaterThan>(arena);
+  BlenderSortKey* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BlenderSortKey>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GreaterThan& from);
-  void MergeFrom(const GreaterThan& from);
+  void CopyFrom(const BlenderSortKey& from);
+  void MergeFrom(const BlenderSortKey& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1420,13 +1473,13 @@ class GreaterThan PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(GreaterThan* other);
+  void InternalSwap(BlenderSortKey* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.GreaterThan";
+    return "delivery.BlenderSortKey";
   }
   protected:
-  explicit GreaterThan(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit BlenderSortKey(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1445,207 +1498,87 @@ class GreaterThan PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kComparedToFieldNumber = 1,
-    kOrEqualFieldNumber = 2,
+    kElementsFieldNumber = 1,
   };
-  // float compared_to = 1 [json_name = "comparedTo"];
-  void clear_compared_to();
-  float compared_to() const;
-  void set_compared_to(float value);
+  // repeated .delivery.BlenderExpression elements = 1 [json_name = "elements"];
+  int elements_size() const;
   private:
-  float _internal_compared_to() const;
-  void _internal_set_compared_to(float value);
+  int _internal_elements_size() const;
   public:
-
-  // bool or_equal = 2 [json_name = "orEqual"];
-  void clear_or_equal();
-  bool or_equal() const;
-  void set_or_equal(bool value);
+  void clear_elements();
+  ::delivery::BlenderExpression* mutable_elements(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >*
+      mutable_elements();
   private:
-  bool _internal_or_equal() const;
-  void _internal_set_or_equal(bool value);
+  const ::delivery::BlenderExpression& _internal_elements(int index) const;
+  ::delivery::BlenderExpression* _internal_add_elements();
   public:
+  const ::delivery::BlenderExpression& elements(int index) const;
+  ::delivery::BlenderExpression* add_elements();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >&
+      elements() const;
 
-  // @@protoc_insertion_point(class_scope:delivery.GreaterThan)
+  // @@protoc_insertion_point(class_scope:delivery.BlenderSortKey)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  float compared_to_;
-  bool or_equal_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression > elements_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class LessThan PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.LessThan) */ {
- public:
-  inline LessThan() : LessThan(nullptr) {}
-  virtual ~LessThan();
-  explicit constexpr LessThan(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  LessThan(const LessThan& from);
-  LessThan(LessThan&& from) noexcept
-    : LessThan() {
-    *this = ::std::move(from);
-  }
-
-  inline LessThan& operator=(const LessThan& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline LessThan& operator=(LessThan&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const LessThan& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const LessThan* internal_default_instance() {
-    return reinterpret_cast<const LessThan*>(
-               &_LessThan_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    7;
-
-  friend void swap(LessThan& a, LessThan& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(LessThan* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(LessThan* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline LessThan* New() const final {
-    return CreateMaybeMessage<LessThan>(nullptr);
-  }
-
-  LessThan* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<LessThan>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const LessThan& from);
-  void MergeFrom(const LessThan& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(LessThan* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.LessThan";
-  }
-  protected:
-  explicit LessThan(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
+class HyperloopConfig_ParametersEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<HyperloopConfig_ParametersEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<HyperloopConfig_ParametersEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
+  HyperloopConfig_ParametersEntry_DoNotUse();
+  explicit constexpr HyperloopConfig_ParametersEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit HyperloopConfig_ParametersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const HyperloopConfig_ParametersEntry_DoNotUse& other);
+  static const HyperloopConfig_ParametersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const HyperloopConfig_ParametersEntry_DoNotUse*>(&_HyperloopConfig_ParametersEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(void*) { return true; }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto_metadata_getter(kIndexInFileMessages);
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_proto_2fdelivery_2fblender_2eproto);
+    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto.file_level_metadata[7];
   }
 
   public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kComparedToFieldNumber = 1,
-    kOrEqualFieldNumber = 2,
-  };
-  // float compared_to = 1 [json_name = "comparedTo"];
-  void clear_compared_to();
-  float compared_to() const;
-  void set_compared_to(float value);
-  private:
-  float _internal_compared_to() const;
-  void _internal_set_compared_to(float value);
-  public:
-
-  // bool or_equal = 2 [json_name = "orEqual"];
-  void clear_or_equal();
-  bool or_equal() const;
-  void set_or_equal(bool value);
-  private:
-  bool _internal_or_equal() const;
-  void _internal_set_or_equal(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:delivery.LessThan)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  float compared_to_;
-  bool or_equal_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
+
 // -------------------------------------------------------------------
 
-class Interval PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.Interval) */ {
+class HyperloopConfig PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopConfig) */ {
  public:
-  inline Interval() : Interval(nullptr) {}
-  virtual ~Interval();
-  explicit constexpr Interval(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopConfig() : HyperloopConfig(nullptr) {}
+  virtual ~HyperloopConfig();
+  explicit constexpr HyperloopConfig(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Interval(const Interval& from);
-  Interval(Interval&& from) noexcept
-    : Interval() {
+  HyperloopConfig(const HyperloopConfig& from);
+  HyperloopConfig(HyperloopConfig&& from) noexcept
+    : HyperloopConfig() {
     *this = ::std::move(from);
   }
 
-  inline Interval& operator=(const Interval& from) {
+  inline HyperloopConfig& operator=(const HyperloopConfig& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Interval& operator=(Interval&& from) noexcept {
+  inline HyperloopConfig& operator=(HyperloopConfig&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1663,20 +1596,20 @@ class Interval PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Interval& default_instance() {
+  static const HyperloopConfig& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Interval* internal_default_instance() {
-    return reinterpret_cast<const Interval*>(
-               &_Interval_default_instance_);
+  static inline const HyperloopConfig* internal_default_instance() {
+    return reinterpret_cast<const HyperloopConfig*>(
+               &_HyperloopConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     8;
 
-  friend void swap(Interval& a, Interval& b) {
+  friend void swap(HyperloopConfig& a, HyperloopConfig& b) {
     a.Swap(&b);
   }
-  inline void Swap(Interval* other) {
+  inline void Swap(HyperloopConfig* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1684,7 +1617,7 @@ class Interval PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Interval* other) {
+  void UnsafeArenaSwap(HyperloopConfig* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1692,17 +1625,17 @@ class Interval PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Interval* New() const final {
-    return CreateMaybeMessage<Interval>(nullptr);
+  inline HyperloopConfig* New() const final {
+    return CreateMaybeMessage<HyperloopConfig>(nullptr);
   }
 
-  Interval* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Interval>(arena);
+  HyperloopConfig* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopConfig>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Interval& from);
-  void MergeFrom(const Interval& from);
+  void CopyFrom(const HyperloopConfig& from);
+  void MergeFrom(const HyperloopConfig& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1716,13 +1649,13 @@ class Interval PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Interval* other);
+  void InternalSwap(HyperloopConfig* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.Interval";
+    return "delivery.HyperloopConfig";
   }
   protected:
-  explicit Interval(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1738,84 +1671,64 @@ class Interval PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
-    kUpperBoundFieldNumber = 1,
-    kLowerBoundFieldNumber = 2,
-    kLowerInclusiveFieldNumber = 3,
-    kUpperInclusiveFieldNumber = 4,
+    kParametersFieldNumber = 1,
   };
-  // float upper_bound = 1 [json_name = "upperBound"];
-  void clear_upper_bound();
-  float upper_bound() const;
-  void set_upper_bound(float value);
+  // map<uint64, .delivery.HyperloopParameter> parameters = 1 [json_name = "parameters"];
+  int parameters_size() const;
   private:
-  float _internal_upper_bound() const;
-  void _internal_set_upper_bound(float value);
+  int _internal_parameters_size() const;
   public:
-
-  // float lower_bound = 2 [json_name = "lowerBound"];
-  void clear_lower_bound();
-  float lower_bound() const;
-  void set_lower_bound(float value);
+  void clear_parameters();
   private:
-  float _internal_lower_bound() const;
-  void _internal_set_lower_bound(float value);
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >&
+      _internal_parameters() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >*
+      _internal_mutable_parameters();
   public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >&
+      parameters() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >*
+      mutable_parameters();
 
-  // bool lower_inclusive = 3 [json_name = "lowerInclusive"];
-  void clear_lower_inclusive();
-  bool lower_inclusive() const;
-  void set_lower_inclusive(bool value);
-  private:
-  bool _internal_lower_inclusive() const;
-  void _internal_set_lower_inclusive(bool value);
-  public:
-
-  // bool upper_inclusive = 4 [json_name = "upperInclusive"];
-  void clear_upper_inclusive();
-  bool upper_inclusive() const;
-  void set_upper_inclusive(bool value);
-  private:
-  bool _internal_upper_inclusive() const;
-  void _internal_set_upper_inclusive(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:delivery.Interval)
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopConfig)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  float upper_bound_;
-  float lower_bound_;
-  bool lower_inclusive_;
-  bool upper_inclusive_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      HyperloopConfig_ParametersEntry_DoNotUse,
+      ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> parameters_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class PositiveRule PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.PositiveRule) */ {
+class HyperloopParameter PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopParameter) */ {
  public:
-  inline PositiveRule() : PositiveRule(nullptr) {}
-  virtual ~PositiveRule();
-  explicit constexpr PositiveRule(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopParameter() : HyperloopParameter(nullptr) {}
+  virtual ~HyperloopParameter();
+  explicit constexpr HyperloopParameter(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  PositiveRule(const PositiveRule& from);
-  PositiveRule(PositiveRule&& from) noexcept
-    : PositiveRule() {
+  HyperloopParameter(const HyperloopParameter& from);
+  HyperloopParameter(HyperloopParameter&& from) noexcept
+    : HyperloopParameter() {
     *this = ::std::move(from);
   }
 
-  inline PositiveRule& operator=(const PositiveRule& from) {
+  inline HyperloopParameter& operator=(const HyperloopParameter& from) {
     CopyFrom(from);
     return *this;
   }
-  inline PositiveRule& operator=(PositiveRule&& from) noexcept {
+  inline HyperloopParameter& operator=(HyperloopParameter&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1833,20 +1746,20 @@ class PositiveRule PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const PositiveRule& default_instance() {
+  static const HyperloopParameter& default_instance() {
     return *internal_default_instance();
   }
-  static inline const PositiveRule* internal_default_instance() {
-    return reinterpret_cast<const PositiveRule*>(
-               &_PositiveRule_default_instance_);
+  static inline const HyperloopParameter* internal_default_instance() {
+    return reinterpret_cast<const HyperloopParameter*>(
+               &_HyperloopParameter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     9;
 
-  friend void swap(PositiveRule& a, PositiveRule& b) {
+  friend void swap(HyperloopParameter& a, HyperloopParameter& b) {
     a.Swap(&b);
   }
-  inline void Swap(PositiveRule* other) {
+  inline void Swap(HyperloopParameter* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1854,7 +1767,7 @@ class PositiveRule PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(PositiveRule* other) {
+  void UnsafeArenaSwap(HyperloopParameter* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1862,17 +1775,17 @@ class PositiveRule PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline PositiveRule* New() const final {
-    return CreateMaybeMessage<PositiveRule>(nullptr);
+  inline HyperloopParameter* New() const final {
+    return CreateMaybeMessage<HyperloopParameter>(nullptr);
   }
 
-  PositiveRule* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<PositiveRule>(arena);
+  HyperloopParameter* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopParameter>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const PositiveRule& from);
-  void MergeFrom(const PositiveRule& from);
+  void CopyFrom(const HyperloopParameter& from);
+  void MergeFrom(const HyperloopParameter& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1886,13 +1799,13 @@ class PositiveRule PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PositiveRule* other);
+  void InternalSwap(HyperloopParameter* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.PositiveRule";
+    return "delivery.HyperloopParameter";
   }
   protected:
-  explicit PositiveRule(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1911,83 +1824,68 @@ class PositiveRule PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSelectPctFieldNumber = 1,
-    kMinPosFieldNumber = 2,
-    kMaxPosFieldNumber = 3,
+    kGroupsFieldNumber = 1,
+    kDefaultFieldNumber = 2,
   };
-  // double select_pct = 1 [json_name = "selectPct"];
-  bool has_select_pct() const;
+  // repeated .delivery.HyperloopGroup groups = 1 [json_name = "groups"];
+  int groups_size() const;
   private:
-  bool _internal_has_select_pct() const;
+  int _internal_groups_size() const;
   public:
-  void clear_select_pct();
-  double select_pct() const;
-  void set_select_pct(double value);
+  void clear_groups();
+  ::delivery::HyperloopGroup* mutable_groups(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::HyperloopGroup >*
+      mutable_groups();
   private:
-  double _internal_select_pct() const;
-  void _internal_set_select_pct(double value);
+  const ::delivery::HyperloopGroup& _internal_groups(int index) const;
+  ::delivery::HyperloopGroup* _internal_add_groups();
+  public:
+  const ::delivery::HyperloopGroup& groups(int index) const;
+  ::delivery::HyperloopGroup* add_groups();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::HyperloopGroup >&
+      groups() const;
+
+  // float default = 2 [json_name = "default"];
+  void clear_default_();
+  float default_() const;
+  void set_default_(float value);
+  private:
+  float _internal_default_() const;
+  void _internal_set_default_(float value);
   public:
 
-  // uint64 min_pos = 2 [json_name = "minPos"];
-  bool has_min_pos() const;
-  private:
-  bool _internal_has_min_pos() const;
-  public:
-  void clear_min_pos();
-  ::PROTOBUF_NAMESPACE_ID::uint64 min_pos() const;
-  void set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_min_pos() const;
-  void _internal_set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // uint64 max_pos = 3 [json_name = "maxPos"];
-  bool has_max_pos() const;
-  private:
-  bool _internal_has_max_pos() const;
-  public:
-  void clear_max_pos();
-  ::PROTOBUF_NAMESPACE_ID::uint64 max_pos() const;
-  void set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_max_pos() const;
-  void _internal_set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:delivery.PositiveRule)
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopParameter)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::HyperloopGroup > groups_;
+  float default__;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  double select_pct_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 min_pos_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 max_pos_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class InsertRule PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.InsertRule) */ {
+class HyperloopGroup PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopGroup) */ {
  public:
-  inline InsertRule() : InsertRule(nullptr) {}
-  virtual ~InsertRule();
-  explicit constexpr InsertRule(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopGroup() : HyperloopGroup(nullptr) {}
+  virtual ~HyperloopGroup();
+  explicit constexpr HyperloopGroup(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  InsertRule(const InsertRule& from);
-  InsertRule(InsertRule&& from) noexcept
-    : InsertRule() {
+  HyperloopGroup(const HyperloopGroup& from);
+  HyperloopGroup(HyperloopGroup&& from) noexcept
+    : HyperloopGroup() {
     *this = ::std::move(from);
   }
 
-  inline InsertRule& operator=(const InsertRule& from) {
+  inline HyperloopGroup& operator=(const HyperloopGroup& from) {
     CopyFrom(from);
     return *this;
   }
-  inline InsertRule& operator=(InsertRule&& from) noexcept {
+  inline HyperloopGroup& operator=(HyperloopGroup&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2005,20 +1903,20 @@ class InsertRule PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const InsertRule& default_instance() {
+  static const HyperloopGroup& default_instance() {
     return *internal_default_instance();
   }
-  static inline const InsertRule* internal_default_instance() {
-    return reinterpret_cast<const InsertRule*>(
-               &_InsertRule_default_instance_);
+  static inline const HyperloopGroup* internal_default_instance() {
+    return reinterpret_cast<const HyperloopGroup*>(
+               &_HyperloopGroup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     10;
 
-  friend void swap(InsertRule& a, InsertRule& b) {
+  friend void swap(HyperloopGroup& a, HyperloopGroup& b) {
     a.Swap(&b);
   }
-  inline void Swap(InsertRule* other) {
+  inline void Swap(HyperloopGroup* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2026,7 +1924,7 @@ class InsertRule PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(InsertRule* other) {
+  void UnsafeArenaSwap(HyperloopGroup* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2034,17 +1932,17 @@ class InsertRule PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline InsertRule* New() const final {
-    return CreateMaybeMessage<InsertRule>(nullptr);
+  inline HyperloopGroup* New() const final {
+    return CreateMaybeMessage<HyperloopGroup>(nullptr);
   }
 
-  InsertRule* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<InsertRule>(arena);
+  HyperloopGroup* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopGroup>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const InsertRule& from);
-  void MergeFrom(const InsertRule& from);
+  void CopyFrom(const HyperloopGroup& from);
+  void MergeFrom(const HyperloopGroup& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2058,13 +1956,13 @@ class InsertRule PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(InsertRule* other);
+  void InternalSwap(HyperloopGroup* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.InsertRule";
+    return "delivery.HyperloopGroup";
   }
   protected:
-  explicit InsertRule(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2083,105 +1981,79 @@ class InsertRule PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSelectPctFieldNumber = 1,
-    kMinPosFieldNumber = 2,
-    kMaxPosFieldNumber = 3,
-    kAppliesToAllInsertionsFieldNumber = 5,
-    kRankingMethodFieldNumber = 6,
+    kExpFieldNumber = 3,
+    kLowBucketFieldNumber = 1,
+    kHighBucketFieldNumber = 2,
   };
-  // double select_pct = 1 [json_name = "selectPct"];
-  bool has_select_pct() const;
+  // .delivery.HyperloopExpression exp = 3 [json_name = "exp"];
+  bool has_exp() const;
   private:
-  bool _internal_has_select_pct() const;
+  bool _internal_has_exp() const;
   public:
-  void clear_select_pct();
-  double select_pct() const;
-  void set_select_pct(double value);
+  void clear_exp();
+  const ::delivery::HyperloopExpression& exp() const;
+  ::delivery::HyperloopExpression* release_exp();
+  ::delivery::HyperloopExpression* mutable_exp();
+  void set_allocated_exp(::delivery::HyperloopExpression* exp);
   private:
-  double _internal_select_pct() const;
-  void _internal_set_select_pct(double value);
+  const ::delivery::HyperloopExpression& _internal_exp() const;
+  ::delivery::HyperloopExpression* _internal_mutable_exp();
+  public:
+  void unsafe_arena_set_allocated_exp(
+      ::delivery::HyperloopExpression* exp);
+  ::delivery::HyperloopExpression* unsafe_arena_release_exp();
+
+  // int32 low_bucket = 1 [json_name = "lowBucket"];
+  void clear_low_bucket();
+  ::PROTOBUF_NAMESPACE_ID::int32 low_bucket() const;
+  void set_low_bucket(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_low_bucket() const;
+  void _internal_set_low_bucket(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // uint64 min_pos = 2 [json_name = "minPos"];
-  bool has_min_pos() const;
+  // int32 high_bucket = 2 [json_name = "highBucket"];
+  void clear_high_bucket();
+  ::PROTOBUF_NAMESPACE_ID::int32 high_bucket() const;
+  void set_high_bucket(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  bool _internal_has_min_pos() const;
-  public:
-  void clear_min_pos();
-  ::PROTOBUF_NAMESPACE_ID::uint64 min_pos() const;
-  void set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_min_pos() const;
-  void _internal_set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_high_bucket() const;
+  void _internal_set_high_bucket(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // uint64 max_pos = 3 [json_name = "maxPos"];
-  bool has_max_pos() const;
-  private:
-  bool _internal_has_max_pos() const;
-  public:
-  void clear_max_pos();
-  ::PROTOBUF_NAMESPACE_ID::uint64 max_pos() const;
-  void set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_max_pos() const;
-  void _internal_set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // bool applies_to_all_insertions = 5 [json_name = "appliesToAllInsertions"];
-  void clear_applies_to_all_insertions();
-  bool applies_to_all_insertions() const;
-  void set_applies_to_all_insertions(bool value);
-  private:
-  bool _internal_applies_to_all_insertions() const;
-  void _internal_set_applies_to_all_insertions(bool value);
-  public:
-
-  // .delivery.RankingMethod ranking_method = 6 [json_name = "rankingMethod"];
-  void clear_ranking_method();
-  ::delivery::RankingMethod ranking_method() const;
-  void set_ranking_method(::delivery::RankingMethod value);
-  private:
-  ::delivery::RankingMethod _internal_ranking_method() const;
-  void _internal_set_ranking_method(::delivery::RankingMethod value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:delivery.InsertRule)
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopGroup)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  ::delivery::HyperloopExpression* exp_;
+  ::PROTOBUF_NAMESPACE_ID::int32 low_bucket_;
+  ::PROTOBUF_NAMESPACE_ID::int32 high_bucket_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  double select_pct_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 min_pos_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 max_pos_;
-  bool applies_to_all_insertions_;
-  int ranking_method_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class NegativeRule PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.NegativeRule) */ {
+class HyperloopExpression PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopExpression) */ {
  public:
-  inline NegativeRule() : NegativeRule(nullptr) {}
-  virtual ~NegativeRule();
-  explicit constexpr NegativeRule(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopExpression() : HyperloopExpression(nullptr) {}
+  virtual ~HyperloopExpression();
+  explicit constexpr HyperloopExpression(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  NegativeRule(const NegativeRule& from);
-  NegativeRule(NegativeRule&& from) noexcept
-    : NegativeRule() {
+  HyperloopExpression(const HyperloopExpression& from);
+  HyperloopExpression(HyperloopExpression&& from) noexcept
+    : HyperloopExpression() {
     *this = ::std::move(from);
   }
 
-  inline NegativeRule& operator=(const NegativeRule& from) {
+  inline HyperloopExpression& operator=(const HyperloopExpression& from) {
     CopyFrom(from);
     return *this;
   }
-  inline NegativeRule& operator=(NegativeRule&& from) noexcept {
+  inline HyperloopExpression& operator=(HyperloopExpression&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2199,20 +2071,27 @@ class NegativeRule PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const NegativeRule& default_instance() {
+  static const HyperloopExpression& default_instance() {
     return *internal_default_instance();
   }
-  static inline const NegativeRule* internal_default_instance() {
-    return reinterpret_cast<const NegativeRule*>(
-               &_NegativeRule_default_instance_);
+  enum NodeTypeCase {
+    kLeaf = 1,
+    kGeneratorExp = 2,
+    kConditionalExp = 3,
+    NODE_TYPE_NOT_SET = 0,
+  };
+
+  static inline const HyperloopExpression* internal_default_instance() {
+    return reinterpret_cast<const HyperloopExpression*>(
+               &_HyperloopExpression_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     11;
 
-  friend void swap(NegativeRule& a, NegativeRule& b) {
+  friend void swap(HyperloopExpression& a, HyperloopExpression& b) {
     a.Swap(&b);
   }
-  inline void Swap(NegativeRule* other) {
+  inline void Swap(HyperloopExpression* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2220,7 +2099,7 @@ class NegativeRule PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(NegativeRule* other) {
+  void UnsafeArenaSwap(HyperloopExpression* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2228,17 +2107,17 @@ class NegativeRule PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline NegativeRule* New() const final {
-    return CreateMaybeMessage<NegativeRule>(nullptr);
+  inline HyperloopExpression* New() const final {
+    return CreateMaybeMessage<HyperloopExpression>(nullptr);
   }
 
-  NegativeRule* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<NegativeRule>(arena);
+  HyperloopExpression* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopExpression>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const NegativeRule& from);
-  void MergeFrom(const NegativeRule& from);
+  void CopyFrom(const HyperloopExpression& from);
+  void MergeFrom(const HyperloopExpression& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2252,13 +2131,13 @@ class NegativeRule PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(NegativeRule* other);
+  void InternalSwap(HyperloopExpression* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.NegativeRule";
+    return "delivery.HyperloopExpression";
   }
   protected:
-  explicit NegativeRule(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopExpression(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2277,113 +2156,111 @@ class NegativeRule PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPluckPctFieldNumber = 1,
-    kForbidLessPosFieldNumber = 2,
-    kMinSpacingFieldNumber = 3,
-    kForbidGreaterPosFieldNumber = 4,
-    kMaxCountFieldNumber = 5,
+    kLeafFieldNumber = 1,
+    kGeneratorExpFieldNumber = 2,
+    kConditionalExpFieldNumber = 3,
   };
-  // double pluck_pct = 1 [json_name = "pluckPct"];
-  bool has_pluck_pct() const;
+  // .delivery.LeafExpression leaf = 1 [json_name = "leaf"];
+  bool has_leaf() const;
   private:
-  bool _internal_has_pluck_pct() const;
+  bool _internal_has_leaf() const;
   public:
-  void clear_pluck_pct();
-  double pluck_pct() const;
-  void set_pluck_pct(double value);
+  void clear_leaf();
+  const ::delivery::LeafExpression& leaf() const;
+  ::delivery::LeafExpression* release_leaf();
+  ::delivery::LeafExpression* mutable_leaf();
+  void set_allocated_leaf(::delivery::LeafExpression* leaf);
   private:
-  double _internal_pluck_pct() const;
-  void _internal_set_pluck_pct(double value);
+  const ::delivery::LeafExpression& _internal_leaf() const;
+  ::delivery::LeafExpression* _internal_mutable_leaf();
   public:
+  void unsafe_arena_set_allocated_leaf(
+      ::delivery::LeafExpression* leaf);
+  ::delivery::LeafExpression* unsafe_arena_release_leaf();
 
-  // uint64 forbid_less_pos = 2 [json_name = "forbidLessPos"];
-  bool has_forbid_less_pos() const;
+  // .delivery.HyperloopGeneratorExpression generator_exp = 2 [json_name = "generatorExp"];
+  bool has_generator_exp() const;
   private:
-  bool _internal_has_forbid_less_pos() const;
+  bool _internal_has_generator_exp() const;
   public:
-  void clear_forbid_less_pos();
-  ::PROTOBUF_NAMESPACE_ID::uint64 forbid_less_pos() const;
-  void set_forbid_less_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void clear_generator_exp();
+  const ::delivery::HyperloopGeneratorExpression& generator_exp() const;
+  ::delivery::HyperloopGeneratorExpression* release_generator_exp();
+  ::delivery::HyperloopGeneratorExpression* mutable_generator_exp();
+  void set_allocated_generator_exp(::delivery::HyperloopGeneratorExpression* generator_exp);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_forbid_less_pos() const;
-  void _internal_set_forbid_less_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::delivery::HyperloopGeneratorExpression& _internal_generator_exp() const;
+  ::delivery::HyperloopGeneratorExpression* _internal_mutable_generator_exp();
   public:
+  void unsafe_arena_set_allocated_generator_exp(
+      ::delivery::HyperloopGeneratorExpression* generator_exp);
+  ::delivery::HyperloopGeneratorExpression* unsafe_arena_release_generator_exp();
 
-  // uint64 min_spacing = 3 [json_name = "minSpacing"];
-  bool has_min_spacing() const;
+  // .delivery.HyperloopConditionalExpression conditional_exp = 3 [json_name = "conditionalExp"];
+  bool has_conditional_exp() const;
   private:
-  bool _internal_has_min_spacing() const;
+  bool _internal_has_conditional_exp() const;
   public:
-  void clear_min_spacing();
-  ::PROTOBUF_NAMESPACE_ID::uint64 min_spacing() const;
-  void set_min_spacing(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void clear_conditional_exp();
+  const ::delivery::HyperloopConditionalExpression& conditional_exp() const;
+  ::delivery::HyperloopConditionalExpression* release_conditional_exp();
+  ::delivery::HyperloopConditionalExpression* mutable_conditional_exp();
+  void set_allocated_conditional_exp(::delivery::HyperloopConditionalExpression* conditional_exp);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_min_spacing() const;
-  void _internal_set_min_spacing(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::delivery::HyperloopConditionalExpression& _internal_conditional_exp() const;
+  ::delivery::HyperloopConditionalExpression* _internal_mutable_conditional_exp();
   public:
+  void unsafe_arena_set_allocated_conditional_exp(
+      ::delivery::HyperloopConditionalExpression* conditional_exp);
+  ::delivery::HyperloopConditionalExpression* unsafe_arena_release_conditional_exp();
 
-  // uint64 forbid_greater_pos = 4 [json_name = "forbidGreaterPos"];
-  bool has_forbid_greater_pos() const;
-  private:
-  bool _internal_has_forbid_greater_pos() const;
-  public:
-  void clear_forbid_greater_pos();
-  ::PROTOBUF_NAMESPACE_ID::uint64 forbid_greater_pos() const;
-  void set_forbid_greater_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_forbid_greater_pos() const;
-  void _internal_set_forbid_greater_pos(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // uint64 max_count = 5 [json_name = "maxCount"];
-  bool has_max_count() const;
-  private:
-  bool _internal_has_max_count() const;
-  public:
-  void clear_max_count();
-  ::PROTOBUF_NAMESPACE_ID::uint64 max_count() const;
-  void set_max_count(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_max_count() const;
-  void _internal_set_max_count(::PROTOBUF_NAMESPACE_ID::uint64 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:delivery.NegativeRule)
+  void clear_node_type();
+  NodeTypeCase node_type_case() const;
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopExpression)
  private:
   class _Internal;
+  void set_has_leaf();
+  void set_has_generator_exp();
+  void set_has_conditional_exp();
+
+  inline bool has_node_type() const;
+  inline void clear_has_node_type();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  union NodeTypeUnion {
+    constexpr NodeTypeUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::delivery::LeafExpression* leaf_;
+    ::delivery::HyperloopGeneratorExpression* generator_exp_;
+    ::delivery::HyperloopConditionalExpression* conditional_exp_;
+  } node_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  double pluck_pct_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 forbid_less_pos_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 min_spacing_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 forbid_greater_pos_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 max_count_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class DiversityRule PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.DiversityRule) */ {
+class HyperloopGeneratorExpression PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopGeneratorExpression) */ {
  public:
-  inline DiversityRule() : DiversityRule(nullptr) {}
-  virtual ~DiversityRule();
-  explicit constexpr DiversityRule(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopGeneratorExpression() : HyperloopGeneratorExpression(nullptr) {}
+  virtual ~HyperloopGeneratorExpression();
+  explicit constexpr HyperloopGeneratorExpression(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  DiversityRule(const DiversityRule& from);
-  DiversityRule(DiversityRule&& from) noexcept
-    : DiversityRule() {
+  HyperloopGeneratorExpression(const HyperloopGeneratorExpression& from);
+  HyperloopGeneratorExpression(HyperloopGeneratorExpression&& from) noexcept
+    : HyperloopGeneratorExpression() {
     *this = ::std::move(from);
   }
 
-  inline DiversityRule& operator=(const DiversityRule& from) {
+  inline HyperloopGeneratorExpression& operator=(const HyperloopGeneratorExpression& from) {
     CopyFrom(from);
     return *this;
   }
-  inline DiversityRule& operator=(DiversityRule&& from) noexcept {
+  inline HyperloopGeneratorExpression& operator=(HyperloopGeneratorExpression&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2401,20 +2278,26 @@ class DiversityRule PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const DiversityRule& default_instance() {
+  static const HyperloopGeneratorExpression& default_instance() {
     return *internal_default_instance();
   }
-  static inline const DiversityRule* internal_default_instance() {
-    return reinterpret_cast<const DiversityRule*>(
-               &_DiversityRule_default_instance_);
+  enum GeneratorCase {
+    kUniform = 1,
+    kUniformMulti = 2,
+    GENERATOR_NOT_SET = 0,
+  };
+
+  static inline const HyperloopGeneratorExpression* internal_default_instance() {
+    return reinterpret_cast<const HyperloopGeneratorExpression*>(
+               &_HyperloopGeneratorExpression_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     12;
 
-  friend void swap(DiversityRule& a, DiversityRule& b) {
+  friend void swap(HyperloopGeneratorExpression& a, HyperloopGeneratorExpression& b) {
     a.Swap(&b);
   }
-  inline void Swap(DiversityRule* other) {
+  inline void Swap(HyperloopGeneratorExpression* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2422,7 +2305,7 @@ class DiversityRule PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(DiversityRule* other) {
+  void UnsafeArenaSwap(HyperloopGeneratorExpression* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2430,17 +2313,17 @@ class DiversityRule PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline DiversityRule* New() const final {
-    return CreateMaybeMessage<DiversityRule>(nullptr);
+  inline HyperloopGeneratorExpression* New() const final {
+    return CreateMaybeMessage<HyperloopGeneratorExpression>(nullptr);
   }
 
-  DiversityRule* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<DiversityRule>(arena);
+  HyperloopGeneratorExpression* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopGeneratorExpression>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const DiversityRule& from);
-  void MergeFrom(const DiversityRule& from);
+  void CopyFrom(const HyperloopGeneratorExpression& from);
+  void MergeFrom(const HyperloopGeneratorExpression& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2454,13 +2337,13 @@ class DiversityRule PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(DiversityRule* other);
+  void InternalSwap(HyperloopGeneratorExpression* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.DiversityRule";
+    return "delivery.HyperloopGeneratorExpression";
   }
   protected:
-  explicit DiversityRule(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopGeneratorExpression(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2479,53 +2362,90 @@ class DiversityRule PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kMultiFieldNumber = 1,
+    kUniformFieldNumber = 1,
+    kUniformMultiFieldNumber = 2,
   };
-  // double multi = 1 [json_name = "multi"];
-  bool has_multi() const;
+  // .delivery.HyperloopUniformGenerator uniform = 1 [json_name = "uniform"];
+  bool has_uniform() const;
   private:
-  bool _internal_has_multi() const;
+  bool _internal_has_uniform() const;
   public:
-  void clear_multi();
-  double multi() const;
-  void set_multi(double value);
+  void clear_uniform();
+  const ::delivery::HyperloopUniformGenerator& uniform() const;
+  ::delivery::HyperloopUniformGenerator* release_uniform();
+  ::delivery::HyperloopUniformGenerator* mutable_uniform();
+  void set_allocated_uniform(::delivery::HyperloopUniformGenerator* uniform);
   private:
-  double _internal_multi() const;
-  void _internal_set_multi(double value);
+  const ::delivery::HyperloopUniformGenerator& _internal_uniform() const;
+  ::delivery::HyperloopUniformGenerator* _internal_mutable_uniform();
   public:
+  void unsafe_arena_set_allocated_uniform(
+      ::delivery::HyperloopUniformGenerator* uniform);
+  ::delivery::HyperloopUniformGenerator* unsafe_arena_release_uniform();
 
-  // @@protoc_insertion_point(class_scope:delivery.DiversityRule)
+  // .delivery.HyperloopUniformMultiGenerator uniform_multi = 2 [json_name = "uniformMulti"];
+  bool has_uniform_multi() const;
+  private:
+  bool _internal_has_uniform_multi() const;
+  public:
+  void clear_uniform_multi();
+  const ::delivery::HyperloopUniformMultiGenerator& uniform_multi() const;
+  ::delivery::HyperloopUniformMultiGenerator* release_uniform_multi();
+  ::delivery::HyperloopUniformMultiGenerator* mutable_uniform_multi();
+  void set_allocated_uniform_multi(::delivery::HyperloopUniformMultiGenerator* uniform_multi);
+  private:
+  const ::delivery::HyperloopUniformMultiGenerator& _internal_uniform_multi() const;
+  ::delivery::HyperloopUniformMultiGenerator* _internal_mutable_uniform_multi();
+  public:
+  void unsafe_arena_set_allocated_uniform_multi(
+      ::delivery::HyperloopUniformMultiGenerator* uniform_multi);
+  ::delivery::HyperloopUniformMultiGenerator* unsafe_arena_release_uniform_multi();
+
+  void clear_generator();
+  GeneratorCase generator_case() const;
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopGeneratorExpression)
  private:
   class _Internal;
+  void set_has_uniform();
+  void set_has_uniform_multi();
+
+  inline bool has_generator() const;
+  inline void clear_has_generator();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  union GeneratorUnion {
+    constexpr GeneratorUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::delivery::HyperloopUniformGenerator* uniform_;
+    ::delivery::HyperloopUniformMultiGenerator* uniform_multi_;
+  } generator_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  double multi_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class QualityScoreConfig PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.QualityScoreConfig) */ {
+class HyperloopUniformGenerator PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopUniformGenerator) */ {
  public:
-  inline QualityScoreConfig() : QualityScoreConfig(nullptr) {}
-  virtual ~QualityScoreConfig();
-  explicit constexpr QualityScoreConfig(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopUniformGenerator() : HyperloopUniformGenerator(nullptr) {}
+  virtual ~HyperloopUniformGenerator();
+  explicit constexpr HyperloopUniformGenerator(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  QualityScoreConfig(const QualityScoreConfig& from);
-  QualityScoreConfig(QualityScoreConfig&& from) noexcept
-    : QualityScoreConfig() {
+  HyperloopUniformGenerator(const HyperloopUniformGenerator& from);
+  HyperloopUniformGenerator(HyperloopUniformGenerator&& from) noexcept
+    : HyperloopUniformGenerator() {
     *this = ::std::move(from);
   }
 
-  inline QualityScoreConfig& operator=(const QualityScoreConfig& from) {
+  inline HyperloopUniformGenerator& operator=(const HyperloopUniformGenerator& from) {
     CopyFrom(from);
     return *this;
   }
-  inline QualityScoreConfig& operator=(QualityScoreConfig&& from) noexcept {
+  inline HyperloopUniformGenerator& operator=(HyperloopUniformGenerator&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2543,20 +2463,20 @@ class QualityScoreConfig PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const QualityScoreConfig& default_instance() {
+  static const HyperloopUniformGenerator& default_instance() {
     return *internal_default_instance();
   }
-  static inline const QualityScoreConfig* internal_default_instance() {
-    return reinterpret_cast<const QualityScoreConfig*>(
-               &_QualityScoreConfig_default_instance_);
+  static inline const HyperloopUniformGenerator* internal_default_instance() {
+    return reinterpret_cast<const HyperloopUniformGenerator*>(
+               &_HyperloopUniformGenerator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     13;
 
-  friend void swap(QualityScoreConfig& a, QualityScoreConfig& b) {
+  friend void swap(HyperloopUniformGenerator& a, HyperloopUniformGenerator& b) {
     a.Swap(&b);
   }
-  inline void Swap(QualityScoreConfig* other) {
+  inline void Swap(HyperloopUniformGenerator* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2564,7 +2484,7 @@ class QualityScoreConfig PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(QualityScoreConfig* other) {
+  void UnsafeArenaSwap(HyperloopUniformGenerator* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2572,17 +2492,17 @@ class QualityScoreConfig PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline QualityScoreConfig* New() const final {
-    return CreateMaybeMessage<QualityScoreConfig>(nullptr);
+  inline HyperloopUniformGenerator* New() const final {
+    return CreateMaybeMessage<HyperloopUniformGenerator>(nullptr);
   }
 
-  QualityScoreConfig* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<QualityScoreConfig>(arena);
+  HyperloopUniformGenerator* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopUniformGenerator>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const QualityScoreConfig& from);
-  void MergeFrom(const QualityScoreConfig& from);
+  void CopyFrom(const HyperloopUniformGenerator& from);
+  void MergeFrom(const HyperloopUniformGenerator& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2596,13 +2516,13 @@ class QualityScoreConfig PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(QualityScoreConfig* other);
+  void InternalSwap(HyperloopUniformGenerator* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.QualityScoreConfig";
+    return "delivery.HyperloopUniformGenerator";
   }
   protected:
-  explicit QualityScoreConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopUniformGenerator(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2621,57 +2541,59 @@ class QualityScoreConfig PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kWeightedSumTermFieldNumber = 1,
+    kLowBoundFieldNumber = 1,
+    kHighBoundFieldNumber = 2,
   };
-  // repeated .delivery.QualityScoreTerm weighted_sum_term = 1 [json_name = "weightedSumTerm"];
-  int weighted_sum_term_size() const;
+  // float low_bound = 1 [json_name = "lowBound"];
+  void clear_low_bound();
+  float low_bound() const;
+  void set_low_bound(float value);
   private:
-  int _internal_weighted_sum_term_size() const;
+  float _internal_low_bound() const;
+  void _internal_set_low_bound(float value);
   public:
-  void clear_weighted_sum_term();
-  ::delivery::QualityScoreTerm* mutable_weighted_sum_term(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >*
-      mutable_weighted_sum_term();
-  private:
-  const ::delivery::QualityScoreTerm& _internal_weighted_sum_term(int index) const;
-  ::delivery::QualityScoreTerm* _internal_add_weighted_sum_term();
-  public:
-  const ::delivery::QualityScoreTerm& weighted_sum_term(int index) const;
-  ::delivery::QualityScoreTerm* add_weighted_sum_term();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >&
-      weighted_sum_term() const;
 
-  // @@protoc_insertion_point(class_scope:delivery.QualityScoreConfig)
+  // float high_bound = 2 [json_name = "highBound"];
+  void clear_high_bound();
+  float high_bound() const;
+  void set_high_bound(float value);
+  private:
+  float _internal_high_bound() const;
+  void _internal_set_high_bound(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopUniformGenerator)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm > weighted_sum_term_;
+  float low_bound_;
+  float high_bound_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class QualityScoreTerms PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.QualityScoreTerms) */ {
+class HyperloopUniformMultiGenerator PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopUniformMultiGenerator) */ {
  public:
-  inline QualityScoreTerms() : QualityScoreTerms(nullptr) {}
-  virtual ~QualityScoreTerms();
-  explicit constexpr QualityScoreTerms(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopUniformMultiGenerator() : HyperloopUniformMultiGenerator(nullptr) {}
+  virtual ~HyperloopUniformMultiGenerator();
+  explicit constexpr HyperloopUniformMultiGenerator(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  QualityScoreTerms(const QualityScoreTerms& from);
-  QualityScoreTerms(QualityScoreTerms&& from) noexcept
-    : QualityScoreTerms() {
+  HyperloopUniformMultiGenerator(const HyperloopUniformMultiGenerator& from);
+  HyperloopUniformMultiGenerator(HyperloopUniformMultiGenerator&& from) noexcept
+    : HyperloopUniformMultiGenerator() {
     *this = ::std::move(from);
   }
 
-  inline QualityScoreTerms& operator=(const QualityScoreTerms& from) {
+  inline HyperloopUniformMultiGenerator& operator=(const HyperloopUniformMultiGenerator& from) {
     CopyFrom(from);
     return *this;
   }
-  inline QualityScoreTerms& operator=(QualityScoreTerms&& from) noexcept {
+  inline HyperloopUniformMultiGenerator& operator=(HyperloopUniformMultiGenerator&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2689,20 +2611,20 @@ class QualityScoreTerms PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const QualityScoreTerms& default_instance() {
+  static const HyperloopUniformMultiGenerator& default_instance() {
     return *internal_default_instance();
   }
-  static inline const QualityScoreTerms* internal_default_instance() {
-    return reinterpret_cast<const QualityScoreTerms*>(
-               &_QualityScoreTerms_default_instance_);
+  static inline const HyperloopUniformMultiGenerator* internal_default_instance() {
+    return reinterpret_cast<const HyperloopUniformMultiGenerator*>(
+               &_HyperloopUniformMultiGenerator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     14;
 
-  friend void swap(QualityScoreTerms& a, QualityScoreTerms& b) {
+  friend void swap(HyperloopUniformMultiGenerator& a, HyperloopUniformMultiGenerator& b) {
     a.Swap(&b);
   }
-  inline void Swap(QualityScoreTerms* other) {
+  inline void Swap(HyperloopUniformMultiGenerator* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2710,7 +2632,7 @@ class QualityScoreTerms PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(QualityScoreTerms* other) {
+  void UnsafeArenaSwap(HyperloopUniformMultiGenerator* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2718,17 +2640,17 @@ class QualityScoreTerms PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline QualityScoreTerms* New() const final {
-    return CreateMaybeMessage<QualityScoreTerms>(nullptr);
+  inline HyperloopUniformMultiGenerator* New() const final {
+    return CreateMaybeMessage<HyperloopUniformMultiGenerator>(nullptr);
   }
 
-  QualityScoreTerms* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<QualityScoreTerms>(arena);
+  HyperloopUniformMultiGenerator* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopUniformMultiGenerator>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const QualityScoreTerms& from);
-  void MergeFrom(const QualityScoreTerms& from);
+  void CopyFrom(const HyperloopUniformMultiGenerator& from);
+  void MergeFrom(const HyperloopUniformMultiGenerator& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2742,13 +2664,13 @@ class QualityScoreTerms PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(QualityScoreTerms* other);
+  void InternalSwap(HyperloopUniformMultiGenerator* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.QualityScoreTerms";
+    return "delivery.HyperloopUniformMultiGenerator";
   }
   protected:
-  explicit QualityScoreTerms(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopUniformMultiGenerator(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2767,57 +2689,59 @@ class QualityScoreTerms PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kQualityScoreTermsFieldNumber = 1,
+    kBaseFieldNumber = 1,
+    kMultiFieldNumber = 2,
   };
-  // repeated .delivery.QualityScoreTerm quality_score_terms = 1 [json_name = "qualityScoreTerms"];
-  int quality_score_terms_size() const;
+  // float base = 1 [json_name = "base"];
+  void clear_base();
+  float base() const;
+  void set_base(float value);
   private:
-  int _internal_quality_score_terms_size() const;
+  float _internal_base() const;
+  void _internal_set_base(float value);
   public:
-  void clear_quality_score_terms();
-  ::delivery::QualityScoreTerm* mutable_quality_score_terms(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >*
-      mutable_quality_score_terms();
-  private:
-  const ::delivery::QualityScoreTerm& _internal_quality_score_terms(int index) const;
-  ::delivery::QualityScoreTerm* _internal_add_quality_score_terms();
-  public:
-  const ::delivery::QualityScoreTerm& quality_score_terms(int index) const;
-  ::delivery::QualityScoreTerm* add_quality_score_terms();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >&
-      quality_score_terms() const;
 
-  // @@protoc_insertion_point(class_scope:delivery.QualityScoreTerms)
+  // float multi = 2 [json_name = "multi"];
+  void clear_multi();
+  float multi() const;
+  void set_multi(float value);
+  private:
+  float _internal_multi() const;
+  void _internal_set_multi(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopUniformMultiGenerator)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm > quality_score_terms_;
+  float base_;
+  float multi_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class QualityScoreTerm PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.QualityScoreTerm) */ {
+class HyperloopConditionalExpression PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopConditionalExpression) */ {
  public:
-  inline QualityScoreTerm() : QualityScoreTerm(nullptr) {}
-  virtual ~QualityScoreTerm();
-  explicit constexpr QualityScoreTerm(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline HyperloopConditionalExpression() : HyperloopConditionalExpression(nullptr) {}
+  virtual ~HyperloopConditionalExpression();
+  explicit constexpr HyperloopConditionalExpression(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  QualityScoreTerm(const QualityScoreTerm& from);
-  QualityScoreTerm(QualityScoreTerm&& from) noexcept
-    : QualityScoreTerm() {
+  HyperloopConditionalExpression(const HyperloopConditionalExpression& from);
+  HyperloopConditionalExpression(HyperloopConditionalExpression&& from) noexcept
+    : HyperloopConditionalExpression() {
     *this = ::std::move(from);
   }
 
-  inline QualityScoreTerm& operator=(const QualityScoreTerm& from) {
+  inline HyperloopConditionalExpression& operator=(const HyperloopConditionalExpression& from) {
     CopyFrom(from);
     return *this;
   }
-  inline QualityScoreTerm& operator=(QualityScoreTerm&& from) noexcept {
+  inline HyperloopConditionalExpression& operator=(HyperloopConditionalExpression&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2835,26 +2759,20 @@ class QualityScoreTerm PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const QualityScoreTerm& default_instance() {
+  static const HyperloopConditionalExpression& default_instance() {
     return *internal_default_instance();
   }
-  enum FetchMethodCase {
-    kAttributeName = 1,
-    kProduct = 3,
-    FETCH_METHOD_NOT_SET = 0,
-  };
-
-  static inline const QualityScoreTerm* internal_default_instance() {
-    return reinterpret_cast<const QualityScoreTerm*>(
-               &_QualityScoreTerm_default_instance_);
+  static inline const HyperloopConditionalExpression* internal_default_instance() {
+    return reinterpret_cast<const HyperloopConditionalExpression*>(
+               &_HyperloopConditionalExpression_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     15;
 
-  friend void swap(QualityScoreTerm& a, QualityScoreTerm& b) {
+  friend void swap(HyperloopConditionalExpression& a, HyperloopConditionalExpression& b) {
     a.Swap(&b);
   }
-  inline void Swap(QualityScoreTerm* other) {
+  inline void Swap(HyperloopConditionalExpression* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2862,7 +2780,7 @@ class QualityScoreTerm PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(QualityScoreTerm* other) {
+  void UnsafeArenaSwap(HyperloopConditionalExpression* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2870,17 +2788,17 @@ class QualityScoreTerm PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline QualityScoreTerm* New() const final {
-    return CreateMaybeMessage<QualityScoreTerm>(nullptr);
+  inline HyperloopConditionalExpression* New() const final {
+    return CreateMaybeMessage<HyperloopConditionalExpression>(nullptr);
   }
 
-  QualityScoreTerm* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<QualityScoreTerm>(arena);
+  HyperloopConditionalExpression* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopConditionalExpression>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const QualityScoreTerm& from);
-  void MergeFrom(const QualityScoreTerm& from);
+  void CopyFrom(const HyperloopConditionalExpression& from);
+  void MergeFrom(const HyperloopConditionalExpression& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2894,13 +2812,13 @@ class QualityScoreTerm PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(QualityScoreTerm* other);
+  void InternalSwap(HyperloopConditionalExpression* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.QualityScoreTerm";
+    return "delivery.HyperloopConditionalExpression";
   }
   protected:
-  explicit QualityScoreTerm(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopConditionalExpression(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2916,172 +2834,195 @@ class QualityScoreTerm PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef HyperloopConditionalExpression_Operator Operator;
+  static constexpr Operator UNKNOWN =
+    HyperloopConditionalExpression_Operator_UNKNOWN;
+  static constexpr Operator EQUAL =
+    HyperloopConditionalExpression_Operator_EQUAL;
+  static constexpr Operator GREATER_THAN =
+    HyperloopConditionalExpression_Operator_GREATER_THAN;
+  static constexpr Operator GREATER_THAN_OR_EQUAL =
+    HyperloopConditionalExpression_Operator_GREATER_THAN_OR_EQUAL;
+  static inline bool Operator_IsValid(int value) {
+    return HyperloopConditionalExpression_Operator_IsValid(value);
+  }
+  static constexpr Operator Operator_MIN =
+    HyperloopConditionalExpression_Operator_Operator_MIN;
+  static constexpr Operator Operator_MAX =
+    HyperloopConditionalExpression_Operator_Operator_MAX;
+  static constexpr int Operator_ARRAYSIZE =
+    HyperloopConditionalExpression_Operator_Operator_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Operator_descriptor() {
+    return HyperloopConditionalExpression_Operator_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Operator_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Operator>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Operator_Name.");
+    return HyperloopConditionalExpression_Operator_Name(enum_t_value);
+  }
+  static inline bool Operator_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Operator* value) {
+    return HyperloopConditionalExpression_Operator_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTermConditionalEvaluationFieldNumber = 14,
-    kFetchHighFieldNumber = 10,
-    kFetchLowFieldNumber = 11,
-    kWeightFieldNumber = 12,
-    kOffsetFieldNumber = 13,
-    kAttributeNameFieldNumber = 1,
-    kProductFieldNumber = 3,
+    kPredicateLhsFieldNumber = 2,
+    kPredicateRhsFieldNumber = 3,
+    kThenBranchFieldNumber = 4,
+    kElseBranchFieldNumber = 5,
+    kOpFieldNumber = 1,
   };
-  // .delivery.TermConditionalEvaluation term_conditional_evaluation = 14 [json_name = "termConditionalEvaluation"];
-  bool has_term_conditional_evaluation() const;
+  // .delivery.HyperloopExpression predicate_lhs = 2 [json_name = "predicateLhs"];
+  bool has_predicate_lhs() const;
   private:
-  bool _internal_has_term_conditional_evaluation() const;
+  bool _internal_has_predicate_lhs() const;
   public:
-  void clear_term_conditional_evaluation();
-  const ::delivery::TermConditionalEvaluation& term_conditional_evaluation() const;
-  ::delivery::TermConditionalEvaluation* release_term_conditional_evaluation();
-  ::delivery::TermConditionalEvaluation* mutable_term_conditional_evaluation();
-  void set_allocated_term_conditional_evaluation(::delivery::TermConditionalEvaluation* term_conditional_evaluation);
+  void clear_predicate_lhs();
+  const ::delivery::HyperloopExpression& predicate_lhs() const;
+  ::delivery::HyperloopExpression* release_predicate_lhs();
+  ::delivery::HyperloopExpression* mutable_predicate_lhs();
+  void set_allocated_predicate_lhs(::delivery::HyperloopExpression* predicate_lhs);
   private:
-  const ::delivery::TermConditionalEvaluation& _internal_term_conditional_evaluation() const;
-  ::delivery::TermConditionalEvaluation* _internal_mutable_term_conditional_evaluation();
+  const ::delivery::HyperloopExpression& _internal_predicate_lhs() const;
+  ::delivery::HyperloopExpression* _internal_mutable_predicate_lhs();
   public:
-  void unsafe_arena_set_allocated_term_conditional_evaluation(
-      ::delivery::TermConditionalEvaluation* term_conditional_evaluation);
-  ::delivery::TermConditionalEvaluation* unsafe_arena_release_term_conditional_evaluation();
+  void unsafe_arena_set_allocated_predicate_lhs(
+      ::delivery::HyperloopExpression* predicate_lhs);
+  ::delivery::HyperloopExpression* unsafe_arena_release_predicate_lhs();
 
-  // float fetch_high = 10 [json_name = "fetchHigh"];
-  bool has_fetch_high() const;
+  // .delivery.HyperloopExpression predicate_rhs = 3 [json_name = "predicateRhs"];
+  bool has_predicate_rhs() const;
   private:
-  bool _internal_has_fetch_high() const;
+  bool _internal_has_predicate_rhs() const;
   public:
-  void clear_fetch_high();
-  float fetch_high() const;
-  void set_fetch_high(float value);
+  void clear_predicate_rhs();
+  const ::delivery::HyperloopExpression& predicate_rhs() const;
+  ::delivery::HyperloopExpression* release_predicate_rhs();
+  ::delivery::HyperloopExpression* mutable_predicate_rhs();
+  void set_allocated_predicate_rhs(::delivery::HyperloopExpression* predicate_rhs);
   private:
-  float _internal_fetch_high() const;
-  void _internal_set_fetch_high(float value);
+  const ::delivery::HyperloopExpression& _internal_predicate_rhs() const;
+  ::delivery::HyperloopExpression* _internal_mutable_predicate_rhs();
   public:
+  void unsafe_arena_set_allocated_predicate_rhs(
+      ::delivery::HyperloopExpression* predicate_rhs);
+  ::delivery::HyperloopExpression* unsafe_arena_release_predicate_rhs();
 
-  // float fetch_low = 11 [json_name = "fetchLow"];
-  bool has_fetch_low() const;
+  // .delivery.HyperloopExpression then_branch = 4 [json_name = "thenBranch"];
+  bool has_then_branch() const;
   private:
-  bool _internal_has_fetch_low() const;
+  bool _internal_has_then_branch() const;
   public:
-  void clear_fetch_low();
-  float fetch_low() const;
-  void set_fetch_low(float value);
+  void clear_then_branch();
+  const ::delivery::HyperloopExpression& then_branch() const;
+  ::delivery::HyperloopExpression* release_then_branch();
+  ::delivery::HyperloopExpression* mutable_then_branch();
+  void set_allocated_then_branch(::delivery::HyperloopExpression* then_branch);
   private:
-  float _internal_fetch_low() const;
-  void _internal_set_fetch_low(float value);
+  const ::delivery::HyperloopExpression& _internal_then_branch() const;
+  ::delivery::HyperloopExpression* _internal_mutable_then_branch();
   public:
+  void unsafe_arena_set_allocated_then_branch(
+      ::delivery::HyperloopExpression* then_branch);
+  ::delivery::HyperloopExpression* unsafe_arena_release_then_branch();
 
-  // float weight = 12 [json_name = "weight"];
-  bool has_weight() const;
+  // .delivery.HyperloopExpression else_branch = 5 [json_name = "elseBranch"];
+  bool has_else_branch() const;
   private:
-  bool _internal_has_weight() const;
+  bool _internal_has_else_branch() const;
   public:
-  void clear_weight();
-  float weight() const;
-  void set_weight(float value);
+  void clear_else_branch();
+  const ::delivery::HyperloopExpression& else_branch() const;
+  ::delivery::HyperloopExpression* release_else_branch();
+  ::delivery::HyperloopExpression* mutable_else_branch();
+  void set_allocated_else_branch(::delivery::HyperloopExpression* else_branch);
   private:
-  float _internal_weight() const;
-  void _internal_set_weight(float value);
+  const ::delivery::HyperloopExpression& _internal_else_branch() const;
+  ::delivery::HyperloopExpression* _internal_mutable_else_branch();
   public:
+  void unsafe_arena_set_allocated_else_branch(
+      ::delivery::HyperloopExpression* else_branch);
+  ::delivery::HyperloopExpression* unsafe_arena_release_else_branch();
 
-  // float offset = 13 [json_name = "offset"];
-  void clear_offset();
-  float offset() const;
-  void set_offset(float value);
+  // .delivery.HyperloopConditionalExpression.Operator op = 1 [json_name = "op"];
+  void clear_op();
+  ::delivery::HyperloopConditionalExpression_Operator op() const;
+  void set_op(::delivery::HyperloopConditionalExpression_Operator value);
   private:
-  float _internal_offset() const;
-  void _internal_set_offset(float value);
-  public:
-
-  // string attribute_name = 1 [json_name = "attributeName"];
-  bool has_attribute_name() const;
-  private:
-  bool _internal_has_attribute_name() const;
-  public:
-  void clear_attribute_name();
-  const std::string& attribute_name() const;
-  void set_attribute_name(const std::string& value);
-  void set_attribute_name(std::string&& value);
-  void set_attribute_name(const char* value);
-  void set_attribute_name(const char* value, size_t size);
-  std::string* mutable_attribute_name();
-  std::string* release_attribute_name();
-  void set_allocated_attribute_name(std::string* attribute_name);
-  private:
-  const std::string& _internal_attribute_name() const;
-  void _internal_set_attribute_name(const std::string& value);
-  std::string* _internal_mutable_attribute_name();
+  ::delivery::HyperloopConditionalExpression_Operator _internal_op() const;
+  void _internal_set_op(::delivery::HyperloopConditionalExpression_Operator value);
   public:
 
-  // .delivery.QualityScoreTerms product = 3 [json_name = "product"];
-  bool has_product() const;
-  private:
-  bool _internal_has_product() const;
-  public:
-  void clear_product();
-  const ::delivery::QualityScoreTerms& product() const;
-  ::delivery::QualityScoreTerms* release_product();
-  ::delivery::QualityScoreTerms* mutable_product();
-  void set_allocated_product(::delivery::QualityScoreTerms* product);
-  private:
-  const ::delivery::QualityScoreTerms& _internal_product() const;
-  ::delivery::QualityScoreTerms* _internal_mutable_product();
-  public:
-  void unsafe_arena_set_allocated_product(
-      ::delivery::QualityScoreTerms* product);
-  ::delivery::QualityScoreTerms* unsafe_arena_release_product();
-
-  void clear_fetch_method();
-  FetchMethodCase fetch_method_case() const;
-  // @@protoc_insertion_point(class_scope:delivery.QualityScoreTerm)
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopConditionalExpression)
  private:
   class _Internal;
-  void set_has_attribute_name();
-  void set_has_product();
-
-  inline bool has_fetch_method() const;
-  inline void clear_has_fetch_method();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  ::delivery::HyperloopExpression* predicate_lhs_;
+  ::delivery::HyperloopExpression* predicate_rhs_;
+  ::delivery::HyperloopExpression* then_branch_;
+  ::delivery::HyperloopExpression* else_branch_;
+  int op_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::delivery::TermConditionalEvaluation* term_conditional_evaluation_;
-  float fetch_high_;
-  float fetch_low_;
-  float weight_;
-  float offset_;
-  union FetchMethodUnion {
-    constexpr FetchMethodUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attribute_name_;
-    ::delivery::QualityScoreTerms* product_;
-  } fetch_method_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // -------------------------------------------------------------------
 
-class TermConditionalEvaluation PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.TermConditionalEvaluation) */ {
- public:
-  inline TermConditionalEvaluation() : TermConditionalEvaluation(nullptr) {}
-  virtual ~TermConditionalEvaluation();
-  explicit constexpr TermConditionalEvaluation(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+class HyperloopLog_ParameterLogsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<HyperloopLog_ParameterLogsEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<HyperloopLog_ParameterLogsEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
+  HyperloopLog_ParameterLogsEntry_DoNotUse();
+  explicit constexpr HyperloopLog_ParameterLogsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit HyperloopLog_ParameterLogsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const HyperloopLog_ParameterLogsEntry_DoNotUse& other);
+  static const HyperloopLog_ParameterLogsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const HyperloopLog_ParameterLogsEntry_DoNotUse*>(&_HyperloopLog_ParameterLogsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(void*) { return true; }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_proto_2fdelivery_2fblender_2eproto);
+    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto.file_level_metadata[16];
+  }
 
-  TermConditionalEvaluation(const TermConditionalEvaluation& from);
-  TermConditionalEvaluation(TermConditionalEvaluation&& from) noexcept
-    : TermConditionalEvaluation() {
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class HyperloopLog PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopLog) */ {
+ public:
+  inline HyperloopLog() : HyperloopLog(nullptr) {}
+  virtual ~HyperloopLog();
+  explicit constexpr HyperloopLog(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  HyperloopLog(const HyperloopLog& from);
+  HyperloopLog(HyperloopLog&& from) noexcept
+    : HyperloopLog() {
     *this = ::std::move(from);
   }
 
-  inline TermConditionalEvaluation& operator=(const TermConditionalEvaluation& from) {
+  inline HyperloopLog& operator=(const HyperloopLog& from) {
     CopyFrom(from);
     return *this;
   }
-  inline TermConditionalEvaluation& operator=(TermConditionalEvaluation&& from) noexcept {
+  inline HyperloopLog& operator=(HyperloopLog&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -3099,29 +3040,20 @@ class TermConditionalEvaluation PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const TermConditionalEvaluation& default_instance() {
+  static const HyperloopLog& default_instance() {
     return *internal_default_instance();
   }
-  enum EvalMethodCase {
-    kFlag = 4,
-    kGreaterThan = 6,
-    kLessThan = 7,
-    kInterval = 8,
-    kEqualV2 = 10,
-    EVAL_METHOD_NOT_SET = 0,
-  };
-
-  static inline const TermConditionalEvaluation* internal_default_instance() {
-    return reinterpret_cast<const TermConditionalEvaluation*>(
-               &_TermConditionalEvaluation_default_instance_);
+  static inline const HyperloopLog* internal_default_instance() {
+    return reinterpret_cast<const HyperloopLog*>(
+               &_HyperloopLog_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
-  friend void swap(TermConditionalEvaluation& a, TermConditionalEvaluation& b) {
+  friend void swap(HyperloopLog& a, HyperloopLog& b) {
     a.Swap(&b);
   }
-  inline void Swap(TermConditionalEvaluation* other) {
+  inline void Swap(HyperloopLog* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -3129,7 +3061,7 @@ class TermConditionalEvaluation PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(TermConditionalEvaluation* other) {
+  void UnsafeArenaSwap(HyperloopLog* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -3137,17 +3069,17 @@ class TermConditionalEvaluation PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline TermConditionalEvaluation* New() const final {
-    return CreateMaybeMessage<TermConditionalEvaluation>(nullptr);
+  inline HyperloopLog* New() const final {
+    return CreateMaybeMessage<HyperloopLog>(nullptr);
   }
 
-  TermConditionalEvaluation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<TermConditionalEvaluation>(arena);
+  HyperloopLog* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopLog>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const TermConditionalEvaluation& from);
-  void MergeFrom(const TermConditionalEvaluation& from);
+  void CopyFrom(const HyperloopLog& from);
+  void MergeFrom(const HyperloopLog& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -3161,13 +3093,163 @@ class TermConditionalEvaluation PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(TermConditionalEvaluation* other);
+  void InternalSwap(HyperloopLog* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "delivery.TermConditionalEvaluation";
+    return "delivery.HyperloopLog";
   }
   protected:
-  explicit TermConditionalEvaluation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HyperloopLog(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_proto_2fdelivery_2fblender_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kParameterLogsFieldNumber = 1,
+  };
+  // map<uint64, .delivery.HyperloopParameterLog> parameter_logs = 1 [json_name = "parameterLogs"];
+  int parameter_logs_size() const;
+  private:
+  int _internal_parameter_logs_size() const;
+  public:
+  void clear_parameter_logs();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >&
+      _internal_parameter_logs() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >*
+      _internal_mutable_parameter_logs();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >&
+      parameter_logs() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >*
+      mutable_parameter_logs();
+
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopLog)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      HyperloopLog_ParameterLogsEntry_DoNotUse,
+      ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT64,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> parameter_logs_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
+};
+// -------------------------------------------------------------------
+
+class HyperloopParameterLog PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:delivery.HyperloopParameterLog) */ {
+ public:
+  inline HyperloopParameterLog() : HyperloopParameterLog(nullptr) {}
+  virtual ~HyperloopParameterLog();
+  explicit constexpr HyperloopParameterLog(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  HyperloopParameterLog(const HyperloopParameterLog& from);
+  HyperloopParameterLog(HyperloopParameterLog&& from) noexcept
+    : HyperloopParameterLog() {
+    *this = ::std::move(from);
+  }
+
+  inline HyperloopParameterLog& operator=(const HyperloopParameterLog& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline HyperloopParameterLog& operator=(HyperloopParameterLog&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const HyperloopParameterLog& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const HyperloopParameterLog* internal_default_instance() {
+    return reinterpret_cast<const HyperloopParameterLog*>(
+               &_HyperloopParameterLog_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(HyperloopParameterLog& a, HyperloopParameterLog& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(HyperloopParameterLog* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(HyperloopParameterLog* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HyperloopParameterLog* New() const final {
+    return CreateMaybeMessage<HyperloopParameterLog>(nullptr);
+  }
+
+  HyperloopParameterLog* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HyperloopParameterLog>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const HyperloopParameterLog& from);
+  void MergeFrom(const HyperloopParameterLog& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(HyperloopParameterLog* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "delivery.HyperloopParameterLog";
+  }
+  protected:
+  explicit HyperloopParameterLog(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -3186,160 +3268,37 @@ class TermConditionalEvaluation PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttributeNameFieldNumber = 2,
-    kValueIfFalseFieldNumber = 1,
-    kFlagFieldNumber = 4,
-    kGreaterThanFieldNumber = 6,
-    kLessThanFieldNumber = 7,
-    kIntervalFieldNumber = 8,
-    kEqualV2FieldNumber = 10,
+    kBucketFieldNumber = 1,
+    kValueFieldNumber = 2,
   };
-  // string attribute_name = 2 [json_name = "attributeName"];
-  void clear_attribute_name();
-  const std::string& attribute_name() const;
-  void set_attribute_name(const std::string& value);
-  void set_attribute_name(std::string&& value);
-  void set_attribute_name(const char* value);
-  void set_attribute_name(const char* value, size_t size);
-  std::string* mutable_attribute_name();
-  std::string* release_attribute_name();
-  void set_allocated_attribute_name(std::string* attribute_name);
+  // int32 bucket = 1 [json_name = "bucket"];
+  void clear_bucket();
+  ::PROTOBUF_NAMESPACE_ID::int32 bucket() const;
+  void set_bucket(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  const std::string& _internal_attribute_name() const;
-  void _internal_set_attribute_name(const std::string& value);
-  std::string* _internal_mutable_attribute_name();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_bucket() const;
+  void _internal_set_bucket(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // float value_if_false = 1 [json_name = "valueIfFalse"];
-  void clear_value_if_false();
-  float value_if_false() const;
-  void set_value_if_false(float value);
+  // float value = 2 [json_name = "value"];
+  void clear_value();
+  float value() const;
+  void set_value(float value);
   private:
-  float _internal_value_if_false() const;
-  void _internal_set_value_if_false(float value);
+  float _internal_value() const;
+  void _internal_set_value(float value);
   public:
 
-  // .delivery.Flag flag = 4 [json_name = "flag"];
-  bool has_flag() const;
-  private:
-  bool _internal_has_flag() const;
-  public:
-  void clear_flag();
-  const ::delivery::Flag& flag() const;
-  ::delivery::Flag* release_flag();
-  ::delivery::Flag* mutable_flag();
-  void set_allocated_flag(::delivery::Flag* flag);
-  private:
-  const ::delivery::Flag& _internal_flag() const;
-  ::delivery::Flag* _internal_mutable_flag();
-  public:
-  void unsafe_arena_set_allocated_flag(
-      ::delivery::Flag* flag);
-  ::delivery::Flag* unsafe_arena_release_flag();
-
-  // .delivery.GreaterThan greater_than = 6 [json_name = "greaterThan"];
-  bool has_greater_than() const;
-  private:
-  bool _internal_has_greater_than() const;
-  public:
-  void clear_greater_than();
-  const ::delivery::GreaterThan& greater_than() const;
-  ::delivery::GreaterThan* release_greater_than();
-  ::delivery::GreaterThan* mutable_greater_than();
-  void set_allocated_greater_than(::delivery::GreaterThan* greater_than);
-  private:
-  const ::delivery::GreaterThan& _internal_greater_than() const;
-  ::delivery::GreaterThan* _internal_mutable_greater_than();
-  public:
-  void unsafe_arena_set_allocated_greater_than(
-      ::delivery::GreaterThan* greater_than);
-  ::delivery::GreaterThan* unsafe_arena_release_greater_than();
-
-  // .delivery.LessThan less_than = 7 [json_name = "lessThan"];
-  bool has_less_than() const;
-  private:
-  bool _internal_has_less_than() const;
-  public:
-  void clear_less_than();
-  const ::delivery::LessThan& less_than() const;
-  ::delivery::LessThan* release_less_than();
-  ::delivery::LessThan* mutable_less_than();
-  void set_allocated_less_than(::delivery::LessThan* less_than);
-  private:
-  const ::delivery::LessThan& _internal_less_than() const;
-  ::delivery::LessThan* _internal_mutable_less_than();
-  public:
-  void unsafe_arena_set_allocated_less_than(
-      ::delivery::LessThan* less_than);
-  ::delivery::LessThan* unsafe_arena_release_less_than();
-
-  // .delivery.Interval interval = 8 [json_name = "interval"];
-  bool has_interval() const;
-  private:
-  bool _internal_has_interval() const;
-  public:
-  void clear_interval();
-  const ::delivery::Interval& interval() const;
-  ::delivery::Interval* release_interval();
-  ::delivery::Interval* mutable_interval();
-  void set_allocated_interval(::delivery::Interval* interval);
-  private:
-  const ::delivery::Interval& _internal_interval() const;
-  ::delivery::Interval* _internal_mutable_interval();
-  public:
-  void unsafe_arena_set_allocated_interval(
-      ::delivery::Interval* interval);
-  ::delivery::Interval* unsafe_arena_release_interval();
-
-  // .delivery.EqualV2 equal_v2 = 10 [json_name = "equalV2"];
-  bool has_equal_v2() const;
-  private:
-  bool _internal_has_equal_v2() const;
-  public:
-  void clear_equal_v2();
-  const ::delivery::EqualV2& equal_v2() const;
-  ::delivery::EqualV2* release_equal_v2();
-  ::delivery::EqualV2* mutable_equal_v2();
-  void set_allocated_equal_v2(::delivery::EqualV2* equal_v2);
-  private:
-  const ::delivery::EqualV2& _internal_equal_v2() const;
-  ::delivery::EqualV2* _internal_mutable_equal_v2();
-  public:
-  void unsafe_arena_set_allocated_equal_v2(
-      ::delivery::EqualV2* equal_v2);
-  ::delivery::EqualV2* unsafe_arena_release_equal_v2();
-
-  void clear_eval_method();
-  EvalMethodCase eval_method_case() const;
-  // @@protoc_insertion_point(class_scope:delivery.TermConditionalEvaluation)
+  // @@protoc_insertion_point(class_scope:delivery.HyperloopParameterLog)
  private:
   class _Internal;
-  void set_has_flag();
-  void set_has_greater_than();
-  void set_has_less_than();
-  void set_has_interval();
-  void set_has_equal_v2();
-
-  inline bool has_eval_method() const;
-  inline void clear_has_eval_method();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attribute_name_;
-  float value_if_false_;
-  union EvalMethodUnion {
-    constexpr EvalMethodUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::delivery::Flag* flag_;
-    ::delivery::GreaterThan* greater_than_;
-    ::delivery::LessThan* less_than_;
-    ::delivery::Interval* interval_;
-    ::delivery::EqualV2* equal_v2_;
-  } eval_method_;
+  ::PROTOBUF_NAMESPACE_ID::int32 bucket_;
+  float value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
   friend struct ::TableStruct_proto_2fdelivery_2fblender_2eproto;
 };
 // ===================================================================
@@ -3351,2726 +3310,2166 @@ class TermConditionalEvaluation PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// LeafExpression
+
+// repeated .delivery.Lookup lookups = 1 [json_name = "lookups"];
+inline int LeafExpression::_internal_lookups_size() const {
+  return lookups_.size();
+}
+inline int LeafExpression::lookups_size() const {
+  return _internal_lookups_size();
+}
+inline void LeafExpression::clear_lookups() {
+  lookups_.Clear();
+}
+inline ::delivery::Lookup* LeafExpression::mutable_lookups(int index) {
+  // @@protoc_insertion_point(field_mutable:delivery.LeafExpression.lookups)
+  return lookups_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::Lookup >*
+LeafExpression::mutable_lookups() {
+  // @@protoc_insertion_point(field_mutable_list:delivery.LeafExpression.lookups)
+  return &lookups_;
+}
+inline const ::delivery::Lookup& LeafExpression::_internal_lookups(int index) const {
+  return lookups_.Get(index);
+}
+inline const ::delivery::Lookup& LeafExpression::lookups(int index) const {
+  // @@protoc_insertion_point(field_get:delivery.LeafExpression.lookups)
+  return _internal_lookups(index);
+}
+inline ::delivery::Lookup* LeafExpression::_internal_add_lookups() {
+  return lookups_.Add();
+}
+inline ::delivery::Lookup* LeafExpression::add_lookups() {
+  // @@protoc_insertion_point(field_add:delivery.LeafExpression.lookups)
+  return _internal_add_lookups();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::Lookup >&
+LeafExpression::lookups() const {
+  // @@protoc_insertion_point(field_list:delivery.LeafExpression.lookups)
+  return lookups_;
+}
+
+// float default = 2 [json_name = "default"];
+inline void LeafExpression::clear_default_() {
+  default__ = 0;
+}
+inline float LeafExpression::_internal_default_() const {
+  return default__;
+}
+inline float LeafExpression::default_() const {
+  // @@protoc_insertion_point(field_get:delivery.LeafExpression.default)
+  return _internal_default_();
+}
+inline void LeafExpression::_internal_set_default_(float value) {
+  
+  default__ = value;
+}
+inline void LeafExpression::set_default_(float value) {
+  _internal_set_default_(value);
+  // @@protoc_insertion_point(field_set:delivery.LeafExpression.default)
+}
+
+// -------------------------------------------------------------------
+
+// Lookup
+
+// uint64 feature_id = 1 [json_name = "featureId"];
+inline bool Lookup::_internal_has_feature_id() const {
+  return lookup_type_case() == kFeatureId;
+}
+inline bool Lookup::has_feature_id() const {
+  return _internal_has_feature_id();
+}
+inline void Lookup::set_has_feature_id() {
+  _oneof_case_[0] = kFeatureId;
+}
+inline void Lookup::clear_feature_id() {
+  if (_internal_has_feature_id()) {
+    lookup_type_.feature_id_ = PROTOBUF_ULONGLONG(0);
+    clear_has_lookup_type();
+  }
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Lookup::_internal_feature_id() const {
+  if (_internal_has_feature_id()) {
+    return lookup_type_.feature_id_;
+  }
+  return PROTOBUF_ULONGLONG(0);
+}
+inline void Lookup::_internal_set_feature_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  if (!_internal_has_feature_id()) {
+    clear_lookup_type();
+    set_has_feature_id();
+  }
+  lookup_type_.feature_id_ = value;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Lookup::feature_id() const {
+  // @@protoc_insertion_point(field_get:delivery.Lookup.feature_id)
+  return _internal_feature_id();
+}
+inline void Lookup::set_feature_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_feature_id(value);
+  // @@protoc_insertion_point(field_set:delivery.Lookup.feature_id)
+}
+
+// uint64 parameter_key = 2 [json_name = "parameterKey"];
+inline bool Lookup::_internal_has_parameter_key() const {
+  return lookup_type_case() == kParameterKey;
+}
+inline bool Lookup::has_parameter_key() const {
+  return _internal_has_parameter_key();
+}
+inline void Lookup::set_has_parameter_key() {
+  _oneof_case_[0] = kParameterKey;
+}
+inline void Lookup::clear_parameter_key() {
+  if (_internal_has_parameter_key()) {
+    lookup_type_.parameter_key_ = PROTOBUF_ULONGLONG(0);
+    clear_has_lookup_type();
+  }
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Lookup::_internal_parameter_key() const {
+  if (_internal_has_parameter_key()) {
+    return lookup_type_.parameter_key_;
+  }
+  return PROTOBUF_ULONGLONG(0);
+}
+inline void Lookup::_internal_set_parameter_key(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  if (!_internal_has_parameter_key()) {
+    clear_lookup_type();
+    set_has_parameter_key();
+  }
+  lookup_type_.parameter_key_ = value;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Lookup::parameter_key() const {
+  // @@protoc_insertion_point(field_get:delivery.Lookup.parameter_key)
+  return _internal_parameter_key();
+}
+inline void Lookup::set_parameter_key(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_parameter_key(value);
+  // @@protoc_insertion_point(field_set:delivery.Lookup.parameter_key)
+}
+
+inline bool Lookup::has_lookup_type() const {
+  return lookup_type_case() != LOOKUP_TYPE_NOT_SET;
+}
+inline void Lookup::clear_has_lookup_type() {
+  _oneof_case_[0] = LOOKUP_TYPE_NOT_SET;
+}
+inline Lookup::LookupTypeCase Lookup::lookup_type_case() const {
+  return Lookup::LookupTypeCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
 // BlenderConfig
 
-// repeated .delivery.BlenderRule blender_rule = 1 [json_name = "blenderRule"];
-inline int BlenderConfig::_internal_blender_rule_size() const {
-  return blender_rule_.size();
+// .delivery.BlenderExpression quality_score = 1 [json_name = "qualityScore"];
+inline bool BlenderConfig::_internal_has_quality_score() const {
+  return this != internal_default_instance() && quality_score_ != nullptr;
 }
-inline int BlenderConfig::blender_rule_size() const {
-  return _internal_blender_rule_size();
+inline bool BlenderConfig::has_quality_score() const {
+  return _internal_has_quality_score();
 }
-inline void BlenderConfig::clear_blender_rule() {
-  blender_rule_.Clear();
-}
-inline ::delivery::BlenderRule* BlenderConfig::mutable_blender_rule(int index) {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderConfig.blender_rule)
-  return blender_rule_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderRule >*
-BlenderConfig::mutable_blender_rule() {
-  // @@protoc_insertion_point(field_mutable_list:delivery.BlenderConfig.blender_rule)
-  return &blender_rule_;
-}
-inline const ::delivery::BlenderRule& BlenderConfig::_internal_blender_rule(int index) const {
-  return blender_rule_.Get(index);
-}
-inline const ::delivery::BlenderRule& BlenderConfig::blender_rule(int index) const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderConfig.blender_rule)
-  return _internal_blender_rule(index);
-}
-inline ::delivery::BlenderRule* BlenderConfig::_internal_add_blender_rule() {
-  return blender_rule_.Add();
-}
-inline ::delivery::BlenderRule* BlenderConfig::add_blender_rule() {
-  // @@protoc_insertion_point(field_add:delivery.BlenderConfig.blender_rule)
-  return _internal_add_blender_rule();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderRule >&
-BlenderConfig::blender_rule() const {
-  // @@protoc_insertion_point(field_list:delivery.BlenderConfig.blender_rule)
-  return blender_rule_;
-}
-
-// .delivery.QualityScoreConfig quality_score_config = 2 [json_name = "qualityScoreConfig"];
-inline bool BlenderConfig::_internal_has_quality_score_config() const {
-  return this != internal_default_instance() && quality_score_config_ != nullptr;
-}
-inline bool BlenderConfig::has_quality_score_config() const {
-  return _internal_has_quality_score_config();
-}
-inline void BlenderConfig::clear_quality_score_config() {
-  if (GetArena() == nullptr && quality_score_config_ != nullptr) {
-    delete quality_score_config_;
+inline void BlenderConfig::clear_quality_score() {
+  if (GetArena() == nullptr && quality_score_ != nullptr) {
+    delete quality_score_;
   }
-  quality_score_config_ = nullptr;
+  quality_score_ = nullptr;
 }
-inline const ::delivery::QualityScoreConfig& BlenderConfig::_internal_quality_score_config() const {
-  const ::delivery::QualityScoreConfig* p = quality_score_config_;
-  return p != nullptr ? *p : reinterpret_cast<const ::delivery::QualityScoreConfig&>(
-      ::delivery::_QualityScoreConfig_default_instance_);
+inline const ::delivery::BlenderExpression& BlenderConfig::_internal_quality_score() const {
+  const ::delivery::BlenderExpression* p = quality_score_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::BlenderExpression&>(
+      ::delivery::_BlenderExpression_default_instance_);
 }
-inline const ::delivery::QualityScoreConfig& BlenderConfig::quality_score_config() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderConfig.quality_score_config)
-  return _internal_quality_score_config();
+inline const ::delivery::BlenderExpression& BlenderConfig::quality_score() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderConfig.quality_score)
+  return _internal_quality_score();
 }
-inline void BlenderConfig::unsafe_arena_set_allocated_quality_score_config(
-    ::delivery::QualityScoreConfig* quality_score_config) {
+inline void BlenderConfig::unsafe_arena_set_allocated_quality_score(
+    ::delivery::BlenderExpression* quality_score) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(quality_score_config_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(quality_score_);
   }
-  quality_score_config_ = quality_score_config;
-  if (quality_score_config) {
+  quality_score_ = quality_score;
+  if (quality_score) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderConfig.quality_score_config)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderConfig.quality_score)
 }
-inline ::delivery::QualityScoreConfig* BlenderConfig::release_quality_score_config() {
+inline ::delivery::BlenderExpression* BlenderConfig::release_quality_score() {
   
-  ::delivery::QualityScoreConfig* temp = quality_score_config_;
-  quality_score_config_ = nullptr;
+  ::delivery::BlenderExpression* temp = quality_score_;
+  quality_score_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::delivery::QualityScoreConfig* BlenderConfig::unsafe_arena_release_quality_score_config() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderConfig.quality_score_config)
+inline ::delivery::BlenderExpression* BlenderConfig::unsafe_arena_release_quality_score() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderConfig.quality_score)
   
-  ::delivery::QualityScoreConfig* temp = quality_score_config_;
-  quality_score_config_ = nullptr;
+  ::delivery::BlenderExpression* temp = quality_score_;
+  quality_score_ = nullptr;
   return temp;
 }
-inline ::delivery::QualityScoreConfig* BlenderConfig::_internal_mutable_quality_score_config() {
+inline ::delivery::BlenderExpression* BlenderConfig::_internal_mutable_quality_score() {
   
-  if (quality_score_config_ == nullptr) {
-    auto* p = CreateMaybeMessage<::delivery::QualityScoreConfig>(GetArena());
-    quality_score_config_ = p;
+  if (quality_score_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::BlenderExpression>(GetArena());
+    quality_score_ = p;
   }
-  return quality_score_config_;
+  return quality_score_;
 }
-inline ::delivery::QualityScoreConfig* BlenderConfig::mutable_quality_score_config() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderConfig.quality_score_config)
-  return _internal_mutable_quality_score_config();
+inline ::delivery::BlenderExpression* BlenderConfig::mutable_quality_score() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderConfig.quality_score)
+  return _internal_mutable_quality_score();
 }
-inline void BlenderConfig::set_allocated_quality_score_config(::delivery::QualityScoreConfig* quality_score_config) {
+inline void BlenderConfig::set_allocated_quality_score(::delivery::BlenderExpression* quality_score) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete quality_score_config_;
+    delete quality_score_;
   }
-  if (quality_score_config) {
+  if (quality_score) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(quality_score_config);
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(quality_score);
     if (message_arena != submessage_arena) {
-      quality_score_config = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, quality_score_config, submessage_arena);
+      quality_score = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, quality_score, submessage_arena);
     }
     
   } else {
     
   }
-  quality_score_config_ = quality_score_config;
-  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderConfig.quality_score_config)
+  quality_score_ = quality_score;
+  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderConfig.quality_score)
 }
 
-// -------------------------------------------------------------------
-
-// BlenderRule
-
-// string attribute_name = 1 [json_name = "attributeName"];
-inline void BlenderRule::clear_attribute_name() {
-  attribute_name_.ClearToEmpty();
+// .delivery.BlenderSortKey sort_key = 2 [json_name = "sortKey"];
+inline bool BlenderConfig::_internal_has_sort_key() const {
+  return this != internal_default_instance() && sort_key_ != nullptr;
 }
-inline const std::string& BlenderRule::attribute_name() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.attribute_name)
-  return _internal_attribute_name();
+inline bool BlenderConfig::has_sort_key() const {
+  return _internal_has_sort_key();
 }
-inline void BlenderRule::set_attribute_name(const std::string& value) {
-  _internal_set_attribute_name(value);
-  // @@protoc_insertion_point(field_set:delivery.BlenderRule.attribute_name)
+inline void BlenderConfig::clear_sort_key() {
+  if (GetArena() == nullptr && sort_key_ != nullptr) {
+    delete sort_key_;
+  }
+  sort_key_ = nullptr;
 }
-inline std::string* BlenderRule::mutable_attribute_name() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.attribute_name)
-  return _internal_mutable_attribute_name();
+inline const ::delivery::BlenderSortKey& BlenderConfig::_internal_sort_key() const {
+  const ::delivery::BlenderSortKey* p = sort_key_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::BlenderSortKey&>(
+      ::delivery::_BlenderSortKey_default_instance_);
 }
-inline const std::string& BlenderRule::_internal_attribute_name() const {
-  return attribute_name_.Get();
+inline const ::delivery::BlenderSortKey& BlenderConfig::sort_key() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderConfig.sort_key)
+  return _internal_sort_key();
 }
-inline void BlenderRule::_internal_set_attribute_name(const std::string& value) {
-  
-  attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void BlenderRule::set_attribute_name(std::string&& value) {
-  
-  attribute_name_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:delivery.BlenderRule.attribute_name)
-}
-inline void BlenderRule::set_attribute_name(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:delivery.BlenderRule.attribute_name)
-}
-inline void BlenderRule::set_attribute_name(const char* value,
-    size_t size) {
-  
-  attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:delivery.BlenderRule.attribute_name)
-}
-inline std::string* BlenderRule::_internal_mutable_attribute_name() {
-  
-  return attribute_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* BlenderRule::release_attribute_name() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.attribute_name)
-  return attribute_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void BlenderRule::set_allocated_attribute_name(std::string* attribute_name) {
-  if (attribute_name != nullptr) {
+inline void BlenderConfig::unsafe_arena_set_allocated_sort_key(
+    ::delivery::BlenderSortKey* sort_key) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sort_key_);
+  }
+  sort_key_ = sort_key;
+  if (sort_key) {
     
   } else {
     
   }
-  attribute_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), attribute_name,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderRule.attribute_name)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderConfig.sort_key)
 }
-
-// .delivery.PositiveRule positive_rule = 6 [json_name = "positiveRule"];
-inline bool BlenderRule::_internal_has_positive_rule() const {
-  return rule_case() == kPositiveRule;
+inline ::delivery::BlenderSortKey* BlenderConfig::release_sort_key() {
+  
+  ::delivery::BlenderSortKey* temp = sort_key_;
+  sort_key_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline bool BlenderRule::has_positive_rule() const {
-  return _internal_has_positive_rule();
+inline ::delivery::BlenderSortKey* BlenderConfig::unsafe_arena_release_sort_key() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderConfig.sort_key)
+  
+  ::delivery::BlenderSortKey* temp = sort_key_;
+  sort_key_ = nullptr;
+  return temp;
 }
-inline void BlenderRule::set_has_positive_rule() {
-  _oneof_case_[0] = kPositiveRule;
+inline ::delivery::BlenderSortKey* BlenderConfig::_internal_mutable_sort_key() {
+  
+  if (sort_key_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::BlenderSortKey>(GetArena());
+    sort_key_ = p;
+  }
+  return sort_key_;
 }
-inline void BlenderRule::clear_positive_rule() {
-  if (_internal_has_positive_rule()) {
-    if (GetArena() == nullptr) {
-      delete rule_.positive_rule_;
+inline ::delivery::BlenderSortKey* BlenderConfig::mutable_sort_key() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderConfig.sort_key)
+  return _internal_mutable_sort_key();
+}
+inline void BlenderConfig::set_allocated_sort_key(::delivery::BlenderSortKey* sort_key) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete sort_key_;
+  }
+  if (sort_key) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(sort_key);
+    if (message_arena != submessage_arena) {
+      sort_key = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sort_key, submessage_arena);
     }
-    clear_has_rule();
-  }
-}
-inline ::delivery::PositiveRule* BlenderRule::release_positive_rule() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.positive_rule)
-  if (_internal_has_positive_rule()) {
-    clear_has_rule();
-      ::delivery::PositiveRule* temp = rule_.positive_rule_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    rule_.positive_rule_ = nullptr;
-    return temp;
+    
   } else {
-    return nullptr;
+    
   }
-}
-inline const ::delivery::PositiveRule& BlenderRule::_internal_positive_rule() const {
-  return _internal_has_positive_rule()
-      ? *rule_.positive_rule_
-      : reinterpret_cast< ::delivery::PositiveRule&>(::delivery::_PositiveRule_default_instance_);
-}
-inline const ::delivery::PositiveRule& BlenderRule::positive_rule() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.positive_rule)
-  return _internal_positive_rule();
-}
-inline ::delivery::PositiveRule* BlenderRule::unsafe_arena_release_positive_rule() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.positive_rule)
-  if (_internal_has_positive_rule()) {
-    clear_has_rule();
-    ::delivery::PositiveRule* temp = rule_.positive_rule_;
-    rule_.positive_rule_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_positive_rule(::delivery::PositiveRule* positive_rule) {
-  clear_rule();
-  if (positive_rule) {
-    set_has_positive_rule();
-    rule_.positive_rule_ = positive_rule;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.positive_rule)
-}
-inline ::delivery::PositiveRule* BlenderRule::_internal_mutable_positive_rule() {
-  if (!_internal_has_positive_rule()) {
-    clear_rule();
-    set_has_positive_rule();
-    rule_.positive_rule_ = CreateMaybeMessage< ::delivery::PositiveRule >(GetArena());
-  }
-  return rule_.positive_rule_;
-}
-inline ::delivery::PositiveRule* BlenderRule::mutable_positive_rule() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.positive_rule)
-  return _internal_mutable_positive_rule();
-}
-
-// .delivery.InsertRule insert_rule = 7 [json_name = "insertRule"];
-inline bool BlenderRule::_internal_has_insert_rule() const {
-  return rule_case() == kInsertRule;
-}
-inline bool BlenderRule::has_insert_rule() const {
-  return _internal_has_insert_rule();
-}
-inline void BlenderRule::set_has_insert_rule() {
-  _oneof_case_[0] = kInsertRule;
-}
-inline void BlenderRule::clear_insert_rule() {
-  if (_internal_has_insert_rule()) {
-    if (GetArena() == nullptr) {
-      delete rule_.insert_rule_;
-    }
-    clear_has_rule();
-  }
-}
-inline ::delivery::InsertRule* BlenderRule::release_insert_rule() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.insert_rule)
-  if (_internal_has_insert_rule()) {
-    clear_has_rule();
-      ::delivery::InsertRule* temp = rule_.insert_rule_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    rule_.insert_rule_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::InsertRule& BlenderRule::_internal_insert_rule() const {
-  return _internal_has_insert_rule()
-      ? *rule_.insert_rule_
-      : reinterpret_cast< ::delivery::InsertRule&>(::delivery::_InsertRule_default_instance_);
-}
-inline const ::delivery::InsertRule& BlenderRule::insert_rule() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.insert_rule)
-  return _internal_insert_rule();
-}
-inline ::delivery::InsertRule* BlenderRule::unsafe_arena_release_insert_rule() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.insert_rule)
-  if (_internal_has_insert_rule()) {
-    clear_has_rule();
-    ::delivery::InsertRule* temp = rule_.insert_rule_;
-    rule_.insert_rule_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_insert_rule(::delivery::InsertRule* insert_rule) {
-  clear_rule();
-  if (insert_rule) {
-    set_has_insert_rule();
-    rule_.insert_rule_ = insert_rule;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.insert_rule)
-}
-inline ::delivery::InsertRule* BlenderRule::_internal_mutable_insert_rule() {
-  if (!_internal_has_insert_rule()) {
-    clear_rule();
-    set_has_insert_rule();
-    rule_.insert_rule_ = CreateMaybeMessage< ::delivery::InsertRule >(GetArena());
-  }
-  return rule_.insert_rule_;
-}
-inline ::delivery::InsertRule* BlenderRule::mutable_insert_rule() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.insert_rule)
-  return _internal_mutable_insert_rule();
-}
-
-// .delivery.NegativeRule negative_rule = 8 [json_name = "negativeRule"];
-inline bool BlenderRule::_internal_has_negative_rule() const {
-  return rule_case() == kNegativeRule;
-}
-inline bool BlenderRule::has_negative_rule() const {
-  return _internal_has_negative_rule();
-}
-inline void BlenderRule::set_has_negative_rule() {
-  _oneof_case_[0] = kNegativeRule;
-}
-inline void BlenderRule::clear_negative_rule() {
-  if (_internal_has_negative_rule()) {
-    if (GetArena() == nullptr) {
-      delete rule_.negative_rule_;
-    }
-    clear_has_rule();
-  }
-}
-inline ::delivery::NegativeRule* BlenderRule::release_negative_rule() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.negative_rule)
-  if (_internal_has_negative_rule()) {
-    clear_has_rule();
-      ::delivery::NegativeRule* temp = rule_.negative_rule_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    rule_.negative_rule_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::NegativeRule& BlenderRule::_internal_negative_rule() const {
-  return _internal_has_negative_rule()
-      ? *rule_.negative_rule_
-      : reinterpret_cast< ::delivery::NegativeRule&>(::delivery::_NegativeRule_default_instance_);
-}
-inline const ::delivery::NegativeRule& BlenderRule::negative_rule() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.negative_rule)
-  return _internal_negative_rule();
-}
-inline ::delivery::NegativeRule* BlenderRule::unsafe_arena_release_negative_rule() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.negative_rule)
-  if (_internal_has_negative_rule()) {
-    clear_has_rule();
-    ::delivery::NegativeRule* temp = rule_.negative_rule_;
-    rule_.negative_rule_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_negative_rule(::delivery::NegativeRule* negative_rule) {
-  clear_rule();
-  if (negative_rule) {
-    set_has_negative_rule();
-    rule_.negative_rule_ = negative_rule;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.negative_rule)
-}
-inline ::delivery::NegativeRule* BlenderRule::_internal_mutable_negative_rule() {
-  if (!_internal_has_negative_rule()) {
-    clear_rule();
-    set_has_negative_rule();
-    rule_.negative_rule_ = CreateMaybeMessage< ::delivery::NegativeRule >(GetArena());
-  }
-  return rule_.negative_rule_;
-}
-inline ::delivery::NegativeRule* BlenderRule::mutable_negative_rule() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.negative_rule)
-  return _internal_mutable_negative_rule();
-}
-
-// .delivery.DiversityRule diversity_rule = 9 [json_name = "diversityRule"];
-inline bool BlenderRule::_internal_has_diversity_rule() const {
-  return rule_case() == kDiversityRule;
-}
-inline bool BlenderRule::has_diversity_rule() const {
-  return _internal_has_diversity_rule();
-}
-inline void BlenderRule::set_has_diversity_rule() {
-  _oneof_case_[0] = kDiversityRule;
-}
-inline void BlenderRule::clear_diversity_rule() {
-  if (_internal_has_diversity_rule()) {
-    if (GetArena() == nullptr) {
-      delete rule_.diversity_rule_;
-    }
-    clear_has_rule();
-  }
-}
-inline ::delivery::DiversityRule* BlenderRule::release_diversity_rule() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.diversity_rule)
-  if (_internal_has_diversity_rule()) {
-    clear_has_rule();
-      ::delivery::DiversityRule* temp = rule_.diversity_rule_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    rule_.diversity_rule_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::DiversityRule& BlenderRule::_internal_diversity_rule() const {
-  return _internal_has_diversity_rule()
-      ? *rule_.diversity_rule_
-      : reinterpret_cast< ::delivery::DiversityRule&>(::delivery::_DiversityRule_default_instance_);
-}
-inline const ::delivery::DiversityRule& BlenderRule::diversity_rule() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.diversity_rule)
-  return _internal_diversity_rule();
-}
-inline ::delivery::DiversityRule* BlenderRule::unsafe_arena_release_diversity_rule() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.diversity_rule)
-  if (_internal_has_diversity_rule()) {
-    clear_has_rule();
-    ::delivery::DiversityRule* temp = rule_.diversity_rule_;
-    rule_.diversity_rule_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_diversity_rule(::delivery::DiversityRule* diversity_rule) {
-  clear_rule();
-  if (diversity_rule) {
-    set_has_diversity_rule();
-    rule_.diversity_rule_ = diversity_rule;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.diversity_rule)
-}
-inline ::delivery::DiversityRule* BlenderRule::_internal_mutable_diversity_rule() {
-  if (!_internal_has_diversity_rule()) {
-    clear_rule();
-    set_has_diversity_rule();
-    rule_.diversity_rule_ = CreateMaybeMessage< ::delivery::DiversityRule >(GetArena());
-  }
-  return rule_.diversity_rule_;
-}
-inline ::delivery::DiversityRule* BlenderRule::mutable_diversity_rule() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.diversity_rule)
-  return _internal_mutable_diversity_rule();
-}
-
-// .delivery.Flag flag = 11 [json_name = "flag"];
-inline bool BlenderRule::_internal_has_flag() const {
-  return eval_method_case() == kFlag;
-}
-inline bool BlenderRule::has_flag() const {
-  return _internal_has_flag();
-}
-inline void BlenderRule::set_has_flag() {
-  _oneof_case_[1] = kFlag;
-}
-inline void BlenderRule::clear_flag() {
-  if (_internal_has_flag()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.flag_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::Flag* BlenderRule::release_flag() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.flag)
-  if (_internal_has_flag()) {
-    clear_has_eval_method();
-      ::delivery::Flag* temp = eval_method_.flag_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.flag_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::Flag& BlenderRule::_internal_flag() const {
-  return _internal_has_flag()
-      ? *eval_method_.flag_
-      : reinterpret_cast< ::delivery::Flag&>(::delivery::_Flag_default_instance_);
-}
-inline const ::delivery::Flag& BlenderRule::flag() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.flag)
-  return _internal_flag();
-}
-inline ::delivery::Flag* BlenderRule::unsafe_arena_release_flag() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.flag)
-  if (_internal_has_flag()) {
-    clear_has_eval_method();
-    ::delivery::Flag* temp = eval_method_.flag_;
-    eval_method_.flag_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_flag(::delivery::Flag* flag) {
-  clear_eval_method();
-  if (flag) {
-    set_has_flag();
-    eval_method_.flag_ = flag;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.flag)
-}
-inline ::delivery::Flag* BlenderRule::_internal_mutable_flag() {
-  if (!_internal_has_flag()) {
-    clear_eval_method();
-    set_has_flag();
-    eval_method_.flag_ = CreateMaybeMessage< ::delivery::Flag >(GetArena());
-  }
-  return eval_method_.flag_;
-}
-inline ::delivery::Flag* BlenderRule::mutable_flag() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.flag)
-  return _internal_mutable_flag();
-}
-
-// .delivery.GreaterThan greater_than = 13 [json_name = "greaterThan"];
-inline bool BlenderRule::_internal_has_greater_than() const {
-  return eval_method_case() == kGreaterThan;
-}
-inline bool BlenderRule::has_greater_than() const {
-  return _internal_has_greater_than();
-}
-inline void BlenderRule::set_has_greater_than() {
-  _oneof_case_[1] = kGreaterThan;
-}
-inline void BlenderRule::clear_greater_than() {
-  if (_internal_has_greater_than()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.greater_than_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::GreaterThan* BlenderRule::release_greater_than() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.greater_than)
-  if (_internal_has_greater_than()) {
-    clear_has_eval_method();
-      ::delivery::GreaterThan* temp = eval_method_.greater_than_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.greater_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::GreaterThan& BlenderRule::_internal_greater_than() const {
-  return _internal_has_greater_than()
-      ? *eval_method_.greater_than_
-      : reinterpret_cast< ::delivery::GreaterThan&>(::delivery::_GreaterThan_default_instance_);
-}
-inline const ::delivery::GreaterThan& BlenderRule::greater_than() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.greater_than)
-  return _internal_greater_than();
-}
-inline ::delivery::GreaterThan* BlenderRule::unsafe_arena_release_greater_than() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.greater_than)
-  if (_internal_has_greater_than()) {
-    clear_has_eval_method();
-    ::delivery::GreaterThan* temp = eval_method_.greater_than_;
-    eval_method_.greater_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_greater_than(::delivery::GreaterThan* greater_than) {
-  clear_eval_method();
-  if (greater_than) {
-    set_has_greater_than();
-    eval_method_.greater_than_ = greater_than;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.greater_than)
-}
-inline ::delivery::GreaterThan* BlenderRule::_internal_mutable_greater_than() {
-  if (!_internal_has_greater_than()) {
-    clear_eval_method();
-    set_has_greater_than();
-    eval_method_.greater_than_ = CreateMaybeMessage< ::delivery::GreaterThan >(GetArena());
-  }
-  return eval_method_.greater_than_;
-}
-inline ::delivery::GreaterThan* BlenderRule::mutable_greater_than() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.greater_than)
-  return _internal_mutable_greater_than();
-}
-
-// .delivery.LessThan less_than = 14 [json_name = "lessThan"];
-inline bool BlenderRule::_internal_has_less_than() const {
-  return eval_method_case() == kLessThan;
-}
-inline bool BlenderRule::has_less_than() const {
-  return _internal_has_less_than();
-}
-inline void BlenderRule::set_has_less_than() {
-  _oneof_case_[1] = kLessThan;
-}
-inline void BlenderRule::clear_less_than() {
-  if (_internal_has_less_than()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.less_than_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::LessThan* BlenderRule::release_less_than() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.less_than)
-  if (_internal_has_less_than()) {
-    clear_has_eval_method();
-      ::delivery::LessThan* temp = eval_method_.less_than_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.less_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::LessThan& BlenderRule::_internal_less_than() const {
-  return _internal_has_less_than()
-      ? *eval_method_.less_than_
-      : reinterpret_cast< ::delivery::LessThan&>(::delivery::_LessThan_default_instance_);
-}
-inline const ::delivery::LessThan& BlenderRule::less_than() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.less_than)
-  return _internal_less_than();
-}
-inline ::delivery::LessThan* BlenderRule::unsafe_arena_release_less_than() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.less_than)
-  if (_internal_has_less_than()) {
-    clear_has_eval_method();
-    ::delivery::LessThan* temp = eval_method_.less_than_;
-    eval_method_.less_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_less_than(::delivery::LessThan* less_than) {
-  clear_eval_method();
-  if (less_than) {
-    set_has_less_than();
-    eval_method_.less_than_ = less_than;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.less_than)
-}
-inline ::delivery::LessThan* BlenderRule::_internal_mutable_less_than() {
-  if (!_internal_has_less_than()) {
-    clear_eval_method();
-    set_has_less_than();
-    eval_method_.less_than_ = CreateMaybeMessage< ::delivery::LessThan >(GetArena());
-  }
-  return eval_method_.less_than_;
-}
-inline ::delivery::LessThan* BlenderRule::mutable_less_than() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.less_than)
-  return _internal_mutable_less_than();
-}
-
-// .delivery.Interval interval = 15 [json_name = "interval"];
-inline bool BlenderRule::_internal_has_interval() const {
-  return eval_method_case() == kInterval;
-}
-inline bool BlenderRule::has_interval() const {
-  return _internal_has_interval();
-}
-inline void BlenderRule::set_has_interval() {
-  _oneof_case_[1] = kInterval;
-}
-inline void BlenderRule::clear_interval() {
-  if (_internal_has_interval()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.interval_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::Interval* BlenderRule::release_interval() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.interval)
-  if (_internal_has_interval()) {
-    clear_has_eval_method();
-      ::delivery::Interval* temp = eval_method_.interval_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.interval_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::Interval& BlenderRule::_internal_interval() const {
-  return _internal_has_interval()
-      ? *eval_method_.interval_
-      : reinterpret_cast< ::delivery::Interval&>(::delivery::_Interval_default_instance_);
-}
-inline const ::delivery::Interval& BlenderRule::interval() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.interval)
-  return _internal_interval();
-}
-inline ::delivery::Interval* BlenderRule::unsafe_arena_release_interval() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.interval)
-  if (_internal_has_interval()) {
-    clear_has_eval_method();
-    ::delivery::Interval* temp = eval_method_.interval_;
-    eval_method_.interval_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_interval(::delivery::Interval* interval) {
-  clear_eval_method();
-  if (interval) {
-    set_has_interval();
-    eval_method_.interval_ = interval;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.interval)
-}
-inline ::delivery::Interval* BlenderRule::_internal_mutable_interval() {
-  if (!_internal_has_interval()) {
-    clear_eval_method();
-    set_has_interval();
-    eval_method_.interval_ = CreateMaybeMessage< ::delivery::Interval >(GetArena());
-  }
-  return eval_method_.interval_;
-}
-inline ::delivery::Interval* BlenderRule::mutable_interval() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.interval)
-  return _internal_mutable_interval();
-}
-
-// .delivery.EqualV2 equal_v2 = 16 [json_name = "equalV2"];
-inline bool BlenderRule::_internal_has_equal_v2() const {
-  return eval_method_case() == kEqualV2;
-}
-inline bool BlenderRule::has_equal_v2() const {
-  return _internal_has_equal_v2();
-}
-inline void BlenderRule::set_has_equal_v2() {
-  _oneof_case_[1] = kEqualV2;
-}
-inline void BlenderRule::clear_equal_v2() {
-  if (_internal_has_equal_v2()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.equal_v2_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::EqualV2* BlenderRule::release_equal_v2() {
-  // @@protoc_insertion_point(field_release:delivery.BlenderRule.equal_v2)
-  if (_internal_has_equal_v2()) {
-    clear_has_eval_method();
-      ::delivery::EqualV2* temp = eval_method_.equal_v2_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.equal_v2_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::EqualV2& BlenderRule::_internal_equal_v2() const {
-  return _internal_has_equal_v2()
-      ? *eval_method_.equal_v2_
-      : reinterpret_cast< ::delivery::EqualV2&>(::delivery::_EqualV2_default_instance_);
-}
-inline const ::delivery::EqualV2& BlenderRule::equal_v2() const {
-  // @@protoc_insertion_point(field_get:delivery.BlenderRule.equal_v2)
-  return _internal_equal_v2();
-}
-inline ::delivery::EqualV2* BlenderRule::unsafe_arena_release_equal_v2() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderRule.equal_v2)
-  if (_internal_has_equal_v2()) {
-    clear_has_eval_method();
-    ::delivery::EqualV2* temp = eval_method_.equal_v2_;
-    eval_method_.equal_v2_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void BlenderRule::unsafe_arena_set_allocated_equal_v2(::delivery::EqualV2* equal_v2) {
-  clear_eval_method();
-  if (equal_v2) {
-    set_has_equal_v2();
-    eval_method_.equal_v2_ = equal_v2;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderRule.equal_v2)
-}
-inline ::delivery::EqualV2* BlenderRule::_internal_mutable_equal_v2() {
-  if (!_internal_has_equal_v2()) {
-    clear_eval_method();
-    set_has_equal_v2();
-    eval_method_.equal_v2_ = CreateMaybeMessage< ::delivery::EqualV2 >(GetArena());
-  }
-  return eval_method_.equal_v2_;
-}
-inline ::delivery::EqualV2* BlenderRule::mutable_equal_v2() {
-  // @@protoc_insertion_point(field_mutable:delivery.BlenderRule.equal_v2)
-  return _internal_mutable_equal_v2();
-}
-
-inline bool BlenderRule::has_rule() const {
-  return rule_case() != RULE_NOT_SET;
-}
-inline void BlenderRule::clear_has_rule() {
-  _oneof_case_[0] = RULE_NOT_SET;
-}
-inline bool BlenderRule::has_eval_method() const {
-  return eval_method_case() != EVAL_METHOD_NOT_SET;
-}
-inline void BlenderRule::clear_has_eval_method() {
-  _oneof_case_[1] = EVAL_METHOD_NOT_SET;
-}
-inline BlenderRule::RuleCase BlenderRule::rule_case() const {
-  return BlenderRule::RuleCase(_oneof_case_[0]);
-}
-inline BlenderRule::EvalMethodCase BlenderRule::eval_method_case() const {
-  return BlenderRule::EvalMethodCase(_oneof_case_[1]);
-}
-// -------------------------------------------------------------------
-
-// Flag
-
-// bool ignored = 1 [json_name = "ignored", deprecated = true];
-inline bool Flag::_internal_has_ignored() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool Flag::has_ignored() const {
-  return _internal_has_ignored();
-}
-inline void Flag::clear_ignored() {
-  ignored_ = false;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline bool Flag::_internal_ignored() const {
-  return ignored_;
-}
-inline bool Flag::ignored() const {
-  // @@protoc_insertion_point(field_get:delivery.Flag.ignored)
-  return _internal_ignored();
-}
-inline void Flag::_internal_set_ignored(bool value) {
-  _has_bits_[0] |= 0x00000001u;
-  ignored_ = value;
-}
-inline void Flag::set_ignored(bool value) {
-  _internal_set_ignored(value);
-  // @@protoc_insertion_point(field_set:delivery.Flag.ignored)
+  sort_key_ = sort_key;
+  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderConfig.sort_key)
 }
 
 // -------------------------------------------------------------------
 
-// EqualV2
+// BlenderExpression
 
-// .delivery.Equal number = 1 [json_name = "number"];
-inline bool EqualV2::_internal_has_number() const {
-  return equality_type_case() == kNumber;
+// .delivery.LeafExpression leaf = 1 [json_name = "leaf"];
+inline bool BlenderExpression::_internal_has_leaf() const {
+  return exp_type_case() == kLeaf;
 }
-inline bool EqualV2::has_number() const {
-  return _internal_has_number();
+inline bool BlenderExpression::has_leaf() const {
+  return _internal_has_leaf();
 }
-inline void EqualV2::set_has_number() {
-  _oneof_case_[0] = kNumber;
+inline void BlenderExpression::set_has_leaf() {
+  _oneof_case_[0] = kLeaf;
 }
-inline void EqualV2::clear_number() {
-  if (_internal_has_number()) {
+inline void BlenderExpression::clear_leaf() {
+  if (_internal_has_leaf()) {
     if (GetArena() == nullptr) {
-      delete equality_type_.number_;
+      delete exp_type_.leaf_;
     }
-    clear_has_equality_type();
+    clear_has_exp_type();
   }
 }
-inline ::delivery::Equal* EqualV2::release_number() {
-  // @@protoc_insertion_point(field_release:delivery.EqualV2.number)
-  if (_internal_has_number()) {
-    clear_has_equality_type();
-      ::delivery::Equal* temp = equality_type_.number_;
+inline ::delivery::LeafExpression* BlenderExpression::release_leaf() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderExpression.leaf)
+  if (_internal_has_leaf()) {
+    clear_has_exp_type();
+      ::delivery::LeafExpression* temp = exp_type_.leaf_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    equality_type_.number_ = nullptr;
+    exp_type_.leaf_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::delivery::Equal& EqualV2::_internal_number() const {
-  return _internal_has_number()
-      ? *equality_type_.number_
-      : reinterpret_cast< ::delivery::Equal&>(::delivery::_Equal_default_instance_);
+inline const ::delivery::LeafExpression& BlenderExpression::_internal_leaf() const {
+  return _internal_has_leaf()
+      ? *exp_type_.leaf_
+      : reinterpret_cast< ::delivery::LeafExpression&>(::delivery::_LeafExpression_default_instance_);
 }
-inline const ::delivery::Equal& EqualV2::number() const {
-  // @@protoc_insertion_point(field_get:delivery.EqualV2.number)
-  return _internal_number();
+inline const ::delivery::LeafExpression& BlenderExpression::leaf() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderExpression.leaf)
+  return _internal_leaf();
 }
-inline ::delivery::Equal* EqualV2::unsafe_arena_release_number() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.EqualV2.number)
-  if (_internal_has_number()) {
-    clear_has_equality_type();
-    ::delivery::Equal* temp = equality_type_.number_;
-    equality_type_.number_ = nullptr;
+inline ::delivery::LeafExpression* BlenderExpression::unsafe_arena_release_leaf() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderExpression.leaf)
+  if (_internal_has_leaf()) {
+    clear_has_exp_type();
+    ::delivery::LeafExpression* temp = exp_type_.leaf_;
+    exp_type_.leaf_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void EqualV2::unsafe_arena_set_allocated_number(::delivery::Equal* number) {
-  clear_equality_type();
-  if (number) {
-    set_has_number();
-    equality_type_.number_ = number;
+inline void BlenderExpression::unsafe_arena_set_allocated_leaf(::delivery::LeafExpression* leaf) {
+  clear_exp_type();
+  if (leaf) {
+    set_has_leaf();
+    exp_type_.leaf_ = leaf;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.EqualV2.number)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderExpression.leaf)
 }
-inline ::delivery::Equal* EqualV2::_internal_mutable_number() {
-  if (!_internal_has_number()) {
-    clear_equality_type();
-    set_has_number();
-    equality_type_.number_ = CreateMaybeMessage< ::delivery::Equal >(GetArena());
+inline ::delivery::LeafExpression* BlenderExpression::_internal_mutable_leaf() {
+  if (!_internal_has_leaf()) {
+    clear_exp_type();
+    set_has_leaf();
+    exp_type_.leaf_ = CreateMaybeMessage< ::delivery::LeafExpression >(GetArena());
   }
-  return equality_type_.number_;
+  return exp_type_.leaf_;
 }
-inline ::delivery::Equal* EqualV2::mutable_number() {
-  // @@protoc_insertion_point(field_mutable:delivery.EqualV2.number)
-  return _internal_mutable_number();
+inline ::delivery::LeafExpression* BlenderExpression::mutable_leaf() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderExpression.leaf)
+  return _internal_mutable_leaf();
 }
 
-// .delivery.StringEquality string_equality = 2 [json_name = "stringEquality"];
-inline bool EqualV2::_internal_has_string_equality() const {
-  return equality_type_case() == kStringEquality;
+// .delivery.BlenderArithmeticExpression arithmetic_exp = 2 [json_name = "arithmeticExp"];
+inline bool BlenderExpression::_internal_has_arithmetic_exp() const {
+  return exp_type_case() == kArithmeticExp;
 }
-inline bool EqualV2::has_string_equality() const {
-  return _internal_has_string_equality();
+inline bool BlenderExpression::has_arithmetic_exp() const {
+  return _internal_has_arithmetic_exp();
 }
-inline void EqualV2::set_has_string_equality() {
-  _oneof_case_[0] = kStringEquality;
+inline void BlenderExpression::set_has_arithmetic_exp() {
+  _oneof_case_[0] = kArithmeticExp;
 }
-inline void EqualV2::clear_string_equality() {
-  if (_internal_has_string_equality()) {
+inline void BlenderExpression::clear_arithmetic_exp() {
+  if (_internal_has_arithmetic_exp()) {
     if (GetArena() == nullptr) {
-      delete equality_type_.string_equality_;
+      delete exp_type_.arithmetic_exp_;
     }
-    clear_has_equality_type();
+    clear_has_exp_type();
   }
 }
-inline ::delivery::StringEquality* EqualV2::release_string_equality() {
-  // @@protoc_insertion_point(field_release:delivery.EqualV2.string_equality)
-  if (_internal_has_string_equality()) {
-    clear_has_equality_type();
-      ::delivery::StringEquality* temp = equality_type_.string_equality_;
+inline ::delivery::BlenderArithmeticExpression* BlenderExpression::release_arithmetic_exp() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderExpression.arithmetic_exp)
+  if (_internal_has_arithmetic_exp()) {
+    clear_has_exp_type();
+      ::delivery::BlenderArithmeticExpression* temp = exp_type_.arithmetic_exp_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    equality_type_.string_equality_ = nullptr;
+    exp_type_.arithmetic_exp_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::delivery::StringEquality& EqualV2::_internal_string_equality() const {
-  return _internal_has_string_equality()
-      ? *equality_type_.string_equality_
-      : reinterpret_cast< ::delivery::StringEquality&>(::delivery::_StringEquality_default_instance_);
+inline const ::delivery::BlenderArithmeticExpression& BlenderExpression::_internal_arithmetic_exp() const {
+  return _internal_has_arithmetic_exp()
+      ? *exp_type_.arithmetic_exp_
+      : reinterpret_cast< ::delivery::BlenderArithmeticExpression&>(::delivery::_BlenderArithmeticExpression_default_instance_);
 }
-inline const ::delivery::StringEquality& EqualV2::string_equality() const {
-  // @@protoc_insertion_point(field_get:delivery.EqualV2.string_equality)
-  return _internal_string_equality();
+inline const ::delivery::BlenderArithmeticExpression& BlenderExpression::arithmetic_exp() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderExpression.arithmetic_exp)
+  return _internal_arithmetic_exp();
 }
-inline ::delivery::StringEquality* EqualV2::unsafe_arena_release_string_equality() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.EqualV2.string_equality)
-  if (_internal_has_string_equality()) {
-    clear_has_equality_type();
-    ::delivery::StringEquality* temp = equality_type_.string_equality_;
-    equality_type_.string_equality_ = nullptr;
+inline ::delivery::BlenderArithmeticExpression* BlenderExpression::unsafe_arena_release_arithmetic_exp() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderExpression.arithmetic_exp)
+  if (_internal_has_arithmetic_exp()) {
+    clear_has_exp_type();
+    ::delivery::BlenderArithmeticExpression* temp = exp_type_.arithmetic_exp_;
+    exp_type_.arithmetic_exp_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void EqualV2::unsafe_arena_set_allocated_string_equality(::delivery::StringEquality* string_equality) {
-  clear_equality_type();
-  if (string_equality) {
-    set_has_string_equality();
-    equality_type_.string_equality_ = string_equality;
+inline void BlenderExpression::unsafe_arena_set_allocated_arithmetic_exp(::delivery::BlenderArithmeticExpression* arithmetic_exp) {
+  clear_exp_type();
+  if (arithmetic_exp) {
+    set_has_arithmetic_exp();
+    exp_type_.arithmetic_exp_ = arithmetic_exp;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.EqualV2.string_equality)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderExpression.arithmetic_exp)
 }
-inline ::delivery::StringEquality* EqualV2::_internal_mutable_string_equality() {
-  if (!_internal_has_string_equality()) {
-    clear_equality_type();
-    set_has_string_equality();
-    equality_type_.string_equality_ = CreateMaybeMessage< ::delivery::StringEquality >(GetArena());
+inline ::delivery::BlenderArithmeticExpression* BlenderExpression::_internal_mutable_arithmetic_exp() {
+  if (!_internal_has_arithmetic_exp()) {
+    clear_exp_type();
+    set_has_arithmetic_exp();
+    exp_type_.arithmetic_exp_ = CreateMaybeMessage< ::delivery::BlenderArithmeticExpression >(GetArena());
   }
-  return equality_type_.string_equality_;
+  return exp_type_.arithmetic_exp_;
 }
-inline ::delivery::StringEquality* EqualV2::mutable_string_equality() {
-  // @@protoc_insertion_point(field_mutable:delivery.EqualV2.string_equality)
-  return _internal_mutable_string_equality();
+inline ::delivery::BlenderArithmeticExpression* BlenderExpression::mutable_arithmetic_exp() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderExpression.arithmetic_exp)
+  return _internal_mutable_arithmetic_exp();
 }
 
-inline bool EqualV2::has_equality_type() const {
-  return equality_type_case() != EQUALITY_TYPE_NOT_SET;
+// .delivery.BlenderConditionalExpression conditional_exp = 3 [json_name = "conditionalExp"];
+inline bool BlenderExpression::_internal_has_conditional_exp() const {
+  return exp_type_case() == kConditionalExp;
 }
-inline void EqualV2::clear_has_equality_type() {
-  _oneof_case_[0] = EQUALITY_TYPE_NOT_SET;
+inline bool BlenderExpression::has_conditional_exp() const {
+  return _internal_has_conditional_exp();
 }
-inline EqualV2::EqualityTypeCase EqualV2::equality_type_case() const {
-  return EqualV2::EqualityTypeCase(_oneof_case_[0]);
+inline void BlenderExpression::set_has_conditional_exp() {
+  _oneof_case_[0] = kConditionalExp;
 }
-// -------------------------------------------------------------------
-
-// Equal
-
-// float compared_to = 1 [json_name = "comparedTo"];
-inline void Equal::clear_compared_to() {
-  compared_to_ = 0;
-}
-inline float Equal::_internal_compared_to() const {
-  return compared_to_;
-}
-inline float Equal::compared_to() const {
-  // @@protoc_insertion_point(field_get:delivery.Equal.compared_to)
-  return _internal_compared_to();
-}
-inline void Equal::_internal_set_compared_to(float value) {
-  
-  compared_to_ = value;
-}
-inline void Equal::set_compared_to(float value) {
-  _internal_set_compared_to(value);
-  // @@protoc_insertion_point(field_set:delivery.Equal.compared_to)
-}
-
-// float tolerance = 2 [json_name = "tolerance"];
-inline void Equal::clear_tolerance() {
-  tolerance_ = 0;
-}
-inline float Equal::_internal_tolerance() const {
-  return tolerance_;
-}
-inline float Equal::tolerance() const {
-  // @@protoc_insertion_point(field_get:delivery.Equal.tolerance)
-  return _internal_tolerance();
-}
-inline void Equal::_internal_set_tolerance(float value) {
-  
-  tolerance_ = value;
-}
-inline void Equal::set_tolerance(float value) {
-  _internal_set_tolerance(value);
-  // @@protoc_insertion_point(field_set:delivery.Equal.tolerance)
-}
-
-// -------------------------------------------------------------------
-
-// StringEquality
-
-// string raw = 1 [json_name = "raw"];
-inline bool StringEquality::_internal_has_raw() const {
-  return value_case() == kRaw;
-}
-inline bool StringEquality::has_raw() const {
-  return _internal_has_raw();
-}
-inline void StringEquality::set_has_raw() {
-  _oneof_case_[0] = kRaw;
-}
-inline void StringEquality::clear_raw() {
-  if (_internal_has_raw()) {
-    value_.raw_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-    clear_has_value();
-  }
-}
-inline const std::string& StringEquality::raw() const {
-  // @@protoc_insertion_point(field_get:delivery.StringEquality.raw)
-  return _internal_raw();
-}
-inline void StringEquality::set_raw(const std::string& value) {
-  _internal_set_raw(value);
-  // @@protoc_insertion_point(field_set:delivery.StringEquality.raw)
-}
-inline std::string* StringEquality::mutable_raw() {
-  // @@protoc_insertion_point(field_mutable:delivery.StringEquality.raw)
-  return _internal_mutable_raw();
-}
-inline const std::string& StringEquality::_internal_raw() const {
-  if (_internal_has_raw()) {
-    return value_.raw_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
-}
-inline void StringEquality::_internal_set_raw(const std::string& value) {
-  if (!_internal_has_raw()) {
-    clear_value();
-    set_has_raw();
-    value_.raw_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  value_.raw_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void StringEquality::set_raw(std::string&& value) {
-  // @@protoc_insertion_point(field_set:delivery.StringEquality.raw)
-  if (!_internal_has_raw()) {
-    clear_value();
-    set_has_raw();
-    value_.raw_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  value_.raw_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:delivery.StringEquality.raw)
-}
-inline void StringEquality::set_raw(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  if (!_internal_has_raw()) {
-    clear_value();
-    set_has_raw();
-    value_.raw_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  value_.raw_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{},
-      ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:delivery.StringEquality.raw)
-}
-inline void StringEquality::set_raw(const char* value,
-                             size_t size) {
-  if (!_internal_has_raw()) {
-    clear_value();
-    set_has_raw();
-    value_.raw_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  value_.raw_.Set(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size),
-      GetArena());
-  // @@protoc_insertion_point(field_set_pointer:delivery.StringEquality.raw)
-}
-inline std::string* StringEquality::_internal_mutable_raw() {
-  if (!_internal_has_raw()) {
-    clear_value();
-    set_has_raw();
-    value_.raw_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return value_.raw_.Mutable(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* StringEquality::release_raw() {
-  // @@protoc_insertion_point(field_release:delivery.StringEquality.raw)
-  if (_internal_has_raw()) {
-    clear_has_value();
-    return value_.raw_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  } else {
-    return nullptr;
-  }
-}
-inline void StringEquality::set_allocated_raw(std::string* raw) {
-  if (has_value()) {
-    clear_value();
-  }
-  if (raw != nullptr) {
-    set_has_raw();
-    value_.raw_.UnsafeSetDefault(raw);
-    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena();
-    if (arena != nullptr) {
-      arena->Own(raw);
+inline void BlenderExpression::clear_conditional_exp() {
+  if (_internal_has_conditional_exp()) {
+    if (GetArena() == nullptr) {
+      delete exp_type_.conditional_exp_;
     }
+    clear_has_exp_type();
   }
-  // @@protoc_insertion_point(field_set_allocated:delivery.StringEquality.raw)
+}
+inline ::delivery::BlenderConditionalExpression* BlenderExpression::release_conditional_exp() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderExpression.conditional_exp)
+  if (_internal_has_conditional_exp()) {
+    clear_has_exp_type();
+      ::delivery::BlenderConditionalExpression* temp = exp_type_.conditional_exp_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    exp_type_.conditional_exp_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::delivery::BlenderConditionalExpression& BlenderExpression::_internal_conditional_exp() const {
+  return _internal_has_conditional_exp()
+      ? *exp_type_.conditional_exp_
+      : reinterpret_cast< ::delivery::BlenderConditionalExpression&>(::delivery::_BlenderConditionalExpression_default_instance_);
+}
+inline const ::delivery::BlenderConditionalExpression& BlenderExpression::conditional_exp() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderExpression.conditional_exp)
+  return _internal_conditional_exp();
+}
+inline ::delivery::BlenderConditionalExpression* BlenderExpression::unsafe_arena_release_conditional_exp() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.BlenderExpression.conditional_exp)
+  if (_internal_has_conditional_exp()) {
+    clear_has_exp_type();
+    ::delivery::BlenderConditionalExpression* temp = exp_type_.conditional_exp_;
+    exp_type_.conditional_exp_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void BlenderExpression::unsafe_arena_set_allocated_conditional_exp(::delivery::BlenderConditionalExpression* conditional_exp) {
+  clear_exp_type();
+  if (conditional_exp) {
+    set_has_conditional_exp();
+    exp_type_.conditional_exp_ = conditional_exp;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderExpression.conditional_exp)
+}
+inline ::delivery::BlenderConditionalExpression* BlenderExpression::_internal_mutable_conditional_exp() {
+  if (!_internal_has_conditional_exp()) {
+    clear_exp_type();
+    set_has_conditional_exp();
+    exp_type_.conditional_exp_ = CreateMaybeMessage< ::delivery::BlenderConditionalExpression >(GetArena());
+  }
+  return exp_type_.conditional_exp_;
+}
+inline ::delivery::BlenderConditionalExpression* BlenderExpression::mutable_conditional_exp() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderExpression.conditional_exp)
+  return _internal_mutable_conditional_exp();
 }
 
-inline bool StringEquality::has_value() const {
-  return value_case() != VALUE_NOT_SET;
+inline bool BlenderExpression::has_exp_type() const {
+  return exp_type_case() != EXP_TYPE_NOT_SET;
 }
-inline void StringEquality::clear_has_value() {
-  _oneof_case_[0] = VALUE_NOT_SET;
+inline void BlenderExpression::clear_has_exp_type() {
+  _oneof_case_[0] = EXP_TYPE_NOT_SET;
 }
-inline StringEquality::ValueCase StringEquality::value_case() const {
-  return StringEquality::ValueCase(_oneof_case_[0]);
+inline BlenderExpression::ExpTypeCase BlenderExpression::exp_type_case() const {
+  return BlenderExpression::ExpTypeCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
-// GreaterThan
+// BlenderArithmeticExpression
 
-// float compared_to = 1 [json_name = "comparedTo"];
-inline void GreaterThan::clear_compared_to() {
-  compared_to_ = 0;
+// .delivery.BlenderArithmeticExpression.Operator op = 1 [json_name = "op"];
+inline void BlenderArithmeticExpression::clear_op() {
+  op_ = 0;
 }
-inline float GreaterThan::_internal_compared_to() const {
-  return compared_to_;
+inline ::delivery::BlenderArithmeticExpression_Operator BlenderArithmeticExpression::_internal_op() const {
+  return static_cast< ::delivery::BlenderArithmeticExpression_Operator >(op_);
 }
-inline float GreaterThan::compared_to() const {
-  // @@protoc_insertion_point(field_get:delivery.GreaterThan.compared_to)
-  return _internal_compared_to();
+inline ::delivery::BlenderArithmeticExpression_Operator BlenderArithmeticExpression::op() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderArithmeticExpression.op)
+  return _internal_op();
 }
-inline void GreaterThan::_internal_set_compared_to(float value) {
+inline void BlenderArithmeticExpression::_internal_set_op(::delivery::BlenderArithmeticExpression_Operator value) {
   
-  compared_to_ = value;
+  op_ = value;
 }
-inline void GreaterThan::set_compared_to(float value) {
-  _internal_set_compared_to(value);
-  // @@protoc_insertion_point(field_set:delivery.GreaterThan.compared_to)
-}
-
-// bool or_equal = 2 [json_name = "orEqual"];
-inline void GreaterThan::clear_or_equal() {
-  or_equal_ = false;
-}
-inline bool GreaterThan::_internal_or_equal() const {
-  return or_equal_;
-}
-inline bool GreaterThan::or_equal() const {
-  // @@protoc_insertion_point(field_get:delivery.GreaterThan.or_equal)
-  return _internal_or_equal();
-}
-inline void GreaterThan::_internal_set_or_equal(bool value) {
-  
-  or_equal_ = value;
-}
-inline void GreaterThan::set_or_equal(bool value) {
-  _internal_set_or_equal(value);
-  // @@protoc_insertion_point(field_set:delivery.GreaterThan.or_equal)
+inline void BlenderArithmeticExpression::set_op(::delivery::BlenderArithmeticExpression_Operator value) {
+  _internal_set_op(value);
+  // @@protoc_insertion_point(field_set:delivery.BlenderArithmeticExpression.op)
 }
 
-// -------------------------------------------------------------------
-
-// LessThan
-
-// float compared_to = 1 [json_name = "comparedTo"];
-inline void LessThan::clear_compared_to() {
-  compared_to_ = 0;
+// repeated .delivery.BlenderExpression inputs = 2 [json_name = "inputs"];
+inline int BlenderArithmeticExpression::_internal_inputs_size() const {
+  return inputs_.size();
 }
-inline float LessThan::_internal_compared_to() const {
-  return compared_to_;
+inline int BlenderArithmeticExpression::inputs_size() const {
+  return _internal_inputs_size();
 }
-inline float LessThan::compared_to() const {
-  // @@protoc_insertion_point(field_get:delivery.LessThan.compared_to)
-  return _internal_compared_to();
+inline void BlenderArithmeticExpression::clear_inputs() {
+  inputs_.Clear();
 }
-inline void LessThan::_internal_set_compared_to(float value) {
-  
-  compared_to_ = value;
+inline ::delivery::BlenderExpression* BlenderArithmeticExpression::mutable_inputs(int index) {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderArithmeticExpression.inputs)
+  return inputs_.Mutable(index);
 }
-inline void LessThan::set_compared_to(float value) {
-  _internal_set_compared_to(value);
-  // @@protoc_insertion_point(field_set:delivery.LessThan.compared_to)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >*
+BlenderArithmeticExpression::mutable_inputs() {
+  // @@protoc_insertion_point(field_mutable_list:delivery.BlenderArithmeticExpression.inputs)
+  return &inputs_;
 }
-
-// bool or_equal = 2 [json_name = "orEqual"];
-inline void LessThan::clear_or_equal() {
-  or_equal_ = false;
+inline const ::delivery::BlenderExpression& BlenderArithmeticExpression::_internal_inputs(int index) const {
+  return inputs_.Get(index);
 }
-inline bool LessThan::_internal_or_equal() const {
-  return or_equal_;
+inline const ::delivery::BlenderExpression& BlenderArithmeticExpression::inputs(int index) const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderArithmeticExpression.inputs)
+  return _internal_inputs(index);
 }
-inline bool LessThan::or_equal() const {
-  // @@protoc_insertion_point(field_get:delivery.LessThan.or_equal)
-  return _internal_or_equal();
+inline ::delivery::BlenderExpression* BlenderArithmeticExpression::_internal_add_inputs() {
+  return inputs_.Add();
 }
-inline void LessThan::_internal_set_or_equal(bool value) {
-  
-  or_equal_ = value;
+inline ::delivery::BlenderExpression* BlenderArithmeticExpression::add_inputs() {
+  // @@protoc_insertion_point(field_add:delivery.BlenderArithmeticExpression.inputs)
+  return _internal_add_inputs();
 }
-inline void LessThan::set_or_equal(bool value) {
-  _internal_set_or_equal(value);
-  // @@protoc_insertion_point(field_set:delivery.LessThan.or_equal)
-}
-
-// -------------------------------------------------------------------
-
-// Interval
-
-// float upper_bound = 1 [json_name = "upperBound"];
-inline void Interval::clear_upper_bound() {
-  upper_bound_ = 0;
-}
-inline float Interval::_internal_upper_bound() const {
-  return upper_bound_;
-}
-inline float Interval::upper_bound() const {
-  // @@protoc_insertion_point(field_get:delivery.Interval.upper_bound)
-  return _internal_upper_bound();
-}
-inline void Interval::_internal_set_upper_bound(float value) {
-  
-  upper_bound_ = value;
-}
-inline void Interval::set_upper_bound(float value) {
-  _internal_set_upper_bound(value);
-  // @@protoc_insertion_point(field_set:delivery.Interval.upper_bound)
-}
-
-// float lower_bound = 2 [json_name = "lowerBound"];
-inline void Interval::clear_lower_bound() {
-  lower_bound_ = 0;
-}
-inline float Interval::_internal_lower_bound() const {
-  return lower_bound_;
-}
-inline float Interval::lower_bound() const {
-  // @@protoc_insertion_point(field_get:delivery.Interval.lower_bound)
-  return _internal_lower_bound();
-}
-inline void Interval::_internal_set_lower_bound(float value) {
-  
-  lower_bound_ = value;
-}
-inline void Interval::set_lower_bound(float value) {
-  _internal_set_lower_bound(value);
-  // @@protoc_insertion_point(field_set:delivery.Interval.lower_bound)
-}
-
-// bool lower_inclusive = 3 [json_name = "lowerInclusive"];
-inline void Interval::clear_lower_inclusive() {
-  lower_inclusive_ = false;
-}
-inline bool Interval::_internal_lower_inclusive() const {
-  return lower_inclusive_;
-}
-inline bool Interval::lower_inclusive() const {
-  // @@protoc_insertion_point(field_get:delivery.Interval.lower_inclusive)
-  return _internal_lower_inclusive();
-}
-inline void Interval::_internal_set_lower_inclusive(bool value) {
-  
-  lower_inclusive_ = value;
-}
-inline void Interval::set_lower_inclusive(bool value) {
-  _internal_set_lower_inclusive(value);
-  // @@protoc_insertion_point(field_set:delivery.Interval.lower_inclusive)
-}
-
-// bool upper_inclusive = 4 [json_name = "upperInclusive"];
-inline void Interval::clear_upper_inclusive() {
-  upper_inclusive_ = false;
-}
-inline bool Interval::_internal_upper_inclusive() const {
-  return upper_inclusive_;
-}
-inline bool Interval::upper_inclusive() const {
-  // @@protoc_insertion_point(field_get:delivery.Interval.upper_inclusive)
-  return _internal_upper_inclusive();
-}
-inline void Interval::_internal_set_upper_inclusive(bool value) {
-  
-  upper_inclusive_ = value;
-}
-inline void Interval::set_upper_inclusive(bool value) {
-  _internal_set_upper_inclusive(value);
-  // @@protoc_insertion_point(field_set:delivery.Interval.upper_inclusive)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >&
+BlenderArithmeticExpression::inputs() const {
+  // @@protoc_insertion_point(field_list:delivery.BlenderArithmeticExpression.inputs)
+  return inputs_;
 }
 
 // -------------------------------------------------------------------
 
-// PositiveRule
+// BlenderConditionalExpression
 
-// double select_pct = 1 [json_name = "selectPct"];
-inline bool PositiveRule::_internal_has_select_pct() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
+// .delivery.BlenderConditionalExpression.Operator op = 1 [json_name = "op"];
+inline void BlenderConditionalExpression::clear_op() {
+  op_ = 0;
 }
-inline bool PositiveRule::has_select_pct() const {
-  return _internal_has_select_pct();
+inline ::delivery::BlenderConditionalExpression_Operator BlenderConditionalExpression::_internal_op() const {
+  return static_cast< ::delivery::BlenderConditionalExpression_Operator >(op_);
 }
-inline void PositiveRule::clear_select_pct() {
-  select_pct_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
+inline ::delivery::BlenderConditionalExpression_Operator BlenderConditionalExpression::op() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderConditionalExpression.op)
+  return _internal_op();
 }
-inline double PositiveRule::_internal_select_pct() const {
-  return select_pct_;
-}
-inline double PositiveRule::select_pct() const {
-  // @@protoc_insertion_point(field_get:delivery.PositiveRule.select_pct)
-  return _internal_select_pct();
-}
-inline void PositiveRule::_internal_set_select_pct(double value) {
-  _has_bits_[0] |= 0x00000001u;
-  select_pct_ = value;
-}
-inline void PositiveRule::set_select_pct(double value) {
-  _internal_set_select_pct(value);
-  // @@protoc_insertion_point(field_set:delivery.PositiveRule.select_pct)
-}
-
-// uint64 min_pos = 2 [json_name = "minPos"];
-inline bool PositiveRule::_internal_has_min_pos() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool PositiveRule::has_min_pos() const {
-  return _internal_has_min_pos();
-}
-inline void PositiveRule::clear_min_pos() {
-  min_pos_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 PositiveRule::_internal_min_pos() const {
-  return min_pos_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 PositiveRule::min_pos() const {
-  // @@protoc_insertion_point(field_get:delivery.PositiveRule.min_pos)
-  return _internal_min_pos();
-}
-inline void PositiveRule::_internal_set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
-  min_pos_ = value;
-}
-inline void PositiveRule::set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_min_pos(value);
-  // @@protoc_insertion_point(field_set:delivery.PositiveRule.min_pos)
-}
-
-// uint64 max_pos = 3 [json_name = "maxPos"];
-inline bool PositiveRule::_internal_has_max_pos() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool PositiveRule::has_max_pos() const {
-  return _internal_has_max_pos();
-}
-inline void PositiveRule::clear_max_pos() {
-  max_pos_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 PositiveRule::_internal_max_pos() const {
-  return max_pos_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 PositiveRule::max_pos() const {
-  // @@protoc_insertion_point(field_get:delivery.PositiveRule.max_pos)
-  return _internal_max_pos();
-}
-inline void PositiveRule::_internal_set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000004u;
-  max_pos_ = value;
-}
-inline void PositiveRule::set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_max_pos(value);
-  // @@protoc_insertion_point(field_set:delivery.PositiveRule.max_pos)
-}
-
-// -------------------------------------------------------------------
-
-// InsertRule
-
-// double select_pct = 1 [json_name = "selectPct"];
-inline bool InsertRule::_internal_has_select_pct() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool InsertRule::has_select_pct() const {
-  return _internal_has_select_pct();
-}
-inline void InsertRule::clear_select_pct() {
-  select_pct_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline double InsertRule::_internal_select_pct() const {
-  return select_pct_;
-}
-inline double InsertRule::select_pct() const {
-  // @@protoc_insertion_point(field_get:delivery.InsertRule.select_pct)
-  return _internal_select_pct();
-}
-inline void InsertRule::_internal_set_select_pct(double value) {
-  _has_bits_[0] |= 0x00000001u;
-  select_pct_ = value;
-}
-inline void InsertRule::set_select_pct(double value) {
-  _internal_set_select_pct(value);
-  // @@protoc_insertion_point(field_set:delivery.InsertRule.select_pct)
-}
-
-// uint64 min_pos = 2 [json_name = "minPos"];
-inline bool InsertRule::_internal_has_min_pos() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool InsertRule::has_min_pos() const {
-  return _internal_has_min_pos();
-}
-inline void InsertRule::clear_min_pos() {
-  min_pos_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 InsertRule::_internal_min_pos() const {
-  return min_pos_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 InsertRule::min_pos() const {
-  // @@protoc_insertion_point(field_get:delivery.InsertRule.min_pos)
-  return _internal_min_pos();
-}
-inline void InsertRule::_internal_set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
-  min_pos_ = value;
-}
-inline void InsertRule::set_min_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_min_pos(value);
-  // @@protoc_insertion_point(field_set:delivery.InsertRule.min_pos)
-}
-
-// uint64 max_pos = 3 [json_name = "maxPos"];
-inline bool InsertRule::_internal_has_max_pos() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool InsertRule::has_max_pos() const {
-  return _internal_has_max_pos();
-}
-inline void InsertRule::clear_max_pos() {
-  max_pos_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 InsertRule::_internal_max_pos() const {
-  return max_pos_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 InsertRule::max_pos() const {
-  // @@protoc_insertion_point(field_get:delivery.InsertRule.max_pos)
-  return _internal_max_pos();
-}
-inline void InsertRule::_internal_set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000004u;
-  max_pos_ = value;
-}
-inline void InsertRule::set_max_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_max_pos(value);
-  // @@protoc_insertion_point(field_set:delivery.InsertRule.max_pos)
-}
-
-// bool applies_to_all_insertions = 5 [json_name = "appliesToAllInsertions"];
-inline void InsertRule::clear_applies_to_all_insertions() {
-  applies_to_all_insertions_ = false;
-}
-inline bool InsertRule::_internal_applies_to_all_insertions() const {
-  return applies_to_all_insertions_;
-}
-inline bool InsertRule::applies_to_all_insertions() const {
-  // @@protoc_insertion_point(field_get:delivery.InsertRule.applies_to_all_insertions)
-  return _internal_applies_to_all_insertions();
-}
-inline void InsertRule::_internal_set_applies_to_all_insertions(bool value) {
+inline void BlenderConditionalExpression::_internal_set_op(::delivery::BlenderConditionalExpression_Operator value) {
   
-  applies_to_all_insertions_ = value;
+  op_ = value;
 }
-inline void InsertRule::set_applies_to_all_insertions(bool value) {
-  _internal_set_applies_to_all_insertions(value);
-  // @@protoc_insertion_point(field_set:delivery.InsertRule.applies_to_all_insertions)
+inline void BlenderConditionalExpression::set_op(::delivery::BlenderConditionalExpression_Operator value) {
+  _internal_set_op(value);
+  // @@protoc_insertion_point(field_set:delivery.BlenderConditionalExpression.op)
 }
 
-// .delivery.RankingMethod ranking_method = 6 [json_name = "rankingMethod"];
-inline void InsertRule::clear_ranking_method() {
-  ranking_method_ = 0;
+// .delivery.BlenderExpression predicate_lhs = 2 [json_name = "predicateLhs"];
+inline bool BlenderConditionalExpression::_internal_has_predicate_lhs() const {
+  return this != internal_default_instance() && predicate_lhs_ != nullptr;
 }
-inline ::delivery::RankingMethod InsertRule::_internal_ranking_method() const {
-  return static_cast< ::delivery::RankingMethod >(ranking_method_);
+inline bool BlenderConditionalExpression::has_predicate_lhs() const {
+  return _internal_has_predicate_lhs();
 }
-inline ::delivery::RankingMethod InsertRule::ranking_method() const {
-  // @@protoc_insertion_point(field_get:delivery.InsertRule.ranking_method)
-  return _internal_ranking_method();
+inline void BlenderConditionalExpression::clear_predicate_lhs() {
+  if (GetArena() == nullptr && predicate_lhs_ != nullptr) {
+    delete predicate_lhs_;
+  }
+  predicate_lhs_ = nullptr;
 }
-inline void InsertRule::_internal_set_ranking_method(::delivery::RankingMethod value) {
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::_internal_predicate_lhs() const {
+  const ::delivery::BlenderExpression* p = predicate_lhs_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::BlenderExpression&>(
+      ::delivery::_BlenderExpression_default_instance_);
+}
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::predicate_lhs() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderConditionalExpression.predicate_lhs)
+  return _internal_predicate_lhs();
+}
+inline void BlenderConditionalExpression::unsafe_arena_set_allocated_predicate_lhs(
+    ::delivery::BlenderExpression* predicate_lhs) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(predicate_lhs_);
+  }
+  predicate_lhs_ = predicate_lhs;
+  if (predicate_lhs) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderConditionalExpression.predicate_lhs)
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::release_predicate_lhs() {
   
-  ranking_method_ = value;
+  ::delivery::BlenderExpression* temp = predicate_lhs_;
+  predicate_lhs_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline void InsertRule::set_ranking_method(::delivery::RankingMethod value) {
-  _internal_set_ranking_method(value);
-  // @@protoc_insertion_point(field_set:delivery.InsertRule.ranking_method)
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::unsafe_arena_release_predicate_lhs() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderConditionalExpression.predicate_lhs)
+  
+  ::delivery::BlenderExpression* temp = predicate_lhs_;
+  predicate_lhs_ = nullptr;
+  return temp;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::_internal_mutable_predicate_lhs() {
+  
+  if (predicate_lhs_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::BlenderExpression>(GetArena());
+    predicate_lhs_ = p;
+  }
+  return predicate_lhs_;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::mutable_predicate_lhs() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderConditionalExpression.predicate_lhs)
+  return _internal_mutable_predicate_lhs();
+}
+inline void BlenderConditionalExpression::set_allocated_predicate_lhs(::delivery::BlenderExpression* predicate_lhs) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete predicate_lhs_;
+  }
+  if (predicate_lhs) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(predicate_lhs);
+    if (message_arena != submessage_arena) {
+      predicate_lhs = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, predicate_lhs, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  predicate_lhs_ = predicate_lhs;
+  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderConditionalExpression.predicate_lhs)
+}
+
+// .delivery.BlenderExpression predicate_rhs = 3 [json_name = "predicateRhs"];
+inline bool BlenderConditionalExpression::_internal_has_predicate_rhs() const {
+  return this != internal_default_instance() && predicate_rhs_ != nullptr;
+}
+inline bool BlenderConditionalExpression::has_predicate_rhs() const {
+  return _internal_has_predicate_rhs();
+}
+inline void BlenderConditionalExpression::clear_predicate_rhs() {
+  if (GetArena() == nullptr && predicate_rhs_ != nullptr) {
+    delete predicate_rhs_;
+  }
+  predicate_rhs_ = nullptr;
+}
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::_internal_predicate_rhs() const {
+  const ::delivery::BlenderExpression* p = predicate_rhs_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::BlenderExpression&>(
+      ::delivery::_BlenderExpression_default_instance_);
+}
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::predicate_rhs() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderConditionalExpression.predicate_rhs)
+  return _internal_predicate_rhs();
+}
+inline void BlenderConditionalExpression::unsafe_arena_set_allocated_predicate_rhs(
+    ::delivery::BlenderExpression* predicate_rhs) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(predicate_rhs_);
+  }
+  predicate_rhs_ = predicate_rhs;
+  if (predicate_rhs) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderConditionalExpression.predicate_rhs)
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::release_predicate_rhs() {
+  
+  ::delivery::BlenderExpression* temp = predicate_rhs_;
+  predicate_rhs_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::unsafe_arena_release_predicate_rhs() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderConditionalExpression.predicate_rhs)
+  
+  ::delivery::BlenderExpression* temp = predicate_rhs_;
+  predicate_rhs_ = nullptr;
+  return temp;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::_internal_mutable_predicate_rhs() {
+  
+  if (predicate_rhs_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::BlenderExpression>(GetArena());
+    predicate_rhs_ = p;
+  }
+  return predicate_rhs_;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::mutable_predicate_rhs() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderConditionalExpression.predicate_rhs)
+  return _internal_mutable_predicate_rhs();
+}
+inline void BlenderConditionalExpression::set_allocated_predicate_rhs(::delivery::BlenderExpression* predicate_rhs) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete predicate_rhs_;
+  }
+  if (predicate_rhs) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(predicate_rhs);
+    if (message_arena != submessage_arena) {
+      predicate_rhs = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, predicate_rhs, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  predicate_rhs_ = predicate_rhs;
+  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderConditionalExpression.predicate_rhs)
+}
+
+// .delivery.BlenderExpression then_branch = 4 [json_name = "thenBranch"];
+inline bool BlenderConditionalExpression::_internal_has_then_branch() const {
+  return this != internal_default_instance() && then_branch_ != nullptr;
+}
+inline bool BlenderConditionalExpression::has_then_branch() const {
+  return _internal_has_then_branch();
+}
+inline void BlenderConditionalExpression::clear_then_branch() {
+  if (GetArena() == nullptr && then_branch_ != nullptr) {
+    delete then_branch_;
+  }
+  then_branch_ = nullptr;
+}
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::_internal_then_branch() const {
+  const ::delivery::BlenderExpression* p = then_branch_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::BlenderExpression&>(
+      ::delivery::_BlenderExpression_default_instance_);
+}
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::then_branch() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderConditionalExpression.then_branch)
+  return _internal_then_branch();
+}
+inline void BlenderConditionalExpression::unsafe_arena_set_allocated_then_branch(
+    ::delivery::BlenderExpression* then_branch) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(then_branch_);
+  }
+  then_branch_ = then_branch;
+  if (then_branch) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderConditionalExpression.then_branch)
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::release_then_branch() {
+  
+  ::delivery::BlenderExpression* temp = then_branch_;
+  then_branch_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::unsafe_arena_release_then_branch() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderConditionalExpression.then_branch)
+  
+  ::delivery::BlenderExpression* temp = then_branch_;
+  then_branch_ = nullptr;
+  return temp;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::_internal_mutable_then_branch() {
+  
+  if (then_branch_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::BlenderExpression>(GetArena());
+    then_branch_ = p;
+  }
+  return then_branch_;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::mutable_then_branch() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderConditionalExpression.then_branch)
+  return _internal_mutable_then_branch();
+}
+inline void BlenderConditionalExpression::set_allocated_then_branch(::delivery::BlenderExpression* then_branch) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete then_branch_;
+  }
+  if (then_branch) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(then_branch);
+    if (message_arena != submessage_arena) {
+      then_branch = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, then_branch, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  then_branch_ = then_branch;
+  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderConditionalExpression.then_branch)
+}
+
+// .delivery.BlenderExpression else_branch = 5 [json_name = "elseBranch"];
+inline bool BlenderConditionalExpression::_internal_has_else_branch() const {
+  return this != internal_default_instance() && else_branch_ != nullptr;
+}
+inline bool BlenderConditionalExpression::has_else_branch() const {
+  return _internal_has_else_branch();
+}
+inline void BlenderConditionalExpression::clear_else_branch() {
+  if (GetArena() == nullptr && else_branch_ != nullptr) {
+    delete else_branch_;
+  }
+  else_branch_ = nullptr;
+}
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::_internal_else_branch() const {
+  const ::delivery::BlenderExpression* p = else_branch_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::BlenderExpression&>(
+      ::delivery::_BlenderExpression_default_instance_);
+}
+inline const ::delivery::BlenderExpression& BlenderConditionalExpression::else_branch() const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderConditionalExpression.else_branch)
+  return _internal_else_branch();
+}
+inline void BlenderConditionalExpression::unsafe_arena_set_allocated_else_branch(
+    ::delivery::BlenderExpression* else_branch) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(else_branch_);
+  }
+  else_branch_ = else_branch;
+  if (else_branch) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.BlenderConditionalExpression.else_branch)
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::release_else_branch() {
+  
+  ::delivery::BlenderExpression* temp = else_branch_;
+  else_branch_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::unsafe_arena_release_else_branch() {
+  // @@protoc_insertion_point(field_release:delivery.BlenderConditionalExpression.else_branch)
+  
+  ::delivery::BlenderExpression* temp = else_branch_;
+  else_branch_ = nullptr;
+  return temp;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::_internal_mutable_else_branch() {
+  
+  if (else_branch_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::BlenderExpression>(GetArena());
+    else_branch_ = p;
+  }
+  return else_branch_;
+}
+inline ::delivery::BlenderExpression* BlenderConditionalExpression::mutable_else_branch() {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderConditionalExpression.else_branch)
+  return _internal_mutable_else_branch();
+}
+inline void BlenderConditionalExpression::set_allocated_else_branch(::delivery::BlenderExpression* else_branch) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete else_branch_;
+  }
+  if (else_branch) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(else_branch);
+    if (message_arena != submessage_arena) {
+      else_branch = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, else_branch, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  else_branch_ = else_branch;
+  // @@protoc_insertion_point(field_set_allocated:delivery.BlenderConditionalExpression.else_branch)
 }
 
 // -------------------------------------------------------------------
 
-// NegativeRule
+// BlenderSortKey
 
-// double pluck_pct = 1 [json_name = "pluckPct"];
-inline bool NegativeRule::_internal_has_pluck_pct() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
+// repeated .delivery.BlenderExpression elements = 1 [json_name = "elements"];
+inline int BlenderSortKey::_internal_elements_size() const {
+  return elements_.size();
 }
-inline bool NegativeRule::has_pluck_pct() const {
-  return _internal_has_pluck_pct();
+inline int BlenderSortKey::elements_size() const {
+  return _internal_elements_size();
 }
-inline void NegativeRule::clear_pluck_pct() {
-  pluck_pct_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
+inline void BlenderSortKey::clear_elements() {
+  elements_.Clear();
 }
-inline double NegativeRule::_internal_pluck_pct() const {
-  return pluck_pct_;
+inline ::delivery::BlenderExpression* BlenderSortKey::mutable_elements(int index) {
+  // @@protoc_insertion_point(field_mutable:delivery.BlenderSortKey.elements)
+  return elements_.Mutable(index);
 }
-inline double NegativeRule::pluck_pct() const {
-  // @@protoc_insertion_point(field_get:delivery.NegativeRule.pluck_pct)
-  return _internal_pluck_pct();
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >*
+BlenderSortKey::mutable_elements() {
+  // @@protoc_insertion_point(field_mutable_list:delivery.BlenderSortKey.elements)
+  return &elements_;
 }
-inline void NegativeRule::_internal_set_pluck_pct(double value) {
-  _has_bits_[0] |= 0x00000001u;
-  pluck_pct_ = value;
+inline const ::delivery::BlenderExpression& BlenderSortKey::_internal_elements(int index) const {
+  return elements_.Get(index);
 }
-inline void NegativeRule::set_pluck_pct(double value) {
-  _internal_set_pluck_pct(value);
-  // @@protoc_insertion_point(field_set:delivery.NegativeRule.pluck_pct)
+inline const ::delivery::BlenderExpression& BlenderSortKey::elements(int index) const {
+  // @@protoc_insertion_point(field_get:delivery.BlenderSortKey.elements)
+  return _internal_elements(index);
 }
-
-// uint64 forbid_less_pos = 2 [json_name = "forbidLessPos"];
-inline bool NegativeRule::_internal_has_forbid_less_pos() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
+inline ::delivery::BlenderExpression* BlenderSortKey::_internal_add_elements() {
+  return elements_.Add();
 }
-inline bool NegativeRule::has_forbid_less_pos() const {
-  return _internal_has_forbid_less_pos();
+inline ::delivery::BlenderExpression* BlenderSortKey::add_elements() {
+  // @@protoc_insertion_point(field_add:delivery.BlenderSortKey.elements)
+  return _internal_add_elements();
 }
-inline void NegativeRule::clear_forbid_less_pos() {
-  forbid_less_pos_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::_internal_forbid_less_pos() const {
-  return forbid_less_pos_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::forbid_less_pos() const {
-  // @@protoc_insertion_point(field_get:delivery.NegativeRule.forbid_less_pos)
-  return _internal_forbid_less_pos();
-}
-inline void NegativeRule::_internal_set_forbid_less_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000002u;
-  forbid_less_pos_ = value;
-}
-inline void NegativeRule::set_forbid_less_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_forbid_less_pos(value);
-  // @@protoc_insertion_point(field_set:delivery.NegativeRule.forbid_less_pos)
-}
-
-// uint64 min_spacing = 3 [json_name = "minSpacing"];
-inline bool NegativeRule::_internal_has_min_spacing() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool NegativeRule::has_min_spacing() const {
-  return _internal_has_min_spacing();
-}
-inline void NegativeRule::clear_min_spacing() {
-  min_spacing_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::_internal_min_spacing() const {
-  return min_spacing_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::min_spacing() const {
-  // @@protoc_insertion_point(field_get:delivery.NegativeRule.min_spacing)
-  return _internal_min_spacing();
-}
-inline void NegativeRule::_internal_set_min_spacing(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000004u;
-  min_spacing_ = value;
-}
-inline void NegativeRule::set_min_spacing(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_min_spacing(value);
-  // @@protoc_insertion_point(field_set:delivery.NegativeRule.min_spacing)
-}
-
-// uint64 forbid_greater_pos = 4 [json_name = "forbidGreaterPos"];
-inline bool NegativeRule::_internal_has_forbid_greater_pos() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool NegativeRule::has_forbid_greater_pos() const {
-  return _internal_has_forbid_greater_pos();
-}
-inline void NegativeRule::clear_forbid_greater_pos() {
-  forbid_greater_pos_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::_internal_forbid_greater_pos() const {
-  return forbid_greater_pos_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::forbid_greater_pos() const {
-  // @@protoc_insertion_point(field_get:delivery.NegativeRule.forbid_greater_pos)
-  return _internal_forbid_greater_pos();
-}
-inline void NegativeRule::_internal_set_forbid_greater_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000008u;
-  forbid_greater_pos_ = value;
-}
-inline void NegativeRule::set_forbid_greater_pos(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_forbid_greater_pos(value);
-  // @@protoc_insertion_point(field_set:delivery.NegativeRule.forbid_greater_pos)
-}
-
-// uint64 max_count = 5 [json_name = "maxCount"];
-inline bool NegativeRule::_internal_has_max_count() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool NegativeRule::has_max_count() const {
-  return _internal_has_max_count();
-}
-inline void NegativeRule::clear_max_count() {
-  max_count_ = PROTOBUF_ULONGLONG(0);
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::_internal_max_count() const {
-  return max_count_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint64 NegativeRule::max_count() const {
-  // @@protoc_insertion_point(field_get:delivery.NegativeRule.max_count)
-  return _internal_max_count();
-}
-inline void NegativeRule::_internal_set_max_count(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _has_bits_[0] |= 0x00000010u;
-  max_count_ = value;
-}
-inline void NegativeRule::set_max_count(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_max_count(value);
-  // @@protoc_insertion_point(field_set:delivery.NegativeRule.max_count)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::BlenderExpression >&
+BlenderSortKey::elements() const {
+  // @@protoc_insertion_point(field_list:delivery.BlenderSortKey.elements)
+  return elements_;
 }
 
 // -------------------------------------------------------------------
 
-// DiversityRule
+// -------------------------------------------------------------------
 
-// double multi = 1 [json_name = "multi"];
-inline bool DiversityRule::_internal_has_multi() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
+// HyperloopConfig
+
+// map<uint64, .delivery.HyperloopParameter> parameters = 1 [json_name = "parameters"];
+inline int HyperloopConfig::_internal_parameters_size() const {
+  return parameters_.size();
 }
-inline bool DiversityRule::has_multi() const {
-  return _internal_has_multi();
+inline int HyperloopConfig::parameters_size() const {
+  return _internal_parameters_size();
 }
-inline void DiversityRule::clear_multi() {
+inline void HyperloopConfig::clear_parameters() {
+  parameters_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >&
+HyperloopConfig::_internal_parameters() const {
+  return parameters_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >&
+HyperloopConfig::parameters() const {
+  // @@protoc_insertion_point(field_map:delivery.HyperloopConfig.parameters)
+  return _internal_parameters();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >*
+HyperloopConfig::_internal_mutable_parameters() {
+  return parameters_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameter >*
+HyperloopConfig::mutable_parameters() {
+  // @@protoc_insertion_point(field_mutable_map:delivery.HyperloopConfig.parameters)
+  return _internal_mutable_parameters();
+}
+
+// -------------------------------------------------------------------
+
+// HyperloopParameter
+
+// repeated .delivery.HyperloopGroup groups = 1 [json_name = "groups"];
+inline int HyperloopParameter::_internal_groups_size() const {
+  return groups_.size();
+}
+inline int HyperloopParameter::groups_size() const {
+  return _internal_groups_size();
+}
+inline void HyperloopParameter::clear_groups() {
+  groups_.Clear();
+}
+inline ::delivery::HyperloopGroup* HyperloopParameter::mutable_groups(int index) {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopParameter.groups)
+  return groups_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::HyperloopGroup >*
+HyperloopParameter::mutable_groups() {
+  // @@protoc_insertion_point(field_mutable_list:delivery.HyperloopParameter.groups)
+  return &groups_;
+}
+inline const ::delivery::HyperloopGroup& HyperloopParameter::_internal_groups(int index) const {
+  return groups_.Get(index);
+}
+inline const ::delivery::HyperloopGroup& HyperloopParameter::groups(int index) const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopParameter.groups)
+  return _internal_groups(index);
+}
+inline ::delivery::HyperloopGroup* HyperloopParameter::_internal_add_groups() {
+  return groups_.Add();
+}
+inline ::delivery::HyperloopGroup* HyperloopParameter::add_groups() {
+  // @@protoc_insertion_point(field_add:delivery.HyperloopParameter.groups)
+  return _internal_add_groups();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::HyperloopGroup >&
+HyperloopParameter::groups() const {
+  // @@protoc_insertion_point(field_list:delivery.HyperloopParameter.groups)
+  return groups_;
+}
+
+// float default = 2 [json_name = "default"];
+inline void HyperloopParameter::clear_default_() {
+  default__ = 0;
+}
+inline float HyperloopParameter::_internal_default_() const {
+  return default__;
+}
+inline float HyperloopParameter::default_() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopParameter.default)
+  return _internal_default_();
+}
+inline void HyperloopParameter::_internal_set_default_(float value) {
+  
+  default__ = value;
+}
+inline void HyperloopParameter::set_default_(float value) {
+  _internal_set_default_(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopParameter.default)
+}
+
+// -------------------------------------------------------------------
+
+// HyperloopGroup
+
+// int32 low_bucket = 1 [json_name = "lowBucket"];
+inline void HyperloopGroup::clear_low_bucket() {
+  low_bucket_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 HyperloopGroup::_internal_low_bucket() const {
+  return low_bucket_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 HyperloopGroup::low_bucket() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopGroup.low_bucket)
+  return _internal_low_bucket();
+}
+inline void HyperloopGroup::_internal_set_low_bucket(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  low_bucket_ = value;
+}
+inline void HyperloopGroup::set_low_bucket(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_low_bucket(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopGroup.low_bucket)
+}
+
+// int32 high_bucket = 2 [json_name = "highBucket"];
+inline void HyperloopGroup::clear_high_bucket() {
+  high_bucket_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 HyperloopGroup::_internal_high_bucket() const {
+  return high_bucket_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 HyperloopGroup::high_bucket() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopGroup.high_bucket)
+  return _internal_high_bucket();
+}
+inline void HyperloopGroup::_internal_set_high_bucket(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  high_bucket_ = value;
+}
+inline void HyperloopGroup::set_high_bucket(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_high_bucket(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopGroup.high_bucket)
+}
+
+// .delivery.HyperloopExpression exp = 3 [json_name = "exp"];
+inline bool HyperloopGroup::_internal_has_exp() const {
+  return this != internal_default_instance() && exp_ != nullptr;
+}
+inline bool HyperloopGroup::has_exp() const {
+  return _internal_has_exp();
+}
+inline void HyperloopGroup::clear_exp() {
+  if (GetArena() == nullptr && exp_ != nullptr) {
+    delete exp_;
+  }
+  exp_ = nullptr;
+}
+inline const ::delivery::HyperloopExpression& HyperloopGroup::_internal_exp() const {
+  const ::delivery::HyperloopExpression* p = exp_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::HyperloopExpression&>(
+      ::delivery::_HyperloopExpression_default_instance_);
+}
+inline const ::delivery::HyperloopExpression& HyperloopGroup::exp() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopGroup.exp)
+  return _internal_exp();
+}
+inline void HyperloopGroup::unsafe_arena_set_allocated_exp(
+    ::delivery::HyperloopExpression* exp) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(exp_);
+  }
+  exp_ = exp;
+  if (exp) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopGroup.exp)
+}
+inline ::delivery::HyperloopExpression* HyperloopGroup::release_exp() {
+  
+  ::delivery::HyperloopExpression* temp = exp_;
+  exp_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopGroup::unsafe_arena_release_exp() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopGroup.exp)
+  
+  ::delivery::HyperloopExpression* temp = exp_;
+  exp_ = nullptr;
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopGroup::_internal_mutable_exp() {
+  
+  if (exp_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::HyperloopExpression>(GetArena());
+    exp_ = p;
+  }
+  return exp_;
+}
+inline ::delivery::HyperloopExpression* HyperloopGroup::mutable_exp() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopGroup.exp)
+  return _internal_mutable_exp();
+}
+inline void HyperloopGroup::set_allocated_exp(::delivery::HyperloopExpression* exp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete exp_;
+  }
+  if (exp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(exp);
+    if (message_arena != submessage_arena) {
+      exp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, exp, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  exp_ = exp;
+  // @@protoc_insertion_point(field_set_allocated:delivery.HyperloopGroup.exp)
+}
+
+// -------------------------------------------------------------------
+
+// HyperloopExpression
+
+// .delivery.LeafExpression leaf = 1 [json_name = "leaf"];
+inline bool HyperloopExpression::_internal_has_leaf() const {
+  return node_type_case() == kLeaf;
+}
+inline bool HyperloopExpression::has_leaf() const {
+  return _internal_has_leaf();
+}
+inline void HyperloopExpression::set_has_leaf() {
+  _oneof_case_[0] = kLeaf;
+}
+inline void HyperloopExpression::clear_leaf() {
+  if (_internal_has_leaf()) {
+    if (GetArena() == nullptr) {
+      delete node_type_.leaf_;
+    }
+    clear_has_node_type();
+  }
+}
+inline ::delivery::LeafExpression* HyperloopExpression::release_leaf() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopExpression.leaf)
+  if (_internal_has_leaf()) {
+    clear_has_node_type();
+      ::delivery::LeafExpression* temp = node_type_.leaf_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    node_type_.leaf_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::delivery::LeafExpression& HyperloopExpression::_internal_leaf() const {
+  return _internal_has_leaf()
+      ? *node_type_.leaf_
+      : reinterpret_cast< ::delivery::LeafExpression&>(::delivery::_LeafExpression_default_instance_);
+}
+inline const ::delivery::LeafExpression& HyperloopExpression::leaf() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopExpression.leaf)
+  return _internal_leaf();
+}
+inline ::delivery::LeafExpression* HyperloopExpression::unsafe_arena_release_leaf() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.HyperloopExpression.leaf)
+  if (_internal_has_leaf()) {
+    clear_has_node_type();
+    ::delivery::LeafExpression* temp = node_type_.leaf_;
+    node_type_.leaf_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HyperloopExpression::unsafe_arena_set_allocated_leaf(::delivery::LeafExpression* leaf) {
+  clear_node_type();
+  if (leaf) {
+    set_has_leaf();
+    node_type_.leaf_ = leaf;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopExpression.leaf)
+}
+inline ::delivery::LeafExpression* HyperloopExpression::_internal_mutable_leaf() {
+  if (!_internal_has_leaf()) {
+    clear_node_type();
+    set_has_leaf();
+    node_type_.leaf_ = CreateMaybeMessage< ::delivery::LeafExpression >(GetArena());
+  }
+  return node_type_.leaf_;
+}
+inline ::delivery::LeafExpression* HyperloopExpression::mutable_leaf() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopExpression.leaf)
+  return _internal_mutable_leaf();
+}
+
+// .delivery.HyperloopGeneratorExpression generator_exp = 2 [json_name = "generatorExp"];
+inline bool HyperloopExpression::_internal_has_generator_exp() const {
+  return node_type_case() == kGeneratorExp;
+}
+inline bool HyperloopExpression::has_generator_exp() const {
+  return _internal_has_generator_exp();
+}
+inline void HyperloopExpression::set_has_generator_exp() {
+  _oneof_case_[0] = kGeneratorExp;
+}
+inline void HyperloopExpression::clear_generator_exp() {
+  if (_internal_has_generator_exp()) {
+    if (GetArena() == nullptr) {
+      delete node_type_.generator_exp_;
+    }
+    clear_has_node_type();
+  }
+}
+inline ::delivery::HyperloopGeneratorExpression* HyperloopExpression::release_generator_exp() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopExpression.generator_exp)
+  if (_internal_has_generator_exp()) {
+    clear_has_node_type();
+      ::delivery::HyperloopGeneratorExpression* temp = node_type_.generator_exp_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    node_type_.generator_exp_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::delivery::HyperloopGeneratorExpression& HyperloopExpression::_internal_generator_exp() const {
+  return _internal_has_generator_exp()
+      ? *node_type_.generator_exp_
+      : reinterpret_cast< ::delivery::HyperloopGeneratorExpression&>(::delivery::_HyperloopGeneratorExpression_default_instance_);
+}
+inline const ::delivery::HyperloopGeneratorExpression& HyperloopExpression::generator_exp() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopExpression.generator_exp)
+  return _internal_generator_exp();
+}
+inline ::delivery::HyperloopGeneratorExpression* HyperloopExpression::unsafe_arena_release_generator_exp() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.HyperloopExpression.generator_exp)
+  if (_internal_has_generator_exp()) {
+    clear_has_node_type();
+    ::delivery::HyperloopGeneratorExpression* temp = node_type_.generator_exp_;
+    node_type_.generator_exp_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HyperloopExpression::unsafe_arena_set_allocated_generator_exp(::delivery::HyperloopGeneratorExpression* generator_exp) {
+  clear_node_type();
+  if (generator_exp) {
+    set_has_generator_exp();
+    node_type_.generator_exp_ = generator_exp;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopExpression.generator_exp)
+}
+inline ::delivery::HyperloopGeneratorExpression* HyperloopExpression::_internal_mutable_generator_exp() {
+  if (!_internal_has_generator_exp()) {
+    clear_node_type();
+    set_has_generator_exp();
+    node_type_.generator_exp_ = CreateMaybeMessage< ::delivery::HyperloopGeneratorExpression >(GetArena());
+  }
+  return node_type_.generator_exp_;
+}
+inline ::delivery::HyperloopGeneratorExpression* HyperloopExpression::mutable_generator_exp() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopExpression.generator_exp)
+  return _internal_mutable_generator_exp();
+}
+
+// .delivery.HyperloopConditionalExpression conditional_exp = 3 [json_name = "conditionalExp"];
+inline bool HyperloopExpression::_internal_has_conditional_exp() const {
+  return node_type_case() == kConditionalExp;
+}
+inline bool HyperloopExpression::has_conditional_exp() const {
+  return _internal_has_conditional_exp();
+}
+inline void HyperloopExpression::set_has_conditional_exp() {
+  _oneof_case_[0] = kConditionalExp;
+}
+inline void HyperloopExpression::clear_conditional_exp() {
+  if (_internal_has_conditional_exp()) {
+    if (GetArena() == nullptr) {
+      delete node_type_.conditional_exp_;
+    }
+    clear_has_node_type();
+  }
+}
+inline ::delivery::HyperloopConditionalExpression* HyperloopExpression::release_conditional_exp() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopExpression.conditional_exp)
+  if (_internal_has_conditional_exp()) {
+    clear_has_node_type();
+      ::delivery::HyperloopConditionalExpression* temp = node_type_.conditional_exp_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    node_type_.conditional_exp_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::delivery::HyperloopConditionalExpression& HyperloopExpression::_internal_conditional_exp() const {
+  return _internal_has_conditional_exp()
+      ? *node_type_.conditional_exp_
+      : reinterpret_cast< ::delivery::HyperloopConditionalExpression&>(::delivery::_HyperloopConditionalExpression_default_instance_);
+}
+inline const ::delivery::HyperloopConditionalExpression& HyperloopExpression::conditional_exp() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopExpression.conditional_exp)
+  return _internal_conditional_exp();
+}
+inline ::delivery::HyperloopConditionalExpression* HyperloopExpression::unsafe_arena_release_conditional_exp() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.HyperloopExpression.conditional_exp)
+  if (_internal_has_conditional_exp()) {
+    clear_has_node_type();
+    ::delivery::HyperloopConditionalExpression* temp = node_type_.conditional_exp_;
+    node_type_.conditional_exp_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HyperloopExpression::unsafe_arena_set_allocated_conditional_exp(::delivery::HyperloopConditionalExpression* conditional_exp) {
+  clear_node_type();
+  if (conditional_exp) {
+    set_has_conditional_exp();
+    node_type_.conditional_exp_ = conditional_exp;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopExpression.conditional_exp)
+}
+inline ::delivery::HyperloopConditionalExpression* HyperloopExpression::_internal_mutable_conditional_exp() {
+  if (!_internal_has_conditional_exp()) {
+    clear_node_type();
+    set_has_conditional_exp();
+    node_type_.conditional_exp_ = CreateMaybeMessage< ::delivery::HyperloopConditionalExpression >(GetArena());
+  }
+  return node_type_.conditional_exp_;
+}
+inline ::delivery::HyperloopConditionalExpression* HyperloopExpression::mutable_conditional_exp() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopExpression.conditional_exp)
+  return _internal_mutable_conditional_exp();
+}
+
+inline bool HyperloopExpression::has_node_type() const {
+  return node_type_case() != NODE_TYPE_NOT_SET;
+}
+inline void HyperloopExpression::clear_has_node_type() {
+  _oneof_case_[0] = NODE_TYPE_NOT_SET;
+}
+inline HyperloopExpression::NodeTypeCase HyperloopExpression::node_type_case() const {
+  return HyperloopExpression::NodeTypeCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// HyperloopGeneratorExpression
+
+// .delivery.HyperloopUniformGenerator uniform = 1 [json_name = "uniform"];
+inline bool HyperloopGeneratorExpression::_internal_has_uniform() const {
+  return generator_case() == kUniform;
+}
+inline bool HyperloopGeneratorExpression::has_uniform() const {
+  return _internal_has_uniform();
+}
+inline void HyperloopGeneratorExpression::set_has_uniform() {
+  _oneof_case_[0] = kUniform;
+}
+inline void HyperloopGeneratorExpression::clear_uniform() {
+  if (_internal_has_uniform()) {
+    if (GetArena() == nullptr) {
+      delete generator_.uniform_;
+    }
+    clear_has_generator();
+  }
+}
+inline ::delivery::HyperloopUniformGenerator* HyperloopGeneratorExpression::release_uniform() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopGeneratorExpression.uniform)
+  if (_internal_has_uniform()) {
+    clear_has_generator();
+      ::delivery::HyperloopUniformGenerator* temp = generator_.uniform_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    generator_.uniform_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::delivery::HyperloopUniformGenerator& HyperloopGeneratorExpression::_internal_uniform() const {
+  return _internal_has_uniform()
+      ? *generator_.uniform_
+      : reinterpret_cast< ::delivery::HyperloopUniformGenerator&>(::delivery::_HyperloopUniformGenerator_default_instance_);
+}
+inline const ::delivery::HyperloopUniformGenerator& HyperloopGeneratorExpression::uniform() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopGeneratorExpression.uniform)
+  return _internal_uniform();
+}
+inline ::delivery::HyperloopUniformGenerator* HyperloopGeneratorExpression::unsafe_arena_release_uniform() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.HyperloopGeneratorExpression.uniform)
+  if (_internal_has_uniform()) {
+    clear_has_generator();
+    ::delivery::HyperloopUniformGenerator* temp = generator_.uniform_;
+    generator_.uniform_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HyperloopGeneratorExpression::unsafe_arena_set_allocated_uniform(::delivery::HyperloopUniformGenerator* uniform) {
+  clear_generator();
+  if (uniform) {
+    set_has_uniform();
+    generator_.uniform_ = uniform;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopGeneratorExpression.uniform)
+}
+inline ::delivery::HyperloopUniformGenerator* HyperloopGeneratorExpression::_internal_mutable_uniform() {
+  if (!_internal_has_uniform()) {
+    clear_generator();
+    set_has_uniform();
+    generator_.uniform_ = CreateMaybeMessage< ::delivery::HyperloopUniformGenerator >(GetArena());
+  }
+  return generator_.uniform_;
+}
+inline ::delivery::HyperloopUniformGenerator* HyperloopGeneratorExpression::mutable_uniform() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopGeneratorExpression.uniform)
+  return _internal_mutable_uniform();
+}
+
+// .delivery.HyperloopUniformMultiGenerator uniform_multi = 2 [json_name = "uniformMulti"];
+inline bool HyperloopGeneratorExpression::_internal_has_uniform_multi() const {
+  return generator_case() == kUniformMulti;
+}
+inline bool HyperloopGeneratorExpression::has_uniform_multi() const {
+  return _internal_has_uniform_multi();
+}
+inline void HyperloopGeneratorExpression::set_has_uniform_multi() {
+  _oneof_case_[0] = kUniformMulti;
+}
+inline void HyperloopGeneratorExpression::clear_uniform_multi() {
+  if (_internal_has_uniform_multi()) {
+    if (GetArena() == nullptr) {
+      delete generator_.uniform_multi_;
+    }
+    clear_has_generator();
+  }
+}
+inline ::delivery::HyperloopUniformMultiGenerator* HyperloopGeneratorExpression::release_uniform_multi() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopGeneratorExpression.uniform_multi)
+  if (_internal_has_uniform_multi()) {
+    clear_has_generator();
+      ::delivery::HyperloopUniformMultiGenerator* temp = generator_.uniform_multi_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    generator_.uniform_multi_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::delivery::HyperloopUniformMultiGenerator& HyperloopGeneratorExpression::_internal_uniform_multi() const {
+  return _internal_has_uniform_multi()
+      ? *generator_.uniform_multi_
+      : reinterpret_cast< ::delivery::HyperloopUniformMultiGenerator&>(::delivery::_HyperloopUniformMultiGenerator_default_instance_);
+}
+inline const ::delivery::HyperloopUniformMultiGenerator& HyperloopGeneratorExpression::uniform_multi() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopGeneratorExpression.uniform_multi)
+  return _internal_uniform_multi();
+}
+inline ::delivery::HyperloopUniformMultiGenerator* HyperloopGeneratorExpression::unsafe_arena_release_uniform_multi() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.HyperloopGeneratorExpression.uniform_multi)
+  if (_internal_has_uniform_multi()) {
+    clear_has_generator();
+    ::delivery::HyperloopUniformMultiGenerator* temp = generator_.uniform_multi_;
+    generator_.uniform_multi_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HyperloopGeneratorExpression::unsafe_arena_set_allocated_uniform_multi(::delivery::HyperloopUniformMultiGenerator* uniform_multi) {
+  clear_generator();
+  if (uniform_multi) {
+    set_has_uniform_multi();
+    generator_.uniform_multi_ = uniform_multi;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopGeneratorExpression.uniform_multi)
+}
+inline ::delivery::HyperloopUniformMultiGenerator* HyperloopGeneratorExpression::_internal_mutable_uniform_multi() {
+  if (!_internal_has_uniform_multi()) {
+    clear_generator();
+    set_has_uniform_multi();
+    generator_.uniform_multi_ = CreateMaybeMessage< ::delivery::HyperloopUniformMultiGenerator >(GetArena());
+  }
+  return generator_.uniform_multi_;
+}
+inline ::delivery::HyperloopUniformMultiGenerator* HyperloopGeneratorExpression::mutable_uniform_multi() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopGeneratorExpression.uniform_multi)
+  return _internal_mutable_uniform_multi();
+}
+
+inline bool HyperloopGeneratorExpression::has_generator() const {
+  return generator_case() != GENERATOR_NOT_SET;
+}
+inline void HyperloopGeneratorExpression::clear_has_generator() {
+  _oneof_case_[0] = GENERATOR_NOT_SET;
+}
+inline HyperloopGeneratorExpression::GeneratorCase HyperloopGeneratorExpression::generator_case() const {
+  return HyperloopGeneratorExpression::GeneratorCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// HyperloopUniformGenerator
+
+// float low_bound = 1 [json_name = "lowBound"];
+inline void HyperloopUniformGenerator::clear_low_bound() {
+  low_bound_ = 0;
+}
+inline float HyperloopUniformGenerator::_internal_low_bound() const {
+  return low_bound_;
+}
+inline float HyperloopUniformGenerator::low_bound() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopUniformGenerator.low_bound)
+  return _internal_low_bound();
+}
+inline void HyperloopUniformGenerator::_internal_set_low_bound(float value) {
+  
+  low_bound_ = value;
+}
+inline void HyperloopUniformGenerator::set_low_bound(float value) {
+  _internal_set_low_bound(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopUniformGenerator.low_bound)
+}
+
+// float high_bound = 2 [json_name = "highBound"];
+inline void HyperloopUniformGenerator::clear_high_bound() {
+  high_bound_ = 0;
+}
+inline float HyperloopUniformGenerator::_internal_high_bound() const {
+  return high_bound_;
+}
+inline float HyperloopUniformGenerator::high_bound() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopUniformGenerator.high_bound)
+  return _internal_high_bound();
+}
+inline void HyperloopUniformGenerator::_internal_set_high_bound(float value) {
+  
+  high_bound_ = value;
+}
+inline void HyperloopUniformGenerator::set_high_bound(float value) {
+  _internal_set_high_bound(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopUniformGenerator.high_bound)
+}
+
+// -------------------------------------------------------------------
+
+// HyperloopUniformMultiGenerator
+
+// float base = 1 [json_name = "base"];
+inline void HyperloopUniformMultiGenerator::clear_base() {
+  base_ = 0;
+}
+inline float HyperloopUniformMultiGenerator::_internal_base() const {
+  return base_;
+}
+inline float HyperloopUniformMultiGenerator::base() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopUniformMultiGenerator.base)
+  return _internal_base();
+}
+inline void HyperloopUniformMultiGenerator::_internal_set_base(float value) {
+  
+  base_ = value;
+}
+inline void HyperloopUniformMultiGenerator::set_base(float value) {
+  _internal_set_base(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopUniformMultiGenerator.base)
+}
+
+// float multi = 2 [json_name = "multi"];
+inline void HyperloopUniformMultiGenerator::clear_multi() {
   multi_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
 }
-inline double DiversityRule::_internal_multi() const {
+inline float HyperloopUniformMultiGenerator::_internal_multi() const {
   return multi_;
 }
-inline double DiversityRule::multi() const {
-  // @@protoc_insertion_point(field_get:delivery.DiversityRule.multi)
+inline float HyperloopUniformMultiGenerator::multi() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopUniformMultiGenerator.multi)
   return _internal_multi();
 }
-inline void DiversityRule::_internal_set_multi(double value) {
-  _has_bits_[0] |= 0x00000001u;
+inline void HyperloopUniformMultiGenerator::_internal_set_multi(float value) {
+  
   multi_ = value;
 }
-inline void DiversityRule::set_multi(double value) {
+inline void HyperloopUniformMultiGenerator::set_multi(float value) {
   _internal_set_multi(value);
-  // @@protoc_insertion_point(field_set:delivery.DiversityRule.multi)
+  // @@protoc_insertion_point(field_set:delivery.HyperloopUniformMultiGenerator.multi)
 }
 
 // -------------------------------------------------------------------
 
-// QualityScoreConfig
+// HyperloopConditionalExpression
 
-// repeated .delivery.QualityScoreTerm weighted_sum_term = 1 [json_name = "weightedSumTerm"];
-inline int QualityScoreConfig::_internal_weighted_sum_term_size() const {
-  return weighted_sum_term_.size();
+// .delivery.HyperloopConditionalExpression.Operator op = 1 [json_name = "op"];
+inline void HyperloopConditionalExpression::clear_op() {
+  op_ = 0;
 }
-inline int QualityScoreConfig::weighted_sum_term_size() const {
-  return _internal_weighted_sum_term_size();
+inline ::delivery::HyperloopConditionalExpression_Operator HyperloopConditionalExpression::_internal_op() const {
+  return static_cast< ::delivery::HyperloopConditionalExpression_Operator >(op_);
 }
-inline void QualityScoreConfig::clear_weighted_sum_term() {
-  weighted_sum_term_.Clear();
+inline ::delivery::HyperloopConditionalExpression_Operator HyperloopConditionalExpression::op() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopConditionalExpression.op)
+  return _internal_op();
 }
-inline ::delivery::QualityScoreTerm* QualityScoreConfig::mutable_weighted_sum_term(int index) {
-  // @@protoc_insertion_point(field_mutable:delivery.QualityScoreConfig.weighted_sum_term)
-  return weighted_sum_term_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >*
-QualityScoreConfig::mutable_weighted_sum_term() {
-  // @@protoc_insertion_point(field_mutable_list:delivery.QualityScoreConfig.weighted_sum_term)
-  return &weighted_sum_term_;
-}
-inline const ::delivery::QualityScoreTerm& QualityScoreConfig::_internal_weighted_sum_term(int index) const {
-  return weighted_sum_term_.Get(index);
-}
-inline const ::delivery::QualityScoreTerm& QualityScoreConfig::weighted_sum_term(int index) const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreConfig.weighted_sum_term)
-  return _internal_weighted_sum_term(index);
-}
-inline ::delivery::QualityScoreTerm* QualityScoreConfig::_internal_add_weighted_sum_term() {
-  return weighted_sum_term_.Add();
-}
-inline ::delivery::QualityScoreTerm* QualityScoreConfig::add_weighted_sum_term() {
-  // @@protoc_insertion_point(field_add:delivery.QualityScoreConfig.weighted_sum_term)
-  return _internal_add_weighted_sum_term();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >&
-QualityScoreConfig::weighted_sum_term() const {
-  // @@protoc_insertion_point(field_list:delivery.QualityScoreConfig.weighted_sum_term)
-  return weighted_sum_term_;
-}
-
-// -------------------------------------------------------------------
-
-// QualityScoreTerms
-
-// repeated .delivery.QualityScoreTerm quality_score_terms = 1 [json_name = "qualityScoreTerms"];
-inline int QualityScoreTerms::_internal_quality_score_terms_size() const {
-  return quality_score_terms_.size();
-}
-inline int QualityScoreTerms::quality_score_terms_size() const {
-  return _internal_quality_score_terms_size();
-}
-inline void QualityScoreTerms::clear_quality_score_terms() {
-  quality_score_terms_.Clear();
-}
-inline ::delivery::QualityScoreTerm* QualityScoreTerms::mutable_quality_score_terms(int index) {
-  // @@protoc_insertion_point(field_mutable:delivery.QualityScoreTerms.quality_score_terms)
-  return quality_score_terms_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >*
-QualityScoreTerms::mutable_quality_score_terms() {
-  // @@protoc_insertion_point(field_mutable_list:delivery.QualityScoreTerms.quality_score_terms)
-  return &quality_score_terms_;
-}
-inline const ::delivery::QualityScoreTerm& QualityScoreTerms::_internal_quality_score_terms(int index) const {
-  return quality_score_terms_.Get(index);
-}
-inline const ::delivery::QualityScoreTerm& QualityScoreTerms::quality_score_terms(int index) const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerms.quality_score_terms)
-  return _internal_quality_score_terms(index);
-}
-inline ::delivery::QualityScoreTerm* QualityScoreTerms::_internal_add_quality_score_terms() {
-  return quality_score_terms_.Add();
-}
-inline ::delivery::QualityScoreTerm* QualityScoreTerms::add_quality_score_terms() {
-  // @@protoc_insertion_point(field_add:delivery.QualityScoreTerms.quality_score_terms)
-  return _internal_add_quality_score_terms();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::delivery::QualityScoreTerm >&
-QualityScoreTerms::quality_score_terms() const {
-  // @@protoc_insertion_point(field_list:delivery.QualityScoreTerms.quality_score_terms)
-  return quality_score_terms_;
-}
-
-// -------------------------------------------------------------------
-
-// QualityScoreTerm
-
-// string attribute_name = 1 [json_name = "attributeName"];
-inline bool QualityScoreTerm::_internal_has_attribute_name() const {
-  return fetch_method_case() == kAttributeName;
-}
-inline bool QualityScoreTerm::has_attribute_name() const {
-  return _internal_has_attribute_name();
-}
-inline void QualityScoreTerm::set_has_attribute_name() {
-  _oneof_case_[0] = kAttributeName;
-}
-inline void QualityScoreTerm::clear_attribute_name() {
-  if (_internal_has_attribute_name()) {
-    fetch_method_.attribute_name_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-    clear_has_fetch_method();
-  }
-}
-inline const std::string& QualityScoreTerm::attribute_name() const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerm.attribute_name)
-  return _internal_attribute_name();
-}
-inline void QualityScoreTerm::set_attribute_name(const std::string& value) {
-  _internal_set_attribute_name(value);
-  // @@protoc_insertion_point(field_set:delivery.QualityScoreTerm.attribute_name)
-}
-inline std::string* QualityScoreTerm::mutable_attribute_name() {
-  // @@protoc_insertion_point(field_mutable:delivery.QualityScoreTerm.attribute_name)
-  return _internal_mutable_attribute_name();
-}
-inline const std::string& QualityScoreTerm::_internal_attribute_name() const {
-  if (_internal_has_attribute_name()) {
-    return fetch_method_.attribute_name_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
-}
-inline void QualityScoreTerm::_internal_set_attribute_name(const std::string& value) {
-  if (!_internal_has_attribute_name()) {
-    clear_fetch_method();
-    set_has_attribute_name();
-    fetch_method_.attribute_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  fetch_method_.attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void QualityScoreTerm::set_attribute_name(std::string&& value) {
-  // @@protoc_insertion_point(field_set:delivery.QualityScoreTerm.attribute_name)
-  if (!_internal_has_attribute_name()) {
-    clear_fetch_method();
-    set_has_attribute_name();
-    fetch_method_.attribute_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  fetch_method_.attribute_name_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:delivery.QualityScoreTerm.attribute_name)
-}
-inline void QualityScoreTerm::set_attribute_name(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  if (!_internal_has_attribute_name()) {
-    clear_fetch_method();
-    set_has_attribute_name();
-    fetch_method_.attribute_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  fetch_method_.attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{},
-      ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:delivery.QualityScoreTerm.attribute_name)
-}
-inline void QualityScoreTerm::set_attribute_name(const char* value,
-                             size_t size) {
-  if (!_internal_has_attribute_name()) {
-    clear_fetch_method();
-    set_has_attribute_name();
-    fetch_method_.attribute_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  fetch_method_.attribute_name_.Set(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size),
-      GetArena());
-  // @@protoc_insertion_point(field_set_pointer:delivery.QualityScoreTerm.attribute_name)
-}
-inline std::string* QualityScoreTerm::_internal_mutable_attribute_name() {
-  if (!_internal_has_attribute_name()) {
-    clear_fetch_method();
-    set_has_attribute_name();
-    fetch_method_.attribute_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return fetch_method_.attribute_name_.Mutable(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* QualityScoreTerm::release_attribute_name() {
-  // @@protoc_insertion_point(field_release:delivery.QualityScoreTerm.attribute_name)
-  if (_internal_has_attribute_name()) {
-    clear_has_fetch_method();
-    return fetch_method_.attribute_name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  } else {
-    return nullptr;
-  }
-}
-inline void QualityScoreTerm::set_allocated_attribute_name(std::string* attribute_name) {
-  if (has_fetch_method()) {
-    clear_fetch_method();
-  }
-  if (attribute_name != nullptr) {
-    set_has_attribute_name();
-    fetch_method_.attribute_name_.UnsafeSetDefault(attribute_name);
-    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena();
-    if (arena != nullptr) {
-      arena->Own(attribute_name);
-    }
-  }
-  // @@protoc_insertion_point(field_set_allocated:delivery.QualityScoreTerm.attribute_name)
-}
-
-// .delivery.QualityScoreTerms product = 3 [json_name = "product"];
-inline bool QualityScoreTerm::_internal_has_product() const {
-  return fetch_method_case() == kProduct;
-}
-inline bool QualityScoreTerm::has_product() const {
-  return _internal_has_product();
-}
-inline void QualityScoreTerm::set_has_product() {
-  _oneof_case_[0] = kProduct;
-}
-inline void QualityScoreTerm::clear_product() {
-  if (_internal_has_product()) {
-    if (GetArena() == nullptr) {
-      delete fetch_method_.product_;
-    }
-    clear_has_fetch_method();
-  }
-}
-inline ::delivery::QualityScoreTerms* QualityScoreTerm::release_product() {
-  // @@protoc_insertion_point(field_release:delivery.QualityScoreTerm.product)
-  if (_internal_has_product()) {
-    clear_has_fetch_method();
-      ::delivery::QualityScoreTerms* temp = fetch_method_.product_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    fetch_method_.product_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::QualityScoreTerms& QualityScoreTerm::_internal_product() const {
-  return _internal_has_product()
-      ? *fetch_method_.product_
-      : reinterpret_cast< ::delivery::QualityScoreTerms&>(::delivery::_QualityScoreTerms_default_instance_);
-}
-inline const ::delivery::QualityScoreTerms& QualityScoreTerm::product() const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerm.product)
-  return _internal_product();
-}
-inline ::delivery::QualityScoreTerms* QualityScoreTerm::unsafe_arena_release_product() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.QualityScoreTerm.product)
-  if (_internal_has_product()) {
-    clear_has_fetch_method();
-    ::delivery::QualityScoreTerms* temp = fetch_method_.product_;
-    fetch_method_.product_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void QualityScoreTerm::unsafe_arena_set_allocated_product(::delivery::QualityScoreTerms* product) {
-  clear_fetch_method();
-  if (product) {
-    set_has_product();
-    fetch_method_.product_ = product;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.QualityScoreTerm.product)
-}
-inline ::delivery::QualityScoreTerms* QualityScoreTerm::_internal_mutable_product() {
-  if (!_internal_has_product()) {
-    clear_fetch_method();
-    set_has_product();
-    fetch_method_.product_ = CreateMaybeMessage< ::delivery::QualityScoreTerms >(GetArena());
-  }
-  return fetch_method_.product_;
-}
-inline ::delivery::QualityScoreTerms* QualityScoreTerm::mutable_product() {
-  // @@protoc_insertion_point(field_mutable:delivery.QualityScoreTerm.product)
-  return _internal_mutable_product();
-}
-
-// float fetch_high = 10 [json_name = "fetchHigh"];
-inline bool QualityScoreTerm::_internal_has_fetch_high() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool QualityScoreTerm::has_fetch_high() const {
-  return _internal_has_fetch_high();
-}
-inline void QualityScoreTerm::clear_fetch_high() {
-  fetch_high_ = 0;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline float QualityScoreTerm::_internal_fetch_high() const {
-  return fetch_high_;
-}
-inline float QualityScoreTerm::fetch_high() const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerm.fetch_high)
-  return _internal_fetch_high();
-}
-inline void QualityScoreTerm::_internal_set_fetch_high(float value) {
-  _has_bits_[0] |= 0x00000002u;
-  fetch_high_ = value;
-}
-inline void QualityScoreTerm::set_fetch_high(float value) {
-  _internal_set_fetch_high(value);
-  // @@protoc_insertion_point(field_set:delivery.QualityScoreTerm.fetch_high)
-}
-
-// float fetch_low = 11 [json_name = "fetchLow"];
-inline bool QualityScoreTerm::_internal_has_fetch_low() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool QualityScoreTerm::has_fetch_low() const {
-  return _internal_has_fetch_low();
-}
-inline void QualityScoreTerm::clear_fetch_low() {
-  fetch_low_ = 0;
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline float QualityScoreTerm::_internal_fetch_low() const {
-  return fetch_low_;
-}
-inline float QualityScoreTerm::fetch_low() const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerm.fetch_low)
-  return _internal_fetch_low();
-}
-inline void QualityScoreTerm::_internal_set_fetch_low(float value) {
-  _has_bits_[0] |= 0x00000004u;
-  fetch_low_ = value;
-}
-inline void QualityScoreTerm::set_fetch_low(float value) {
-  _internal_set_fetch_low(value);
-  // @@protoc_insertion_point(field_set:delivery.QualityScoreTerm.fetch_low)
-}
-
-// float weight = 12 [json_name = "weight"];
-inline bool QualityScoreTerm::_internal_has_weight() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool QualityScoreTerm::has_weight() const {
-  return _internal_has_weight();
-}
-inline void QualityScoreTerm::clear_weight() {
-  weight_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline float QualityScoreTerm::_internal_weight() const {
-  return weight_;
-}
-inline float QualityScoreTerm::weight() const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerm.weight)
-  return _internal_weight();
-}
-inline void QualityScoreTerm::_internal_set_weight(float value) {
-  _has_bits_[0] |= 0x00000008u;
-  weight_ = value;
-}
-inline void QualityScoreTerm::set_weight(float value) {
-  _internal_set_weight(value);
-  // @@protoc_insertion_point(field_set:delivery.QualityScoreTerm.weight)
-}
-
-// float offset = 13 [json_name = "offset"];
-inline void QualityScoreTerm::clear_offset() {
-  offset_ = 0;
-}
-inline float QualityScoreTerm::_internal_offset() const {
-  return offset_;
-}
-inline float QualityScoreTerm::offset() const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerm.offset)
-  return _internal_offset();
-}
-inline void QualityScoreTerm::_internal_set_offset(float value) {
+inline void HyperloopConditionalExpression::_internal_set_op(::delivery::HyperloopConditionalExpression_Operator value) {
   
-  offset_ = value;
+  op_ = value;
 }
-inline void QualityScoreTerm::set_offset(float value) {
-  _internal_set_offset(value);
-  // @@protoc_insertion_point(field_set:delivery.QualityScoreTerm.offset)
+inline void HyperloopConditionalExpression::set_op(::delivery::HyperloopConditionalExpression_Operator value) {
+  _internal_set_op(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopConditionalExpression.op)
 }
 
-// .delivery.TermConditionalEvaluation term_conditional_evaluation = 14 [json_name = "termConditionalEvaluation"];
-inline bool QualityScoreTerm::_internal_has_term_conditional_evaluation() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || term_conditional_evaluation_ != nullptr);
-  return value;
+// .delivery.HyperloopExpression predicate_lhs = 2 [json_name = "predicateLhs"];
+inline bool HyperloopConditionalExpression::_internal_has_predicate_lhs() const {
+  return this != internal_default_instance() && predicate_lhs_ != nullptr;
 }
-inline bool QualityScoreTerm::has_term_conditional_evaluation() const {
-  return _internal_has_term_conditional_evaluation();
+inline bool HyperloopConditionalExpression::has_predicate_lhs() const {
+  return _internal_has_predicate_lhs();
 }
-inline void QualityScoreTerm::clear_term_conditional_evaluation() {
-  if (GetArena() == nullptr && term_conditional_evaluation_ != nullptr) {
-    delete term_conditional_evaluation_;
+inline void HyperloopConditionalExpression::clear_predicate_lhs() {
+  if (GetArena() == nullptr && predicate_lhs_ != nullptr) {
+    delete predicate_lhs_;
   }
-  term_conditional_evaluation_ = nullptr;
-  _has_bits_[0] &= ~0x00000001u;
+  predicate_lhs_ = nullptr;
 }
-inline const ::delivery::TermConditionalEvaluation& QualityScoreTerm::_internal_term_conditional_evaluation() const {
-  const ::delivery::TermConditionalEvaluation* p = term_conditional_evaluation_;
-  return p != nullptr ? *p : reinterpret_cast<const ::delivery::TermConditionalEvaluation&>(
-      ::delivery::_TermConditionalEvaluation_default_instance_);
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::_internal_predicate_lhs() const {
+  const ::delivery::HyperloopExpression* p = predicate_lhs_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::HyperloopExpression&>(
+      ::delivery::_HyperloopExpression_default_instance_);
 }
-inline const ::delivery::TermConditionalEvaluation& QualityScoreTerm::term_conditional_evaluation() const {
-  // @@protoc_insertion_point(field_get:delivery.QualityScoreTerm.term_conditional_evaluation)
-  return _internal_term_conditional_evaluation();
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::predicate_lhs() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopConditionalExpression.predicate_lhs)
+  return _internal_predicate_lhs();
 }
-inline void QualityScoreTerm::unsafe_arena_set_allocated_term_conditional_evaluation(
-    ::delivery::TermConditionalEvaluation* term_conditional_evaluation) {
+inline void HyperloopConditionalExpression::unsafe_arena_set_allocated_predicate_lhs(
+    ::delivery::HyperloopExpression* predicate_lhs) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(term_conditional_evaluation_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(predicate_lhs_);
   }
-  term_conditional_evaluation_ = term_conditional_evaluation;
-  if (term_conditional_evaluation) {
-    _has_bits_[0] |= 0x00000001u;
+  predicate_lhs_ = predicate_lhs;
+  if (predicate_lhs) {
+    
   } else {
-    _has_bits_[0] &= ~0x00000001u;
+    
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.QualityScoreTerm.term_conditional_evaluation)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopConditionalExpression.predicate_lhs)
 }
-inline ::delivery::TermConditionalEvaluation* QualityScoreTerm::release_term_conditional_evaluation() {
-  _has_bits_[0] &= ~0x00000001u;
-  ::delivery::TermConditionalEvaluation* temp = term_conditional_evaluation_;
-  term_conditional_evaluation_ = nullptr;
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::release_predicate_lhs() {
+  
+  ::delivery::HyperloopExpression* temp = predicate_lhs_;
+  predicate_lhs_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::delivery::TermConditionalEvaluation* QualityScoreTerm::unsafe_arena_release_term_conditional_evaluation() {
-  // @@protoc_insertion_point(field_release:delivery.QualityScoreTerm.term_conditional_evaluation)
-  _has_bits_[0] &= ~0x00000001u;
-  ::delivery::TermConditionalEvaluation* temp = term_conditional_evaluation_;
-  term_conditional_evaluation_ = nullptr;
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::unsafe_arena_release_predicate_lhs() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopConditionalExpression.predicate_lhs)
+  
+  ::delivery::HyperloopExpression* temp = predicate_lhs_;
+  predicate_lhs_ = nullptr;
   return temp;
 }
-inline ::delivery::TermConditionalEvaluation* QualityScoreTerm::_internal_mutable_term_conditional_evaluation() {
-  _has_bits_[0] |= 0x00000001u;
-  if (term_conditional_evaluation_ == nullptr) {
-    auto* p = CreateMaybeMessage<::delivery::TermConditionalEvaluation>(GetArena());
-    term_conditional_evaluation_ = p;
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::_internal_mutable_predicate_lhs() {
+  
+  if (predicate_lhs_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::HyperloopExpression>(GetArena());
+    predicate_lhs_ = p;
   }
-  return term_conditional_evaluation_;
+  return predicate_lhs_;
 }
-inline ::delivery::TermConditionalEvaluation* QualityScoreTerm::mutable_term_conditional_evaluation() {
-  // @@protoc_insertion_point(field_mutable:delivery.QualityScoreTerm.term_conditional_evaluation)
-  return _internal_mutable_term_conditional_evaluation();
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::mutable_predicate_lhs() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopConditionalExpression.predicate_lhs)
+  return _internal_mutable_predicate_lhs();
 }
-inline void QualityScoreTerm::set_allocated_term_conditional_evaluation(::delivery::TermConditionalEvaluation* term_conditional_evaluation) {
+inline void HyperloopConditionalExpression::set_allocated_predicate_lhs(::delivery::HyperloopExpression* predicate_lhs) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete term_conditional_evaluation_;
+    delete predicate_lhs_;
   }
-  if (term_conditional_evaluation) {
+  if (predicate_lhs) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(term_conditional_evaluation);
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(predicate_lhs);
     if (message_arena != submessage_arena) {
-      term_conditional_evaluation = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, term_conditional_evaluation, submessage_arena);
+      predicate_lhs = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, predicate_lhs, submessage_arena);
     }
-    _has_bits_[0] |= 0x00000001u;
+    
   } else {
-    _has_bits_[0] &= ~0x00000001u;
+    
   }
-  term_conditional_evaluation_ = term_conditional_evaluation;
-  // @@protoc_insertion_point(field_set_allocated:delivery.QualityScoreTerm.term_conditional_evaluation)
+  predicate_lhs_ = predicate_lhs;
+  // @@protoc_insertion_point(field_set_allocated:delivery.HyperloopConditionalExpression.predicate_lhs)
 }
 
-inline bool QualityScoreTerm::has_fetch_method() const {
-  return fetch_method_case() != FETCH_METHOD_NOT_SET;
+// .delivery.HyperloopExpression predicate_rhs = 3 [json_name = "predicateRhs"];
+inline bool HyperloopConditionalExpression::_internal_has_predicate_rhs() const {
+  return this != internal_default_instance() && predicate_rhs_ != nullptr;
 }
-inline void QualityScoreTerm::clear_has_fetch_method() {
-  _oneof_case_[0] = FETCH_METHOD_NOT_SET;
+inline bool HyperloopConditionalExpression::has_predicate_rhs() const {
+  return _internal_has_predicate_rhs();
 }
-inline QualityScoreTerm::FetchMethodCase QualityScoreTerm::fetch_method_case() const {
-  return QualityScoreTerm::FetchMethodCase(_oneof_case_[0]);
+inline void HyperloopConditionalExpression::clear_predicate_rhs() {
+  if (GetArena() == nullptr && predicate_rhs_ != nullptr) {
+    delete predicate_rhs_;
+  }
+  predicate_rhs_ = nullptr;
 }
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::_internal_predicate_rhs() const {
+  const ::delivery::HyperloopExpression* p = predicate_rhs_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::HyperloopExpression&>(
+      ::delivery::_HyperloopExpression_default_instance_);
+}
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::predicate_rhs() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopConditionalExpression.predicate_rhs)
+  return _internal_predicate_rhs();
+}
+inline void HyperloopConditionalExpression::unsafe_arena_set_allocated_predicate_rhs(
+    ::delivery::HyperloopExpression* predicate_rhs) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(predicate_rhs_);
+  }
+  predicate_rhs_ = predicate_rhs;
+  if (predicate_rhs) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopConditionalExpression.predicate_rhs)
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::release_predicate_rhs() {
+  
+  ::delivery::HyperloopExpression* temp = predicate_rhs_;
+  predicate_rhs_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::unsafe_arena_release_predicate_rhs() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopConditionalExpression.predicate_rhs)
+  
+  ::delivery::HyperloopExpression* temp = predicate_rhs_;
+  predicate_rhs_ = nullptr;
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::_internal_mutable_predicate_rhs() {
+  
+  if (predicate_rhs_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::HyperloopExpression>(GetArena());
+    predicate_rhs_ = p;
+  }
+  return predicate_rhs_;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::mutable_predicate_rhs() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopConditionalExpression.predicate_rhs)
+  return _internal_mutable_predicate_rhs();
+}
+inline void HyperloopConditionalExpression::set_allocated_predicate_rhs(::delivery::HyperloopExpression* predicate_rhs) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete predicate_rhs_;
+  }
+  if (predicate_rhs) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(predicate_rhs);
+    if (message_arena != submessage_arena) {
+      predicate_rhs = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, predicate_rhs, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  predicate_rhs_ = predicate_rhs;
+  // @@protoc_insertion_point(field_set_allocated:delivery.HyperloopConditionalExpression.predicate_rhs)
+}
+
+// .delivery.HyperloopExpression then_branch = 4 [json_name = "thenBranch"];
+inline bool HyperloopConditionalExpression::_internal_has_then_branch() const {
+  return this != internal_default_instance() && then_branch_ != nullptr;
+}
+inline bool HyperloopConditionalExpression::has_then_branch() const {
+  return _internal_has_then_branch();
+}
+inline void HyperloopConditionalExpression::clear_then_branch() {
+  if (GetArena() == nullptr && then_branch_ != nullptr) {
+    delete then_branch_;
+  }
+  then_branch_ = nullptr;
+}
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::_internal_then_branch() const {
+  const ::delivery::HyperloopExpression* p = then_branch_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::HyperloopExpression&>(
+      ::delivery::_HyperloopExpression_default_instance_);
+}
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::then_branch() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopConditionalExpression.then_branch)
+  return _internal_then_branch();
+}
+inline void HyperloopConditionalExpression::unsafe_arena_set_allocated_then_branch(
+    ::delivery::HyperloopExpression* then_branch) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(then_branch_);
+  }
+  then_branch_ = then_branch;
+  if (then_branch) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopConditionalExpression.then_branch)
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::release_then_branch() {
+  
+  ::delivery::HyperloopExpression* temp = then_branch_;
+  then_branch_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::unsafe_arena_release_then_branch() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopConditionalExpression.then_branch)
+  
+  ::delivery::HyperloopExpression* temp = then_branch_;
+  then_branch_ = nullptr;
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::_internal_mutable_then_branch() {
+  
+  if (then_branch_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::HyperloopExpression>(GetArena());
+    then_branch_ = p;
+  }
+  return then_branch_;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::mutable_then_branch() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopConditionalExpression.then_branch)
+  return _internal_mutable_then_branch();
+}
+inline void HyperloopConditionalExpression::set_allocated_then_branch(::delivery::HyperloopExpression* then_branch) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete then_branch_;
+  }
+  if (then_branch) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(then_branch);
+    if (message_arena != submessage_arena) {
+      then_branch = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, then_branch, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  then_branch_ = then_branch;
+  // @@protoc_insertion_point(field_set_allocated:delivery.HyperloopConditionalExpression.then_branch)
+}
+
+// .delivery.HyperloopExpression else_branch = 5 [json_name = "elseBranch"];
+inline bool HyperloopConditionalExpression::_internal_has_else_branch() const {
+  return this != internal_default_instance() && else_branch_ != nullptr;
+}
+inline bool HyperloopConditionalExpression::has_else_branch() const {
+  return _internal_has_else_branch();
+}
+inline void HyperloopConditionalExpression::clear_else_branch() {
+  if (GetArena() == nullptr && else_branch_ != nullptr) {
+    delete else_branch_;
+  }
+  else_branch_ = nullptr;
+}
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::_internal_else_branch() const {
+  const ::delivery::HyperloopExpression* p = else_branch_;
+  return p != nullptr ? *p : reinterpret_cast<const ::delivery::HyperloopExpression&>(
+      ::delivery::_HyperloopExpression_default_instance_);
+}
+inline const ::delivery::HyperloopExpression& HyperloopConditionalExpression::else_branch() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopConditionalExpression.else_branch)
+  return _internal_else_branch();
+}
+inline void HyperloopConditionalExpression::unsafe_arena_set_allocated_else_branch(
+    ::delivery::HyperloopExpression* else_branch) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(else_branch_);
+  }
+  else_branch_ = else_branch;
+  if (else_branch) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.HyperloopConditionalExpression.else_branch)
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::release_else_branch() {
+  
+  ::delivery::HyperloopExpression* temp = else_branch_;
+  else_branch_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::unsafe_arena_release_else_branch() {
+  // @@protoc_insertion_point(field_release:delivery.HyperloopConditionalExpression.else_branch)
+  
+  ::delivery::HyperloopExpression* temp = else_branch_;
+  else_branch_ = nullptr;
+  return temp;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::_internal_mutable_else_branch() {
+  
+  if (else_branch_ == nullptr) {
+    auto* p = CreateMaybeMessage<::delivery::HyperloopExpression>(GetArena());
+    else_branch_ = p;
+  }
+  return else_branch_;
+}
+inline ::delivery::HyperloopExpression* HyperloopConditionalExpression::mutable_else_branch() {
+  // @@protoc_insertion_point(field_mutable:delivery.HyperloopConditionalExpression.else_branch)
+  return _internal_mutable_else_branch();
+}
+inline void HyperloopConditionalExpression::set_allocated_else_branch(::delivery::HyperloopExpression* else_branch) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete else_branch_;
+  }
+  if (else_branch) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(else_branch);
+    if (message_arena != submessage_arena) {
+      else_branch = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, else_branch, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  else_branch_ = else_branch;
+  // @@protoc_insertion_point(field_set_allocated:delivery.HyperloopConditionalExpression.else_branch)
+}
+
 // -------------------------------------------------------------------
 
-// TermConditionalEvaluation
+// -------------------------------------------------------------------
 
-// float value_if_false = 1 [json_name = "valueIfFalse"];
-inline void TermConditionalEvaluation::clear_value_if_false() {
-  value_if_false_ = 0;
+// HyperloopLog
+
+// map<uint64, .delivery.HyperloopParameterLog> parameter_logs = 1 [json_name = "parameterLogs"];
+inline int HyperloopLog::_internal_parameter_logs_size() const {
+  return parameter_logs_.size();
 }
-inline float TermConditionalEvaluation::_internal_value_if_false() const {
-  return value_if_false_;
+inline int HyperloopLog::parameter_logs_size() const {
+  return _internal_parameter_logs_size();
 }
-inline float TermConditionalEvaluation::value_if_false() const {
-  // @@protoc_insertion_point(field_get:delivery.TermConditionalEvaluation.value_if_false)
-  return _internal_value_if_false();
+inline void HyperloopLog::clear_parameter_logs() {
+  parameter_logs_.Clear();
 }
-inline void TermConditionalEvaluation::_internal_set_value_if_false(float value) {
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >&
+HyperloopLog::_internal_parameter_logs() const {
+  return parameter_logs_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >&
+HyperloopLog::parameter_logs() const {
+  // @@protoc_insertion_point(field_map:delivery.HyperloopLog.parameter_logs)
+  return _internal_parameter_logs();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >*
+HyperloopLog::_internal_mutable_parameter_logs() {
+  return parameter_logs_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint64, ::delivery::HyperloopParameterLog >*
+HyperloopLog::mutable_parameter_logs() {
+  // @@protoc_insertion_point(field_mutable_map:delivery.HyperloopLog.parameter_logs)
+  return _internal_mutable_parameter_logs();
+}
+
+// -------------------------------------------------------------------
+
+// HyperloopParameterLog
+
+// int32 bucket = 1 [json_name = "bucket"];
+inline void HyperloopParameterLog::clear_bucket() {
+  bucket_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 HyperloopParameterLog::_internal_bucket() const {
+  return bucket_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 HyperloopParameterLog::bucket() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopParameterLog.bucket)
+  return _internal_bucket();
+}
+inline void HyperloopParameterLog::_internal_set_bucket(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  value_if_false_ = value;
+  bucket_ = value;
 }
-inline void TermConditionalEvaluation::set_value_if_false(float value) {
-  _internal_set_value_if_false(value);
-  // @@protoc_insertion_point(field_set:delivery.TermConditionalEvaluation.value_if_false)
+inline void HyperloopParameterLog::set_bucket(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_bucket(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopParameterLog.bucket)
 }
 
-// string attribute_name = 2 [json_name = "attributeName"];
-inline void TermConditionalEvaluation::clear_attribute_name() {
-  attribute_name_.ClearToEmpty();
+// float value = 2 [json_name = "value"];
+inline void HyperloopParameterLog::clear_value() {
+  value_ = 0;
 }
-inline const std::string& TermConditionalEvaluation::attribute_name() const {
-  // @@protoc_insertion_point(field_get:delivery.TermConditionalEvaluation.attribute_name)
-  return _internal_attribute_name();
+inline float HyperloopParameterLog::_internal_value() const {
+  return value_;
 }
-inline void TermConditionalEvaluation::set_attribute_name(const std::string& value) {
-  _internal_set_attribute_name(value);
-  // @@protoc_insertion_point(field_set:delivery.TermConditionalEvaluation.attribute_name)
+inline float HyperloopParameterLog::value() const {
+  // @@protoc_insertion_point(field_get:delivery.HyperloopParameterLog.value)
+  return _internal_value();
 }
-inline std::string* TermConditionalEvaluation::mutable_attribute_name() {
-  // @@protoc_insertion_point(field_mutable:delivery.TermConditionalEvaluation.attribute_name)
-  return _internal_mutable_attribute_name();
-}
-inline const std::string& TermConditionalEvaluation::_internal_attribute_name() const {
-  return attribute_name_.Get();
-}
-inline void TermConditionalEvaluation::_internal_set_attribute_name(const std::string& value) {
+inline void HyperloopParameterLog::_internal_set_value(float value) {
   
-  attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  value_ = value;
 }
-inline void TermConditionalEvaluation::set_attribute_name(std::string&& value) {
-  
-  attribute_name_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:delivery.TermConditionalEvaluation.attribute_name)
-}
-inline void TermConditionalEvaluation::set_attribute_name(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:delivery.TermConditionalEvaluation.attribute_name)
-}
-inline void TermConditionalEvaluation::set_attribute_name(const char* value,
-    size_t size) {
-  
-  attribute_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:delivery.TermConditionalEvaluation.attribute_name)
-}
-inline std::string* TermConditionalEvaluation::_internal_mutable_attribute_name() {
-  
-  return attribute_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* TermConditionalEvaluation::release_attribute_name() {
-  // @@protoc_insertion_point(field_release:delivery.TermConditionalEvaluation.attribute_name)
-  return attribute_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void TermConditionalEvaluation::set_allocated_attribute_name(std::string* attribute_name) {
-  if (attribute_name != nullptr) {
-    
-  } else {
-    
-  }
-  attribute_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), attribute_name,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:delivery.TermConditionalEvaluation.attribute_name)
+inline void HyperloopParameterLog::set_value(float value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:delivery.HyperloopParameterLog.value)
 }
 
-// .delivery.Flag flag = 4 [json_name = "flag"];
-inline bool TermConditionalEvaluation::_internal_has_flag() const {
-  return eval_method_case() == kFlag;
-}
-inline bool TermConditionalEvaluation::has_flag() const {
-  return _internal_has_flag();
-}
-inline void TermConditionalEvaluation::set_has_flag() {
-  _oneof_case_[0] = kFlag;
-}
-inline void TermConditionalEvaluation::clear_flag() {
-  if (_internal_has_flag()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.flag_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::Flag* TermConditionalEvaluation::release_flag() {
-  // @@protoc_insertion_point(field_release:delivery.TermConditionalEvaluation.flag)
-  if (_internal_has_flag()) {
-    clear_has_eval_method();
-      ::delivery::Flag* temp = eval_method_.flag_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.flag_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::Flag& TermConditionalEvaluation::_internal_flag() const {
-  return _internal_has_flag()
-      ? *eval_method_.flag_
-      : reinterpret_cast< ::delivery::Flag&>(::delivery::_Flag_default_instance_);
-}
-inline const ::delivery::Flag& TermConditionalEvaluation::flag() const {
-  // @@protoc_insertion_point(field_get:delivery.TermConditionalEvaluation.flag)
-  return _internal_flag();
-}
-inline ::delivery::Flag* TermConditionalEvaluation::unsafe_arena_release_flag() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.TermConditionalEvaluation.flag)
-  if (_internal_has_flag()) {
-    clear_has_eval_method();
-    ::delivery::Flag* temp = eval_method_.flag_;
-    eval_method_.flag_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void TermConditionalEvaluation::unsafe_arena_set_allocated_flag(::delivery::Flag* flag) {
-  clear_eval_method();
-  if (flag) {
-    set_has_flag();
-    eval_method_.flag_ = flag;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.TermConditionalEvaluation.flag)
-}
-inline ::delivery::Flag* TermConditionalEvaluation::_internal_mutable_flag() {
-  if (!_internal_has_flag()) {
-    clear_eval_method();
-    set_has_flag();
-    eval_method_.flag_ = CreateMaybeMessage< ::delivery::Flag >(GetArena());
-  }
-  return eval_method_.flag_;
-}
-inline ::delivery::Flag* TermConditionalEvaluation::mutable_flag() {
-  // @@protoc_insertion_point(field_mutable:delivery.TermConditionalEvaluation.flag)
-  return _internal_mutable_flag();
-}
-
-// .delivery.GreaterThan greater_than = 6 [json_name = "greaterThan"];
-inline bool TermConditionalEvaluation::_internal_has_greater_than() const {
-  return eval_method_case() == kGreaterThan;
-}
-inline bool TermConditionalEvaluation::has_greater_than() const {
-  return _internal_has_greater_than();
-}
-inline void TermConditionalEvaluation::set_has_greater_than() {
-  _oneof_case_[0] = kGreaterThan;
-}
-inline void TermConditionalEvaluation::clear_greater_than() {
-  if (_internal_has_greater_than()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.greater_than_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::GreaterThan* TermConditionalEvaluation::release_greater_than() {
-  // @@protoc_insertion_point(field_release:delivery.TermConditionalEvaluation.greater_than)
-  if (_internal_has_greater_than()) {
-    clear_has_eval_method();
-      ::delivery::GreaterThan* temp = eval_method_.greater_than_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.greater_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::GreaterThan& TermConditionalEvaluation::_internal_greater_than() const {
-  return _internal_has_greater_than()
-      ? *eval_method_.greater_than_
-      : reinterpret_cast< ::delivery::GreaterThan&>(::delivery::_GreaterThan_default_instance_);
-}
-inline const ::delivery::GreaterThan& TermConditionalEvaluation::greater_than() const {
-  // @@protoc_insertion_point(field_get:delivery.TermConditionalEvaluation.greater_than)
-  return _internal_greater_than();
-}
-inline ::delivery::GreaterThan* TermConditionalEvaluation::unsafe_arena_release_greater_than() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.TermConditionalEvaluation.greater_than)
-  if (_internal_has_greater_than()) {
-    clear_has_eval_method();
-    ::delivery::GreaterThan* temp = eval_method_.greater_than_;
-    eval_method_.greater_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void TermConditionalEvaluation::unsafe_arena_set_allocated_greater_than(::delivery::GreaterThan* greater_than) {
-  clear_eval_method();
-  if (greater_than) {
-    set_has_greater_than();
-    eval_method_.greater_than_ = greater_than;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.TermConditionalEvaluation.greater_than)
-}
-inline ::delivery::GreaterThan* TermConditionalEvaluation::_internal_mutable_greater_than() {
-  if (!_internal_has_greater_than()) {
-    clear_eval_method();
-    set_has_greater_than();
-    eval_method_.greater_than_ = CreateMaybeMessage< ::delivery::GreaterThan >(GetArena());
-  }
-  return eval_method_.greater_than_;
-}
-inline ::delivery::GreaterThan* TermConditionalEvaluation::mutable_greater_than() {
-  // @@protoc_insertion_point(field_mutable:delivery.TermConditionalEvaluation.greater_than)
-  return _internal_mutable_greater_than();
-}
-
-// .delivery.LessThan less_than = 7 [json_name = "lessThan"];
-inline bool TermConditionalEvaluation::_internal_has_less_than() const {
-  return eval_method_case() == kLessThan;
-}
-inline bool TermConditionalEvaluation::has_less_than() const {
-  return _internal_has_less_than();
-}
-inline void TermConditionalEvaluation::set_has_less_than() {
-  _oneof_case_[0] = kLessThan;
-}
-inline void TermConditionalEvaluation::clear_less_than() {
-  if (_internal_has_less_than()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.less_than_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::LessThan* TermConditionalEvaluation::release_less_than() {
-  // @@protoc_insertion_point(field_release:delivery.TermConditionalEvaluation.less_than)
-  if (_internal_has_less_than()) {
-    clear_has_eval_method();
-      ::delivery::LessThan* temp = eval_method_.less_than_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.less_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::LessThan& TermConditionalEvaluation::_internal_less_than() const {
-  return _internal_has_less_than()
-      ? *eval_method_.less_than_
-      : reinterpret_cast< ::delivery::LessThan&>(::delivery::_LessThan_default_instance_);
-}
-inline const ::delivery::LessThan& TermConditionalEvaluation::less_than() const {
-  // @@protoc_insertion_point(field_get:delivery.TermConditionalEvaluation.less_than)
-  return _internal_less_than();
-}
-inline ::delivery::LessThan* TermConditionalEvaluation::unsafe_arena_release_less_than() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.TermConditionalEvaluation.less_than)
-  if (_internal_has_less_than()) {
-    clear_has_eval_method();
-    ::delivery::LessThan* temp = eval_method_.less_than_;
-    eval_method_.less_than_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void TermConditionalEvaluation::unsafe_arena_set_allocated_less_than(::delivery::LessThan* less_than) {
-  clear_eval_method();
-  if (less_than) {
-    set_has_less_than();
-    eval_method_.less_than_ = less_than;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.TermConditionalEvaluation.less_than)
-}
-inline ::delivery::LessThan* TermConditionalEvaluation::_internal_mutable_less_than() {
-  if (!_internal_has_less_than()) {
-    clear_eval_method();
-    set_has_less_than();
-    eval_method_.less_than_ = CreateMaybeMessage< ::delivery::LessThan >(GetArena());
-  }
-  return eval_method_.less_than_;
-}
-inline ::delivery::LessThan* TermConditionalEvaluation::mutable_less_than() {
-  // @@protoc_insertion_point(field_mutable:delivery.TermConditionalEvaluation.less_than)
-  return _internal_mutable_less_than();
-}
-
-// .delivery.Interval interval = 8 [json_name = "interval"];
-inline bool TermConditionalEvaluation::_internal_has_interval() const {
-  return eval_method_case() == kInterval;
-}
-inline bool TermConditionalEvaluation::has_interval() const {
-  return _internal_has_interval();
-}
-inline void TermConditionalEvaluation::set_has_interval() {
-  _oneof_case_[0] = kInterval;
-}
-inline void TermConditionalEvaluation::clear_interval() {
-  if (_internal_has_interval()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.interval_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::Interval* TermConditionalEvaluation::release_interval() {
-  // @@protoc_insertion_point(field_release:delivery.TermConditionalEvaluation.interval)
-  if (_internal_has_interval()) {
-    clear_has_eval_method();
-      ::delivery::Interval* temp = eval_method_.interval_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.interval_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::Interval& TermConditionalEvaluation::_internal_interval() const {
-  return _internal_has_interval()
-      ? *eval_method_.interval_
-      : reinterpret_cast< ::delivery::Interval&>(::delivery::_Interval_default_instance_);
-}
-inline const ::delivery::Interval& TermConditionalEvaluation::interval() const {
-  // @@protoc_insertion_point(field_get:delivery.TermConditionalEvaluation.interval)
-  return _internal_interval();
-}
-inline ::delivery::Interval* TermConditionalEvaluation::unsafe_arena_release_interval() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.TermConditionalEvaluation.interval)
-  if (_internal_has_interval()) {
-    clear_has_eval_method();
-    ::delivery::Interval* temp = eval_method_.interval_;
-    eval_method_.interval_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void TermConditionalEvaluation::unsafe_arena_set_allocated_interval(::delivery::Interval* interval) {
-  clear_eval_method();
-  if (interval) {
-    set_has_interval();
-    eval_method_.interval_ = interval;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.TermConditionalEvaluation.interval)
-}
-inline ::delivery::Interval* TermConditionalEvaluation::_internal_mutable_interval() {
-  if (!_internal_has_interval()) {
-    clear_eval_method();
-    set_has_interval();
-    eval_method_.interval_ = CreateMaybeMessage< ::delivery::Interval >(GetArena());
-  }
-  return eval_method_.interval_;
-}
-inline ::delivery::Interval* TermConditionalEvaluation::mutable_interval() {
-  // @@protoc_insertion_point(field_mutable:delivery.TermConditionalEvaluation.interval)
-  return _internal_mutable_interval();
-}
-
-// .delivery.EqualV2 equal_v2 = 10 [json_name = "equalV2"];
-inline bool TermConditionalEvaluation::_internal_has_equal_v2() const {
-  return eval_method_case() == kEqualV2;
-}
-inline bool TermConditionalEvaluation::has_equal_v2() const {
-  return _internal_has_equal_v2();
-}
-inline void TermConditionalEvaluation::set_has_equal_v2() {
-  _oneof_case_[0] = kEqualV2;
-}
-inline void TermConditionalEvaluation::clear_equal_v2() {
-  if (_internal_has_equal_v2()) {
-    if (GetArena() == nullptr) {
-      delete eval_method_.equal_v2_;
-    }
-    clear_has_eval_method();
-  }
-}
-inline ::delivery::EqualV2* TermConditionalEvaluation::release_equal_v2() {
-  // @@protoc_insertion_point(field_release:delivery.TermConditionalEvaluation.equal_v2)
-  if (_internal_has_equal_v2()) {
-    clear_has_eval_method();
-      ::delivery::EqualV2* temp = eval_method_.equal_v2_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    eval_method_.equal_v2_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::delivery::EqualV2& TermConditionalEvaluation::_internal_equal_v2() const {
-  return _internal_has_equal_v2()
-      ? *eval_method_.equal_v2_
-      : reinterpret_cast< ::delivery::EqualV2&>(::delivery::_EqualV2_default_instance_);
-}
-inline const ::delivery::EqualV2& TermConditionalEvaluation::equal_v2() const {
-  // @@protoc_insertion_point(field_get:delivery.TermConditionalEvaluation.equal_v2)
-  return _internal_equal_v2();
-}
-inline ::delivery::EqualV2* TermConditionalEvaluation::unsafe_arena_release_equal_v2() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:delivery.TermConditionalEvaluation.equal_v2)
-  if (_internal_has_equal_v2()) {
-    clear_has_eval_method();
-    ::delivery::EqualV2* temp = eval_method_.equal_v2_;
-    eval_method_.equal_v2_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void TermConditionalEvaluation::unsafe_arena_set_allocated_equal_v2(::delivery::EqualV2* equal_v2) {
-  clear_eval_method();
-  if (equal_v2) {
-    set_has_equal_v2();
-    eval_method_.equal_v2_ = equal_v2;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.TermConditionalEvaluation.equal_v2)
-}
-inline ::delivery::EqualV2* TermConditionalEvaluation::_internal_mutable_equal_v2() {
-  if (!_internal_has_equal_v2()) {
-    clear_eval_method();
-    set_has_equal_v2();
-    eval_method_.equal_v2_ = CreateMaybeMessage< ::delivery::EqualV2 >(GetArena());
-  }
-  return eval_method_.equal_v2_;
-}
-inline ::delivery::EqualV2* TermConditionalEvaluation::mutable_equal_v2() {
-  // @@protoc_insertion_point(field_mutable:delivery.TermConditionalEvaluation.equal_v2)
-  return _internal_mutable_equal_v2();
-}
-
-inline bool TermConditionalEvaluation::has_eval_method() const {
-  return eval_method_case() != EVAL_METHOD_NOT_SET;
-}
-inline void TermConditionalEvaluation::clear_has_eval_method() {
-  _oneof_case_[0] = EVAL_METHOD_NOT_SET;
-}
-inline TermConditionalEvaluation::EvalMethodCase TermConditionalEvaluation::eval_method_case() const {
-  return TermConditionalEvaluation::EvalMethodCase(_oneof_case_[0]);
-}
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -6110,10 +5509,20 @@ inline TermConditionalEvaluation::EvalMethodCase TermConditionalEvaluation::eval
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::delivery::RankingMethod> : ::std::true_type {};
+template <> struct is_proto_enum< ::delivery::BlenderArithmeticExpression_Operator> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::delivery::RankingMethod>() {
-  return ::delivery::RankingMethod_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::delivery::BlenderArithmeticExpression_Operator>() {
+  return ::delivery::BlenderArithmeticExpression_Operator_descriptor();
+}
+template <> struct is_proto_enum< ::delivery::BlenderConditionalExpression_Operator> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::delivery::BlenderConditionalExpression_Operator>() {
+  return ::delivery::BlenderConditionalExpression_Operator_descriptor();
+}
+template <> struct is_proto_enum< ::delivery::HyperloopConditionalExpression_Operator> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::delivery::HyperloopConditionalExpression_Operator>() {
+  return ::delivery::HyperloopConditionalExpression_Operator_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

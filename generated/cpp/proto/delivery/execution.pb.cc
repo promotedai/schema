@@ -35,6 +35,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeliveryLogDefaultTypeInternal 
 constexpr DeliveryExecution::DeliveryExecution(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : server_version_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , blender_config_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , hyperloop_log_(nullptr)
   , execution_server_(0)
 {}
 struct DeliveryExecutionDefaultTypeInternal {
@@ -68,6 +70,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_proto_2fdelivery_2fexecution_2
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::delivery::DeliveryExecution, execution_server_),
   PROTOBUF_FIELD_OFFSET(::delivery::DeliveryExecution, server_version_),
+  PROTOBUF_FIELD_OFFSET(::delivery::DeliveryExecution, blender_config_),
+  PROTOBUF_FIELD_OFFSET(::delivery::DeliveryExecution, hyperloop_log_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::delivery::DeliveryLog)},
@@ -81,30 +85,34 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_proto_2fdelivery_2fexecution_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\036proto/delivery/execution.proto\022\010delive"
-  "ry\032\035proto/delivery/delivery.proto\"\306\001\n\013De"
-  "liveryLog\022\037\n\013platform_id\030\001 \001(\004R\nplatform"
-  "Id\022+\n\007request\030\002 \001(\0132\021.delivery.RequestR\007"
-  "request\022.\n\010response\030\003 \001(\0132\022.delivery.Res"
-  "ponseR\010response\0229\n\texecution\030\004 \001(\0132\033.del"
-  "ivery.DeliveryExecutionR\texecution\"\266\001\n\021D"
-  "eliveryExecution\022D\n\020execution_server\030\002 \001"
-  "(\0162\031.delivery.ExecutionServerR\017execution"
-  "Server\022%\n\016server_version\030\007 \001(\tR\rserverVe"
-  "rsionJ\004\010\001\020\002J\004\010\003\020\004J\004\010\013\020\014J\004\010\004\020\005J\004\010\005\020\006J\004\010\006\020"
-  "\007J\004\010\010\020\tJ\004\010\t\020\nJ\004\010\n\020\013*>\n\017ExecutionServer\022\034"
-  "\n\030UNKNOWN_EXECUTION_SERVER\020\000\022\007\n\003SDK\020\002\"\004\010"
-  "\003\020\003Bn\n\032ai.promoted.proto.deliveryB\024Deliv"
-  "eryExecutionLogP\001Z8github.com/promotedai"
-  "/schema/generated/go/proto/deliveryb\006pro"
-  "to3"
+  "ry\032\034proto/delivery/blender.proto\032\035proto/"
+  "delivery/delivery.proto\"\306\001\n\013DeliveryLog\022"
+  "\037\n\013platform_id\030\001 \001(\004R\nplatformId\022+\n\007requ"
+  "est\030\002 \001(\0132\021.delivery.RequestR\007request\022.\n"
+  "\010response\030\003 \001(\0132\022.delivery.ResponseR\010res"
+  "ponse\0229\n\texecution\030\004 \001(\0132\033.delivery.Deli"
+  "veryExecutionR\texecution\"\232\002\n\021DeliveryExe"
+  "cution\022D\n\020execution_server\030\002 \001(\0162\031.deliv"
+  "ery.ExecutionServerR\017executionServer\022%\n\016"
+  "server_version\030\007 \001(\tR\rserverVersion\022%\n\016b"
+  "lender_config\030\014 \001(\tR\rblenderConfig\022;\n\rhy"
+  "perloop_log\030\r \001(\0132\026.delivery.HyperloopLo"
+  "gR\014hyperloopLogJ\004\010\001\020\002J\004\010\003\020\004J\004\010\013\020\014J\004\010\004\020\005J"
+  "\004\010\005\020\006J\004\010\006\020\007J\004\010\010\020\tJ\004\010\t\020\nJ\004\010\n\020\013*>\n\017Executi"
+  "onServer\022\034\n\030UNKNOWN_EXECUTION_SERVER\020\000\022\007"
+  "\n\003SDK\020\002\"\004\010\003\020\003B\202\001\n\032ai.promoted.proto.deli"
+  "veryB\024DeliveryExecutionLogP\001Z8github.com"
+  "/promotedai/schema/generated/go/proto/de"
+  "livery\252\002\021Promoted.Deliveryb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fdelivery_2fexecution_2eproto_deps[1] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fdelivery_2fexecution_2eproto_deps[2] = {
+  &::descriptor_table_proto_2fdelivery_2fblender_2eproto,
   &::descriptor_table_proto_2fdelivery_2fdelivery_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_2fdelivery_2fexecution_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fdelivery_2fexecution_2eproto = {
-  false, false, 643, descriptor_table_protodef_proto_2fdelivery_2fexecution_2eproto, "proto/delivery/execution.proto", 
-  &descriptor_table_proto_2fdelivery_2fexecution_2eproto_once, descriptor_table_proto_2fdelivery_2fexecution_2eproto_deps, 1, 2,
+  false, false, 794, descriptor_table_protodef_proto_2fdelivery_2fexecution_2eproto, "proto/delivery/execution.proto", 
+  &descriptor_table_proto_2fdelivery_2fexecution_2eproto_once, descriptor_table_proto_2fdelivery_2fexecution_2eproto_deps, 2, 2,
   schemas, file_default_instances, TableStruct_proto_2fdelivery_2fexecution_2eproto::offsets,
   file_level_metadata_proto_2fdelivery_2fexecution_2eproto, file_level_enum_descriptors_proto_2fdelivery_2fexecution_2eproto, file_level_service_descriptors_proto_2fdelivery_2fexecution_2eproto,
 };
@@ -465,8 +473,19 @@ void DeliveryLog::InternalSwap(DeliveryLog* other) {
 
 class DeliveryExecution::_Internal {
  public:
+  static const ::delivery::HyperloopLog& hyperloop_log(const DeliveryExecution* msg);
 };
 
+const ::delivery::HyperloopLog&
+DeliveryExecution::_Internal::hyperloop_log(const DeliveryExecution* msg) {
+  return *msg->hyperloop_log_;
+}
+void DeliveryExecution::clear_hyperloop_log() {
+  if (GetArena() == nullptr && hyperloop_log_ != nullptr) {
+    delete hyperloop_log_;
+  }
+  hyperloop_log_ = nullptr;
+}
 DeliveryExecution::DeliveryExecution(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -481,13 +500,27 @@ DeliveryExecution::DeliveryExecution(const DeliveryExecution& from)
     server_version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_server_version(), 
       GetArena());
   }
+  blender_config_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_blender_config().empty()) {
+    blender_config_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_blender_config(), 
+      GetArena());
+  }
+  if (from._internal_has_hyperloop_log()) {
+    hyperloop_log_ = new ::delivery::HyperloopLog(*from.hyperloop_log_);
+  } else {
+    hyperloop_log_ = nullptr;
+  }
   execution_server_ = from.execution_server_;
   // @@protoc_insertion_point(copy_constructor:delivery.DeliveryExecution)
 }
 
 void DeliveryExecution::SharedCtor() {
 server_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-execution_server_ = 0;
+blender_config_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&hyperloop_log_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&execution_server_) -
+    reinterpret_cast<char*>(&hyperloop_log_)) + sizeof(execution_server_));
 }
 
 DeliveryExecution::~DeliveryExecution() {
@@ -499,6 +532,8 @@ DeliveryExecution::~DeliveryExecution() {
 void DeliveryExecution::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   server_version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  blender_config_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete hyperloop_log_;
 }
 
 void DeliveryExecution::ArenaDtor(void* object) {
@@ -518,6 +553,11 @@ void DeliveryExecution::Clear() {
   (void) cached_has_bits;
 
   server_version_.ClearToEmpty();
+  blender_config_.ClearToEmpty();
+  if (GetArena() == nullptr && hyperloop_log_ != nullptr) {
+    delete hyperloop_log_;
+  }
+  hyperloop_log_ = nullptr;
   execution_server_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -543,6 +583,22 @@ const char* DeliveryExecution::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           auto str = _internal_mutable_server_version();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "delivery.DeliveryExecution.server_version"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string blender_config = 12 [json_name = "blenderConfig"];
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+          auto str = _internal_mutable_blender_config();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "delivery.DeliveryExecution.blender_config"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .delivery.HyperloopLog hyperloop_log = 13 [json_name = "hyperloopLog"];
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
+          ptr = ctx->ParseMessage(_internal_mutable_hyperloop_log(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -591,6 +647,24 @@ failure:
         7, this->_internal_server_version(), target);
   }
 
+  // string blender_config = 12 [json_name = "blenderConfig"];
+  if (this->blender_config().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_blender_config().data(), static_cast<int>(this->_internal_blender_config().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "delivery.DeliveryExecution.blender_config");
+    target = stream->WriteStringMaybeAliased(
+        12, this->_internal_blender_config(), target);
+  }
+
+  // .delivery.HyperloopLog hyperloop_log = 13 [json_name = "hyperloopLog"];
+  if (this->has_hyperloop_log()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        13, _Internal::hyperloop_log(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -612,6 +686,20 @@ size_t DeliveryExecution::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_server_version());
+  }
+
+  // string blender_config = 12 [json_name = "blenderConfig"];
+  if (this->blender_config().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_blender_config());
+  }
+
+  // .delivery.HyperloopLog hyperloop_log = 13 [json_name = "hyperloopLog"];
+  if (this->has_hyperloop_log()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *hyperloop_log_);
   }
 
   // .delivery.ExecutionServer execution_server = 2 [json_name = "executionServer"];
@@ -654,6 +742,12 @@ void DeliveryExecution::MergeFrom(const DeliveryExecution& from) {
   if (from.server_version().size() > 0) {
     _internal_set_server_version(from._internal_server_version());
   }
+  if (from.blender_config().size() > 0) {
+    _internal_set_blender_config(from._internal_blender_config());
+  }
+  if (from.has_hyperloop_log()) {
+    _internal_mutable_hyperloop_log()->::delivery::HyperloopLog::MergeFrom(from._internal_hyperloop_log());
+  }
   if (from.execution_server() != 0) {
     _internal_set_execution_server(from._internal_execution_server());
   }
@@ -681,7 +775,13 @@ void DeliveryExecution::InternalSwap(DeliveryExecution* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   server_version_.Swap(&other->server_version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(execution_server_, other->execution_server_);
+  blender_config_.Swap(&other->blender_config_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DeliveryExecution, execution_server_)
+      + sizeof(DeliveryExecution::execution_server_)
+      - PROTOBUF_FIELD_OFFSET(DeliveryExecution, hyperloop_log_)>(
+          reinterpret_cast<char*>(&hyperloop_log_),
+          reinterpret_cast<char*>(&other->hyperloop_log_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DeliveryExecution::GetMetadata() const {

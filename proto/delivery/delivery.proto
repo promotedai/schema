@@ -14,7 +14,7 @@ import "proto/common/common.proto";
 // Can be used to log existing ranking (not Promoted) or Promoted's Delivery
 // API requests.
 //
-// Next ID = 22.
+// Next ID = 23.
 message Request {
 
   // Optional.  If not set, set by API servers.
@@ -96,6 +96,9 @@ message Request {
 
   // Optional.  Custom properties per platform.
   common.Properties properties = 13;
+
+  // Optional.  Can be used to disable personalization.
+  bool disable_personalization = 22;
 }
 
 // Next ID = 5.
@@ -182,6 +185,9 @@ enum UseCase {
 
 // Define Prediction Type
 // Next ID = 8
+
+
+
 
 
 

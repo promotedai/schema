@@ -700,9 +700,9 @@ class UserInfo PROTOBUF_FINAL :
     kUserIdFieldNumber = 1,
     kLogUserIdFieldNumber = 2,
     kAnonUserIdFieldNumber = 5,
+    kRetainedUserIdFieldNumber = 7,
     kIsInternalUserFieldNumber = 3,
     kIgnoreUsageFieldNumber = 4,
-    kHasUserIdFieldNumber = 6,
   };
   // string user_id = 1 [json_name = "userId"];
   void clear_user_id();
@@ -752,6 +752,22 @@ class UserInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_anon_user_id();
   public:
 
+  // string retained_user_id = 7 [json_name = "retainedUserId"];
+  void clear_retained_user_id();
+  const std::string& retained_user_id() const;
+  void set_retained_user_id(const std::string& value);
+  void set_retained_user_id(std::string&& value);
+  void set_retained_user_id(const char* value);
+  void set_retained_user_id(const char* value, size_t size);
+  std::string* mutable_retained_user_id();
+  std::string* release_retained_user_id();
+  void set_allocated_retained_user_id(std::string* retained_user_id);
+  private:
+  const std::string& _internal_retained_user_id() const;
+  void _internal_set_retained_user_id(const std::string& value);
+  std::string* _internal_mutable_retained_user_id();
+  public:
+
   // bool is_internal_user = 3 [json_name = "isInternalUser"];
   void clear_is_internal_user();
   bool is_internal_user() const;
@@ -770,15 +786,6 @@ class UserInfo PROTOBUF_FINAL :
   void _internal_set_ignore_usage(bool value);
   public:
 
-  // bool has_user_id = 6 [json_name = "hasUserId"];
-  void clear_has_user_id();
-  bool has_user_id() const;
-  void set_has_user_id(bool value);
-  private:
-  bool _internal_has_user_id() const;
-  void _internal_set_has_user_id(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:common.UserInfo)
  private:
   class _Internal;
@@ -789,9 +796,9 @@ class UserInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr log_user_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr anon_user_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr retained_user_id_;
   bool is_internal_user_;
   bool ignore_usage_;
-  bool has_user_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fcommon_2fcommon_2eproto;
 };
@@ -3315,24 +3322,65 @@ inline void UserInfo::set_allocated_anon_user_id(std::string* anon_user_id) {
   // @@protoc_insertion_point(field_set_allocated:common.UserInfo.anon_user_id)
 }
 
-// bool has_user_id = 6 [json_name = "hasUserId"];
-inline void UserInfo::clear_has_user_id() {
-  has_user_id_ = false;
+// string retained_user_id = 7 [json_name = "retainedUserId"];
+inline void UserInfo::clear_retained_user_id() {
+  retained_user_id_.ClearToEmpty();
 }
-inline bool UserInfo::_internal_has_user_id() const {
-  return has_user_id_;
+inline const std::string& UserInfo::retained_user_id() const {
+  // @@protoc_insertion_point(field_get:common.UserInfo.retained_user_id)
+  return _internal_retained_user_id();
 }
-inline bool UserInfo::has_user_id() const {
-  // @@protoc_insertion_point(field_get:common.UserInfo.has_user_id)
-  return _internal_has_user_id();
+inline void UserInfo::set_retained_user_id(const std::string& value) {
+  _internal_set_retained_user_id(value);
+  // @@protoc_insertion_point(field_set:common.UserInfo.retained_user_id)
 }
-inline void UserInfo::_internal_set_has_user_id(bool value) {
+inline std::string* UserInfo::mutable_retained_user_id() {
+  // @@protoc_insertion_point(field_mutable:common.UserInfo.retained_user_id)
+  return _internal_mutable_retained_user_id();
+}
+inline const std::string& UserInfo::_internal_retained_user_id() const {
+  return retained_user_id_.Get();
+}
+inline void UserInfo::_internal_set_retained_user_id(const std::string& value) {
   
-  has_user_id_ = value;
+  retained_user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void UserInfo::set_has_user_id(bool value) {
-  _internal_set_has_user_id(value);
-  // @@protoc_insertion_point(field_set:common.UserInfo.has_user_id)
+inline void UserInfo::set_retained_user_id(std::string&& value) {
+  
+  retained_user_id_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:common.UserInfo.retained_user_id)
+}
+inline void UserInfo::set_retained_user_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  retained_user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:common.UserInfo.retained_user_id)
+}
+inline void UserInfo::set_retained_user_id(const char* value,
+    size_t size) {
+  
+  retained_user_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:common.UserInfo.retained_user_id)
+}
+inline std::string* UserInfo::_internal_mutable_retained_user_id() {
+  
+  return retained_user_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* UserInfo::release_retained_user_id() {
+  // @@protoc_insertion_point(field_release:common.UserInfo.retained_user_id)
+  return retained_user_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void UserInfo::set_allocated_retained_user_id(std::string* retained_user_id) {
+  if (retained_user_id != nullptr) {
+    
+  } else {
+    
+  }
+  retained_user_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), retained_user_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:common.UserInfo.retained_user_id)
 }
 
 // -------------------------------------------------------------------

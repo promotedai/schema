@@ -10,6 +10,7 @@ proto_library(
     name = "common_proto",
     srcs = [
         "common.proto",
+        "retained_user.proto",
     ],
     visibility = ["//visibility:public"],
     deps = [
@@ -44,6 +45,7 @@ py_proto_library(
     name = "common_py_proto",
     srcs = [
         "common.proto",
+        "retained_user.proto",
     ],
     visibility = ["//visibility:public"],
     deps = [

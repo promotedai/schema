@@ -138,10 +138,12 @@ class UserInfo(google.protobuf.message.Message):
 
     Summary of fields:
     - `user_id` = the platform's auth user ID.
+    - `retained_user_id` = internal Promoted forgettable version of `user_id`.
     - `anon_user_id` = the platform's anonymous user ID.
-    - `log_user_id` = internal Promoted forgettable, longer-term user ID.
+    - `log_user_id` = Deprecated.  This was our v1 ~anon_user_id field.
+      It's being replaced by a more explicit `anon_user_id` field.
 
-    Next ID = 6.
+    Next ID = 8.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     USER_ID_FIELD_NUMBER: builtins.int
@@ -149,12 +151,14 @@ class UserInfo(google.protobuf.message.Message):
     IS_INTERNAL_USER_FIELD_NUMBER: builtins.int
     IGNORE_USAGE_FIELD_NUMBER: builtins.int
     ANON_USER_ID_FIELD_NUMBER: builtins.int
-    HAS_USER_ID_FIELD_NUMBER: builtins.int
+    RETAINED_USER_ID_FIELD_NUMBER: builtins.int
     user_id: typing.Text = ...
     """Optional.  The platform's authenticated user ID.
     This field will be cleared in our long-term transaction logs to
     make it easier to forget `user_id`s.
-    Internally, this field gets mapped over to `log_user_id`.
+    Early in ingestion, the auth `user_id` field is cleared and
+    `retained_user_id` is set with a pseudoanonymized value for
+    longer-term retention.
     """
 
     log_user_id: typing.Text = ...
@@ -165,6 +169,8 @@ class UserInfo(google.protobuf.message.Message):
     decouple our long-term logs in case the user wants to be forgotten.
     Multiple `anon_user_id`s can be mapped to the same `log_user_id`.
     Most of Promoted's internal systems use `log_user_id`.
+
+    We're planning on deprecating this field.  Details TBD.
     """
 
     is_internal_user: builtins.bool = ...
@@ -189,11 +195,8 @@ class UserInfo(google.protobuf.message.Message):
     specified.  This is useful when there are delayed conversion events.
     """
 
-    has_user_id: builtins.bool = ...
-    """Read-only for most of the system.  This is an extra indicator that
-    Promoted sets when scrubbing user_id.  This indicates that
-    the log_user_id is logged in.
-    """
+    retained_user_id: typing.Text = ...
+    """Optional.  A retainable version of `user_id`."""
 
     def __init__(self,
         *,
@@ -202,9 +205,9 @@ class UserInfo(google.protobuf.message.Message):
         is_internal_user : builtins.bool = ...,
         ignore_usage : builtins.bool = ...,
         anon_user_id : typing.Text = ...,
-        has_user_id : builtins.bool = ...,
+        retained_user_id : typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["anon_user_id",b"anon_user_id","has_user_id",b"has_user_id","ignore_usage",b"ignore_usage","is_internal_user",b"is_internal_user","log_user_id",b"log_user_id","user_id",b"user_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["anon_user_id",b"anon_user_id","ignore_usage",b"ignore_usage","is_internal_user",b"is_internal_user","log_user_id",b"log_user_id","retained_user_id",b"retained_user_id","user_id",b"user_id"]) -> None: ...
 global___UserInfo = UserInfo
 
 class ClientInfo(google.protobuf.message.Message):

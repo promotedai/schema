@@ -595,7 +595,6 @@ message Attribution {
   int32 credit_millis = 2;
 }
 
-
 // Error from iOS client.
 // Next ID = 5.
 message IOSError {

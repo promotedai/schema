@@ -26,7 +26,7 @@ namespace Promoted.Delivery {
           string.Concat(
             "Ch1wcm90by9kZWxpdmVyeS9kZWxpdmVyeS5wcm90bxIIZGVsaXZlcnkaHGdv",
             "b2dsZS9wcm90b2J1Zi9zdHJ1Y3QucHJvdG8aGXByb3RvL2NvbW1vbi9jb21t",
-            "b24ucHJvdG8i+AUKB1JlcXVlc3QSHwoLcGxhdGZvcm1faWQYASABKARSCnBs",
+            "b24ucHJvdG8isQYKB1JlcXVlc3QSHwoLcGxhdGZvcm1faWQYASABKARSCnBs",
             "YXRmb3JtSWQSLQoJdXNlcl9pbmZvGAIgASgLMhAuY29tbW9uLlVzZXJJbmZv",
             "Ugh1c2VySW5mbxImCgZ0aW1pbmcYAyABKAsyDi5jb21tb24uVGltaW5nUgZ0",
             "aW1pbmcSMwoLY2xpZW50X2luZm8YBCABKAsyEi5jb21tb24uQ2xpZW50SW5m",
@@ -42,43 +42,44 @@ namespace Promoted.Delivery {
             "X21hdHJpeF9oZWFkZXJzGBQgAygJUhZpbnNlcnRpb25NYXRyaXhIZWFkZXJz",
             "EkUKEGluc2VydGlvbl9tYXRyaXgYFSABKAsyGi5nb29nbGUucHJvdG9idWYu",
             "TGlzdFZhbHVlUg9pbnNlcnRpb25NYXRyaXgSMgoKcHJvcGVydGllcxgNIAEo",
-            "CzISLmNvbW1vbi5Qcm9wZXJ0aWVzUgpwcm9wZXJ0aWVzSgQIBRAGSgQIDxAQ",
-            "SgQIDBANInkKBlBhZ2luZxIbCglwYWdpbmdfaWQYASABKAlSCHBhZ2luZ0lk",
-            "EhIKBHNpemUYAiABKAVSBHNpemUSGAoGY3Vyc29yGAMgASgJSABSBmN1cnNv",
-            "chIYCgZvZmZzZXQYBCABKAVIAFIGb2Zmc2V0QgoKCHN0YXJ0aW5nIuQBCghS",
-            "ZXNwb25zZRIxCglpbnNlcnRpb24YAiADKAsyEy5kZWxpdmVyeS5JbnNlcnRp",
-            "b25SCWluc2VydGlvbhI1CgtwYWdpbmdfaW5mbxgDIAEoCzIULmRlbGl2ZXJ5",
-            "LlBhZ2luZ0luZm9SCnBhZ2luZ0luZm8SMgoSaW50cm9zcGVjdGlvbl9kYXRh",
-            "GAQgASgJSABSEWludHJvc3BlY3Rpb25EYXRhiAEBEh0KCnJlcXVlc3RfaWQY",
-            "BSABKAlSCXJlcXVlc3RJZEIVChNfaW50cm9zcGVjdGlvbl9kYXRhSgQIARAC",
-            "IkEKClBhZ2luZ0luZm8SGwoJcGFnaW5nX2lkGAEgASgJUghwYWdpbmdJZBIW",
-            "CgZjdXJzb3IYAiABKAlSBmN1cnNvciKGBQoJSW5zZXJ0aW9uEh8KC3BsYXRm",
-            "b3JtX2lkGAEgASgEUgpwbGF0Zm9ybUlkEi0KCXVzZXJfaW5mbxgCIAEoCzIQ",
-            "LmNvbW1vbi5Vc2VySW5mb1IIdXNlckluZm8SJgoGdGltaW5nGAMgASgLMg4u",
-            "Y29tbW9uLlRpbWluZ1IGdGltaW5nEjMKC2NsaWVudF9pbmZvGAQgASgLMhIu",
-            "Y29tbW9uLkNsaWVudEluZm9SCmNsaWVudEluZm8SIQoMaW5zZXJ0aW9uX2lk",
-            "GAYgASgJUgtpbnNlcnRpb25JZBIdCgpyZXF1ZXN0X2lkGAcgASgJUglyZXF1",
-            "ZXN0SWQSFwoHdmlld19pZBgJIAEoCVIGdmlld0lkEiAKDGF1dG9fdmlld19p",
-            "ZBgVIAEoCVIKYXV0b1ZpZXdJZBIdCgpzZXNzaW9uX2lkGAggASgJUglzZXNz",
-            "aW9uSWQSHQoKY29udGVudF9pZBgKIAEoCVIJY29udGVudElkEh8KCHBvc2l0",
-            "aW9uGAwgASgESABSCHBvc2l0aW9uiAEBEjIKCnByb3BlcnRpZXMYDSABKAsy",
-            "Ei5jb21tb24uUHJvcGVydGllc1IKcHJvcGVydGllcxIqCg5yZXRyaWV2YWxf",
-            "cmFuaxgTIAEoBEgBUg1yZXRyaWV2YWxSYW5riAEBEiwKD3JldHJpZXZhbF9z",
-            "Y29yZRgUIAEoAkgCUg5yZXRyaWV2YWxTY29yZYgBAUILCglfcG9zaXRpb25C",
-            "EQoPX3JldHJpZXZhbF9yYW5rQhIKEF9yZXRyaWV2YWxfc2NvcmVKBAgFEAZK",
-            "BAgLEAxKBAgOEA9KBAgPEBBKBAgREBJKBAgSEBNKBAgWEBdKBAgXEBgq2gEK",
-            "B1VzZUNhc2USFAoQVU5LTk9XTl9VU0VfQ0FTRRAAEgoKBkNVU1RPTRABEgoK",
-            "BlNFQVJDSBACEhYKElNFQVJDSF9TVUdHRVNUSU9OUxADEggKBEZFRUQQBBIT",
-            "Cg9SRUxBVEVEX0NPTlRFTlQQBRIMCghDTE9TRV9VUBAGEhQKEENBVEVHT1JZ",
-            "X0NPTlRFTlQQBxIOCgpNWV9DT05URU5UEAgSFAoQTVlfU0FWRURfQ09OVEVO",
-            "VBAJEhIKDlNFTExFUl9DT05URU5UEAoSDAoIRElTQ09WRVIQC0J2ChphaS5w",
-            "cm9tb3RlZC5wcm90by5kZWxpdmVyeUIIRGVsaXZlcnlQAVo4Z2l0aHViLmNv",
-            "bS9wcm9tb3RlZGFpL3NjaGVtYS9nZW5lcmF0ZWQvZ28vcHJvdG8vZGVsaXZl",
-            "cnmqAhFQcm9tb3RlZC5EZWxpdmVyeWIGcHJvdG8z"));
+            "CzISLmNvbW1vbi5Qcm9wZXJ0aWVzUgpwcm9wZXJ0aWVzEjcKF2Rpc2FibGVf",
+            "cGVyc29uYWxpemF0aW9uGBYgASgIUhZkaXNhYmxlUGVyc29uYWxpemF0aW9u",
+            "SgQIBRAGSgQIDxAQSgQIDBANInkKBlBhZ2luZxIbCglwYWdpbmdfaWQYASAB",
+            "KAlSCHBhZ2luZ0lkEhIKBHNpemUYAiABKAVSBHNpemUSGAoGY3Vyc29yGAMg",
+            "ASgJSABSBmN1cnNvchIYCgZvZmZzZXQYBCABKAVIAFIGb2Zmc2V0QgoKCHN0",
+            "YXJ0aW5nIuQBCghSZXNwb25zZRIxCglpbnNlcnRpb24YAiADKAsyEy5kZWxp",
+            "dmVyeS5JbnNlcnRpb25SCWluc2VydGlvbhI1CgtwYWdpbmdfaW5mbxgDIAEo",
+            "CzIULmRlbGl2ZXJ5LlBhZ2luZ0luZm9SCnBhZ2luZ0luZm8SMgoSaW50cm9z",
+            "cGVjdGlvbl9kYXRhGAQgASgJSABSEWludHJvc3BlY3Rpb25EYXRhiAEBEh0K",
+            "CnJlcXVlc3RfaWQYBSABKAlSCXJlcXVlc3RJZEIVChNfaW50cm9zcGVjdGlv",
+            "bl9kYXRhSgQIARACIkEKClBhZ2luZ0luZm8SGwoJcGFnaW5nX2lkGAEgASgJ",
+            "UghwYWdpbmdJZBIWCgZjdXJzb3IYAiABKAlSBmN1cnNvciKGBQoJSW5zZXJ0",
+            "aW9uEh8KC3BsYXRmb3JtX2lkGAEgASgEUgpwbGF0Zm9ybUlkEi0KCXVzZXJf",
+            "aW5mbxgCIAEoCzIQLmNvbW1vbi5Vc2VySW5mb1IIdXNlckluZm8SJgoGdGlt",
+            "aW5nGAMgASgLMg4uY29tbW9uLlRpbWluZ1IGdGltaW5nEjMKC2NsaWVudF9p",
+            "bmZvGAQgASgLMhIuY29tbW9uLkNsaWVudEluZm9SCmNsaWVudEluZm8SIQoM",
+            "aW5zZXJ0aW9uX2lkGAYgASgJUgtpbnNlcnRpb25JZBIdCgpyZXF1ZXN0X2lk",
+            "GAcgASgJUglyZXF1ZXN0SWQSFwoHdmlld19pZBgJIAEoCVIGdmlld0lkEiAK",
+            "DGF1dG9fdmlld19pZBgVIAEoCVIKYXV0b1ZpZXdJZBIdCgpzZXNzaW9uX2lk",
+            "GAggASgJUglzZXNzaW9uSWQSHQoKY29udGVudF9pZBgKIAEoCVIJY29udGVu",
+            "dElkEh8KCHBvc2l0aW9uGAwgASgESABSCHBvc2l0aW9uiAEBEjIKCnByb3Bl",
+            "cnRpZXMYDSABKAsyEi5jb21tb24uUHJvcGVydGllc1IKcHJvcGVydGllcxIq",
+            "Cg5yZXRyaWV2YWxfcmFuaxgTIAEoBEgBUg1yZXRyaWV2YWxSYW5riAEBEiwK",
+            "D3JldHJpZXZhbF9zY29yZRgUIAEoAkgCUg5yZXRyaWV2YWxTY29yZYgBAUIL",
+            "CglfcG9zaXRpb25CEQoPX3JldHJpZXZhbF9yYW5rQhIKEF9yZXRyaWV2YWxf",
+            "c2NvcmVKBAgFEAZKBAgLEAxKBAgOEA9KBAgPEBBKBAgREBJKBAgSEBNKBAgW",
+            "EBdKBAgXEBgq2gEKB1VzZUNhc2USFAoQVU5LTk9XTl9VU0VfQ0FTRRAAEgoK",
+            "BkNVU1RPTRABEgoKBlNFQVJDSBACEhYKElNFQVJDSF9TVUdHRVNUSU9OUxAD",
+            "EggKBEZFRUQQBBITCg9SRUxBVEVEX0NPTlRFTlQQBRIMCghDTE9TRV9VUBAG",
+            "EhQKEENBVEVHT1JZX0NPTlRFTlQQBxIOCgpNWV9DT05URU5UEAgSFAoQTVlf",
+            "U0FWRURfQ09OVEVOVBAJEhIKDlNFTExFUl9DT05URU5UEAoSDAoIRElTQ09W",
+            "RVIQC0J2ChphaS5wcm9tb3RlZC5wcm90by5kZWxpdmVyeUIIRGVsaXZlcnlQ",
+            "AVo4Z2l0aHViLmNvbS9wcm9tb3RlZGFpL3NjaGVtYS9nZW5lcmF0ZWQvZ28v",
+            "cHJvdG8vZGVsaXZlcnmqAhFQcm9tb3RlZC5EZWxpdmVyeWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.StructReflection.Descriptor, global::Promoted.Common.CommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Promoted.Delivery.UseCase), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.Request), global::Promoted.Delivery.Request.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "Device", "RequestId", "ViewId", "AutoViewId", "SessionId", "ClientRequestId", "UseCase", "SearchQuery", "Paging", "Insertion", "InsertionMatrixHeaders", "InsertionMatrix", "Properties" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.Request), global::Promoted.Delivery.Request.Parser, new[]{ "PlatformId", "UserInfo", "Timing", "ClientInfo", "Device", "RequestId", "ViewId", "AutoViewId", "SessionId", "ClientRequestId", "UseCase", "SearchQuery", "Paging", "Insertion", "InsertionMatrixHeaders", "InsertionMatrix", "Properties", "DisablePersonalization" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.Paging), global::Promoted.Delivery.Paging.Parser, new[]{ "PagingId", "Size", "Cursor", "Offset" }, new[]{ "Starting" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.Response), global::Promoted.Delivery.Response.Parser, new[]{ "Insertion", "PagingInfo", "IntrospectionData", "RequestId" }, new[]{ "IntrospectionData" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.PagingInfo), global::Promoted.Delivery.PagingInfo.Parser, new[]{ "PagingId", "Cursor" }, null, null, null, null),
@@ -153,6 +154,7 @@ namespace Promoted.Delivery {
       insertionMatrixHeaders_ = other.insertionMatrixHeaders_.Clone();
       insertionMatrix_ = other.insertionMatrix_ != null ? other.insertionMatrix_.Clone() : null;
       properties_ = other.properties_ != null ? other.properties_.Clone() : null;
+      disablePersonalization_ = other.disablePersonalization_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -346,6 +348,17 @@ namespace Promoted.Delivery {
       }
     }
 
+    /// <summary>Field number for the "disable_personalization" field.</summary>
+    public const int DisablePersonalizationFieldNumber = 22;
+    private bool disablePersonalization_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool DisablePersonalization {
+      get { return disablePersonalization_; }
+      set {
+        disablePersonalization_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Request);
@@ -376,6 +389,7 @@ namespace Promoted.Delivery {
       if(!insertionMatrixHeaders_.Equals(other.insertionMatrixHeaders_)) return false;
       if (!object.Equals(InsertionMatrix, other.InsertionMatrix)) return false;
       if (!object.Equals(Properties, other.Properties)) return false;
+      if (DisablePersonalization != other.DisablePersonalization) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -399,6 +413,7 @@ namespace Promoted.Delivery {
       hash ^= insertionMatrixHeaders_.GetHashCode();
       if (insertionMatrix_ != null) hash ^= InsertionMatrix.GetHashCode();
       if (properties_ != null) hash ^= Properties.GetHashCode();
+      if (DisablePersonalization != false) hash ^= DisablePersonalization.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -477,6 +492,10 @@ namespace Promoted.Delivery {
         output.WriteRawTag(170, 1);
         output.WriteMessage(InsertionMatrix);
       }
+      if (DisablePersonalization != false) {
+        output.WriteRawTag(176, 1);
+        output.WriteBool(DisablePersonalization);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -548,6 +567,10 @@ namespace Promoted.Delivery {
         output.WriteRawTag(170, 1);
         output.WriteMessage(InsertionMatrix);
       }
+      if (DisablePersonalization != false) {
+        output.WriteRawTag(176, 1);
+        output.WriteBool(DisablePersonalization);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -603,6 +626,9 @@ namespace Promoted.Delivery {
       }
       if (properties_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Properties);
+      }
+      if (DisablePersonalization != false) {
+        size += 2 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -682,6 +708,9 @@ namespace Promoted.Delivery {
           Properties = new global::Promoted.Common.Properties();
         }
         Properties.MergeFrom(other.Properties);
+      }
+      if (other.DisablePersonalization != false) {
+        DisablePersonalization = other.DisablePersonalization;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -786,6 +815,10 @@ namespace Promoted.Delivery {
             input.ReadMessage(InsertionMatrix);
             break;
           }
+          case 176: {
+            DisablePersonalization = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -887,6 +920,10 @@ namespace Promoted.Delivery {
               InsertionMatrix = new global::Google.Protobuf.WellKnownTypes.ListValue();
             }
             input.ReadMessage(InsertionMatrix);
+            break;
+          }
+          case 176: {
+            DisablePersonalization = input.ReadBool();
             break;
           }
         }

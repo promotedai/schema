@@ -136,6 +136,12 @@ class BlenderArithmeticExpression(google.protobuf.message.Message):
         DIVIDE = BlenderArithmeticExpression.Operator.V(4)
         MIN = BlenderArithmeticExpression.Operator.V(5)
         MAX = BlenderArithmeticExpression.Operator.V(6)
+        FLOOR = BlenderArithmeticExpression.Operator.V(7)
+        """These are only coherent as unary operators, but putting them here while
+        the Blender-config-validation story is still unclear.
+        """
+
+        CEILING = BlenderArithmeticExpression.Operator.V(8)
 
     UNKNOWN = BlenderArithmeticExpression.Operator.V(0)
     ADD = BlenderArithmeticExpression.Operator.V(1)
@@ -144,6 +150,12 @@ class BlenderArithmeticExpression(google.protobuf.message.Message):
     DIVIDE = BlenderArithmeticExpression.Operator.V(4)
     MIN = BlenderArithmeticExpression.Operator.V(5)
     MAX = BlenderArithmeticExpression.Operator.V(6)
+    FLOOR = BlenderArithmeticExpression.Operator.V(7)
+    """These are only coherent as unary operators, but putting them here while
+    the Blender-config-validation story is still unclear.
+    """
+
+    CEILING = BlenderArithmeticExpression.Operator.V(8)
 
     OP_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
