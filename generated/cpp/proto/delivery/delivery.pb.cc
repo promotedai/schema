@@ -30,14 +30,14 @@ constexpr Request::Request(
   , user_info_(nullptr)
   , timing_(nullptr)
   , client_info_(nullptr)
-  , blender_config_(nullptr)
   , properties_(nullptr)
   , paging_(nullptr)
   , device_(nullptr)
   , insertion_matrix_(nullptr)
   , platform_id_(PROTOBUF_ULONGLONG(0))
   , use_case_(0)
-{}
+
+  , disable_personalization_(false){}
 struct RequestDefaultTypeInternal {
   constexpr RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -141,8 +141,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_proto_2fdelivery_2fdelivery_2e
   PROTOBUF_FIELD_OFFSET(::delivery::Request, insertion_),
   PROTOBUF_FIELD_OFFSET(::delivery::Request, insertion_matrix_headers_),
   PROTOBUF_FIELD_OFFSET(::delivery::Request, insertion_matrix_),
-  PROTOBUF_FIELD_OFFSET(::delivery::Request, blender_config_),
   PROTOBUF_FIELD_OFFSET(::delivery::Request, properties_),
+  PROTOBUF_FIELD_OFFSET(::delivery::Request, disable_personalization_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::delivery::Paging, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -226,73 +226,72 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_proto_2fdelivery_2fdelivery_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\035proto/delivery/delivery.proto\022\010deliver"
   "y\032\034google/protobuf/struct.proto\032\031proto/c"
-  "ommon/common.proto\032\034proto/delivery/blend"
-  "er.proto\"\262\006\n\007Request\022\037\n\013platform_id\030\001 \001("
-  "\004R\nplatformId\022-\n\tuser_info\030\002 \001(\0132\020.commo"
-  "n.UserInfoR\010userInfo\022&\n\006timing\030\003 \001(\0132\016.c"
-  "ommon.TimingR\006timing\0223\n\013client_info\030\004 \001("
-  "\0132\022.common.ClientInfoR\nclientInfo\022&\n\006dev"
-  "ice\030\022 \001(\0132\016.common.DeviceR\006device\022\035\n\nreq"
-  "uest_id\030\006 \001(\tR\trequestId\022\027\n\007view_id\030\007 \001("
-  "\tR\006viewId\022 \n\014auto_view_id\030\023 \001(\tR\nautoVie"
-  "wId\022\035\n\nsession_id\030\010 \001(\tR\tsessionId\022*\n\021cl"
-  "ient_request_id\030\016 \001(\tR\017clientRequestId\022,"
-  "\n\010use_case\030\t \001(\0162\021.delivery.UseCaseR\007use"
-  "Case\022!\n\014search_query\030\n \001(\tR\013searchQuery\022"
-  "(\n\006paging\030\021 \001(\0132\020.delivery.PagingR\006pagin"
-  "g\0221\n\tinsertion\030\013 \003(\0132\023.delivery.Insertio"
-  "nR\tinsertion\0228\n\030insertion_matrix_headers"
-  "\030\024 \003(\tR\026insertionMatrixHeaders\022E\n\020insert"
-  "ion_matrix\030\025 \001(\0132\032.google.protobuf.ListV"
-  "alueR\017insertionMatrix\022>\n\016blender_config\030"
-  "\014 \001(\0132\027.delivery.BlenderConfigR\rblenderC"
-  "onfig\0222\n\nproperties\030\r \001(\0132\022.common.Prope"
-  "rtiesR\npropertiesJ\004\010\005\020\006J\004\010\017\020\020\"y\n\006Paging\022"
-  "\033\n\tpaging_id\030\001 \001(\tR\010pagingId\022\022\n\004size\030\002 \001"
-  "(\005R\004size\022\030\n\006cursor\030\003 \001(\tH\000R\006cursor\022\030\n\006of"
-  "fset\030\004 \001(\005H\000R\006offsetB\n\n\010starting\"\344\001\n\010Res"
-  "ponse\0221\n\tinsertion\030\002 \003(\0132\023.delivery.Inse"
-  "rtionR\tinsertion\0225\n\013paging_info\030\003 \001(\0132\024."
-  "delivery.PagingInfoR\npagingInfo\0222\n\022intro"
-  "spection_data\030\004 \001(\tH\000R\021introspectionData"
-  "\210\001\001\022\035\n\nrequest_id\030\005 \001(\tR\trequestIdB\025\n\023_i"
-  "ntrospection_dataJ\004\010\001\020\002\"A\n\nPagingInfo\022\033\n"
-  "\tpaging_id\030\001 \001(\tR\010pagingId\022\026\n\006cursor\030\002 \001"
-  "(\tR\006cursor\"\214\005\n\tInsertion\022\037\n\013platform_id\030"
-  "\001 \001(\004R\nplatformId\022-\n\tuser_info\030\002 \001(\0132\020.c"
-  "ommon.UserInfoR\010userInfo\022&\n\006timing\030\003 \001(\013"
-  "2\016.common.TimingR\006timing\0223\n\013client_info\030"
-  "\004 \001(\0132\022.common.ClientInfoR\nclientInfo\022!\n"
-  "\014insertion_id\030\006 \001(\tR\013insertionId\022\035\n\nrequ"
-  "est_id\030\007 \001(\tR\trequestId\022\027\n\007view_id\030\t \001(\t"
-  "R\006viewId\022 \n\014auto_view_id\030\025 \001(\tR\nautoView"
-  "Id\022\035\n\nsession_id\030\010 \001(\tR\tsessionId\022\035\n\ncon"
-  "tent_id\030\n \001(\tR\tcontentId\022\037\n\010position\030\014 \001"
-  "(\004H\000R\010position\210\001\001\0222\n\nproperties\030\r \001(\0132\022."
-  "common.PropertiesR\nproperties\022*\n\016retriev"
-  "al_rank\030\023 \001(\004H\001R\rretrievalRank\210\001\001\022,\n\017ret"
-  "rieval_score\030\024 \001(\002H\002R\016retrievalScore\210\001\001B"
-  "\013\n\t_positionB\021\n\017_retrieval_rankB\022\n\020_retr"
-  "ieval_scoreJ\004\010\005\020\006J\004\010\013\020\014J\004\010\016\020\017J\004\010\017\020\020J\004\010\020\020"
-  "\021J\004\010\021\020\022J\004\010\022\020\023J\004\010\026\020\027J\004\010\027\020\030*\332\001\n\007UseCase\022\024\n"
-  "\020UNKNOWN_USE_CASE\020\000\022\n\n\006CUSTOM\020\001\022\n\n\006SEARC"
-  "H\020\002\022\026\n\022SEARCH_SUGGESTIONS\020\003\022\010\n\004FEED\020\004\022\023\n"
-  "\017RELATED_CONTENT\020\005\022\014\n\010CLOSE_UP\020\006\022\024\n\020CATE"
-  "GORY_CONTENT\020\007\022\016\n\nMY_CONTENT\020\010\022\024\n\020MY_SAV"
-  "ED_CONTENT\020\t\022\022\n\016SELLER_CONTENT\020\n\022\014\n\010DISC"
-  "OVER\020\013Bb\n\032ai.promoted.proto.deliveryB\010De"
-  "liveryP\001Z8github.com/promotedai/schema/g"
-  "enerated/go/proto/deliveryb\006proto3"
+  "ommon/common.proto\"\261\006\n\007Request\022\037\n\013platfo"
+  "rm_id\030\001 \001(\004R\nplatformId\022-\n\tuser_info\030\002 \001"
+  "(\0132\020.common.UserInfoR\010userInfo\022&\n\006timing"
+  "\030\003 \001(\0132\016.common.TimingR\006timing\0223\n\013client"
+  "_info\030\004 \001(\0132\022.common.ClientInfoR\nclientI"
+  "nfo\022&\n\006device\030\022 \001(\0132\016.common.DeviceR\006dev"
+  "ice\022\035\n\nrequest_id\030\006 \001(\tR\trequestId\022\027\n\007vi"
+  "ew_id\030\007 \001(\tR\006viewId\022 \n\014auto_view_id\030\023 \001("
+  "\tR\nautoViewId\022\035\n\nsession_id\030\010 \001(\tR\tsessi"
+  "onId\022*\n\021client_request_id\030\016 \001(\tR\017clientR"
+  "equestId\022,\n\010use_case\030\t \001(\0162\021.delivery.Us"
+  "eCaseR\007useCase\022!\n\014search_query\030\n \001(\tR\013se"
+  "archQuery\022(\n\006paging\030\021 \001(\0132\020.delivery.Pag"
+  "ingR\006paging\0221\n\tinsertion\030\013 \003(\0132\023.deliver"
+  "y.InsertionR\tinsertion\0228\n\030insertion_matr"
+  "ix_headers\030\024 \003(\tR\026insertionMatrixHeaders"
+  "\022E\n\020insertion_matrix\030\025 \001(\0132\032.google.prot"
+  "obuf.ListValueR\017insertionMatrix\0222\n\nprope"
+  "rties\030\r \001(\0132\022.common.PropertiesR\npropert"
+  "ies\0227\n\027disable_personalization\030\026 \001(\010R\026di"
+  "sablePersonalizationJ\004\010\005\020\006J\004\010\017\020\020J\004\010\014\020\r\"y"
+  "\n\006Paging\022\033\n\tpaging_id\030\001 \001(\tR\010pagingId\022\022\n"
+  "\004size\030\002 \001(\005R\004size\022\030\n\006cursor\030\003 \001(\tH\000R\006cur"
+  "sor\022\030\n\006offset\030\004 \001(\005H\000R\006offsetB\n\n\010startin"
+  "g\"\344\001\n\010Response\0221\n\tinsertion\030\002 \003(\0132\023.deli"
+  "very.InsertionR\tinsertion\0225\n\013paging_info"
+  "\030\003 \001(\0132\024.delivery.PagingInfoR\npagingInfo"
+  "\0222\n\022introspection_data\030\004 \001(\tH\000R\021introspe"
+  "ctionData\210\001\001\022\035\n\nrequest_id\030\005 \001(\tR\treques"
+  "tIdB\025\n\023_introspection_dataJ\004\010\001\020\002\"A\n\nPagi"
+  "ngInfo\022\033\n\tpaging_id\030\001 \001(\tR\010pagingId\022\026\n\006c"
+  "ursor\030\002 \001(\tR\006cursor\"\206\005\n\tInsertion\022\037\n\013pla"
+  "tform_id\030\001 \001(\004R\nplatformId\022-\n\tuser_info\030"
+  "\002 \001(\0132\020.common.UserInfoR\010userInfo\022&\n\006tim"
+  "ing\030\003 \001(\0132\016.common.TimingR\006timing\0223\n\013cli"
+  "ent_info\030\004 \001(\0132\022.common.ClientInfoR\nclie"
+  "ntInfo\022!\n\014insertion_id\030\006 \001(\tR\013insertionI"
+  "d\022\035\n\nrequest_id\030\007 \001(\tR\trequestId\022\027\n\007view"
+  "_id\030\t \001(\tR\006viewId\022 \n\014auto_view_id\030\025 \001(\tR"
+  "\nautoViewId\022\035\n\nsession_id\030\010 \001(\tR\tsession"
+  "Id\022\035\n\ncontent_id\030\n \001(\tR\tcontentId\022\037\n\010pos"
+  "ition\030\014 \001(\004H\000R\010position\210\001\001\0222\n\nproperties"
+  "\030\r \001(\0132\022.common.PropertiesR\nproperties\022*"
+  "\n\016retrieval_rank\030\023 \001(\004H\001R\rretrievalRank\210"
+  "\001\001\022,\n\017retrieval_score\030\024 \001(\002H\002R\016retrieval"
+  "Score\210\001\001B\013\n\t_positionB\021\n\017_retrieval_rank"
+  "B\022\n\020_retrieval_scoreJ\004\010\005\020\006J\004\010\013\020\014J\004\010\016\020\017J\004"
+  "\010\017\020\020J\004\010\021\020\022J\004\010\022\020\023J\004\010\026\020\027J\004\010\027\020\030*\332\001\n\007UseCase"
+  "\022\024\n\020UNKNOWN_USE_CASE\020\000\022\n\n\006CUSTOM\020\001\022\n\n\006SE"
+  "ARCH\020\002\022\026\n\022SEARCH_SUGGESTIONS\020\003\022\010\n\004FEED\020\004"
+  "\022\023\n\017RELATED_CONTENT\020\005\022\014\n\010CLOSE_UP\020\006\022\024\n\020C"
+  "ATEGORY_CONTENT\020\007\022\016\n\nMY_CONTENT\020\010\022\024\n\020MY_"
+  "SAVED_CONTENT\020\t\022\022\n\016SELLER_CONTENT\020\n\022\014\n\010D"
+  "ISCOVER\020\013Bv\n\032ai.promoted.proto.deliveryB"
+  "\010DeliveryP\001Z8github.com/promotedai/schem"
+  "a/generated/go/proto/delivery\252\002\021Promoted"
+  ".Deliveryb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fdelivery_2fdelivery_2eproto_deps[3] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fdelivery_2fdelivery_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fstruct_2eproto,
   &::descriptor_table_proto_2fcommon_2fcommon_2eproto,
-  &::descriptor_table_proto_2fdelivery_2fblender_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_2fdelivery_2fdelivery_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fdelivery_2fdelivery_2eproto = {
-  false, false, 2354, descriptor_table_protodef_proto_2fdelivery_2fdelivery_2eproto, "proto/delivery/delivery.proto", 
-  &descriptor_table_proto_2fdelivery_2fdelivery_2eproto_once, descriptor_table_proto_2fdelivery_2fdelivery_2eproto_deps, 3, 5,
+  false, false, 2337, descriptor_table_protodef_proto_2fdelivery_2fdelivery_2eproto, "proto/delivery/delivery.proto", 
+  &descriptor_table_proto_2fdelivery_2fdelivery_2eproto_once, descriptor_table_proto_2fdelivery_2fdelivery_2eproto_deps, 2, 5,
   schemas, file_default_instances, TableStruct_proto_2fdelivery_2fdelivery_2eproto::offsets,
   file_level_metadata_proto_2fdelivery_2fdelivery_2eproto, file_level_enum_descriptors_proto_2fdelivery_2fdelivery_2eproto, file_level_service_descriptors_proto_2fdelivery_2fdelivery_2eproto,
 };
@@ -340,7 +339,6 @@ class Request::_Internal {
   static const ::common::Device& device(const Request* msg);
   static const ::delivery::Paging& paging(const Request* msg);
   static const PROTOBUF_NAMESPACE_ID::ListValue& insertion_matrix(const Request* msg);
-  static const ::delivery::BlenderConfig& blender_config(const Request* msg);
   static const ::common::Properties& properties(const Request* msg);
 };
 
@@ -367,10 +365,6 @@ Request::_Internal::paging(const Request* msg) {
 const PROTOBUF_NAMESPACE_ID::ListValue&
 Request::_Internal::insertion_matrix(const Request* msg) {
   return *msg->insertion_matrix_;
-}
-const ::delivery::BlenderConfig&
-Request::_Internal::blender_config(const Request* msg) {
-  return *msg->blender_config_;
 }
 const ::common::Properties&
 Request::_Internal::properties(const Request* msg) {
@@ -405,12 +399,6 @@ void Request::clear_insertion_matrix() {
     delete insertion_matrix_;
   }
   insertion_matrix_ = nullptr;
-}
-void Request::clear_blender_config() {
-  if (GetArena() == nullptr && blender_config_ != nullptr) {
-    delete blender_config_;
-  }
-  blender_config_ = nullptr;
 }
 void Request::clear_properties() {
   if (GetArena() == nullptr && properties_ != nullptr) {
@@ -476,11 +464,6 @@ Request::Request(const Request& from)
   } else {
     client_info_ = nullptr;
   }
-  if (from._internal_has_blender_config()) {
-    blender_config_ = new ::delivery::BlenderConfig(*from.blender_config_);
-  } else {
-    blender_config_ = nullptr;
-  }
   if (from._internal_has_properties()) {
     properties_ = new ::common::Properties(*from.properties_);
   } else {
@@ -502,8 +485,8 @@ Request::Request(const Request& from)
     insertion_matrix_ = nullptr;
   }
   ::memcpy(&platform_id_, &from.platform_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&use_case_) -
-    reinterpret_cast<char*>(&platform_id_)) + sizeof(use_case_));
+    static_cast<size_t>(reinterpret_cast<char*>(&disable_personalization_) -
+    reinterpret_cast<char*>(&platform_id_)) + sizeof(disable_personalization_));
   // @@protoc_insertion_point(copy_constructor:delivery.Request)
 }
 
@@ -516,8 +499,8 @@ client_request_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmpty
 auto_view_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&user_info_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&use_case_) -
-    reinterpret_cast<char*>(&user_info_)) + sizeof(use_case_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&disable_personalization_) -
+    reinterpret_cast<char*>(&user_info_)) + sizeof(disable_personalization_));
 }
 
 Request::~Request() {
@@ -537,7 +520,6 @@ void Request::SharedDtor() {
   if (this != internal_default_instance()) delete user_info_;
   if (this != internal_default_instance()) delete timing_;
   if (this != internal_default_instance()) delete client_info_;
-  if (this != internal_default_instance()) delete blender_config_;
   if (this != internal_default_instance()) delete properties_;
   if (this != internal_default_instance()) delete paging_;
   if (this != internal_default_instance()) delete device_;
@@ -580,10 +562,6 @@ void Request::Clear() {
     delete client_info_;
   }
   client_info_ = nullptr;
-  if (GetArena() == nullptr && blender_config_ != nullptr) {
-    delete blender_config_;
-  }
-  blender_config_ = nullptr;
   if (GetArena() == nullptr && properties_ != nullptr) {
     delete properties_;
   }
@@ -601,8 +579,8 @@ void Request::Clear() {
   }
   insertion_matrix_ = nullptr;
   ::memset(&platform_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&use_case_) -
-      reinterpret_cast<char*>(&platform_id_)) + sizeof(use_case_));
+      reinterpret_cast<char*>(&disable_personalization_) -
+      reinterpret_cast<char*>(&platform_id_)) + sizeof(disable_personalization_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -697,13 +675,6 @@ const char* Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
         } else goto handle_unusual;
         continue;
-      // .delivery.BlenderConfig blender_config = 12 [json_name = "blenderConfig"];
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
-          ptr = ctx->ParseMessage(_internal_mutable_blender_config(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // .common.Properties properties = 13 [json_name = "properties"];
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
@@ -761,6 +732,13 @@ const char* Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
       case 21:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
           ptr = ctx->ParseMessage(_internal_mutable_insertion_matrix(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool disable_personalization = 22 [json_name = "disablePersonalization"];
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 176)) {
+          disable_personalization_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -877,14 +855,6 @@ failure:
       InternalWriteMessage(11, this->_internal_insertion(i), target, stream);
   }
 
-  // .delivery.BlenderConfig blender_config = 12 [json_name = "blenderConfig"];
-  if (this->has_blender_config()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        12, _Internal::blender_config(this), target, stream);
-  }
-
   // .common.Properties properties = 13 [json_name = "properties"];
   if (this->has_properties()) {
     target = stream->EnsureSpace(target);
@@ -945,6 +915,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
         21, _Internal::insertion_matrix(this), target, stream);
+  }
+
+  // bool disable_personalization = 22 [json_name = "disablePersonalization"];
+  if (this->disable_personalization() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22, this->_internal_disable_personalization(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1041,13 +1017,6 @@ size_t Request::ByteSizeLong() const {
         *client_info_);
   }
 
-  // .delivery.BlenderConfig blender_config = 12 [json_name = "blenderConfig"];
-  if (this->has_blender_config()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *blender_config_);
-  }
-
   // .common.Properties properties = 13 [json_name = "properties"];
   if (this->has_properties()) {
     total_size += 1 +
@@ -1087,6 +1056,11 @@ size_t Request::ByteSizeLong() const {
   if (this->use_case() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_use_case());
+  }
+
+  // bool disable_personalization = 22 [json_name = "disablePersonalization"];
+  if (this->disable_personalization() != 0) {
+    total_size += 2 + 1;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1149,9 +1123,6 @@ void Request::MergeFrom(const Request& from) {
   if (from.has_client_info()) {
     _internal_mutable_client_info()->::common::ClientInfo::MergeFrom(from._internal_client_info());
   }
-  if (from.has_blender_config()) {
-    _internal_mutable_blender_config()->::delivery::BlenderConfig::MergeFrom(from._internal_blender_config());
-  }
   if (from.has_properties()) {
     _internal_mutable_properties()->::common::Properties::MergeFrom(from._internal_properties());
   }
@@ -1169,6 +1140,9 @@ void Request::MergeFrom(const Request& from) {
   }
   if (from.use_case() != 0) {
     _internal_set_use_case(from._internal_use_case());
+  }
+  if (from.disable_personalization() != 0) {
+    _internal_set_disable_personalization(from._internal_disable_personalization());
   }
 }
 
@@ -1202,8 +1176,8 @@ void Request::InternalSwap(Request* other) {
   client_request_id_.Swap(&other->client_request_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   auto_view_id_.Swap(&other->auto_view_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Request, use_case_)
-      + sizeof(Request::use_case_)
+      PROTOBUF_FIELD_OFFSET(Request, disable_personalization_)
+      + sizeof(Request::disable_personalization_)
       - PROTOBUF_FIELD_OFFSET(Request, user_info_)>(
           reinterpret_cast<char*>(&user_info_),
           reinterpret_cast<char*>(&other->user_info_));

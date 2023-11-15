@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\007BlenderP\001Z8github.com/promotedai/schema/generated/go/proto/delivery\252\002\021Promoted.Delivery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1cproto/delivery/blender.proto\x12\x08\x64\x65livery\"D\n\x0eLeafExpression\x12!\n\x07lookups\x18\x01 \x03(\x0b\x32\x10.delivery.Lookup\x12\x0f\n\x07\x64\x65\x66\x61ult\x18\x02 \x01(\x02\"F\n\x06Lookup\x12\x14\n\nfeature_id\x18\x01 \x01(\x04H\x00\x12\x17\n\rparameter_key\x18\x02 \x01(\x04H\x00\x42\r\n\x0blookup_type\"o\n\rBlenderConfig\x12\x32\n\rquality_score\x18\x01 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12*\n\x08sort_key\x18\x02 \x01(\x0b\x32\x18.delivery.BlenderSortKey\"\xcd\x01\n\x11\x42lenderExpression\x12(\n\x04leaf\x18\x01 \x01(\x0b\x32\x18.delivery.LeafExpressionH\x00\x12?\n\x0e\x61rithmetic_exp\x18\x02 \x01(\x0b\x32%.delivery.BlenderArithmeticExpressionH\x00\x12\x41\n\x0f\x63onditional_exp\x18\x03 \x01(\x0b\x32&.delivery.BlenderConditionalExpressionH\x00\x42\n\n\x08\x65xp_type\"\xe2\x01\n\x1b\x42lenderArithmeticExpression\x12:\n\x02op\x18\x01 \x01(\x0e\x32..delivery.BlenderArithmeticExpression.Operator\x12+\n\x06inputs\x18\x02 \x03(\x0b\x32\x1b.delivery.BlenderExpression\"Z\n\x08Operator\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x07\n\x03\x41\x44\x44\x10\x01\x12\x0c\n\x08MULTIPLY\x10\x02\x12\x0c\n\x08SUBTRACT\x10\x03\x12\n\n\x06\x44IVIDE\x10\x04\x12\x07\n\x03MIN\x10\x05\x12\x07\n\x03MAX\x10\x06\"\xf8\x02\n\x1c\x42lenderConditionalExpression\x12;\n\x02op\x18\x01 \x01(\x0e\x32/.delivery.BlenderConditionalExpression.Operator\x12\x32\n\rpredicate_lhs\x18\x02 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12\x32\n\rpredicate_rhs\x18\x03 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12\x30\n\x0bthen_branch\x18\x04 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12\x30\n\x0b\x65lse_branch\x18\x05 \x01(\x0b\x32\x1b.delivery.BlenderExpression\"O\n\x08Operator\x12\x0b\n\x07UNKNOWN\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\x10\n\x0cGREATER_THAN\x10\x02\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x03\"?\n\x0e\x42lenderSortKey\x12-\n\x08\x65lements\x18\x01 \x03(\x0b\x32\x1b.delivery.BlenderExpression\"\xa1\x01\n\x0fHyperloopConfig\x12=\n\nparameters\x18\x01 \x03(\x0b\x32).delivery.HyperloopConfig.ParametersEntry\x1aO\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\x04\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.delivery.HyperloopParameter:\x02\x38\x01\"O\n\x12HyperloopParameter\x12(\n\x06groups\x18\x01 \x03(\x0b\x32\x18.delivery.HyperloopGroup\x12\x0f\n\x07\x64\x65\x66\x61ult\x18\x02 \x01(\x02\"e\n\x0eHyperloopGroup\x12\x12\n\nlow_bucket\x18\x01 \x01(\x05\x12\x13\n\x0bhigh_bucket\x18\x02 \x01(\x05\x12*\n\x03\x65xp\x18\x03 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\"\xd2\x01\n\x13HyperloopExpression\x12(\n\x04leaf\x18\x01 \x01(\x0b\x32\x18.delivery.LeafExpressionH\x00\x12?\n\rgenerator_exp\x18\x02 \x01(\x0b\x32&.delivery.HyperloopGeneratorExpressionH\x00\x12\x43\n\x0f\x63onditional_exp\x18\x03 \x01(\x0b\x32(.delivery.HyperloopConditionalExpressionH\x00\x42\x0b\n\tnode_type\"\xa6\x01\n\x1cHyperloopGeneratorExpression\x12\x36\n\x07uniform\x18\x01 \x01(\x0b\x32#.delivery.HyperloopUniformGeneratorH\x00\x12\x41\n\runiform_multi\x18\x02 \x01(\x0b\x32(.delivery.HyperloopUniformMultiGeneratorH\x00\x42\x0b\n\tgenerator\"B\n\x19HyperloopUniformGenerator\x12\x11\n\tlow_bound\x18\x01 \x01(\x02\x12\x12\n\nhigh_bound\x18\x02 \x01(\x02\"=\n\x1eHyperloopUniformMultiGenerator\x12\x0c\n\x04\x62\x61se\x18\x01 \x01(\x02\x12\r\n\x05multi\x18\x02 \x01(\x02\"\x84\x03\n\x1eHyperloopConditionalExpression\x12=\n\x02op\x18\x01 \x01(\x0e\x32\x31.delivery.HyperloopConditionalExpression.Operator\x12\x34\n\rpredicate_lhs\x18\x02 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\x12\x34\n\rpredicate_rhs\x18\x03 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\x12\x32\n\x0bthen_branch\x18\x04 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\x12\x32\n\x0b\x65lse_branch\x18\x05 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\"O\n\x08Operator\x12\x0b\n\x07UNKNOWN\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\x10\n\x0cGREATER_THAN\x10\x02\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x03\"\xa8\x01\n\x0cHyperloopLog\x12\x41\n\x0eparameter_logs\x18\x01 \x03(\x0b\x32).delivery.HyperloopLog.ParameterLogsEntry\x1aU\n\x12ParameterLogsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x04\x12.\n\x05value\x18\x02 \x01(\x0b\x32\x1f.delivery.HyperloopParameterLog:\x02\x38\x01\"6\n\x15HyperloopParameterLog\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\x05\x12\r\n\x05value\x18\x02 \x01(\x02\x42u\n\x1a\x61i.promoted.proto.deliveryB\x07\x42lenderP\x01Z8github.com/promotedai/schema/generated/go/proto/delivery\xaa\x02\x11Promoted.Deliveryb\x06proto3'
+  serialized_pb=b'\n\x1cproto/delivery/blender.proto\x12\x08\x64\x65livery\"D\n\x0eLeafExpression\x12!\n\x07lookups\x18\x01 \x03(\x0b\x32\x10.delivery.Lookup\x12\x0f\n\x07\x64\x65\x66\x61ult\x18\x02 \x01(\x02\"F\n\x06Lookup\x12\x14\n\nfeature_id\x18\x01 \x01(\x04H\x00\x12\x17\n\rparameter_key\x18\x02 \x01(\x04H\x00\x42\r\n\x0blookup_type\"o\n\rBlenderConfig\x12\x32\n\rquality_score\x18\x01 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12*\n\x08sort_key\x18\x02 \x01(\x0b\x32\x18.delivery.BlenderSortKey\"\xcd\x01\n\x11\x42lenderExpression\x12(\n\x04leaf\x18\x01 \x01(\x0b\x32\x18.delivery.LeafExpressionH\x00\x12?\n\x0e\x61rithmetic_exp\x18\x02 \x01(\x0b\x32%.delivery.BlenderArithmeticExpressionH\x00\x12\x41\n\x0f\x63onditional_exp\x18\x03 \x01(\x0b\x32&.delivery.BlenderConditionalExpressionH\x00\x42\n\n\x08\x65xp_type\"\xfa\x01\n\x1b\x42lenderArithmeticExpression\x12:\n\x02op\x18\x01 \x01(\x0e\x32..delivery.BlenderArithmeticExpression.Operator\x12+\n\x06inputs\x18\x02 \x03(\x0b\x32\x1b.delivery.BlenderExpression\"r\n\x08Operator\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x07\n\x03\x41\x44\x44\x10\x01\x12\x0c\n\x08MULTIPLY\x10\x02\x12\x0c\n\x08SUBTRACT\x10\x03\x12\n\n\x06\x44IVIDE\x10\x04\x12\x07\n\x03MIN\x10\x05\x12\x07\n\x03MAX\x10\x06\x12\t\n\x05\x46LOOR\x10\x07\x12\x0b\n\x07\x43\x45ILING\x10\x08\"\xf8\x02\n\x1c\x42lenderConditionalExpression\x12;\n\x02op\x18\x01 \x01(\x0e\x32/.delivery.BlenderConditionalExpression.Operator\x12\x32\n\rpredicate_lhs\x18\x02 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12\x32\n\rpredicate_rhs\x18\x03 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12\x30\n\x0bthen_branch\x18\x04 \x01(\x0b\x32\x1b.delivery.BlenderExpression\x12\x30\n\x0b\x65lse_branch\x18\x05 \x01(\x0b\x32\x1b.delivery.BlenderExpression\"O\n\x08Operator\x12\x0b\n\x07UNKNOWN\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\x10\n\x0cGREATER_THAN\x10\x02\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x03\"?\n\x0e\x42lenderSortKey\x12-\n\x08\x65lements\x18\x01 \x03(\x0b\x32\x1b.delivery.BlenderExpression\"\xa1\x01\n\x0fHyperloopConfig\x12=\n\nparameters\x18\x01 \x03(\x0b\x32).delivery.HyperloopConfig.ParametersEntry\x1aO\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\x04\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.delivery.HyperloopParameter:\x02\x38\x01\"O\n\x12HyperloopParameter\x12(\n\x06groups\x18\x01 \x03(\x0b\x32\x18.delivery.HyperloopGroup\x12\x0f\n\x07\x64\x65\x66\x61ult\x18\x02 \x01(\x02\"e\n\x0eHyperloopGroup\x12\x12\n\nlow_bucket\x18\x01 \x01(\x05\x12\x13\n\x0bhigh_bucket\x18\x02 \x01(\x05\x12*\n\x03\x65xp\x18\x03 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\"\xd2\x01\n\x13HyperloopExpression\x12(\n\x04leaf\x18\x01 \x01(\x0b\x32\x18.delivery.LeafExpressionH\x00\x12?\n\rgenerator_exp\x18\x02 \x01(\x0b\x32&.delivery.HyperloopGeneratorExpressionH\x00\x12\x43\n\x0f\x63onditional_exp\x18\x03 \x01(\x0b\x32(.delivery.HyperloopConditionalExpressionH\x00\x42\x0b\n\tnode_type\"\xa6\x01\n\x1cHyperloopGeneratorExpression\x12\x36\n\x07uniform\x18\x01 \x01(\x0b\x32#.delivery.HyperloopUniformGeneratorH\x00\x12\x41\n\runiform_multi\x18\x02 \x01(\x0b\x32(.delivery.HyperloopUniformMultiGeneratorH\x00\x42\x0b\n\tgenerator\"B\n\x19HyperloopUniformGenerator\x12\x11\n\tlow_bound\x18\x01 \x01(\x02\x12\x12\n\nhigh_bound\x18\x02 \x01(\x02\"=\n\x1eHyperloopUniformMultiGenerator\x12\x0c\n\x04\x62\x61se\x18\x01 \x01(\x02\x12\r\n\x05multi\x18\x02 \x01(\x02\"\x84\x03\n\x1eHyperloopConditionalExpression\x12=\n\x02op\x18\x01 \x01(\x0e\x32\x31.delivery.HyperloopConditionalExpression.Operator\x12\x34\n\rpredicate_lhs\x18\x02 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\x12\x34\n\rpredicate_rhs\x18\x03 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\x12\x32\n\x0bthen_branch\x18\x04 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\x12\x32\n\x0b\x65lse_branch\x18\x05 \x01(\x0b\x32\x1d.delivery.HyperloopExpression\"O\n\x08Operator\x12\x0b\n\x07UNKNOWN\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\x10\n\x0cGREATER_THAN\x10\x02\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x03\"\xa8\x01\n\x0cHyperloopLog\x12\x41\n\x0eparameter_logs\x18\x01 \x03(\x0b\x32).delivery.HyperloopLog.ParameterLogsEntry\x1aU\n\x12ParameterLogsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x04\x12.\n\x05value\x18\x02 \x01(\x0b\x32\x1f.delivery.HyperloopParameterLog:\x02\x38\x01\"6\n\x15HyperloopParameterLog\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\x05\x12\r\n\x05value\x18\x02 \x01(\x02\x42u\n\x1a\x61i.promoted.proto.deliveryB\x07\x42lenderP\x01Z8github.com/promotedai/schema/generated/go/proto/delivery\xaa\x02\x11Promoted.Deliveryb\x06proto3'
 )
 
 
@@ -66,11 +66,21 @@ _BLENDERARITHMETICEXPRESSION_OPERATOR = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FLOOR', index=7, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CEILING', index=8, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=642,
-  serialized_end=732,
+  serialized_end=756,
 )
 _sym_db.RegisterEnumDescriptor(_BLENDERARITHMETICEXPRESSION_OPERATOR)
 
@@ -104,8 +114,8 @@ _BLENDERCONDITIONALEXPRESSION_OPERATOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1032,
-  serialized_end=1111,
+  serialized_start=1056,
+  serialized_end=1135,
 )
 _sym_db.RegisterEnumDescriptor(_BLENDERCONDITIONALEXPRESSION_OPERATOR)
 
@@ -139,8 +149,8 @@ _HYPERLOOPCONDITIONALEXPRESSION_OPERATOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1032,
-  serialized_end=1111,
+  serialized_start=1056,
+  serialized_end=1135,
 )
 _sym_db.RegisterEnumDescriptor(_HYPERLOOPCONDITIONALEXPRESSION_OPERATOR)
 
@@ -354,7 +364,7 @@ _BLENDERARITHMETICEXPRESSION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=506,
-  serialized_end=732,
+  serialized_end=756,
 )
 
 
@@ -414,8 +424,8 @@ _BLENDERCONDITIONALEXPRESSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=735,
-  serialized_end=1111,
+  serialized_start=759,
+  serialized_end=1135,
 )
 
 
@@ -446,8 +456,8 @@ _BLENDERSORTKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1113,
-  serialized_end=1176,
+  serialized_start=1137,
+  serialized_end=1200,
 )
 
 
@@ -485,8 +495,8 @@ _HYPERLOOPCONFIG_PARAMETERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1261,
-  serialized_end=1340,
+  serialized_start=1285,
+  serialized_end=1364,
 )
 
 _HYPERLOOPCONFIG = _descriptor.Descriptor(
@@ -516,8 +526,8 @@ _HYPERLOOPCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1179,
-  serialized_end=1340,
+  serialized_start=1203,
+  serialized_end=1364,
 )
 
 
@@ -555,8 +565,8 @@ _HYPERLOOPPARAMETER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1342,
-  serialized_end=1421,
+  serialized_start=1366,
+  serialized_end=1445,
 )
 
 
@@ -601,8 +611,8 @@ _HYPERLOOPGROUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1423,
-  serialized_end=1524,
+  serialized_start=1447,
+  serialized_end=1548,
 )
 
 
@@ -652,8 +662,8 @@ _HYPERLOOPEXPRESSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1527,
-  serialized_end=1737,
+  serialized_start=1551,
+  serialized_end=1761,
 )
 
 
@@ -696,8 +706,8 @@ _HYPERLOOPGENERATOREXPRESSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1740,
-  serialized_end=1906,
+  serialized_start=1764,
+  serialized_end=1930,
 )
 
 
@@ -735,8 +745,8 @@ _HYPERLOOPUNIFORMGENERATOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1908,
-  serialized_end=1974,
+  serialized_start=1932,
+  serialized_end=1998,
 )
 
 
@@ -774,8 +784,8 @@ _HYPERLOOPUNIFORMMULTIGENERATOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1976,
-  serialized_end=2037,
+  serialized_start=2000,
+  serialized_end=2061,
 )
 
 
@@ -835,8 +845,8 @@ _HYPERLOOPCONDITIONALEXPRESSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2040,
-  serialized_end=2428,
+  serialized_start=2064,
+  serialized_end=2452,
 )
 
 
@@ -874,8 +884,8 @@ _HYPERLOOPLOG_PARAMETERLOGSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2514,
-  serialized_end=2599,
+  serialized_start=2538,
+  serialized_end=2623,
 )
 
 _HYPERLOOPLOG = _descriptor.Descriptor(
@@ -905,8 +915,8 @@ _HYPERLOOPLOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2431,
-  serialized_end=2599,
+  serialized_start=2455,
+  serialized_end=2623,
 )
 
 
@@ -944,8 +954,8 @@ _HYPERLOOPPARAMETERLOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2601,
-  serialized_end=2655,
+  serialized_start=2625,
+  serialized_end=2679,
 )
 
 _LEAFEXPRESSION.fields_by_name['lookups'].message_type = _LOOKUP

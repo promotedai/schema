@@ -50,7 +50,7 @@ struct TableStruct_proto_2fevent_2fevent_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[22]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -71,6 +71,9 @@ extern AncestorIdHistoryItemDefaultTypeInternal _AncestorIdHistoryItem_default_i
 class AppScreenView;
 struct AppScreenViewDefaultTypeInternal;
 extern AppScreenViewDefaultTypeInternal _AppScreenView_default_instance_;
+class Attribution;
+struct AttributionDefaultTypeInternal;
+extern AttributionDefaultTypeInternal _Attribution_default_instance_;
 class AutoView;
 struct AutoViewDefaultTypeInternal;
 extern AutoViewDefaultTypeInternal _AutoView_default_instance_;
@@ -128,6 +131,7 @@ template<> ::event::Action* Arena::CreateMaybeMessage<::event::Action>(Arena*);
 template<> ::event::AncestorIdHistory* Arena::CreateMaybeMessage<::event::AncestorIdHistory>(Arena*);
 template<> ::event::AncestorIdHistoryItem* Arena::CreateMaybeMessage<::event::AncestorIdHistoryItem>(Arena*);
 template<> ::event::AppScreenView* Arena::CreateMaybeMessage<::event::AppScreenView>(Arena*);
+template<> ::event::Attribution* Arena::CreateMaybeMessage<::event::Attribution>(Arena*);
 template<> ::event::AutoView* Arena::CreateMaybeMessage<::event::AutoView>(Arena*);
 template<> ::event::Cart* Arena::CreateMaybeMessage<::event::Cart>(Arena*);
 template<> ::event::CartContent* Arena::CreateMaybeMessage<::event::CartContent>(Arena*);
@@ -278,12 +282,14 @@ enum ActionType : int {
   REMOVE_BOOKMARK = 17,
   ADD_TO_LIST = 18,
   REMOVE_FROM_LIST = 19,
+  FOLLOW = 20,
+  UNFOLLOW = 21,
   ActionType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   ActionType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool ActionType_IsValid(int value);
 constexpr ActionType ActionType_MIN = UNKNOWN_ACTION_TYPE;
-constexpr ActionType ActionType_MAX = REMOVE_FROM_LIST;
+constexpr ActionType ActionType_MAX = UNFOLLOW;
 constexpr int ActionType_ARRAYSIZE = ActionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ActionType_descriptor();
@@ -4097,6 +4103,154 @@ class CartContent PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Attribution PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:event.Attribution) */ {
+ public:
+  inline Attribution() : Attribution(nullptr) {}
+  virtual ~Attribution();
+  explicit constexpr Attribution(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Attribution(const Attribution& from);
+  Attribution(Attribution&& from) noexcept
+    : Attribution() {
+    *this = ::std::move(from);
+  }
+
+  inline Attribution& operator=(const Attribution& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Attribution& operator=(Attribution&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Attribution& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Attribution* internal_default_instance() {
+    return reinterpret_cast<const Attribution*>(
+               &_Attribution_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(Attribution& a, Attribution& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Attribution* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Attribution* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Attribution* New() const final {
+    return CreateMaybeMessage<Attribution>(nullptr);
+  }
+
+  Attribution* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Attribution>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Attribution& from);
+  void MergeFrom(const Attribution& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Attribution* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "event.Attribution";
+  }
+  protected:
+  explicit Attribution(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_proto_2fevent_2fevent_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kModelIdFieldNumber = 1,
+    kCreditMillisFieldNumber = 2,
+  };
+  // uint64 model_id = 1 [json_name = "modelId"];
+  void clear_model_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 model_id() const;
+  void set_model_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_model_id() const;
+  void _internal_set_model_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // int32 credit_millis = 2 [json_name = "creditMillis"];
+  void clear_credit_millis();
+  ::PROTOBUF_NAMESPACE_ID::int32 credit_millis() const;
+  void set_credit_millis(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_credit_millis() const;
+  void _internal_set_credit_millis(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:event.Attribution)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 model_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 credit_millis_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_proto_2fevent_2fevent_2eproto;
+};
+// -------------------------------------------------------------------
+
 class IOSError PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:event.IOSError) */ {
  public:
@@ -4140,7 +4294,7 @@ class IOSError PROTOBUF_FINAL :
                &_IOSError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(IOSError& a, IOSError& b) {
     a.Swap(&b);
@@ -4324,7 +4478,7 @@ class ErrorHistory PROTOBUF_FINAL :
                &_ErrorHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(ErrorHistory& a, ErrorHistory& b) {
     a.Swap(&b);
@@ -4489,7 +4643,7 @@ class AncestorIdHistoryItem PROTOBUF_FINAL :
                &_AncestorIdHistoryItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(AncestorIdHistoryItem& a, AncestorIdHistoryItem& b) {
     a.Swap(&b);
@@ -4741,7 +4895,7 @@ class AncestorIdHistory PROTOBUF_FINAL :
                &_AncestorIdHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(AncestorIdHistory& a, AncestorIdHistory& b) {
     a.Swap(&b);
@@ -4991,7 +5145,7 @@ class MobileDiagnostics PROTOBUF_FINAL :
                &_MobileDiagnostics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(MobileDiagnostics& a, MobileDiagnostics& b) {
     a.Swap(&b);
@@ -5249,7 +5403,7 @@ class Diagnostics PROTOBUF_FINAL :
                &_Diagnostics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(Diagnostics& a, Diagnostics& b) {
     a.Swap(&b);
@@ -5478,7 +5632,7 @@ class LogRequest PROTOBUF_FINAL :
                &_LogRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(LogRequest& a, LogRequest& b) {
     a.Swap(&b);
@@ -12436,6 +12590,50 @@ inline void CartContent::set_allocated_price_per_unit(::common::Money* price_per
 
 // -------------------------------------------------------------------
 
+// Attribution
+
+// uint64 model_id = 1 [json_name = "modelId"];
+inline void Attribution::clear_model_id() {
+  model_id_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Attribution::_internal_model_id() const {
+  return model_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 Attribution::model_id() const {
+  // @@protoc_insertion_point(field_get:event.Attribution.model_id)
+  return _internal_model_id();
+}
+inline void Attribution::_internal_set_model_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  model_id_ = value;
+}
+inline void Attribution::set_model_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_model_id(value);
+  // @@protoc_insertion_point(field_set:event.Attribution.model_id)
+}
+
+// int32 credit_millis = 2 [json_name = "creditMillis"];
+inline void Attribution::clear_credit_millis() {
+  credit_millis_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attribution::_internal_credit_millis() const {
+  return credit_millis_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attribution::credit_millis() const {
+  // @@protoc_insertion_point(field_get:event.Attribution.credit_millis)
+  return _internal_credit_millis();
+}
+inline void Attribution::_internal_set_credit_millis(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  credit_millis_ = value;
+}
+inline void Attribution::set_credit_millis(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_credit_millis(value);
+  // @@protoc_insertion_point(field_set:event.Attribution.credit_millis)
+}
+
+// -------------------------------------------------------------------
+
 // IOSError
 
 // int32 code = 1 [json_name = "code"];
@@ -14792,6 +14990,8 @@ LogRequest::diagnostics() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

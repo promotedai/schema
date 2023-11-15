@@ -299,6 +299,19 @@ struct CartContentDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CartContentDefaultTypeInternal _CartContent_default_instance_;
+constexpr Attribution::Attribution(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : model_id_(PROTOBUF_ULONGLONG(0))
+  , credit_millis_(0){}
+struct AttributionDefaultTypeInternal {
+  constexpr AttributionDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~AttributionDefaultTypeInternal() {}
+  union {
+    Attribution _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT AttributionDefaultTypeInternal _Attribution_default_instance_;
 constexpr IOSError::IOSError(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : domain_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -422,7 +435,7 @@ struct LogRequestDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LogRequestDefaultTypeInternal _LogRequest_default_instance_;
 }  // namespace event
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_proto_2fevent_2fevent_2eproto[21];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_proto_2fevent_2fevent_2eproto[22];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_proto_2fevent_2fevent_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_proto_2fevent_2fevent_2eproto = nullptr;
 
@@ -637,6 +650,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_proto_2fevent_2fevent_2eproto:
   PROTOBUF_FIELD_OFFSET(::event::CartContent, quantity_),
   PROTOBUF_FIELD_OFFSET(::event::CartContent, price_per_unit_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::event::Attribution, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::event::Attribution, model_id_),
+  PROTOBUF_FIELD_OFFSET(::event::Attribution, credit_millis_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::event::IOSError, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -737,13 +757,14 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 143, 172, sizeof(::event::Action)},
   { 195, -1, sizeof(::event::Cart)},
   { 201, -1, sizeof(::event::CartContent)},
-  { 209, -1, sizeof(::event::IOSError)},
-  { 218, -1, sizeof(::event::ErrorHistory)},
-  { 225, -1, sizeof(::event::AncestorIdHistoryItem)},
-  { 237, -1, sizeof(::event::AncestorIdHistory)},
-  { 250, -1, sizeof(::event::MobileDiagnostics)},
-  { 263, -1, sizeof(::event::Diagnostics)},
-  { 274, -1, sizeof(::event::LogRequest)},
+  { 209, -1, sizeof(::event::Attribution)},
+  { 216, -1, sizeof(::event::IOSError)},
+  { 225, -1, sizeof(::event::ErrorHistory)},
+  { 232, -1, sizeof(::event::AncestorIdHistoryItem)},
+  { 244, -1, sizeof(::event::AncestorIdHistory)},
+  { 257, -1, sizeof(::event::MobileDiagnostics)},
+  { 270, -1, sizeof(::event::Diagnostics)},
+  { 281, -1, sizeof(::event::LogRequest)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -761,6 +782,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::event::_Action_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::event::_Cart_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::event::_CartContent_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::event::_Attribution_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::event::_IOSError_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::event::_ErrorHistory_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::event::_AncestorIdHistoryItem_default_instance_),
@@ -910,91 +932,94 @@ const char descriptor_table_protodef_proto_2fevent_2fevent_2eproto[] PROTOBUF_SE
   "ts\"}\n\013CartContent\022\035\n\ncontent_id\030\001 \001(\tR\tc"
   "ontentId\022\032\n\010quantity\030\002 \001(\003R\010quantity\0223\n\016"
   "price_per_unit\030\003 \001(\0132\r.common.MoneyR\014pri"
-  "cePerUnit\"{\n\010IOSError\022\022\n\004code\030\001 \001(\005R\004cod"
-  "e\022\026\n\006domain\030\002 \001(\tR\006domain\022 \n\013description"
-  "\030\003 \001(\tR\013description\022!\n\014batch_number\030\004 \001("
-  "\005R\013batchNumber\"a\n\014ErrorHistory\022.\n\nios_er"
-  "rors\030\001 \003(\0132\017.event.IOSErrorR\tiosErrors\022!"
-  "\n\014total_errors\030\002 \001(\005R\013totalErrors\"\300\002\n\025An"
-  "cestorIdHistoryItem\022\037\n\013ancestor_id\030\001 \001(\t"
-  "R\nancestorId\022,\n\nuser_event\030\002 \001(\0132\013.event"
-  ".UserH\000R\tuserEvent\022<\n\032session_id_from_us"
-  "er_event\030\003 \001(\tH\000R\026sessionIdFromUserEvent"
-  "\022,\n\nview_event\030\004 \001(\0132\013.event.ViewH\000R\tvie"
-  "wEvent\0229\n\017auto_view_event\030\006 \001(\0132\017.event."
-  "AutoViewH\000R\rautoViewEvent\022!\n\014batch_numbe"
-  "r\030\005 \001(\005R\013batchNumberB\016\n\014logged_event\"\243\004\n"
-  "\021AncestorIdHistory\022K\n\023log_user_id_histor"
-  "y\030\001 \003(\0132\034.event.AncestorIdHistoryItemR\020l"
-  "ogUserIdHistory\0228\n\031total_log_user_ids_lo"
-  "gged\030\002 \001(\005R\025totalLogUserIdsLogged\022J\n\022ses"
-  "sion_id_history\030\003 \003(\0132\034.event.AncestorId"
-  "HistoryItemR\020sessionIdHistory\0227\n\030total_s"
-  "ession_ids_logged\030\004 \001(\005R\025totalSessionIds"
-  "Logged\022D\n\017view_id_history\030\005 \003(\0132\034.event."
-  "AncestorIdHistoryItemR\rviewIdHistory\0221\n\025"
-  "total_view_ids_logged\030\006 \001(\005R\022totalViewId"
-  "sLogged\022M\n\024auto_view_id_history\030\007 \003(\0132\034."
-  "event.AncestorIdHistoryItemR\021autoViewIdH"
-  "istory\022:\n\032total_auto_view_ids_logged\030\010 \001"
-  "(\005R\026totalAutoViewIdsLogged\"\306\003\n\021MobileDia"
-  "gnostics\022+\n\021device_identifier\030\001 \001(\tR\020dev"
-  "iceIdentifier\022)\n\016client_version\030\002 \001(\tB\002\030"
-  "\001R\rclientVersion\022<\n\030promoted_library_ver"
-  "sion\030\003 \001(\tB\002\030\001R\026promotedLibraryVersion\022+"
-  "\n\021batches_attempted\030\004 \001(\005R\020batchesAttemp"
-  "ted\022:\n\031batches_sent_successfully\030\005 \001(\005R\027"
-  "batchesSentSuccessfully\022.\n\023batches_with_"
-  "errors\030\006 \001(\005R\021batchesWithErrors\0228\n\rerror"
-  "_history\030\007 \001(\0132\023.event.ErrorHistoryR\014err"
-  "orHistory\022H\n\023ancestor_id_history\030\010 \001(\0132\030"
-  ".event.AncestorIdHistoryR\021ancestorIdHist"
-  "ory\"\234\002\n\013Diagnostics\022\037\n\013platform_id\030\001 \001(\004"
-  "R\nplatformId\022-\n\tuser_info\030\002 \001(\0132\020.common"
-  ".UserInfoR\010userInfo\022&\n\006timing\030\003 \001(\0132\016.co"
-  "mmon.TimingR\006timing\0223\n\013client_info\030\004 \001(\013"
-  "2\022.common.ClientInfoR\nclientInfo\022I\n\022mobi"
-  "le_diagnostics\030\005 \001(\0132\030.event.MobileDiagn"
-  "osticsH\000R\021mobileDiagnosticsB\025\n\023diagnosti"
-  "cs_message\"\353\005\n\nLogRequest\022\037\n\013platform_id"
-  "\030\001 \001(\004R\nplatformId\022-\n\tuser_info\030\002 \001(\0132\020."
-  "common.UserInfoR\010userInfo\022&\n\006timing\030\003 \001("
-  "\0132\016.common.TimingR\006timing\0223\n\013client_info"
-  "\030\004 \001(\0132\022.common.ClientInfoR\nclientInfo\022&"
-  "\n\006device\030\030 \001(\0132\016.common.DeviceR\006device\022\037"
-  "\n\004user\030\007 \003(\0132\013.event.UserR\004user\022D\n\021cohor"
-  "t_membership\030\010 \003(\0132\027.event.CohortMembers"
-  "hipR\020cohortMembership\022\037\n\004view\030\013 \003(\0132\013.ev"
-  "ent.ViewR\004view\022,\n\tauto_view\030\031 \003(\0132\017.even"
-  "t.AutoViewR\010autoView\022+\n\007request\030\014 \003(\0132\021."
-  "delivery.RequestR\007request\0221\n\tinsertion\030\r"
-  " \003(\0132\023.delivery.InsertionR\tinsertion\0221\n\n"
-  "impression\030\016 \003(\0132\021.event.ImpressionR\nimp"
-  "ression\022%\n\006action\030\017 \003(\0132\r.event.ActionR\006"
-  "action\0228\n\014delivery_log\030\022 \003(\0132\025.delivery."
-  "DeliveryLogR\013deliveryLog\0224\n\013diagnostics\030"
-  "\027 \003(\0132\022.event.DiagnosticsR\013diagnosticsJ\004"
-  "\010\005\020\006J\004\010\006\020\007J\004\010\t\020\nJ\004\010\n\020\013J\004\010\020\020\021J\004\010\021\020\022J\004\010\023\020\027"
-  "*c\n\024IdentifierProvenance\022\013\n\007UNKNOWN\020\000\022\010\n"
-  "\004NULL\020\001\022\t\n\005EMPTY\020\002\022\021\n\rAUTOGENERATED\020\003\022\026\n"
-  "\022PLATFORM_SPECIFIED\020\004*j\n\tCohortArm\022\021\n\rUN"
-  "KNOWN_GROUP\020\000\022\013\n\007CONTROL\020\001\022\r\n\tTREATMENT\020"
-  "\002\022\016\n\nTREATMENT1\020\003\022\016\n\nTREATMENT2\020\004\022\016\n\nTRE"
-  "ATMENT3\020\005*\\\n\024ImpressionSourceType\022\"\n\036UNK"
-  "NOWN_IMPRESSION_SOURCE_TYPE\020\000\022\014\n\010DELIVER"
-  "Y\020\001\022\022\n\016CLIENT_BACKEND\020\002*\361\002\n\nActionType\022\027"
-  "\n\023UNKNOWN_ACTION_TYPE\020\000\022\026\n\022CUSTOM_ACTION"
-  "_TYPE\020\001\022\014\n\010NAVIGATE\020\002\022\017\n\013ADD_TO_CART\020\004\022\024"
-  "\n\020REMOVE_FROM_CART\020\n\022\014\n\010CHECKOUT\020\010\022\014\n\010PU"
-  "RCHASE\020\003\022\t\n\005SHARE\020\005\022\010\n\004LIKE\020\006\022\n\n\006UNLIKE\020"
-  "\t\022\013\n\007COMMENT\020\007\022\016\n\nMAKE_OFFER\020\013\022\020\n\014ASK_QU"
-  "ESTION\020\014\022\023\n\017ANSWER_QUESTION\020\r\022\024\n\020COMPLET"
-  "E_SIGN_IN\020\016\022\024\n\020COMPLETE_SIGN_UP\020\017\022\014\n\010BOO"
-  "KMARK\020\020\022\023\n\017REMOVE_BOOKMARK\020\021\022\017\n\013ADD_TO_L"
-  "IST\020\022\022\024\n\020REMOVE_FROM_LIST\020\023\"\006\010\377\001\020\377\001BY\n\027a"
-  "i.promoted.proto.eventB\005EventP\001Z5github."
-  "com/promotedai/schema/generated/go/proto"
-  "/eventb\006proto3"
+  "cePerUnit\"M\n\013Attribution\022\031\n\010model_id\030\001 \001"
+  "(\004R\007modelId\022#\n\rcredit_millis\030\002 \001(\005R\014cred"
+  "itMillis\"{\n\010IOSError\022\022\n\004code\030\001 \001(\005R\004code"
+  "\022\026\n\006domain\030\002 \001(\tR\006domain\022 \n\013description\030"
+  "\003 \001(\tR\013description\022!\n\014batch_number\030\004 \001(\005"
+  "R\013batchNumber\"a\n\014ErrorHistory\022.\n\nios_err"
+  "ors\030\001 \003(\0132\017.event.IOSErrorR\tiosErrors\022!\n"
+  "\014total_errors\030\002 \001(\005R\013totalErrors\"\300\002\n\025Anc"
+  "estorIdHistoryItem\022\037\n\013ancestor_id\030\001 \001(\tR"
+  "\nancestorId\022,\n\nuser_event\030\002 \001(\0132\013.event."
+  "UserH\000R\tuserEvent\022<\n\032session_id_from_use"
+  "r_event\030\003 \001(\tH\000R\026sessionIdFromUserEvent\022"
+  ",\n\nview_event\030\004 \001(\0132\013.event.ViewH\000R\tview"
+  "Event\0229\n\017auto_view_event\030\006 \001(\0132\017.event.A"
+  "utoViewH\000R\rautoViewEvent\022!\n\014batch_number"
+  "\030\005 \001(\005R\013batchNumberB\016\n\014logged_event\"\243\004\n\021"
+  "AncestorIdHistory\022K\n\023log_user_id_history"
+  "\030\001 \003(\0132\034.event.AncestorIdHistoryItemR\020lo"
+  "gUserIdHistory\0228\n\031total_log_user_ids_log"
+  "ged\030\002 \001(\005R\025totalLogUserIdsLogged\022J\n\022sess"
+  "ion_id_history\030\003 \003(\0132\034.event.AncestorIdH"
+  "istoryItemR\020sessionIdHistory\0227\n\030total_se"
+  "ssion_ids_logged\030\004 \001(\005R\025totalSessionIdsL"
+  "ogged\022D\n\017view_id_history\030\005 \003(\0132\034.event.A"
+  "ncestorIdHistoryItemR\rviewIdHistory\0221\n\025t"
+  "otal_view_ids_logged\030\006 \001(\005R\022totalViewIds"
+  "Logged\022M\n\024auto_view_id_history\030\007 \003(\0132\034.e"
+  "vent.AncestorIdHistoryItemR\021autoViewIdHi"
+  "story\022:\n\032total_auto_view_ids_logged\030\010 \001("
+  "\005R\026totalAutoViewIdsLogged\"\306\003\n\021MobileDiag"
+  "nostics\022+\n\021device_identifier\030\001 \001(\tR\020devi"
+  "ceIdentifier\022)\n\016client_version\030\002 \001(\tB\002\030\001"
+  "R\rclientVersion\022<\n\030promoted_library_vers"
+  "ion\030\003 \001(\tB\002\030\001R\026promotedLibraryVersion\022+\n"
+  "\021batches_attempted\030\004 \001(\005R\020batchesAttempt"
+  "ed\022:\n\031batches_sent_successfully\030\005 \001(\005R\027b"
+  "atchesSentSuccessfully\022.\n\023batches_with_e"
+  "rrors\030\006 \001(\005R\021batchesWithErrors\0228\n\rerror_"
+  "history\030\007 \001(\0132\023.event.ErrorHistoryR\014erro"
+  "rHistory\022H\n\023ancestor_id_history\030\010 \001(\0132\030."
+  "event.AncestorIdHistoryR\021ancestorIdHisto"
+  "ry\"\234\002\n\013Diagnostics\022\037\n\013platform_id\030\001 \001(\004R"
+  "\nplatformId\022-\n\tuser_info\030\002 \001(\0132\020.common."
+  "UserInfoR\010userInfo\022&\n\006timing\030\003 \001(\0132\016.com"
+  "mon.TimingR\006timing\0223\n\013client_info\030\004 \001(\0132"
+  "\022.common.ClientInfoR\nclientInfo\022I\n\022mobil"
+  "e_diagnostics\030\005 \001(\0132\030.event.MobileDiagno"
+  "sticsH\000R\021mobileDiagnosticsB\025\n\023diagnostic"
+  "s_message\"\345\005\n\nLogRequest\022\037\n\013platform_id\030"
+  "\001 \001(\004R\nplatformId\022-\n\tuser_info\030\002 \001(\0132\020.c"
+  "ommon.UserInfoR\010userInfo\022&\n\006timing\030\003 \001(\013"
+  "2\016.common.TimingR\006timing\0223\n\013client_info\030"
+  "\004 \001(\0132\022.common.ClientInfoR\nclientInfo\022&\n"
+  "\006device\030\030 \001(\0132\016.common.DeviceR\006device\022\037\n"
+  "\004user\030\007 \003(\0132\013.event.UserR\004user\022D\n\021cohort"
+  "_membership\030\010 \003(\0132\027.event.CohortMembersh"
+  "ipR\020cohortMembership\022\037\n\004view\030\013 \003(\0132\013.eve"
+  "nt.ViewR\004view\022,\n\tauto_view\030\031 \003(\0132\017.event"
+  ".AutoViewR\010autoView\022+\n\007request\030\014 \003(\0132\021.d"
+  "elivery.RequestR\007request\0221\n\tinsertion\030\r "
+  "\003(\0132\023.delivery.InsertionR\tinsertion\0221\n\ni"
+  "mpression\030\016 \003(\0132\021.event.ImpressionR\nimpr"
+  "ession\022%\n\006action\030\017 \003(\0132\r.event.ActionR\006a"
+  "ction\0228\n\014delivery_log\030\022 \003(\0132\025.delivery.D"
+  "eliveryLogR\013deliveryLog\0224\n\013diagnostics\030\027"
+  " \003(\0132\022.event.DiagnosticsR\013diagnosticsJ\004\010"
+  "\005\020\006J\004\010\t\020\nJ\004\010\n\020\013J\004\010\020\020\021J\004\010\021\020\022J\004\010\023\020\027*c\n\024Ide"
+  "ntifierProvenance\022\013\n\007UNKNOWN\020\000\022\010\n\004NULL\020\001"
+  "\022\t\n\005EMPTY\020\002\022\021\n\rAUTOGENERATED\020\003\022\026\n\022PLATFO"
+  "RM_SPECIFIED\020\004*j\n\tCohortArm\022\021\n\rUNKNOWN_G"
+  "ROUP\020\000\022\013\n\007CONTROL\020\001\022\r\n\tTREATMENT\020\002\022\016\n\nTR"
+  "EATMENT1\020\003\022\016\n\nTREATMENT2\020\004\022\016\n\nTREATMENT3"
+  "\020\005*\\\n\024ImpressionSourceType\022\"\n\036UNKNOWN_IM"
+  "PRESSION_SOURCE_TYPE\020\000\022\014\n\010DELIVERY\020\001\022\022\n\016"
+  "CLIENT_BACKEND\020\002*\213\003\n\nActionType\022\027\n\023UNKNO"
+  "WN_ACTION_TYPE\020\000\022\026\n\022CUSTOM_ACTION_TYPE\020\001"
+  "\022\014\n\010NAVIGATE\020\002\022\017\n\013ADD_TO_CART\020\004\022\024\n\020REMOV"
+  "E_FROM_CART\020\n\022\014\n\010CHECKOUT\020\010\022\014\n\010PURCHASE\020"
+  "\003\022\t\n\005SHARE\020\005\022\010\n\004LIKE\020\006\022\n\n\006UNLIKE\020\t\022\013\n\007CO"
+  "MMENT\020\007\022\016\n\nMAKE_OFFER\020\013\022\020\n\014ASK_QUESTION\020"
+  "\014\022\023\n\017ANSWER_QUESTION\020\r\022\024\n\020COMPLETE_SIGN_"
+  "IN\020\016\022\024\n\020COMPLETE_SIGN_UP\020\017\022\014\n\010BOOKMARK\020\020"
+  "\022\023\n\017REMOVE_BOOKMARK\020\021\022\017\n\013ADD_TO_LIST\020\022\022\024"
+  "\n\020REMOVE_FROM_LIST\020\023\022\n\n\006FOLLOW\020\024\022\014\n\010UNFO"
+  "LLOW\020\025\"\006\010\377\001\020\377\001Bj\n\027ai.promoted.proto.even"
+  "tB\005EventP\001Z5github.com/promotedai/schema"
+  "/generated/go/proto/event\252\002\016Promoted.Eve"
+  "ntb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fevent_2fevent_2eproto_deps[3] = {
   &::descriptor_table_proto_2fcommon_2fcommon_2eproto,
@@ -1003,8 +1028,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_2fevent_2fevent_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fevent_2fevent_2eproto = {
-  false, false, 8934, descriptor_table_protodef_proto_2fevent_2fevent_2eproto, "proto/event/event.proto", 
-  &descriptor_table_proto_2fevent_2fevent_2eproto_once, descriptor_table_proto_2fevent_2fevent_2eproto_deps, 3, 21,
+  false, false, 9050, descriptor_table_protodef_proto_2fevent_2fevent_2eproto, "proto/event/event.proto", 
+  &descriptor_table_proto_2fevent_2fevent_2eproto_once, descriptor_table_proto_2fevent_2fevent_2eproto_deps, 3, 22,
   schemas, file_default_instances, TableStruct_proto_2fevent_2fevent_2eproto::offsets,
   file_level_metadata_proto_2fevent_2fevent_2eproto, file_level_enum_descriptors_proto_2fevent_2fevent_2eproto, file_level_service_descriptors_proto_2fevent_2fevent_2eproto,
 };
@@ -1116,6 +1141,8 @@ bool ActionType_IsValid(int value) {
     case 17:
     case 18:
     case 19:
+    case 20:
+    case 21:
       return true;
     default:
       return false;
@@ -7878,6 +7905,230 @@ void CartContent::InternalSwap(CartContent* other) {
 
 // ===================================================================
 
+class Attribution::_Internal {
+ public:
+};
+
+Attribution::Attribution(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:event.Attribution)
+}
+Attribution::Attribution(const Attribution& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&model_id_, &from.model_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&credit_millis_) -
+    reinterpret_cast<char*>(&model_id_)) + sizeof(credit_millis_));
+  // @@protoc_insertion_point(copy_constructor:event.Attribution)
+}
+
+void Attribution::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&model_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&credit_millis_) -
+    reinterpret_cast<char*>(&model_id_)) + sizeof(credit_millis_));
+}
+
+Attribution::~Attribution() {
+  // @@protoc_insertion_point(destructor:event.Attribution)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Attribution::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Attribution::ArenaDtor(void* object) {
+  Attribution* _this = reinterpret_cast< Attribution* >(object);
+  (void)_this;
+}
+void Attribution::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Attribution::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void Attribution::Clear() {
+// @@protoc_insertion_point(message_clear_start:event.Attribution)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&model_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&credit_millis_) -
+      reinterpret_cast<char*>(&model_id_)) + sizeof(credit_millis_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Attribution::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint64 model_id = 1 [json_name = "modelId"];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          model_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 credit_millis = 2 [json_name = "creditMillis"];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          credit_millis_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Attribution::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:event.Attribution)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 model_id = 1 [json_name = "modelId"];
+  if (this->model_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_model_id(), target);
+  }
+
+  // int32 credit_millis = 2 [json_name = "creditMillis"];
+  if (this->credit_millis() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_credit_millis(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:event.Attribution)
+  return target;
+}
+
+size_t Attribution::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:event.Attribution)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint64 model_id = 1 [json_name = "modelId"];
+  if (this->model_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_model_id());
+  }
+
+  // int32 credit_millis = 2 [json_name = "creditMillis"];
+  if (this->credit_millis() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_credit_millis());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Attribution::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:event.Attribution)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Attribution* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Attribution>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:event.Attribution)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:event.Attribution)
+    MergeFrom(*source);
+  }
+}
+
+void Attribution::MergeFrom(const Attribution& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:event.Attribution)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.model_id() != 0) {
+    _internal_set_model_id(from._internal_model_id());
+  }
+  if (from.credit_millis() != 0) {
+    _internal_set_credit_millis(from._internal_credit_millis());
+  }
+}
+
+void Attribution::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:event.Attribution)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Attribution::CopyFrom(const Attribution& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:event.Attribution)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Attribution::IsInitialized() const {
+  return true;
+}
+
+void Attribution::InternalSwap(Attribution* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Attribution, credit_millis_)
+      + sizeof(Attribution::credit_millis_)
+      - PROTOBUF_FIELD_OFFSET(Attribution, model_id_)>(
+          reinterpret_cast<char*>(&model_id_),
+          reinterpret_cast<char*>(&other->model_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Attribution::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class IOSError::_Internal {
  public:
 };
@@ -10882,6 +11133,9 @@ template<> PROTOBUF_NOINLINE ::event::Cart* Arena::CreateMaybeMessage< ::event::
 }
 template<> PROTOBUF_NOINLINE ::event::CartContent* Arena::CreateMaybeMessage< ::event::CartContent >(Arena* arena) {
   return Arena::CreateMessageInternal< ::event::CartContent >(arena);
+}
+template<> PROTOBUF_NOINLINE ::event::Attribution* Arena::CreateMaybeMessage< ::event::Attribution >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::event::Attribution >(arena);
 }
 template<> PROTOBUF_NOINLINE ::event::IOSError* Arena::CreateMaybeMessage< ::event::IOSError >(Arena* arena) {
   return Arena::CreateMessageInternal< ::event::IOSError >(arena);

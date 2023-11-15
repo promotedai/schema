@@ -34,7 +34,6 @@
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/struct.pb.h>
 #include "proto/common/common.pb.h"
-#include "proto/delivery/blender.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_proto_2fdelivery_2fdelivery_2eproto
@@ -245,13 +244,13 @@ class Request PROTOBUF_FINAL :
     kUserInfoFieldNumber = 2,
     kTimingFieldNumber = 3,
     kClientInfoFieldNumber = 4,
-    kBlenderConfigFieldNumber = 12,
     kPropertiesFieldNumber = 13,
     kPagingFieldNumber = 17,
     kDeviceFieldNumber = 18,
     kInsertionMatrixFieldNumber = 21,
     kPlatformIdFieldNumber = 1,
     kUseCaseFieldNumber = 9,
+    kDisablePersonalizationFieldNumber = 22,
   };
   // repeated .delivery.Insertion insertion = 11 [json_name = "insertion"];
   int insertion_size() const;
@@ -445,24 +444,6 @@ class Request PROTOBUF_FINAL :
       ::common::ClientInfo* client_info);
   ::common::ClientInfo* unsafe_arena_release_client_info();
 
-  // .delivery.BlenderConfig blender_config = 12 [json_name = "blenderConfig"];
-  bool has_blender_config() const;
-  private:
-  bool _internal_has_blender_config() const;
-  public:
-  void clear_blender_config();
-  const ::delivery::BlenderConfig& blender_config() const;
-  ::delivery::BlenderConfig* release_blender_config();
-  ::delivery::BlenderConfig* mutable_blender_config();
-  void set_allocated_blender_config(::delivery::BlenderConfig* blender_config);
-  private:
-  const ::delivery::BlenderConfig& _internal_blender_config() const;
-  ::delivery::BlenderConfig* _internal_mutable_blender_config();
-  public:
-  void unsafe_arena_set_allocated_blender_config(
-      ::delivery::BlenderConfig* blender_config);
-  ::delivery::BlenderConfig* unsafe_arena_release_blender_config();
-
   // .common.Properties properties = 13 [json_name = "properties"];
   bool has_properties() const;
   private:
@@ -553,6 +534,15 @@ class Request PROTOBUF_FINAL :
   void _internal_set_use_case(::delivery::UseCase value);
   public:
 
+  // bool disable_personalization = 22 [json_name = "disablePersonalization"];
+  void clear_disable_personalization();
+  bool disable_personalization() const;
+  void set_disable_personalization(bool value);
+  private:
+  bool _internal_disable_personalization() const;
+  void _internal_set_disable_personalization(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:delivery.Request)
  private:
   class _Internal;
@@ -571,13 +561,13 @@ class Request PROTOBUF_FINAL :
   ::common::UserInfo* user_info_;
   ::common::Timing* timing_;
   ::common::ClientInfo* client_info_;
-  ::delivery::BlenderConfig* blender_config_;
   ::common::Properties* properties_;
   ::delivery::Paging* paging_;
   ::common::Device* device_;
   PROTOBUF_NAMESPACE_ID::ListValue* insertion_matrix_;
   ::PROTOBUF_NAMESPACE_ID::uint64 platform_id_;
   int use_case_;
+  bool disable_personalization_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fdelivery_2eproto;
 };
@@ -2530,83 +2520,6 @@ inline void Request::set_allocated_insertion_matrix(PROTOBUF_NAMESPACE_ID::ListV
   // @@protoc_insertion_point(field_set_allocated:delivery.Request.insertion_matrix)
 }
 
-// .delivery.BlenderConfig blender_config = 12 [json_name = "blenderConfig"];
-inline bool Request::_internal_has_blender_config() const {
-  return this != internal_default_instance() && blender_config_ != nullptr;
-}
-inline bool Request::has_blender_config() const {
-  return _internal_has_blender_config();
-}
-inline const ::delivery::BlenderConfig& Request::_internal_blender_config() const {
-  const ::delivery::BlenderConfig* p = blender_config_;
-  return p != nullptr ? *p : reinterpret_cast<const ::delivery::BlenderConfig&>(
-      ::delivery::_BlenderConfig_default_instance_);
-}
-inline const ::delivery::BlenderConfig& Request::blender_config() const {
-  // @@protoc_insertion_point(field_get:delivery.Request.blender_config)
-  return _internal_blender_config();
-}
-inline void Request::unsafe_arena_set_allocated_blender_config(
-    ::delivery::BlenderConfig* blender_config) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(blender_config_);
-  }
-  blender_config_ = blender_config;
-  if (blender_config) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.Request.blender_config)
-}
-inline ::delivery::BlenderConfig* Request::release_blender_config() {
-  
-  ::delivery::BlenderConfig* temp = blender_config_;
-  blender_config_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::delivery::BlenderConfig* Request::unsafe_arena_release_blender_config() {
-  // @@protoc_insertion_point(field_release:delivery.Request.blender_config)
-  
-  ::delivery::BlenderConfig* temp = blender_config_;
-  blender_config_ = nullptr;
-  return temp;
-}
-inline ::delivery::BlenderConfig* Request::_internal_mutable_blender_config() {
-  
-  if (blender_config_ == nullptr) {
-    auto* p = CreateMaybeMessage<::delivery::BlenderConfig>(GetArena());
-    blender_config_ = p;
-  }
-  return blender_config_;
-}
-inline ::delivery::BlenderConfig* Request::mutable_blender_config() {
-  // @@protoc_insertion_point(field_mutable:delivery.Request.blender_config)
-  return _internal_mutable_blender_config();
-}
-inline void Request::set_allocated_blender_config(::delivery::BlenderConfig* blender_config) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(blender_config_);
-  }
-  if (blender_config) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(blender_config)->GetArena();
-    if (message_arena != submessage_arena) {
-      blender_config = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, blender_config, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  blender_config_ = blender_config;
-  // @@protoc_insertion_point(field_set_allocated:delivery.Request.blender_config)
-}
-
 // .common.Properties properties = 13 [json_name = "properties"];
 inline bool Request::_internal_has_properties() const {
   return this != internal_default_instance() && properties_ != nullptr;
@@ -2682,6 +2595,26 @@ inline void Request::set_allocated_properties(::common::Properties* properties) 
   }
   properties_ = properties;
   // @@protoc_insertion_point(field_set_allocated:delivery.Request.properties)
+}
+
+// bool disable_personalization = 22 [json_name = "disablePersonalization"];
+inline void Request::clear_disable_personalization() {
+  disable_personalization_ = false;
+}
+inline bool Request::_internal_disable_personalization() const {
+  return disable_personalization_;
+}
+inline bool Request::disable_personalization() const {
+  // @@protoc_insertion_point(field_get:delivery.Request.disable_personalization)
+  return _internal_disable_personalization();
+}
+inline void Request::_internal_set_disable_personalization(bool value) {
+  
+  disable_personalization_ = value;
+}
+inline void Request::set_disable_personalization(bool value) {
+  _internal_set_disable_personalization(value);
+  // @@protoc_insertion_point(field_set:delivery.Request.disable_personalization)
 }
 
 // -------------------------------------------------------------------
