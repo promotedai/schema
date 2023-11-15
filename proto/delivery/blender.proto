@@ -72,6 +72,10 @@ message BlenderArithmeticExpression {
     DIVIDE = 4;
     MIN = 5;
     MAX = 6;
+    // These are only coherent as unary operators, but putting them here while
+    // the Blender-config-validation story is still unclear.
+    FLOOR = 7;
+    CEILING = 8;
   }
   Operator op = 1;
   repeated BlenderExpression inputs = 2;

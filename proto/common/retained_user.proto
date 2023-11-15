@@ -1,0 +1,29 @@
+syntax = "proto3";
+package common;
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.common";
+option go_package = "github.com/promotedai/schema/generated/go/proto/common";
+
+// A mapping table from user_id to retained_user_id.
+//
+// Next ID = 6.
+message RetainedUser {
+  uint64 platform_id = 1;
+  string user_id = 2;
+  string retained_user_id = 3;
+  uint64 create_event_api_time_millis = 4;
+  uint64 process_time_millis = 5;
+}
+
+
+// A mapping table from anon_user_id to retained_user_id.
+//
+// Next ID = 6.
+message AnonUserRetainedUser {
+  uint64 platform_id = 1;
+  string anon_user_id = 2;
+  string retained_user_id = 3;
+  uint64 event_time_millis = 4;
+  uint64 process_time_millis = 5;
+}

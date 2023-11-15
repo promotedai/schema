@@ -17,6 +17,6 @@ fi
 
 ./scripts/generate-python.sh "$@"
 
-# ./scripts/generate-cpp.sh "$@"
+./scripts/generate-cpp.sh "$@"
 
 ./scripts/generate-csharp.sh "$@"

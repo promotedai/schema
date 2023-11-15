@@ -58,16 +58,20 @@ message Money {
 //
 // Summary of fields:
 // - `user_id` = the platform's auth user ID.
+// - `retained_user_id` = internal Promoted forgettable version of `user_id`.
 // - `anon_user_id` = the platform's anonymous user ID.
-// - `log_user_id` = internal Promoted forgettable, longer-term user ID.
+// - `log_user_id` = Deprecated.  This was our v1 ~anon_user_id field.
+//   It's being replaced by a more explicit `anon_user_id` field.
 //
-// Next ID = 6.
+// Next ID = 8.
 message UserInfo {
 
   // Optional.  The platform's authenticated user ID.
   // This field will be cleared in our long-term transaction logs to
   // make it easier to forget `user_id`s.
-  // Internally, this field gets mapped over to `log_user_id`.
+  // Early in ingestion, the auth `user_id` field is cleared and
+  // `retained_user_id` is set with a pseudoanonymized value for
+  // longer-term retention.
   string user_id = 1;
 
   // Internal.  Optional.  The `log_user_id` is another type of user ID.
@@ -77,6 +81,8 @@ message UserInfo {
   // decouple our long-term logs in case the user wants to be forgotten.
   // Multiple `anon_user_id`s can be mapped to the same `log_user_id`.
   // Most of Promoted's internal systems use `log_user_id`.
+  //
+  // We're planning on deprecating this field.  Details TBD.
   string log_user_id = 2;
 
   // Optional, defaults to false. Indicates that the user is from the
@@ -98,10 +104,9 @@ message UserInfo {
   // specified.  This is useful when there are delayed conversion events.
   string anon_user_id = 5;
 
-  // Read-only for most of the system.  This is an extra indicator that
-  // Promoted sets when scrubbing user_id.  This indicates that
-  // the log_user_id is logged in.
-  bool has_user_id = 6;
+
+  // Optional.  A retainable version of `user_id`.
+  string retained_user_id = 7;
 }
 
 // Info about the client.
