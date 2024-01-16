@@ -386,47 +386,47 @@ message Impression {
 }
 // 
 
-// The action that user wants to perform.
+// The action that user wants to perform.  This usually indicates
+// that the user did something or accepted an action.
 //
-// Next ID = 22.  Max = 254.
-// Keep this updated with delivery.private.features.AggMetric.
+// Next ID = 26.  Max = 254.
 enum ActionType {
   UNKNOWN_ACTION_TYPE = 0;
 
   // Action that doesn't correspond to any of the below.
   CUSTOM_ACTION_TYPE = 1;
 
-  // Navigating to details about content.
+  // Navigate to details about content.
   NAVIGATE = 2;
 
-  // Adding an item to shopping cart.
+  // Add an item to shopping cart.
   ADD_TO_CART = 4;
 
   // Remove an item from shopping cart.
   REMOVE_FROM_CART = 10;
 
-  // Going to checkout.
+  // Start the checkout flow.
   CHECKOUT = 8;
 
-  // Purchasing an item.
+  // Purchase an item.  Might not result in a completed order.
   PURCHASE = 3;
 
-  // Sharing content.
+  // Share content.
   SHARE = 5;
 
-  // Liking content.
+  // Like content.
   LIKE = 6;
 
-  // Un-liking content.
+  // Un-like content.
   UNLIKE = 9;
 
-  // Commenting on content.
+  // Comment on content.
   COMMENT = 7;
 
-  // Making an offer on content.
+  // Make an offer on content.
   MAKE_OFFER = 11;
 
-  // Asking a question about content.
+  // Ask a question about content.
   ASK_QUESTION = 12;
 
   // Answering a question about content.
@@ -453,6 +453,26 @@ enum ActionType {
 
   // Unfollow a followed seller or creator.
   UNFOLLOW = 21;
+
+  // A delayed purchase related to a previous purchase.
+  // E.g. subscription, delayed add-ons.
+  ONGOING_PURCHASE = 22;
+
+  // Cancel a purchase before it's completed.  Negates a PURCHASE event.
+  // This is the user-generated cancel.
+  CANCEL_PURCHASE = 23;
+
+  // Refund a purchase after completion.  Can be used separately from
+  // CANCEL_PURCHASE to indicate that revenue was already realized.
+  REFUND_PURCHASE = 24;
+
+  // This is an internal, synthetic event that indicates an item was selected.
+  // CONTENT_SELECTED can be used when we want to model multiple events as a click.
+  // E.g. `union(NAVIGATE, BOOKMARK, LIKE, ADD_TO_CART)`.
+  // The validate job can be configured to customize this mapping per platform.
+  // The join job supports reducing redundant events.
+  // If you want to use this, talk with the Promoted team.
+  CONTENT_SELECTED = 25;
 
   reserved 255;
 }

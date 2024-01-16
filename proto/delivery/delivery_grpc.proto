@@ -5,7 +5,6 @@ option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
 
 import "proto/delivery/delivery.proto";
 
-service RankerService {
-  rpc GetRecommendation (delivery.Request) returns (delivery.Response) {};
-  rpc Test (delivery.Request) returns (delivery.Response) {};
+service Delivery {
+  rpc Deliver (delivery.Request) returns (delivery.Response) {};
 }
