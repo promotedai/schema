@@ -284,12 +284,16 @@ enum ActionType : int {
   REMOVE_FROM_LIST = 19,
   FOLLOW = 20,
   UNFOLLOW = 21,
+  ONGOING_PURCHASE = 22,
+  CANCEL_PURCHASE = 23,
+  REFUND_PURCHASE = 24,
+  CONTENT_SELECTED = 25,
   ActionType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   ActionType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool ActionType_IsValid(int value);
 constexpr ActionType ActionType_MIN = UNKNOWN_ACTION_TYPE;
-constexpr ActionType ActionType_MAX = UNFOLLOW;
+constexpr ActionType ActionType_MAX = CONTENT_SELECTED;
 constexpr int ActionType_ARRAYSIZE = ActionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ActionType_descriptor();

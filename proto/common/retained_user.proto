@@ -7,13 +7,14 @@ option go_package = "github.com/promotedai/schema/generated/go/proto/common";
 
 // A mapping table from user_id to retained_user_id.
 //
-// Next ID = 6.
+// Next ID = 7.
 message RetainedUser {
   uint64 platform_id = 1;
   string user_id = 2;
   string retained_user_id = 3;
   uint64 create_event_api_time_millis = 4;
   uint64 process_time_millis = 5;
+  uint64 last_forgotten_time_millis = 6;
 }
 
 

@@ -213,7 +213,7 @@ namespace Promoted.Event {
             "Q09OVFJPTBABEg0KCVRSRUFUTUVOVBACEg4KClRSRUFUTUVOVDEQAxIOCgpU",
             "UkVBVE1FTlQyEAQSDgoKVFJFQVRNRU5UMxAFKlwKFEltcHJlc3Npb25Tb3Vy",
             "Y2VUeXBlEiIKHlVOS05PV05fSU1QUkVTU0lPTl9TT1VSQ0VfVFlQRRAAEgwK",
-            "CERFTElWRVJZEAESEgoOQ0xJRU5UX0JBQ0tFTkQQAiqLAwoKQWN0aW9uVHlw",
+            "CERFTElWRVJZEAESEgoOQ0xJRU5UX0JBQ0tFTkQQAirhAwoKQWN0aW9uVHlw",
             "ZRIXChNVTktOT1dOX0FDVElPTl9UWVBFEAASFgoSQ1VTVE9NX0FDVElPTl9U",
             "WVBFEAESDAoITkFWSUdBVEUQAhIPCgtBRERfVE9fQ0FSVBAEEhQKEFJFTU9W",
             "RV9GUk9NX0NBUlQQChIMCghDSEVDS09VVBAIEgwKCFBVUkNIQVNFEAMSCQoF",
@@ -222,10 +222,12 @@ namespace Promoted.Event {
             "U1RJT04QDRIUChBDT01QTEVURV9TSUdOX0lOEA4SFAoQQ09NUExFVEVfU0lH",
             "Tl9VUBAPEgwKCEJPT0tNQVJLEBASEwoPUkVNT1ZFX0JPT0tNQVJLEBESDwoL",
             "QUREX1RPX0xJU1QQEhIUChBSRU1PVkVfRlJPTV9MSVNUEBMSCgoGRk9MTE9X",
-            "EBQSDAoIVU5GT0xMT1cQFSIGCP8BEP8BQmoKF2FpLnByb21vdGVkLnByb3Rv",
-            "LmV2ZW50QgVFdmVudFABWjVnaXRodWIuY29tL3Byb21vdGVkYWkvc2NoZW1h",
-            "L2dlbmVyYXRlZC9nby9wcm90by9ldmVudKoCDlByb21vdGVkLkV2ZW50YgZw",
-            "cm90bzM="));
+            "EBQSDAoIVU5GT0xMT1cQFRIUChBPTkdPSU5HX1BVUkNIQVNFEBYSEwoPQ0FO",
+            "Q0VMX1BVUkNIQVNFEBcSEwoPUkVGVU5EX1BVUkNIQVNFEBgSFAoQQ09OVEVO",
+            "VF9TRUxFQ1RFRBAZIgYI/wEQ/wFCagoXYWkucHJvbW90ZWQucHJvdG8uZXZl",
+            "bnRCBUV2ZW50UAFaNWdpdGh1Yi5jb20vcHJvbW90ZWRhaS9zY2hlbWEvZ2Vu",
+            "ZXJhdGVkL2dvL3Byb3RvL2V2ZW50qgIOUHJvbW90ZWQuRXZlbnRiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Promoted.Common.CommonReflection.Descriptor, global::Promoted.Delivery.DeliveryReflection.Descriptor, global::Promoted.Delivery.ExecutionReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Promoted.Event.IdentifierProvenance), typeof(global::Promoted.Event.CohortArm), typeof(global::Promoted.Event.ImpressionSourceType), typeof(global::Promoted.Event.ActionType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -303,6 +305,10 @@ namespace Promoted.Event {
     [pbr::OriginalName("REMOVE_FROM_LIST")] RemoveFromList = 19,
     [pbr::OriginalName("FOLLOW")] Follow = 20,
     [pbr::OriginalName("UNFOLLOW")] Unfollow = 21,
+    [pbr::OriginalName("ONGOING_PURCHASE")] OngoingPurchase = 22,
+    [pbr::OriginalName("CANCEL_PURCHASE")] CancelPurchase = 23,
+    [pbr::OriginalName("REFUND_PURCHASE")] RefundPurchase = 24,
+    [pbr::OriginalName("CONTENT_SELECTED")] ContentSelected = 25,
   }
 
   #endregion

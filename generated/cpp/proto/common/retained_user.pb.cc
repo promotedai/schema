@@ -23,7 +23,8 @@ constexpr RetainedUser::RetainedUser(
   , retained_user_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , platform_id_(PROTOBUF_ULONGLONG(0))
   , create_event_api_time_millis_(PROTOBUF_ULONGLONG(0))
-  , process_time_millis_(PROTOBUF_ULONGLONG(0)){}
+  , process_time_millis_(PROTOBUF_ULONGLONG(0))
+  , last_forgotten_time_millis_(PROTOBUF_ULONGLONG(0)){}
 struct RetainedUserDefaultTypeInternal {
   constexpr RetainedUserDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -65,6 +66,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_proto_2fcommon_2fretained_5fus
   PROTOBUF_FIELD_OFFSET(::common::RetainedUser, retained_user_id_),
   PROTOBUF_FIELD_OFFSET(::common::RetainedUser, create_event_api_time_millis_),
   PROTOBUF_FIELD_OFFSET(::common::RetainedUser, process_time_millis_),
+  PROTOBUF_FIELD_OFFSET(::common::RetainedUser, last_forgotten_time_millis_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::common::AnonUserRetainedUser, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -78,7 +80,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_proto_2fcommon_2fretained_5fus
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::common::RetainedUser)},
-  { 10, -1, sizeof(::common::AnonUserRetainedUser)},
+  { 11, -1, sizeof(::common::AnonUserRetainedUser)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -88,24 +90,26 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_proto_2fcommon_2fretained_5fuser_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n proto/common/retained_user.proto\022\006comm"
-  "on\"\342\001\n\014RetainedUser\022\037\n\013platform_id\030\001 \001(\004"
+  "on\"\237\002\n\014RetainedUser\022\037\n\013platform_id\030\001 \001(\004"
   "R\nplatformId\022\027\n\007user_id\030\002 \001(\tR\006userId\022(\n"
   "\020retained_user_id\030\003 \001(\tR\016retainedUserId\022"
   ">\n\034create_event_api_time_millis\030\004 \001(\004R\030c"
   "reateEventApiTimeMillis\022.\n\023process_time_"
-  "millis\030\005 \001(\004R\021processTimeMillis\"\337\001\n\024Anon"
-  "UserRetainedUser\022\037\n\013platform_id\030\001 \001(\004R\np"
-  "latformId\022 \n\014anon_user_id\030\002 \001(\tR\nanonUse"
-  "rId\022(\n\020retained_user_id\030\003 \001(\tR\016retainedU"
-  "serId\022*\n\021event_time_millis\030\004 \001(\004R\017eventT"
-  "imeMillis\022.\n\023process_time_millis\030\005 \001(\004R\021"
-  "processTimeMillisBT\n\030ai.promoted.proto.c"
-  "ommonP\001Z6github.com/promotedai/schema/ge"
-  "nerated/go/proto/commonb\006proto3"
+  "millis\030\005 \001(\004R\021processTimeMillis\022;\n\032last_"
+  "forgotten_time_millis\030\006 \001(\004R\027lastForgott"
+  "enTimeMillis\"\337\001\n\024AnonUserRetainedUser\022\037\n"
+  "\013platform_id\030\001 \001(\004R\nplatformId\022 \n\014anon_u"
+  "ser_id\030\002 \001(\tR\nanonUserId\022(\n\020retained_use"
+  "r_id\030\003 \001(\tR\016retainedUserId\022*\n\021event_time"
+  "_millis\030\004 \001(\004R\017eventTimeMillis\022.\n\023proces"
+  "s_time_millis\030\005 \001(\004R\021processTimeMillisBT"
+  "\n\030ai.promoted.proto.commonP\001Z6github.com"
+  "/promotedai/schema/generated/go/proto/co"
+  "mmonb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_2fcommon_2fretained_5fuser_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fcommon_2fretained_5fuser_2eproto = {
-  false, false, 591, descriptor_table_protodef_proto_2fcommon_2fretained_5fuser_2eproto, "proto/common/retained_user.proto", 
+  false, false, 652, descriptor_table_protodef_proto_2fcommon_2fretained_5fuser_2eproto, "proto/common/retained_user.proto", 
   &descriptor_table_proto_2fcommon_2fretained_5fuser_2eproto_once, nullptr, 0, 2,
   schemas, file_default_instances, TableStruct_proto_2fcommon_2fretained_5fuser_2eproto::offsets,
   file_level_metadata_proto_2fcommon_2fretained_5fuser_2eproto, file_level_enum_descriptors_proto_2fcommon_2fretained_5fuser_2eproto, file_level_service_descriptors_proto_2fcommon_2fretained_5fuser_2eproto,
@@ -146,8 +150,8 @@ RetainedUser::RetainedUser(const RetainedUser& from)
       GetArena());
   }
   ::memcpy(&platform_id_, &from.platform_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&process_time_millis_) -
-    reinterpret_cast<char*>(&platform_id_)) + sizeof(process_time_millis_));
+    static_cast<size_t>(reinterpret_cast<char*>(&last_forgotten_time_millis_) -
+    reinterpret_cast<char*>(&platform_id_)) + sizeof(last_forgotten_time_millis_));
   // @@protoc_insertion_point(copy_constructor:common.RetainedUser)
 }
 
@@ -156,8 +160,8 @@ user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlre
 retained_user_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&platform_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&process_time_millis_) -
-    reinterpret_cast<char*>(&platform_id_)) + sizeof(process_time_millis_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&last_forgotten_time_millis_) -
+    reinterpret_cast<char*>(&platform_id_)) + sizeof(last_forgotten_time_millis_));
 }
 
 RetainedUser::~RetainedUser() {
@@ -191,8 +195,8 @@ void RetainedUser::Clear() {
   user_id_.ClearToEmpty();
   retained_user_id_.ClearToEmpty();
   ::memset(&platform_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&process_time_millis_) -
-      reinterpret_cast<char*>(&platform_id_)) + sizeof(process_time_millis_));
+      reinterpret_cast<char*>(&last_forgotten_time_millis_) -
+      reinterpret_cast<char*>(&platform_id_)) + sizeof(last_forgotten_time_millis_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -239,6 +243,13 @@ const char* RetainedUser::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           process_time_millis_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 last_forgotten_time_millis = 6 [json_name = "lastForgottenTimeMillis"];
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          last_forgotten_time_millis_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -308,6 +319,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_process_time_millis(), target);
   }
 
+  // uint64 last_forgotten_time_millis = 6 [json_name = "lastForgottenTimeMillis"];
+  if (this->last_forgotten_time_millis() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_last_forgotten_time_millis(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -359,6 +376,13 @@ size_t RetainedUser::ByteSizeLong() const {
         this->_internal_process_time_millis());
   }
 
+  // uint64 last_forgotten_time_millis = 6 [json_name = "lastForgottenTimeMillis"];
+  if (this->last_forgotten_time_millis() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_last_forgotten_time_millis());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -405,6 +429,9 @@ void RetainedUser::MergeFrom(const RetainedUser& from) {
   if (from.process_time_millis() != 0) {
     _internal_set_process_time_millis(from._internal_process_time_millis());
   }
+  if (from.last_forgotten_time_millis() != 0) {
+    _internal_set_last_forgotten_time_millis(from._internal_last_forgotten_time_millis());
+  }
 }
 
 void RetainedUser::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -431,8 +458,8 @@ void RetainedUser::InternalSwap(RetainedUser* other) {
   user_id_.Swap(&other->user_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   retained_user_id_.Swap(&other->retained_user_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RetainedUser, process_time_millis_)
-      + sizeof(RetainedUser::process_time_millis_)
+      PROTOBUF_FIELD_OFFSET(RetainedUser, last_forgotten_time_millis_)
+      + sizeof(RetainedUser::last_forgotten_time_millis_)
       - PROTOBUF_FIELD_OFFSET(RetainedUser, platform_id_)>(
           reinterpret_cast<char*>(&platform_id_),
           reinterpret_cast<char*>(&other->platform_id_));

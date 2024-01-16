@@ -24,24 +24,25 @@ namespace Common {
     static RetainedUserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiBwcm90by9jb21tb24vcmV0YWluZWRfdXNlci5wcm90bxIGY29tbW9uIuIB",
+            "CiBwcm90by9jb21tb24vcmV0YWluZWRfdXNlci5wcm90bxIGY29tbW9uIp8C",
             "CgxSZXRhaW5lZFVzZXISHwoLcGxhdGZvcm1faWQYASABKARSCnBsYXRmb3Jt",
             "SWQSFwoHdXNlcl9pZBgCIAEoCVIGdXNlcklkEigKEHJldGFpbmVkX3VzZXJf",
             "aWQYAyABKAlSDnJldGFpbmVkVXNlcklkEj4KHGNyZWF0ZV9ldmVudF9hcGlf",
             "dGltZV9taWxsaXMYBCABKARSGGNyZWF0ZUV2ZW50QXBpVGltZU1pbGxpcxIu",
             "ChNwcm9jZXNzX3RpbWVfbWlsbGlzGAUgASgEUhFwcm9jZXNzVGltZU1pbGxp",
-            "cyLfAQoUQW5vblVzZXJSZXRhaW5lZFVzZXISHwoLcGxhdGZvcm1faWQYASAB",
-            "KARSCnBsYXRmb3JtSWQSIAoMYW5vbl91c2VyX2lkGAIgASgJUgphbm9uVXNl",
-            "cklkEigKEHJldGFpbmVkX3VzZXJfaWQYAyABKAlSDnJldGFpbmVkVXNlcklk",
-            "EioKEWV2ZW50X3RpbWVfbWlsbGlzGAQgASgEUg9ldmVudFRpbWVNaWxsaXMS",
-            "LgoTcHJvY2Vzc190aW1lX21pbGxpcxgFIAEoBFIRcHJvY2Vzc1RpbWVNaWxs",
-            "aXNCVAoYYWkucHJvbW90ZWQucHJvdG8uY29tbW9uUAFaNmdpdGh1Yi5jb20v",
-            "cHJvbW90ZWRhaS9zY2hlbWEvZ2VuZXJhdGVkL2dvL3Byb3RvL2NvbW1vbmIG",
-            "cHJvdG8z"));
+            "cxI7ChpsYXN0X2ZvcmdvdHRlbl90aW1lX21pbGxpcxgGIAEoBFIXbGFzdEZv",
+            "cmdvdHRlblRpbWVNaWxsaXMi3wEKFEFub25Vc2VyUmV0YWluZWRVc2VyEh8K",
+            "C3BsYXRmb3JtX2lkGAEgASgEUgpwbGF0Zm9ybUlkEiAKDGFub25fdXNlcl9p",
+            "ZBgCIAEoCVIKYW5vblVzZXJJZBIoChByZXRhaW5lZF91c2VyX2lkGAMgASgJ",
+            "Ug5yZXRhaW5lZFVzZXJJZBIqChFldmVudF90aW1lX21pbGxpcxgEIAEoBFIP",
+            "ZXZlbnRUaW1lTWlsbGlzEi4KE3Byb2Nlc3NfdGltZV9taWxsaXMYBSABKARS",
+            "EXByb2Nlc3NUaW1lTWlsbGlzQlQKGGFpLnByb21vdGVkLnByb3RvLmNvbW1v",
+            "blABWjZnaXRodWIuY29tL3Byb21vdGVkYWkvc2NoZW1hL2dlbmVyYXRlZC9n",
+            "by9wcm90by9jb21tb25iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.RetainedUser), global::Common.RetainedUser.Parser, new[]{ "PlatformId", "UserId", "RetainedUserId", "CreateEventApiTimeMillis", "ProcessTimeMillis" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Common.RetainedUser), global::Common.RetainedUser.Parser, new[]{ "PlatformId", "UserId", "RetainedUserId", "CreateEventApiTimeMillis", "ProcessTimeMillis", "LastForgottenTimeMillis" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Common.AnonUserRetainedUser), global::Common.AnonUserRetainedUser.Parser, new[]{ "PlatformId", "AnonUserId", "RetainedUserId", "EventTimeMillis", "ProcessTimeMillis" }, null, null, null, null)
           }));
     }
@@ -83,6 +84,7 @@ namespace Common {
       retainedUserId_ = other.retainedUserId_;
       createEventApiTimeMillis_ = other.createEventApiTimeMillis_;
       processTimeMillis_ = other.processTimeMillis_;
+      lastForgottenTimeMillis_ = other.lastForgottenTimeMillis_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -146,6 +148,17 @@ namespace Common {
       }
     }
 
+    /// <summary>Field number for the "last_forgotten_time_millis" field.</summary>
+    public const int LastForgottenTimeMillisFieldNumber = 6;
+    private ulong lastForgottenTimeMillis_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong LastForgottenTimeMillis {
+      get { return lastForgottenTimeMillis_; }
+      set {
+        lastForgottenTimeMillis_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as RetainedUser);
@@ -164,6 +177,7 @@ namespace Common {
       if (RetainedUserId != other.RetainedUserId) return false;
       if (CreateEventApiTimeMillis != other.CreateEventApiTimeMillis) return false;
       if (ProcessTimeMillis != other.ProcessTimeMillis) return false;
+      if (LastForgottenTimeMillis != other.LastForgottenTimeMillis) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -175,6 +189,7 @@ namespace Common {
       if (RetainedUserId.Length != 0) hash ^= RetainedUserId.GetHashCode();
       if (CreateEventApiTimeMillis != 0UL) hash ^= CreateEventApiTimeMillis.GetHashCode();
       if (ProcessTimeMillis != 0UL) hash ^= ProcessTimeMillis.GetHashCode();
+      if (LastForgottenTimeMillis != 0UL) hash ^= LastForgottenTimeMillis.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -211,6 +226,10 @@ namespace Common {
         output.WriteRawTag(40);
         output.WriteUInt64(ProcessTimeMillis);
       }
+      if (LastForgottenTimeMillis != 0UL) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(LastForgottenTimeMillis);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -240,6 +259,10 @@ namespace Common {
         output.WriteRawTag(40);
         output.WriteUInt64(ProcessTimeMillis);
       }
+      if (LastForgottenTimeMillis != 0UL) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(LastForgottenTimeMillis);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -263,6 +286,9 @@ namespace Common {
       }
       if (ProcessTimeMillis != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ProcessTimeMillis);
+      }
+      if (LastForgottenTimeMillis != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(LastForgottenTimeMillis);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -289,6 +315,9 @@ namespace Common {
       }
       if (other.ProcessTimeMillis != 0UL) {
         ProcessTimeMillis = other.ProcessTimeMillis;
+      }
+      if (other.LastForgottenTimeMillis != 0UL) {
+        LastForgottenTimeMillis = other.LastForgottenTimeMillis;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -324,6 +353,10 @@ namespace Common {
             ProcessTimeMillis = input.ReadUInt64();
             break;
           }
+          case 48: {
+            LastForgottenTimeMillis = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -356,6 +389,10 @@ namespace Common {
           }
           case 40: {
             ProcessTimeMillis = input.ReadUInt64();
+            break;
+          }
+          case 48: {
+            LastForgottenTimeMillis = input.ReadUInt64();
             break;
           }
         }

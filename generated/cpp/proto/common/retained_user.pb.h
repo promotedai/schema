@@ -188,6 +188,7 @@ class RetainedUser PROTOBUF_FINAL :
     kPlatformIdFieldNumber = 1,
     kCreateEventApiTimeMillisFieldNumber = 4,
     kProcessTimeMillisFieldNumber = 5,
+    kLastForgottenTimeMillisFieldNumber = 6,
   };
   // string user_id = 2 [json_name = "userId"];
   void clear_user_id();
@@ -248,6 +249,15 @@ class RetainedUser PROTOBUF_FINAL :
   void _internal_set_process_time_millis(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // uint64 last_forgotten_time_millis = 6 [json_name = "lastForgottenTimeMillis"];
+  void clear_last_forgotten_time_millis();
+  ::PROTOBUF_NAMESPACE_ID::uint64 last_forgotten_time_millis() const;
+  void set_last_forgotten_time_millis(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_last_forgotten_time_millis() const;
+  void _internal_set_last_forgotten_time_millis(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:common.RetainedUser)
  private:
   class _Internal;
@@ -260,6 +270,7 @@ class RetainedUser PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 platform_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 create_event_api_time_millis_;
   ::PROTOBUF_NAMESPACE_ID::uint64 process_time_millis_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 last_forgotten_time_millis_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fcommon_2fretained_5fuser_2eproto;
 };
@@ -649,6 +660,26 @@ inline void RetainedUser::_internal_set_process_time_millis(::PROTOBUF_NAMESPACE
 inline void RetainedUser::set_process_time_millis(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_process_time_millis(value);
   // @@protoc_insertion_point(field_set:common.RetainedUser.process_time_millis)
+}
+
+// uint64 last_forgotten_time_millis = 6 [json_name = "lastForgottenTimeMillis"];
+inline void RetainedUser::clear_last_forgotten_time_millis() {
+  last_forgotten_time_millis_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 RetainedUser::_internal_last_forgotten_time_millis() const {
+  return last_forgotten_time_millis_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 RetainedUser::last_forgotten_time_millis() const {
+  // @@protoc_insertion_point(field_get:common.RetainedUser.last_forgotten_time_millis)
+  return _internal_last_forgotten_time_millis();
+}
+inline void RetainedUser::_internal_set_last_forgotten_time_millis(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  last_forgotten_time_millis_ = value;
+}
+inline void RetainedUser::set_last_forgotten_time_millis(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_last_forgotten_time_millis(value);
+  // @@protoc_insertion_point(field_set:common.RetainedUser.last_forgotten_time_millis)
 }
 
 // -------------------------------------------------------------------

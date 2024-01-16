@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\030ai.promoted.proto.commonP\001Z6github.com/promotedai/schema/generated/go/proto/common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n proto/common/retained_user.proto\x12\x06\x63ommon\"\x91\x01\n\x0cRetainedUser\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x18\n\x10retained_user_id\x18\x03 \x01(\t\x12$\n\x1c\x63reate_event_api_time_millis\x18\x04 \x01(\x04\x12\x1b\n\x13process_time_millis\x18\x05 \x01(\x04\"\x93\x01\n\x14\x41nonUserRetainedUser\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x14\n\x0c\x61non_user_id\x18\x02 \x01(\t\x12\x18\n\x10retained_user_id\x18\x03 \x01(\t\x12\x19\n\x11\x65vent_time_millis\x18\x04 \x01(\x04\x12\x1b\n\x13process_time_millis\x18\x05 \x01(\x04\x42T\n\x18\x61i.promoted.proto.commonP\x01Z6github.com/promotedai/schema/generated/go/proto/commonb\x06proto3'
+  serialized_pb=b'\n proto/common/retained_user.proto\x12\x06\x63ommon\"\xb5\x01\n\x0cRetainedUser\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x18\n\x10retained_user_id\x18\x03 \x01(\t\x12$\n\x1c\x63reate_event_api_time_millis\x18\x04 \x01(\x04\x12\x1b\n\x13process_time_millis\x18\x05 \x01(\x04\x12\"\n\x1alast_forgotten_time_millis\x18\x06 \x01(\x04\"\x93\x01\n\x14\x41nonUserRetainedUser\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\x14\n\x0c\x61non_user_id\x18\x02 \x01(\t\x12\x18\n\x10retained_user_id\x18\x03 \x01(\t\x12\x19\n\x11\x65vent_time_millis\x18\x04 \x01(\x04\x12\x1b\n\x13process_time_millis\x18\x05 \x01(\x04\x42T\n\x18\x61i.promoted.proto.commonP\x01Z6github.com/promotedai/schema/generated/go/proto/commonb\x06proto3'
 )
 
 
@@ -68,6 +68,13 @@ _RETAINEDUSER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_forgotten_time_millis', full_name='common.RetainedUser.last_forgotten_time_millis', index=5,
+      number=6, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -81,7 +88,7 @@ _RETAINEDUSER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=45,
-  serialized_end=190,
+  serialized_end=226,
 )
 
 
@@ -140,8 +147,8 @@ _ANONUSERRETAINEDUSER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=193,
-  serialized_end=340,
+  serialized_start=229,
+  serialized_end=376,
 )
 
 DESCRIPTOR.message_types_by_name['RetainedUser'] = _RETAINEDUSER

@@ -114,10 +114,10 @@ global___ImpressionSourceType = ImpressionSourceType
 
 
 class ActionType(_ActionType, metaclass=_ActionTypeEnumTypeWrapper):
-    """The action that user wants to perform.
+    """The action that user wants to perform.  This usually indicates
+    that the user did something or accepted an action.
 
-    Next ID = 22.  Max = 254.
-    Keep this updated with delivery.private.features.AggMetric.
+    Next ID = 26.  Max = 254.
     """
     pass
 class _ActionType:
@@ -129,37 +129,37 @@ class _ActionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """Action that doesn't correspond to any of the below."""
 
     NAVIGATE = ActionType.V(2)
-    """Navigating to details about content."""
+    """Navigate to details about content."""
 
     ADD_TO_CART = ActionType.V(4)
-    """Adding an item to shopping cart."""
+    """Add an item to shopping cart."""
 
     REMOVE_FROM_CART = ActionType.V(10)
     """Remove an item from shopping cart."""
 
     CHECKOUT = ActionType.V(8)
-    """Going to checkout."""
+    """Start the checkout flow."""
 
     PURCHASE = ActionType.V(3)
-    """Purchasing an item."""
+    """Purchase an item.  Might not result in a completed order."""
 
     SHARE = ActionType.V(5)
-    """Sharing content."""
+    """Share content."""
 
     LIKE = ActionType.V(6)
-    """Liking content."""
+    """Like content."""
 
     UNLIKE = ActionType.V(9)
-    """Un-liking content."""
+    """Un-like content."""
 
     COMMENT = ActionType.V(7)
-    """Commenting on content."""
+    """Comment on content."""
 
     MAKE_OFFER = ActionType.V(11)
-    """Making an offer on content."""
+    """Make an offer on content."""
 
     ASK_QUESTION = ActionType.V(12)
-    """Asking a question about content."""
+    """Ask a question about content."""
 
     ANSWER_QUESTION = ActionType.V(13)
     """Answering a question about content."""
@@ -188,43 +188,67 @@ class _ActionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     UNFOLLOW = ActionType.V(21)
     """Unfollow a followed seller or creator."""
 
+    ONGOING_PURCHASE = ActionType.V(22)
+    """A delayed purchase related to a previous purchase.
+    E.g. subscription, delayed add-ons.
+    """
+
+    CANCEL_PURCHASE = ActionType.V(23)
+    """Cancel a purchase before it's completed.  Negates a PURCHASE event.
+    This is the user-generated cancel.
+    """
+
+    REFUND_PURCHASE = ActionType.V(24)
+    """Refund a purchase after completion.  Can be used separately from
+    CANCEL_PURCHASE to indicate that revenue was already realized.
+    """
+
+    CONTENT_SELECTED = ActionType.V(25)
+    """This is an internal, synthetic event that indicates an item was selected.
+    CONTENT_SELECTED can be used when we want to model multiple events as a click.
+    E.g. `union(NAVIGATE, BOOKMARK, LIKE, ADD_TO_CART)`.
+    The validate job can be configured to customize this mapping per platform.
+    The join job supports reducing redundant events.
+    If you want to use this, talk with the Promoted team.
+    """
+
 
 UNKNOWN_ACTION_TYPE = ActionType.V(0)
 CUSTOM_ACTION_TYPE = ActionType.V(1)
 """Action that doesn't correspond to any of the below."""
 
 NAVIGATE = ActionType.V(2)
-"""Navigating to details about content."""
+"""Navigate to details about content."""
 
 ADD_TO_CART = ActionType.V(4)
-"""Adding an item to shopping cart."""
+"""Add an item to shopping cart."""
 
 REMOVE_FROM_CART = ActionType.V(10)
 """Remove an item from shopping cart."""
 
 CHECKOUT = ActionType.V(8)
-"""Going to checkout."""
+"""Start the checkout flow."""
 
 PURCHASE = ActionType.V(3)
-"""Purchasing an item."""
+"""Purchase an item.  Might not result in a completed order."""
 
 SHARE = ActionType.V(5)
-"""Sharing content."""
+"""Share content."""
 
 LIKE = ActionType.V(6)
-"""Liking content."""
+"""Like content."""
 
 UNLIKE = ActionType.V(9)
-"""Un-liking content."""
+"""Un-like content."""
 
 COMMENT = ActionType.V(7)
-"""Commenting on content."""
+"""Comment on content."""
 
 MAKE_OFFER = ActionType.V(11)
-"""Making an offer on content."""
+"""Make an offer on content."""
 
 ASK_QUESTION = ActionType.V(12)
-"""Asking a question about content."""
+"""Ask a question about content."""
 
 ANSWER_QUESTION = ActionType.V(13)
 """Answering a question about content."""
@@ -252,6 +276,30 @@ FOLLOW = ActionType.V(20)
 
 UNFOLLOW = ActionType.V(21)
 """Unfollow a followed seller or creator."""
+
+ONGOING_PURCHASE = ActionType.V(22)
+"""A delayed purchase related to a previous purchase.
+E.g. subscription, delayed add-ons.
+"""
+
+CANCEL_PURCHASE = ActionType.V(23)
+"""Cancel a purchase before it's completed.  Negates a PURCHASE event.
+This is the user-generated cancel.
+"""
+
+REFUND_PURCHASE = ActionType.V(24)
+"""Refund a purchase after completion.  Can be used separately from
+CANCEL_PURCHASE to indicate that revenue was already realized.
+"""
+
+CONTENT_SELECTED = ActionType.V(25)
+"""This is an internal, synthetic event that indicates an item was selected.
+CONTENT_SELECTED can be used when we want to model multiple events as a click.
+E.g. `union(NAVIGATE, BOOKMARK, LIKE, ADD_TO_CART)`.
+The validate job can be configured to customize this mapping per platform.
+The join job supports reducing redundant events.
+If you want to use this, talk with the Promoted team.
+"""
 
 global___ActionType = ActionType
 

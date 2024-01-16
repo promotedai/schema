@@ -1006,7 +1006,7 @@ const char descriptor_table_protodef_proto_2fevent_2fevent_2eproto[] PROTOBUF_SE
   "EATMENT1\020\003\022\016\n\nTREATMENT2\020\004\022\016\n\nTREATMENT3"
   "\020\005*\\\n\024ImpressionSourceType\022\"\n\036UNKNOWN_IM"
   "PRESSION_SOURCE_TYPE\020\000\022\014\n\010DELIVERY\020\001\022\022\n\016"
-  "CLIENT_BACKEND\020\002*\213\003\n\nActionType\022\027\n\023UNKNO"
+  "CLIENT_BACKEND\020\002*\341\003\n\nActionType\022\027\n\023UNKNO"
   "WN_ACTION_TYPE\020\000\022\026\n\022CUSTOM_ACTION_TYPE\020\001"
   "\022\014\n\010NAVIGATE\020\002\022\017\n\013ADD_TO_CART\020\004\022\024\n\020REMOV"
   "E_FROM_CART\020\n\022\014\n\010CHECKOUT\020\010\022\014\n\010PURCHASE\020"
@@ -1016,10 +1016,12 @@ const char descriptor_table_protodef_proto_2fevent_2fevent_2eproto[] PROTOBUF_SE
   "IN\020\016\022\024\n\020COMPLETE_SIGN_UP\020\017\022\014\n\010BOOKMARK\020\020"
   "\022\023\n\017REMOVE_BOOKMARK\020\021\022\017\n\013ADD_TO_LIST\020\022\022\024"
   "\n\020REMOVE_FROM_LIST\020\023\022\n\n\006FOLLOW\020\024\022\014\n\010UNFO"
-  "LLOW\020\025\"\006\010\377\001\020\377\001Bj\n\027ai.promoted.proto.even"
-  "tB\005EventP\001Z5github.com/promotedai/schema"
-  "/generated/go/proto/event\252\002\016Promoted.Eve"
-  "ntb\006proto3"
+  "LLOW\020\025\022\024\n\020ONGOING_PURCHASE\020\026\022\023\n\017CANCEL_P"
+  "URCHASE\020\027\022\023\n\017REFUND_PURCHASE\020\030\022\024\n\020CONTEN"
+  "T_SELECTED\020\031\"\006\010\377\001\020\377\001Bj\n\027ai.promoted.prot"
+  "o.eventB\005EventP\001Z5github.com/promotedai/"
+  "schema/generated/go/proto/event\252\002\016Promot"
+  "ed.Eventb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fevent_2fevent_2eproto_deps[3] = {
   &::descriptor_table_proto_2fcommon_2fcommon_2eproto,
@@ -1028,7 +1030,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_2fevent_2fevent_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fevent_2fevent_2eproto = {
-  false, false, 9050, descriptor_table_protodef_proto_2fevent_2fevent_2eproto, "proto/event/event.proto", 
+  false, false, 9136, descriptor_table_protodef_proto_2fevent_2fevent_2eproto, "proto/event/event.proto", 
   &descriptor_table_proto_2fevent_2fevent_2eproto_once, descriptor_table_proto_2fevent_2fevent_2eproto_deps, 3, 22,
   schemas, file_default_instances, TableStruct_proto_2fevent_2fevent_2eproto::offsets,
   file_level_metadata_proto_2fevent_2fevent_2eproto, file_level_enum_descriptors_proto_2fevent_2fevent_2eproto, file_level_service_descriptors_proto_2fevent_2fevent_2eproto,
@@ -1143,6 +1145,10 @@ bool ActionType_IsValid(int value) {
     case 19:
     case 20:
     case 21:
+    case 22:
+    case 23:
+    case 24:
+    case 25:
       return true;
     default:
       return false;
