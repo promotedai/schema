@@ -29,16 +29,17 @@ const char descriptor_table_protodef_proto_2fdelivery_2fdelivery_5fgrpc_2eproto[
   "\n\"proto/delivery/delivery_grpc.proto\022\rde"
   "livery_grpc\032\035proto/delivery/delivery.pro"
   "to2>\n\010Delivery\0222\n\007Deliver\022\021.delivery.Req"
-  "uest\032\022.delivery.Response\"\000B:Z8github.com"
-  "/promotedai/schema/generated/go/proto/de"
-  "liveryb\006proto3"
+  "uest\032\022.delivery.Response\"\000Bq\n\037ai.promote"
+  "d.proto.delivery.grpcB\022DeliveryGrpcProto"
+  "sP\001Z8github.com/promotedai/schema/genera"
+  "ted/go/proto/deliveryb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_proto_2fdelivery_2fdelivery_5fgrpc_2eproto_deps[1] = {
   &::descriptor_table_proto_2fdelivery_2fdelivery_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_proto_2fdelivery_2fdelivery_5fgrpc_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_proto_2fdelivery_2fdelivery_5fgrpc_2eproto = {
-  false, false, 214, descriptor_table_protodef_proto_2fdelivery_2fdelivery_5fgrpc_2eproto, "proto/delivery/delivery_grpc.proto", 
+  false, false, 269, descriptor_table_protodef_proto_2fdelivery_2fdelivery_5fgrpc_2eproto, "proto/delivery/delivery_grpc.proto", 
   &descriptor_table_proto_2fdelivery_2fdelivery_5fgrpc_2eproto_once, descriptor_table_proto_2fdelivery_2fdelivery_5fgrpc_2eproto_deps, 1, 0,
   schemas, file_default_instances, TableStruct_proto_2fdelivery_2fdelivery_5fgrpc_2eproto::offsets,
   file_level_metadata_proto_2fdelivery_2fdelivery_5fgrpc_2eproto, file_level_enum_descriptors_proto_2fdelivery_2fdelivery_5fgrpc_2eproto, file_level_service_descriptors_proto_2fdelivery_2fdelivery_5fgrpc_2eproto,

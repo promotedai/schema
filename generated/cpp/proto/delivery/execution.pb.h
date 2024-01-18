@@ -32,6 +32,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "proto/common/common.pb.h"
 #include "proto/delivery/blender.pb.h"
 #include "proto/delivery/delivery.pb.h"
 // @@protoc_insertion_point(includes)
@@ -411,6 +412,7 @@ class DeliveryExecution PROTOBUF_FINAL :
     kServerVersionFieldNumber = 7,
     kBlenderConfigFieldNumber = 12,
     kHyperloopLogFieldNumber = 13,
+    kEffectiveUserInfoFieldNumber = 15,
     kExecutionServerFieldNumber = 2,
   };
   // string server_version = 7 [json_name = "serverVersion"];
@@ -463,6 +465,24 @@ class DeliveryExecution PROTOBUF_FINAL :
       ::delivery::HyperloopLog* hyperloop_log);
   ::delivery::HyperloopLog* unsafe_arena_release_hyperloop_log();
 
+  // .common.UserInfo effective_user_info = 15 [json_name = "effectiveUserInfo"];
+  bool has_effective_user_info() const;
+  private:
+  bool _internal_has_effective_user_info() const;
+  public:
+  void clear_effective_user_info();
+  const ::common::UserInfo& effective_user_info() const;
+  ::common::UserInfo* release_effective_user_info();
+  ::common::UserInfo* mutable_effective_user_info();
+  void set_allocated_effective_user_info(::common::UserInfo* effective_user_info);
+  private:
+  const ::common::UserInfo& _internal_effective_user_info() const;
+  ::common::UserInfo* _internal_mutable_effective_user_info();
+  public:
+  void unsafe_arena_set_allocated_effective_user_info(
+      ::common::UserInfo* effective_user_info);
+  ::common::UserInfo* unsafe_arena_release_effective_user_info();
+
   // .delivery.ExecutionServer execution_server = 2 [json_name = "executionServer"];
   void clear_execution_server();
   ::delivery::ExecutionServer execution_server() const;
@@ -482,6 +502,7 @@ class DeliveryExecution PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr server_version_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr blender_config_;
   ::delivery::HyperloopLog* hyperloop_log_;
+  ::common::UserInfo* effective_user_info_;
   int execution_server_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_proto_2fdelivery_2fexecution_2eproto;
@@ -975,6 +996,83 @@ inline void DeliveryExecution::set_allocated_hyperloop_log(::delivery::Hyperloop
   }
   hyperloop_log_ = hyperloop_log;
   // @@protoc_insertion_point(field_set_allocated:delivery.DeliveryExecution.hyperloop_log)
+}
+
+// .common.UserInfo effective_user_info = 15 [json_name = "effectiveUserInfo"];
+inline bool DeliveryExecution::_internal_has_effective_user_info() const {
+  return this != internal_default_instance() && effective_user_info_ != nullptr;
+}
+inline bool DeliveryExecution::has_effective_user_info() const {
+  return _internal_has_effective_user_info();
+}
+inline const ::common::UserInfo& DeliveryExecution::_internal_effective_user_info() const {
+  const ::common::UserInfo* p = effective_user_info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::common::UserInfo&>(
+      ::common::_UserInfo_default_instance_);
+}
+inline const ::common::UserInfo& DeliveryExecution::effective_user_info() const {
+  // @@protoc_insertion_point(field_get:delivery.DeliveryExecution.effective_user_info)
+  return _internal_effective_user_info();
+}
+inline void DeliveryExecution::unsafe_arena_set_allocated_effective_user_info(
+    ::common::UserInfo* effective_user_info) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(effective_user_info_);
+  }
+  effective_user_info_ = effective_user_info;
+  if (effective_user_info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:delivery.DeliveryExecution.effective_user_info)
+}
+inline ::common::UserInfo* DeliveryExecution::release_effective_user_info() {
+  
+  ::common::UserInfo* temp = effective_user_info_;
+  effective_user_info_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::common::UserInfo* DeliveryExecution::unsafe_arena_release_effective_user_info() {
+  // @@protoc_insertion_point(field_release:delivery.DeliveryExecution.effective_user_info)
+  
+  ::common::UserInfo* temp = effective_user_info_;
+  effective_user_info_ = nullptr;
+  return temp;
+}
+inline ::common::UserInfo* DeliveryExecution::_internal_mutable_effective_user_info() {
+  
+  if (effective_user_info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::common::UserInfo>(GetArena());
+    effective_user_info_ = p;
+  }
+  return effective_user_info_;
+}
+inline ::common::UserInfo* DeliveryExecution::mutable_effective_user_info() {
+  // @@protoc_insertion_point(field_mutable:delivery.DeliveryExecution.effective_user_info)
+  return _internal_mutable_effective_user_info();
+}
+inline void DeliveryExecution::set_allocated_effective_user_info(::common::UserInfo* effective_user_info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(effective_user_info_);
+  }
+  if (effective_user_info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(effective_user_info)->GetArena();
+    if (message_arena != submessage_arena) {
+      effective_user_info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, effective_user_info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  effective_user_info_ = effective_user_info;
+  // @@protoc_insertion_point(field_set_allocated:delivery.DeliveryExecution.effective_user_info)
 }
 
 #ifdef __GNUC__

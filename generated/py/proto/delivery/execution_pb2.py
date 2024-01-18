@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from proto.common import common_pb2 as proto_dot_common_dot_common__pb2
 from proto.delivery import blender_pb2 as proto_dot_delivery_dot_blender__pb2
 from proto.delivery import delivery_pb2 as proto_dot_delivery_dot_delivery__pb2
 
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032ai.promoted.proto.deliveryB\024DeliveryExecutionLogP\001Z8github.com/promotedai/schema/generated/go/proto/delivery\252\002\021Promoted.Delivery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1eproto/delivery/execution.proto\x12\x08\x64\x65livery\x1a\x1cproto/delivery/blender.proto\x1a\x1dproto/delivery/delivery.proto\"\x9c\x01\n\x0b\x44\x65liveryLog\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\"\n\x07request\x18\x02 \x01(\x0b\x32\x11.delivery.Request\x12$\n\x08response\x18\x03 \x01(\x0b\x32\x12.delivery.Response\x12.\n\texecution\x18\x04 \x01(\x0b\x32\x1b.delivery.DeliveryExecution\"\xdd\x01\n\x11\x44\x65liveryExecution\x12\x33\n\x10\x65xecution_server\x18\x02 \x01(\x0e\x32\x19.delivery.ExecutionServer\x12\x16\n\x0eserver_version\x18\x07 \x01(\t\x12\x16\n\x0e\x62lender_config\x18\x0c \x01(\t\x12-\n\rhyperloop_log\x18\r \x01(\x0b\x32\x16.delivery.HyperloopLogJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04J\x04\x08\x0b\x10\x0cJ\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07J\x04\x08\x08\x10\tJ\x04\x08\t\x10\nJ\x04\x08\n\x10\x0b*>\n\x0f\x45xecutionServer\x12\x1c\n\x18UNKNOWN_EXECUTION_SERVER\x10\x00\x12\x07\n\x03SDK\x10\x02\"\x04\x08\x03\x10\x03\x42\x82\x01\n\x1a\x61i.promoted.proto.deliveryB\x14\x44\x65liveryExecutionLogP\x01Z8github.com/promotedai/schema/generated/go/proto/delivery\xaa\x02\x11Promoted.Deliveryb\x06proto3'
+  serialized_pb=b'\n\x1eproto/delivery/execution.proto\x12\x08\x64\x65livery\x1a\x19proto/common/common.proto\x1a\x1cproto/delivery/blender.proto\x1a\x1dproto/delivery/delivery.proto\"\x9c\x01\n\x0b\x44\x65liveryLog\x12\x13\n\x0bplatform_id\x18\x01 \x01(\x04\x12\"\n\x07request\x18\x02 \x01(\x0b\x32\x11.delivery.Request\x12$\n\x08response\x18\x03 \x01(\x0b\x32\x12.delivery.Response\x12.\n\texecution\x18\x04 \x01(\x0b\x32\x1b.delivery.DeliveryExecution\"\x8c\x02\n\x11\x44\x65liveryExecution\x12\x33\n\x10\x65xecution_server\x18\x02 \x01(\x0e\x32\x19.delivery.ExecutionServer\x12\x16\n\x0eserver_version\x18\x07 \x01(\t\x12\x16\n\x0e\x62lender_config\x18\x0c \x01(\t\x12-\n\rhyperloop_log\x18\r \x01(\x0b\x32\x16.delivery.HyperloopLog\x12-\n\x13\x65\x66\x66\x65\x63tive_user_info\x18\x0f \x01(\x0b\x32\x10.common.UserInfoJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04J\x04\x08\x0b\x10\x0cJ\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07J\x04\x08\x08\x10\tJ\x04\x08\t\x10\nJ\x04\x08\n\x10\x0b*>\n\x0f\x45xecutionServer\x12\x1c\n\x18UNKNOWN_EXECUTION_SERVER\x10\x00\x12\x07\n\x03SDK\x10\x02\"\x04\x08\x03\x10\x03\x42\x82\x01\n\x1a\x61i.promoted.proto.deliveryB\x14\x44\x65liveryExecutionLogP\x01Z8github.com/promotedai/schema/generated/go/proto/delivery\xaa\x02\x11Promoted.Deliveryb\x06proto3'
   ,
-  dependencies=[proto_dot_delivery_dot_blender__pb2.DESCRIPTOR,proto_dot_delivery_dot_delivery__pb2.DESCRIPTOR,])
+  dependencies=[proto_dot_common_dot_common__pb2.DESCRIPTOR,proto_dot_delivery_dot_blender__pb2.DESCRIPTOR,proto_dot_delivery_dot_delivery__pb2.DESCRIPTOR,])
 
 _EXECUTIONSERVER = _descriptor.EnumDescriptor(
   name='ExecutionServer',
@@ -46,8 +47,8 @@ _EXECUTIONSERVER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=488,
-  serialized_end=550,
+  serialized_start=562,
+  serialized_end=624,
 )
 _sym_db.RegisterEnumDescriptor(_EXECUTIONSERVER)
 
@@ -105,8 +106,8 @@ _DELIVERYLOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=106,
-  serialized_end=262,
+  serialized_start=133,
+  serialized_end=289,
 )
 
 
@@ -146,6 +147,13 @@ _DELIVERYEXECUTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='effective_user_info', full_name='delivery.DeliveryExecution.effective_user_info', index=4,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -158,8 +166,8 @@ _DELIVERYEXECUTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=265,
-  serialized_end=486,
+  serialized_start=292,
+  serialized_end=560,
 )
 
 _DELIVERYLOG.fields_by_name['request'].message_type = proto_dot_delivery_dot_delivery__pb2._REQUEST
@@ -167,6 +175,7 @@ _DELIVERYLOG.fields_by_name['response'].message_type = proto_dot_delivery_dot_de
 _DELIVERYLOG.fields_by_name['execution'].message_type = _DELIVERYEXECUTION
 _DELIVERYEXECUTION.fields_by_name['execution_server'].enum_type = _EXECUTIONSERVER
 _DELIVERYEXECUTION.fields_by_name['hyperloop_log'].message_type = proto_dot_delivery_dot_blender__pb2._HYPERLOOPLOG
+_DELIVERYEXECUTION.fields_by_name['effective_user_info'].message_type = proto_dot_common_dot_common__pb2._USERINFO
 DESCRIPTOR.message_types_by_name['DeliveryLog'] = _DELIVERYLOG
 DESCRIPTOR.message_types_by_name['DeliveryExecution'] = _DELIVERYEXECUTION
 DESCRIPTOR.enum_types_by_name['ExecutionServer'] = _EXECUTIONSERVER

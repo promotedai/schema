@@ -24,29 +24,31 @@ namespace Promoted.Delivery {
     static ExecutionReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Ch5wcm90by9kZWxpdmVyeS9leGVjdXRpb24ucHJvdG8SCGRlbGl2ZXJ5Ghxw",
-            "cm90by9kZWxpdmVyeS9ibGVuZGVyLnByb3RvGh1wcm90by9kZWxpdmVyeS9k",
-            "ZWxpdmVyeS5wcm90byLGAQoLRGVsaXZlcnlMb2cSHwoLcGxhdGZvcm1faWQY",
-            "ASABKARSCnBsYXRmb3JtSWQSKwoHcmVxdWVzdBgCIAEoCzIRLmRlbGl2ZXJ5",
-            "LlJlcXVlc3RSB3JlcXVlc3QSLgoIcmVzcG9uc2UYAyABKAsyEi5kZWxpdmVy",
-            "eS5SZXNwb25zZVIIcmVzcG9uc2USOQoJZXhlY3V0aW9uGAQgASgLMhsuZGVs",
-            "aXZlcnkuRGVsaXZlcnlFeGVjdXRpb25SCWV4ZWN1dGlvbiKaAgoRRGVsaXZl",
-            "cnlFeGVjdXRpb24SRAoQZXhlY3V0aW9uX3NlcnZlchgCIAEoDjIZLmRlbGl2",
-            "ZXJ5LkV4ZWN1dGlvblNlcnZlclIPZXhlY3V0aW9uU2VydmVyEiUKDnNlcnZl",
-            "cl92ZXJzaW9uGAcgASgJUg1zZXJ2ZXJWZXJzaW9uEiUKDmJsZW5kZXJfY29u",
-            "ZmlnGAwgASgJUg1ibGVuZGVyQ29uZmlnEjsKDWh5cGVybG9vcF9sb2cYDSAB",
-            "KAsyFi5kZWxpdmVyeS5IeXBlcmxvb3BMb2dSDGh5cGVybG9vcExvZ0oECAEQ",
-            "AkoECAMQBEoECAsQDEoECAQQBUoECAUQBkoECAYQB0oECAgQCUoECAkQCkoE",
-            "CAoQCyo+Cg9FeGVjdXRpb25TZXJ2ZXISHAoYVU5LTk9XTl9FWEVDVVRJT05f",
-            "U0VSVkVSEAASBwoDU0RLEAIiBAgDEANCggEKGmFpLnByb21vdGVkLnByb3Rv",
-            "LmRlbGl2ZXJ5QhREZWxpdmVyeUV4ZWN1dGlvbkxvZ1ABWjhnaXRodWIuY29t",
-            "L3Byb21vdGVkYWkvc2NoZW1hL2dlbmVyYXRlZC9nby9wcm90by9kZWxpdmVy",
-            "eaoCEVByb21vdGVkLkRlbGl2ZXJ5YgZwcm90bzM="));
+            "Ch5wcm90by9kZWxpdmVyeS9leGVjdXRpb24ucHJvdG8SCGRlbGl2ZXJ5Ghlw",
+            "cm90by9jb21tb24vY29tbW9uLnByb3RvGhxwcm90by9kZWxpdmVyeS9ibGVu",
+            "ZGVyLnByb3RvGh1wcm90by9kZWxpdmVyeS9kZWxpdmVyeS5wcm90byLGAQoL",
+            "RGVsaXZlcnlMb2cSHwoLcGxhdGZvcm1faWQYASABKARSCnBsYXRmb3JtSWQS",
+            "KwoHcmVxdWVzdBgCIAEoCzIRLmRlbGl2ZXJ5LlJlcXVlc3RSB3JlcXVlc3QS",
+            "LgoIcmVzcG9uc2UYAyABKAsyEi5kZWxpdmVyeS5SZXNwb25zZVIIcmVzcG9u",
+            "c2USOQoJZXhlY3V0aW9uGAQgASgLMhsuZGVsaXZlcnkuRGVsaXZlcnlFeGVj",
+            "dXRpb25SCWV4ZWN1dGlvbiLcAgoRRGVsaXZlcnlFeGVjdXRpb24SRAoQZXhl",
+            "Y3V0aW9uX3NlcnZlchgCIAEoDjIZLmRlbGl2ZXJ5LkV4ZWN1dGlvblNlcnZl",
+            "clIPZXhlY3V0aW9uU2VydmVyEiUKDnNlcnZlcl92ZXJzaW9uGAcgASgJUg1z",
+            "ZXJ2ZXJWZXJzaW9uEiUKDmJsZW5kZXJfY29uZmlnGAwgASgJUg1ibGVuZGVy",
+            "Q29uZmlnEjsKDWh5cGVybG9vcF9sb2cYDSABKAsyFi5kZWxpdmVyeS5IeXBl",
+            "cmxvb3BMb2dSDGh5cGVybG9vcExvZxJAChNlZmZlY3RpdmVfdXNlcl9pbmZv",
+            "GA8gASgLMhAuY29tbW9uLlVzZXJJbmZvUhFlZmZlY3RpdmVVc2VySW5mb0oE",
+            "CAEQAkoECAMQBEoECAsQDEoECAQQBUoECAUQBkoECAYQB0oECAgQCUoECAkQ",
+            "CkoECAoQCyo+Cg9FeGVjdXRpb25TZXJ2ZXISHAoYVU5LTk9XTl9FWEVDVVRJ",
+            "T05fU0VSVkVSEAASBwoDU0RLEAIiBAgDEANCggEKGmFpLnByb21vdGVkLnBy",
+            "b3RvLmRlbGl2ZXJ5QhREZWxpdmVyeUV4ZWN1dGlvbkxvZ1ABWjhnaXRodWIu",
+            "Y29tL3Byb21vdGVkYWkvc2NoZW1hL2dlbmVyYXRlZC9nby9wcm90by9kZWxp",
+            "dmVyeaoCEVByb21vdGVkLkRlbGl2ZXJ5YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Promoted.Delivery.BlenderReflection.Descriptor, global::Promoted.Delivery.DeliveryReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Promoted.Common.CommonReflection.Descriptor, global::Promoted.Delivery.BlenderReflection.Descriptor, global::Promoted.Delivery.DeliveryReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Promoted.Delivery.ExecutionServer), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.DeliveryLog), global::Promoted.Delivery.DeliveryLog.Parser, new[]{ "PlatformId", "Request", "Response", "Execution" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.DeliveryExecution), global::Promoted.Delivery.DeliveryExecution.Parser, new[]{ "ExecutionServer", "ServerVersion", "BlenderConfig", "HyperloopLog" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Promoted.Delivery.DeliveryExecution), global::Promoted.Delivery.DeliveryExecution.Parser, new[]{ "ExecutionServer", "ServerVersion", "BlenderConfig", "HyperloopLog", "EffectiveUserInfo" }, null, null, null, null)
           }));
     }
     #endregion
@@ -401,6 +403,7 @@ namespace Promoted.Delivery {
       serverVersion_ = other.serverVersion_;
       blenderConfig_ = other.blenderConfig_;
       hyperloopLog_ = other.hyperloopLog_ != null ? other.hyperloopLog_.Clone() : null;
+      effectiveUserInfo_ = other.effectiveUserInfo_ != null ? other.effectiveUserInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -453,6 +456,17 @@ namespace Promoted.Delivery {
       }
     }
 
+    /// <summary>Field number for the "effective_user_info" field.</summary>
+    public const int EffectiveUserInfoFieldNumber = 15;
+    private global::Promoted.Common.UserInfo effectiveUserInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Promoted.Common.UserInfo EffectiveUserInfo {
+      get { return effectiveUserInfo_; }
+      set {
+        effectiveUserInfo_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as DeliveryExecution);
@@ -470,6 +484,7 @@ namespace Promoted.Delivery {
       if (ServerVersion != other.ServerVersion) return false;
       if (BlenderConfig != other.BlenderConfig) return false;
       if (!object.Equals(HyperloopLog, other.HyperloopLog)) return false;
+      if (!object.Equals(EffectiveUserInfo, other.EffectiveUserInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -480,6 +495,7 @@ namespace Promoted.Delivery {
       if (ServerVersion.Length != 0) hash ^= ServerVersion.GetHashCode();
       if (BlenderConfig.Length != 0) hash ^= BlenderConfig.GetHashCode();
       if (hyperloopLog_ != null) hash ^= HyperloopLog.GetHashCode();
+      if (effectiveUserInfo_ != null) hash ^= EffectiveUserInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -512,6 +528,10 @@ namespace Promoted.Delivery {
         output.WriteRawTag(106);
         output.WriteMessage(HyperloopLog);
       }
+      if (effectiveUserInfo_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(EffectiveUserInfo);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -537,6 +557,10 @@ namespace Promoted.Delivery {
         output.WriteRawTag(106);
         output.WriteMessage(HyperloopLog);
       }
+      if (effectiveUserInfo_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(EffectiveUserInfo);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -557,6 +581,9 @@ namespace Promoted.Delivery {
       }
       if (hyperloopLog_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(HyperloopLog);
+      }
+      if (effectiveUserInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EffectiveUserInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -583,6 +610,12 @@ namespace Promoted.Delivery {
           HyperloopLog = new global::Promoted.Delivery.HyperloopLog();
         }
         HyperloopLog.MergeFrom(other.HyperloopLog);
+      }
+      if (other.effectiveUserInfo_ != null) {
+        if (effectiveUserInfo_ == null) {
+          EffectiveUserInfo = new global::Promoted.Common.UserInfo();
+        }
+        EffectiveUserInfo.MergeFrom(other.EffectiveUserInfo);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -617,6 +650,13 @@ namespace Promoted.Delivery {
             input.ReadMessage(HyperloopLog);
             break;
           }
+          case 122: {
+            if (effectiveUserInfo_ == null) {
+              EffectiveUserInfo = new global::Promoted.Common.UserInfo();
+            }
+            input.ReadMessage(EffectiveUserInfo);
+            break;
+          }
         }
       }
     #endif
@@ -648,6 +688,13 @@ namespace Promoted.Delivery {
               HyperloopLog = new global::Promoted.Delivery.HyperloopLog();
             }
             input.ReadMessage(HyperloopLog);
+            break;
+          }
+          case 122: {
+            if (effectiveUserInfo_ == null) {
+              EffectiveUserInfo = new global::Promoted.Common.UserInfo();
+            }
+            input.ReadMessage(EffectiveUserInfo);
             break;
           }
         }

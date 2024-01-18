@@ -6,6 +6,7 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import proto.common.common_pb2
 import proto.delivery.blender_pb2
 import proto.delivery.delivery_pb2
 import typing
@@ -73,13 +74,14 @@ global___DeliveryLog = DeliveryLog
 
 class DeliveryExecution(google.protobuf.message.Message):
     """Contains the inner execution details for a Delivery call.
-    Next ID = 15.
+    Next ID = 16.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor = ...
     EXECUTION_SERVER_FIELD_NUMBER: builtins.int
     SERVER_VERSION_FIELD_NUMBER: builtins.int
     BLENDER_CONFIG_FIELD_NUMBER: builtins.int
     HYPERLOOP_LOG_FIELD_NUMBER: builtins.int
+    EFFECTIVE_USER_INFO_FIELD_NUMBER: builtins.int
     execution_server: global___ExecutionServer.V = ...
     """Where delivery happened, i.e. via the SDK or some approach on the API side."""
 
@@ -95,13 +97,20 @@ class DeliveryExecution(google.protobuf.message.Message):
     def hyperloop_log(self) -> proto.delivery.blender_pb2.HyperloopLog:
         """Records what all Hyperloop parameters evaluated to."""
         pass
+    @property
+    def effective_user_info(self) -> proto.common.common_pb2.UserInfo:
+        """The user info on the request can be overriden during execution by e.g. user
+        feature store.
+        """
+        pass
     def __init__(self,
         *,
         execution_server : global___ExecutionServer.V = ...,
         server_version : typing.Text = ...,
         blender_config : typing.Text = ...,
         hyperloop_log : typing.Optional[proto.delivery.blender_pb2.HyperloopLog] = ...,
+        effective_user_info : typing.Optional[proto.common.common_pb2.UserInfo] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["hyperloop_log",b"hyperloop_log"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["blender_config",b"blender_config","execution_server",b"execution_server","hyperloop_log",b"hyperloop_log","server_version",b"server_version"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["effective_user_info",b"effective_user_info","hyperloop_log",b"hyperloop_log"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["blender_config",b"blender_config","effective_user_info",b"effective_user_info","execution_server",b"execution_server","hyperloop_log",b"hyperloop_log","server_version",b"server_version"]) -> None: ...
 global___DeliveryExecution = DeliveryExecution
