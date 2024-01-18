@@ -20,3 +20,5 @@ fi
 ./scripts/generate-cpp.sh "$@"
 
 ./scripts/generate-csharp.sh "$@"
+
+./scripts/generate-java.sh "$@"

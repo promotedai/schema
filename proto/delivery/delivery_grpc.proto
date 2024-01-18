@@ -1,10 +1,14 @@
 syntax = "proto3";
 package delivery_grpc;
 
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.delivery.grpc";
+// The default (DeliveryGrpc) fails with class name conflicts.
+option java_outer_classname = "DeliveryGrpcProtos";
 option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
 
 import "proto/delivery/delivery.proto";
 
 service Delivery {
-  rpc Deliver (delivery.Request) returns (delivery.Response) {};
+  rpc Deliver(delivery.Request) returns (delivery.Response) {};
 }

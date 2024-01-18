@@ -7,6 +7,7 @@ option java_outer_classname = "DeliveryExecutionLog";
 option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
 option csharp_namespace = "Promoted.Delivery";
 
+import "proto/common/common.proto";
 import "proto/delivery/blender.proto";
 import "proto/delivery/delivery.proto";
 
@@ -38,7 +39,7 @@ message DeliveryLog {
 }
 
 // Contains the inner execution details for a Delivery call.
-// Next ID = 15.
+// Next ID = 16.
 message DeliveryExecution {
 
   // Where delivery happened, i.e. via the SDK or some approach on the API side.
@@ -67,4 +68,8 @@ message DeliveryExecution {
   // Records what all Hyperloop parameters evaluated to.
   HyperloopLog hyperloop_log = 13;
 
+
+  // The user info on the request can be overriden during execution by e.g. user
+  // feature store.
+  common.UserInfo effective_user_info = 15;
 }
