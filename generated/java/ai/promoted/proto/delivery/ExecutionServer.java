@@ -13,6 +13,10 @@ public enum ExecutionServer
    */
   UNKNOWN_EXECUTION_SERVER(0),
   /**
+   * <code>API = 1;</code>
+   */
+  API(1),
+  /**
    * <code>SDK = 2;</code>
    */
   SDK(2),
@@ -23,6 +27,10 @@ public enum ExecutionServer
    * <code>UNKNOWN_EXECUTION_SERVER = 0;</code>
    */
   public static final int UNKNOWN_EXECUTION_SERVER_VALUE = 0;
+  /**
+   * <code>API = 1;</code>
+   */
+  public static final int API_VALUE = 1;
   /**
    * <code>SDK = 2;</code>
    */
@@ -54,6 +62,7 @@ public enum ExecutionServer
   public static ExecutionServer forNumber(int value) {
     switch (value) {
       case 0: return UNKNOWN_EXECUTION_SERVER;
+      case 1: return API;
       case 2: return SDK;
       default: return null;
     }

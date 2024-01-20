@@ -346,7 +346,7 @@ public final class Event {
       "EATMENT1\020\003\022\016\n\nTREATMENT2\020\004\022\016\n\nTREATMENT3" +
       "\020\005*\\\n\024ImpressionSourceType\022\"\n\036UNKNOWN_IM" +
       "PRESSION_SOURCE_TYPE\020\000\022\014\n\010DELIVERY\020\001\022\022\n\016" +
-      "CLIENT_BACKEND\020\002*\341\003\n\nActionType\022\027\n\023UNKNO" +
+      "CLIENT_BACKEND\020\002*\337\003\n\nActionType\022\027\n\023UNKNO" +
       "WN_ACTION_TYPE\020\000\022\026\n\022CUSTOM_ACTION_TYPE\020\001" +
       "\022\014\n\010NAVIGATE\020\002\022\017\n\013ADD_TO_CART\020\004\022\024\n\020REMOV" +
       "E_FROM_CART\020\n\022\014\n\010CHECKOUT\020\010\022\014\n\010PURCHASE\020" +
@@ -357,11 +357,11 @@ public final class Event {
       "\022\023\n\017REMOVE_BOOKMARK\020\021\022\017\n\013ADD_TO_LIST\020\022\022\024" +
       "\n\020REMOVE_FROM_LIST\020\023\022\n\n\006FOLLOW\020\024\022\014\n\010UNFO" +
       "LLOW\020\025\022\024\n\020ONGOING_PURCHASE\020\026\022\023\n\017CANCEL_P" +
-      "URCHASE\020\027\022\023\n\017REFUND_PURCHASE\020\030\022\024\n\020CONTEN" +
-      "T_SELECTED\020\031\"\006\010\377\001\020\377\001Bj\n\027ai.promoted.prot" +
-      "o.eventB\005EventP\001Z5github.com/promotedai/" +
-      "schema/generated/go/proto/event\252\002\016Promot" +
-      "ed.Eventb\006proto3"
+      "URCHASE\020\027\022\023\n\017REFUND_PURCHASE\020\030\022\022\n\016SELECT" +
+      "_CONTENT\020\031\"\006\010\377\001\020\377\001Bj\n\027ai.promoted.proto." +
+      "eventB\005EventP\001Z5github.com/promotedai/sc" +
+      "hema/generated/go/proto/event\252\002\016Promoted" +
+      ".Eventb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

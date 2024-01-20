@@ -50,12 +50,12 @@ public final class DeliveryExecutionLog {
       "og\022@\n\023effective_user_info\030\017 \001(\0132\020.common" +
       ".UserInfoR\021effectiveUserInfoJ\004\010\001\020\002J\004\010\003\020\004" +
       "J\004\010\013\020\014J\004\010\004\020\005J\004\010\005\020\006J\004\010\006\020\007J\004\010\010\020\tJ\004\010\t\020\nJ\004\010\n" +
-      "\020\013*>\n\017ExecutionServer\022\034\n\030UNKNOWN_EXECUTI" +
-      "ON_SERVER\020\000\022\007\n\003SDK\020\002\"\004\010\003\020\003B\202\001\n\032ai.promot" +
-      "ed.proto.deliveryB\024DeliveryExecutionLogP" +
-      "\001Z8github.com/promotedai/schema/generate" +
-      "d/go/proto/delivery\252\002\021Promoted.Deliveryb" +
-      "\006proto3"
+      "\020\013*G\n\017ExecutionServer\022\034\n\030UNKNOWN_EXECUTI" +
+      "ON_SERVER\020\000\022\007\n\003API\020\001\022\007\n\003SDK\020\002\"\004\010\003\020\003B\202\001\n\032" +
+      "ai.promoted.proto.deliveryB\024DeliveryExec" +
+      "utionLogP\001Z8github.com/promotedai/schema" +
+      "/generated/go/proto/delivery\252\002\021Promoted." +
+      "Deliveryb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

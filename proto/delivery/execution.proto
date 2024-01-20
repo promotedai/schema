@@ -16,6 +16,9 @@ import "proto/delivery/delivery.proto";
 enum ExecutionServer {
   UNKNOWN_EXECUTION_SERVER = 0;
 
+  // The standard Delivery API path.
+  API = 1;
+
   // The SDK did delivery because the API failed or was not called for any reason.
   SDK = 2;
   reserved 3;
