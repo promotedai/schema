@@ -74,6 +74,7 @@ namespace delivery {
 
 enum ExecutionServer : int {
   UNKNOWN_EXECUTION_SERVER = 0,
+  API = 1,
   SDK = 2,
   ExecutionServer_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   ExecutionServer_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()

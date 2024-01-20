@@ -39,11 +39,11 @@ namespace Promoted.Delivery {
             "cmxvb3BMb2dSDGh5cGVybG9vcExvZxJAChNlZmZlY3RpdmVfdXNlcl9pbmZv",
             "GA8gASgLMhAuY29tbW9uLlVzZXJJbmZvUhFlZmZlY3RpdmVVc2VySW5mb0oE",
             "CAEQAkoECAMQBEoECAsQDEoECAQQBUoECAUQBkoECAYQB0oECAgQCUoECAkQ",
-            "CkoECAoQCyo+Cg9FeGVjdXRpb25TZXJ2ZXISHAoYVU5LTk9XTl9FWEVDVVRJ",
-            "T05fU0VSVkVSEAASBwoDU0RLEAIiBAgDEANCggEKGmFpLnByb21vdGVkLnBy",
-            "b3RvLmRlbGl2ZXJ5QhREZWxpdmVyeUV4ZWN1dGlvbkxvZ1ABWjhnaXRodWIu",
-            "Y29tL3Byb21vdGVkYWkvc2NoZW1hL2dlbmVyYXRlZC9nby9wcm90by9kZWxp",
-            "dmVyeaoCEVByb21vdGVkLkRlbGl2ZXJ5YgZwcm90bzM="));
+            "CkoECAoQCypHCg9FeGVjdXRpb25TZXJ2ZXISHAoYVU5LTk9XTl9FWEVDVVRJ",
+            "T05fU0VSVkVSEAASBwoDQVBJEAESBwoDU0RLEAIiBAgDEANCggEKGmFpLnBy",
+            "b21vdGVkLnByb3RvLmRlbGl2ZXJ5QhREZWxpdmVyeUV4ZWN1dGlvbkxvZ1AB",
+            "WjhnaXRodWIuY29tL3Byb21vdGVkYWkvc2NoZW1hL2dlbmVyYXRlZC9nby9w",
+            "cm90by9kZWxpdmVyeaoCEVByb21vdGVkLkRlbGl2ZXJ5YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Promoted.Common.CommonReflection.Descriptor, global::Promoted.Delivery.BlenderReflection.Descriptor, global::Promoted.Delivery.DeliveryReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Promoted.Delivery.ExecutionServer), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -57,6 +57,7 @@ namespace Promoted.Delivery {
   #region Enums
   public enum ExecutionServer {
     [pbr::OriginalName("UNKNOWN_EXECUTION_SERVER")] UnknownExecutionServer = 0,
+    [pbr::OriginalName("API")] Api = 1,
     [pbr::OriginalName("SDK")] Sdk = 2,
   }
 

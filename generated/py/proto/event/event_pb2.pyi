@@ -203,9 +203,9 @@ class _ActionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     CANCEL_PURCHASE to indicate that revenue was already realized.
     """
 
-    CONTENT_SELECTED = ActionType.V(25)
+    SELECT_CONTENT = ActionType.V(25)
     """This is an internal, synthetic event that indicates an item was selected.
-    CONTENT_SELECTED can be used when we want to model multiple events as a click.
+    SELECT_CONTENT can be used when we want to model multiple events as a click.
     E.g. `union(NAVIGATE, BOOKMARK, LIKE, ADD_TO_CART)`.
     The validate job can be configured to customize this mapping per platform.
     The join job supports reducing redundant events.
@@ -292,9 +292,9 @@ REFUND_PURCHASE = ActionType.V(24)
 CANCEL_PURCHASE to indicate that revenue was already realized.
 """
 
-CONTENT_SELECTED = ActionType.V(25)
+SELECT_CONTENT = ActionType.V(25)
 """This is an internal, synthetic event that indicates an item was selected.
-CONTENT_SELECTED can be used when we want to model multiple events as a click.
+SELECT_CONTENT can be used when we want to model multiple events as a click.
 E.g. `union(NAVIGATE, BOOKMARK, LIKE, ADD_TO_CART)`.
 The validate job can be configured to customize this mapping per platform.
 The join job supports reducing redundant events.
