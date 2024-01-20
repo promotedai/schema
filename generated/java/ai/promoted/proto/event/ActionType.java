@@ -109,9 +109,9 @@ public enum ActionType
    */
   REFUND_PURCHASE(24),
   /**
-   * <code>CONTENT_SELECTED = 25;</code>
+   * <code>SELECT_CONTENT = 25;</code>
    */
-  CONTENT_SELECTED(25),
+  SELECT_CONTENT(25),
   UNRECOGNIZED(-1),
   ;
 
@@ -216,9 +216,9 @@ public enum ActionType
    */
   public static final int REFUND_PURCHASE_VALUE = 24;
   /**
-   * <code>CONTENT_SELECTED = 25;</code>
+   * <code>SELECT_CONTENT = 25;</code>
    */
-  public static final int CONTENT_SELECTED_VALUE = 25;
+  public static final int SELECT_CONTENT_VALUE = 25;
 
 
   public final int getNumber() {
@@ -270,7 +270,7 @@ public enum ActionType
       case 22: return ONGOING_PURCHASE;
       case 23: return CANCEL_PURCHASE;
       case 24: return REFUND_PURCHASE;
-      case 25: return CONTENT_SELECTED;
+      case 25: return SELECT_CONTENT;
       default: return null;
     }
   }

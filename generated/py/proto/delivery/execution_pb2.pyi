@@ -24,11 +24,17 @@ class _ExecutionServer:
 class _ExecutionServerEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ExecutionServer.V], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor = ...
     UNKNOWN_EXECUTION_SERVER = ExecutionServer.V(0)
+    API = ExecutionServer.V(1)
+    """The standard Delivery API path."""
+
     SDK = ExecutionServer.V(2)
     """The SDK did delivery because the API failed or was not called for any reason."""
 
 
 UNKNOWN_EXECUTION_SERVER = ExecutionServer.V(0)
+API = ExecutionServer.V(1)
+"""The standard Delivery API path."""
+
 SDK = ExecutionServer.V(2)
 """The SDK did delivery because the API failed or was not called for any reason."""
 

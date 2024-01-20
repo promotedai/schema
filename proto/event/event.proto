@@ -467,12 +467,12 @@ enum ActionType {
   REFUND_PURCHASE = 24;
 
   // This is an internal, synthetic event that indicates an item was selected.
-  // CONTENT_SELECTED can be used when we want to model multiple events as a click.
+  // SELECT_CONTENT can be used when we want to model multiple events as a click.
   // E.g. `union(NAVIGATE, BOOKMARK, LIKE, ADD_TO_CART)`.
   // The validate job can be configured to customize this mapping per platform.
   // The join job supports reducing redundant events.
   // If you want to use this, talk with the Promoted team.
-  CONTENT_SELECTED = 25;
+  SELECT_CONTENT = 25;
 
   reserved 255;
 }
