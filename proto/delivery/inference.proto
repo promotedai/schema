@@ -1,0 +1,31 @@
+syntax = "proto3";
+package inference;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.inference";
+option java_outer_classname = "InferenceProto";
+// This must be in /delivery to match the file path for Golang's build system.
+option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
+option csharp_namespace = "Promoted.Inference";
+
+// A separate service should be created for other types of inference (e.g. text
+// generation).
+service Embeddings {
+  rpc ListModels(google.protobuf.Empty) returns (ListModelsResponse) {};
+  rpc Embed(EmbedRequest) returns (EmbedResponse) {};
+}
+
+// Next ID = 2.
+message ListModelsResponse { repeated string models = 1; }
+
+// Next ID = 3.
+message EmbedRequest {
+  // This must be one of the values returned by `ListModels`,
+  string model = 1;
+  string text = 2;
+}
+
+// Next ID = 2.
+message EmbedResponse { repeated float embedding = 1; }

@@ -32,16 +32,37 @@ done
 
 if [ "$BUILD" = true ]; then
     # Usually already cached.
-    bazel build ... || exit 1
+    bazel build proto/... tests/... || exit 1
 fi
 
 # Our version of rules_proto_grpc requires a specific version of Protobuf and protoc.
 echo "Downloading protoc."
 rm -rf .local
 PB_REL="https://github.com/protocolbuffers/protobuf/releases"
-curl -LO $PB_REL/download/v3.15.3/protoc-3.15.3-linux-x86_64.zip
-unzip protoc-3.15.3-linux-x86_64.zip -d .local/
-rm protoc-3.15.3-linux-x86_64.zip
+
+architecture=$(uname -m)
+os_name=$(uname -s)
+
+if [[ "$os_name" == "Darwin" ]]; then
+    if [[ "$architecture" == "arm64" ]]; then
+        export PROTOC=protoc-27.1-osx-aarch_64
+    else
+        export PROTOC=protoc-27.1-osx-x86_64
+    fi
+elif [[ "$os_name" == "Linux" ]]; then
+    if [[ "$architecture" == "arm64" ]]; then
+        export PROTOC=protoc-27.1-linux-aarch_64
+    else
+        export PROTOC=protoc-27.1-linux-x86_64
+    fi
+else
+    echo "Unknown operating system."
+    exit 1
+fi
+
+curl -LO $PB_REL/download/v27.1/$PROTOC.zip
+unzip $PROTOC.zip -d .local/
+rm $PROTOC.zip
 ./.local/bin/protoc --version || exit 1
 
 # Use Bazel's proto output.  Move the bazel-bin files to generated output directory.

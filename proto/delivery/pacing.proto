@@ -1,0 +1,58 @@
+syntax = "proto3";
+package pacing;
+
+option java_multiple_files = true;
+option java_package = "ai.promoted.proto.pacing";
+option java_outer_classname = "PacingProto";
+// This must be in /delivery to match the file path for Golang's build system.
+option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
+option csharp_namespace = "Promoted.Pacing";
+
+service Pacing {
+  rpc Iterate(IterateRequest) returns (IterateResponse) {};
+}
+
+// Next ID = 2.
+message IterateRequest { repeated IterateRequestRecord records = 1; }
+
+// Next ID = 4.
+message IterateRequestRecord {
+  string key = 1;
+  double setpoint = 2;
+  double measured_value = 3;
+}
+
+// Next ID = 5.
+message IterateResponse {
+  // Order corresponds to the ordering of request records.
+  repeated double multipliers = 1;
+  // These are assumed to have the same length as the above. Element i in the
+  // above corresponds to the element i in all of the below.
+  repeated double error = 2;
+  repeated double delta_error = 3;
+  repeated double delta_rolling_error = 4;
+}
+
+// Next ID = 8.
+message PacingLog {
+  // All repeated fields are expected to have the same length. Element i in one
+  // field corresponds to element i in all others.
+  repeated string key = 1;
+  // Floats to save some space.
+  repeated float setpoint = 2;
+  repeated float measured_value = 3;
+  repeated float multipliers = 4;
+  repeated float error = 5;
+  repeated float delta_error = 6;
+  repeated float delta_rolling_error = 7;
+}
+
+// This is just to help with serialization for durability of pacing service
+// state.
+//
+// Next ID = 4.
+message PacingControllerState {
+  int64 last_updated_millis = 1;
+  double previous_error = 2;
+  double multiplier = 3;
+}

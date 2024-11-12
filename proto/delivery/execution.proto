@@ -10,6 +10,7 @@ option csharp_namespace = "Promoted.Delivery";
 import "proto/common/common.proto";
 import "proto/delivery/blender.proto";
 import "proto/delivery/delivery.proto";
+import "proto/delivery/pacing.proto";
 
 // The system repsonsible for doing delivery.
 // Next ID = 4
@@ -42,7 +43,7 @@ message DeliveryLog {
 }
 
 // Contains the inner execution details for a Delivery call.
-// Next ID = 16.
+// Next ID = 18.
 message DeliveryExecution {
 
   // Where delivery happened, i.e. via the SDK or some approach on the API side.
@@ -68,8 +69,14 @@ message DeliveryExecution {
   // This is the Blender config for the execution, serialized to JSON.
   string blender_config = 12;
 
+  // Records pacing service inputs and outputs.
+  pacing.PacingLog pacing_log = 17;
+
   // Records what all Hyperloop parameters evaluated to.
   HyperloopLog hyperloop_log = 13;
+
+  // Records the Blender config and what each statement resulted in.
+  BlenderSessionLog blender_session_log = 16;
 
 
   // The user info on the request can be overriden during execution by e.g. user

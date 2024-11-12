@@ -1,0 +1,1 @@
+common --enable_bzlmod --define=use_fast_cpp_protos=true

@@ -19,19 +19,18 @@ import "proto/delivery/execution.proto";
 
 // This structure is used to help deduplicate identifiers that live in many
 // event types.
-// Next ID = 11.
-message JoinedIdentifiers {
+// Next ID = 10.
+message JoinedInsertionIds {
   uint64 platform_id = 1;
   string user_id = 2;
   string log_user_id = 3;
-  string anon_user_id = 10;
+  string anon_user_id = 4;
 
-  string session_id = 4;
-  string view_id = 5;
-  string auto_view_id = 9;
-  string request_id = 6;
-  string insertion_id = 7;
-  string impression_id = 8;
+  string session_id = 5;
+  string view_id = 6;
+  string auto_view_id = 7;
+  string request_id = 8;
+  string insertion_id = 9;
 }
 
 // Indicates the value of IDs when logged from metrics client library.
@@ -389,7 +388,7 @@ message Impression {
 // The action that user wants to perform.  This usually indicates
 // that the user did something or accepted an action.
 //
-// Next ID = 26.  Max = 254.
+// Next ID = 28.  Max = 254.
 enum ActionType {
   UNKNOWN_ACTION_TYPE = 0;
 
@@ -473,6 +472,14 @@ enum ActionType {
   // The join job supports reducing redundant events.
   // If you want to use this, talk with the Promoted team.
   SELECT_CONTENT = 25;
+
+  // Buyer commits to an offer.  Seller might not have committed (depends on the platform).
+  BUYER_COMMIT = 26;
+
+  // Seller responds to an offer.  The seller has not indicated acceptance or rejection.
+  // This event is different from other actions here.  It's a seller action.  It's more
+  // of an event that might impact the buyer.  The buyer might not notice.
+  RESPONSE_TO_BUYER_COMMIT = 27;
 
   reserved 255;
 }

@@ -163,9 +163,11 @@ message PagingInfo {
   string cursor = 2;
 }
 
+// TODO - should we move UseCase to common and put it on Impression and Action?
+
 // Used to indicate the client's use case.  Used on both View and Request.
 //
-// Next ID = 12.
+// Next ID = 13.
 enum UseCase {
   UNKNOWN_USE_CASE = 0;
   CUSTOM = 1; // Need to handle in wrapper proto.
@@ -179,12 +181,13 @@ enum UseCase {
   MY_SAVED_CONTENT = 9;
   SELLER_CONTENT = 10;
   DISCOVER = 11;
+  EMAIL = 12;
 }
 
 // Next ID = 11
 
 // Define Prediction Type
-// Next ID = 8
+// Next ID = 23
 
 
 
@@ -202,42 +205,20 @@ enum UseCase {
 // Next ID = 24.
 message Insertion {
 
-  // Optional.  If not set, set by API servers.
-  uint64 platform_id = 1;
-
-  // Required.
-  common.UserInfo user_info = 2;
-
-  // Optional.  If not set, set by API servers.
-  common.Timing timing = 3;
-
-  // Optional.  If not set, API server uses LogRequest.client_info.
-  common.ClientInfo client_info = 4;
-
-  reserved 5; // Reserving fields for future common fields.
+  reserved 1 to 5; // Deprecated.  Set the common fields on wrapper messages (e.g. Request).
 
   // Optional.  Primary key.
   // SDKs usually handles this automatically. For details, see
   // https://github.com/promotedai/schema#setting-primary-keys
   string insertion_id = 6;
 
-  // Optional.
-  string request_id = 7;
+  reserved 7 to 9;  // Deprecated.
 
-  // Optional.
-  string view_id = 9;
-
-  // Optional.
-  string auto_view_id = 21;
-
-  // Optional.
-  string session_id = 8;
-
-  // Optional.  We'll look this up using the external_content_id.
+  // Required.  This is the ID for the Content (sometimes called Item or Listing in other systems).
   string content_id = 10;
 
-  // Optional.  If using Promotion's CMS.
-  reserved 11; // uint64 promotedai_content_id
+  // Deprecated.
+  reserved 11;
 
   // Optional. 0-based.  Position is the global position across pages.
   // E.g. the first item on the 4th page where page_size=10 is position=40.
@@ -255,6 +236,8 @@ message Insertion {
   reserved 17;
   reserved 18;
 
+  reserved 21; // Deprecated.
+
   reserved 22;
 
   reserved 23;
@@ -264,4 +247,18 @@ message Insertion {
 
   // Optional. Score (if any) of this insertion from the retrieval system.
   optional float retrieval_score = 20;
+}
+
+// Used by delivery to cache allocations across requests. (This is sometimes
+// called "paging".)
+//
+// Next ID = 3.                                                
+message CachedAllocation {
+  // The insertion as it appeared on the request.
+  Insertion request_insertion = 1;
+
+  // The properties which were included on the original response. This is to
+  // carry along allocation information since cached allocations will be
+  // eligible for general Blender processing.
+  common.Properties response_properties = 2;
 }
