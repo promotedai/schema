@@ -2,6 +2,10 @@ on:
   workflow_dispatch:
   push:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 name: Build, test and generate libraries
 
 jobs:
@@ -9,7 +13,7 @@ jobs:
     name: Build, test and generate libraries
 
     # This has bazelisk already.
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-8-cores
     steps:
 
       - name: Cache Bazel
@@ -31,25 +35,13 @@ jobs:
         id: checkout
         uses: actions/checkout@v3
 
-      - name: Setup SSH Keys and known_hosts
-        id: setup_ssh_keys
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-add - <<< "${{ secrets.PUBLIC_REPO_SSH_PRIVATE_KEY }}"
-
       - name: Build protos
         id: build_protos
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-          export USE_BAZEL_VERSION=4.2.2
+          export USE_BAZEL_VERSION=7.2.0
           # If you hit any cache issues, either delete the cache or enable this line.
           # bazel sync --configure
-          bazel build ...
+          bazel build proto/... tests/...
 
       - name: Run tests
         id: run_tests
@@ -57,19 +49,25 @@ jobs:
           TESTS=$(bazel query 'tests(//...)')
           if [[ ! -z "$TESTS" ]]
           then
-            bazel test ...
+            bazel test tests/...
           else
             echo "No tests.  Skipping tests."
           fi
 
       - uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: 3.12
 
-      # Needed for the generate script.
-      - name: Install pipenv
+      - name: Install Poetry
         run: |
-          python -m pip install --upgrade pipenv
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Configure Poetry
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: poetry install
 
       # Needed for the generate script.
       - name: Install Go
@@ -82,6 +80,7 @@ jobs:
         # Generate libraries on both push and pull_requests
         id: generate_libraries
         run: |
+          ./scripts/generate-java.sh -s || exit 1
           ./scripts/generate.sh -s || exit 1
           git remote set-url origin https://x-access-token:${{ secrets.PROMOTED_PUBLIC_DEPLOYER_GITHUB_ACTIONS }}@github.com/${{ github.repository }}
           git config user.name prm-deployer

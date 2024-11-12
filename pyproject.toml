@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "schema"
+version = "0.3.0"
+description = ""
+authors = ["Dan Hill <dhill@promoted.ai>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+protobuf = "^4.21.1"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy-protobuf = ">=2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

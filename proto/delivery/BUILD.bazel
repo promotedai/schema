@@ -1,147 +1,85 @@
 load("@rules_proto//proto:defs.bzl", "proto_library")
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
-load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
-load("@rules_java//java:defs.bzl", "java_proto_library")
-load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
-load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
-load("@rules_proto_grpc//python:defs.bzl", "python_grpc_compile")
-load("@rules_proto_grpc//cpp:defs.bzl", "cpp_proto_library")
-load("@rules_proto_grpc//cpp:defs.bzl", "cpp_grpc_library")
-load("@rules_proto_grpc//csharp:defs.bzl", "csharp_proto_compile")
-load("@rules_proto_grpc//java:defs.bzl", "java_grpc_compile")
+load("@rules_proto_grpc_java//:defs.bzl", "java_proto_compile", "java_proto_library", "java_grpc_compile")
+load("@rules_proto_grpc_python//:defs.bzl", "python_proto_library", "python_grpc_library")
+
 
 # Protobufs
 
 proto_library(
     name = "delivery_proto",
     srcs = [
-      "blender.proto",
-      "delivery.proto",
-      "execution.proto",
+        "blender.proto",
+        "delivery.proto",
+        "execution.proto",
+        "pacing.proto",
     ],
     visibility = ["//visibility:public"],
     deps = [
       "//proto/common:common_proto",
-      "@com_google_protobuf//:struct_proto",
+      "@protobuf//:struct_proto",
     ],
-)
-
-go_proto_library(
-    name = "delivery_go_proto",
-    importpath = "github.com/promotedai/schema/generated/go/proto/delivery",
-    proto = ":delivery_proto",
-    visibility = ["//visibility:public"],
-    deps = [
-      "//proto/common:go_default_library",
-      "@org_golang_google_protobuf//types/known/structpb:go_default_library",
-    ],
-)
-
-go_library(
-    name = "go_default_library",
-    embed = [":delivery_go_proto"],
-    importpath = "github.com/promotedai/schema/generated/go/proto/delivery",
-    visibility = ["//visibility:public"],
 )
 
 java_proto_library(
     name = "delivery_java_proto",
+    protos = [":delivery_proto"],
     deps = [
-        ":delivery_proto",
-        "//proto/common:common_proto",
+        "//proto/common:common_java_proto",
     ],
     visibility = ["//visibility:public"],
 )
 
-py_proto_library(
+# This is similar to the above java_proto_library but generates a .srcjar
+# instead of a .jar, meaning we can get the source files from it.
+java_proto_compile(
+    name = "delivery_java_proto_srcjar",
+    protos = [":delivery_proto"],
+    visibility = ["//visibility:public"],
+)
+
+python_proto_library(
     name = "delivery_py_proto",
-    srcs = [
-      "blender.proto",
-      "delivery.proto",
-      "execution.proto",
-    ],
+    protos = [":delivery_proto"],
     visibility = ["//visibility:public"],
     deps = [
-      "//proto/common:common_py_proto",
-      "@com_google_protobuf//:protobuf_python"
+        "//proto/common:common_py_proto",
     ],
-)
-
-cpp_proto_library(
-    name = "delivery_cpp_proto",
-    protos = [
-        ":delivery_proto",
-        "//proto/common:common_proto",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-csharp_proto_compile(
-    name = "delivery_csharp_proto",
-    protos = [
-        ":delivery_proto",
-        "//proto/common:common_proto",
-    ],
-    visibility = ["//visibility:public"],
 )
 
 # GRPC
 
-proto_library(
-    name = "delivery_grpc_proto",
-    srcs = ["delivery_grpc.proto"],
-    visibility = ["//visibility:public"],
-    deps = [
-      ":delivery_proto",
-    ],
-)
+# proto_library(
+#     name = "delivery_grpc_proto",
+#     srcs = ["delivery_grpc.proto"],
+#     visibility = ["//visibility:public"],
+#     deps = [
+#       ":delivery_proto",
+#     ],
+# )
 
-go_proto_library(
-    name = "delivery_grpc_go_proto",
-    importpath = "github.com/promotedai/schema/generated/go/proto/delivery/grpc",
-    proto = ":delivery_grpc_proto",
-    visibility = ["//visibility:public"],
-    deps = [
-      ":go_default_library",
-    ],
-)
+# java_proto_library(
+#     name = "delivery_grpc_java_proto",
+#     protos = [":delivery_grpc_proto"],
+#     visibility = ["//visibility:public"],
+#     deps = [
+#         ":delivery_java_proto",
+#     ]
+# )
 
-go_library(
-    name = "grpc_go_default_library",
-    embed = [":delivery_grpc_go_proto"],
-    importpath = "github.com/promotedai/schema/generated/go/proto/delivery",
-    visibility = ["//visibility:public"],
-)
+# java_grpc_library(
+#     name = "delivery_java_grpc_srcjar",
+#     protos = [":delivery_grpc_proto"],
+#     visibility = ["//visibility:public"],
+#     deps = [
+#         ":delivery_java_proto",
+#     ]
+# )
 
-java_proto_library(
-    name = "delivery_grpc_java_proto",
-    deps = [
-        ":delivery_proto",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-python_grpc_compile(
-    name = "delivery_python_grpc",
-    protos = [":delivery_grpc_proto"],
-)
-
-cpp_grpc_library(
-    name = "delivery_cpp_grpc",
-    protos = [
-        ":delivery_grpc_proto",
-        ":delivery_proto",
-        "//proto/common:common_proto",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-java_grpc_compile(
-    name = "delivery_java_grpc_srcjar",
-    protos = [
-        ":delivery_grpc_proto",
-        ":delivery_proto",
-        "//proto/common:common_proto",
-    ],
-    visibility = ["//visibility:public"],
-)
+# python_grpc_library(
+#     name = "delivery_python_grpc",
+#     protos = [":delivery_grpc_proto"],
+#     visibility = ["//visibility:public"],
+#     deps = [
+#         ":delivery_py_proto",
+#     ]
+# )

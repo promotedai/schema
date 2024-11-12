@@ -1,0 +1,42 @@
+# Important - If you update this file, run `bazel sync` to update the lock file.
+
+module(
+  name = "schema",
+  repo_name = "ai_promoted_schema",
+  version = "1.0",
+  compatibility_level = 1,
+)
+
+bazel_dep(name = "abseil-cpp", version = "20240116.2", repo_name = "com_google_absl")
+bazel_dep(name = "protobuf", version = "26.0")
+bazel_dep(name = "rules_proto", version = "6.0.2")
+bazel_dep(name = "rules_python", version = "0.27.1")
+bazel_dep(name = "rules_proto_grpc", version = "5.0.0-alpha2")
+bazel_dep(name = "rules_proto_grpc_python", version = "5.0.0-alpha2")
+bazel_dep(name = "rules_go", version = "0.42.0")
+bazel_dep(name = "rules_proto_grpc_go", version = "5.0.0-alpha2")
+
+# This library doesn't exist in BCR.
+bazel_dep(name = "rules_proto_grpc_java", version = "5.0.0-alpha2")
+local_path_override(
+    module_name = "rules_proto_grpc_java",
+    path = "./modules/java",
+)
+
+# Needed for java grpc.
+bazel_dep(name = "rules_jvm_external", version = "6.0")
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+  artifacts = [
+    "com.google.guava:guava:33.2.1-jre",
+  ],
+  excluded_artifacts = [
+    # globally exclude logging frameworks
+    "org.slf4j:slf4j-reload4j",
+    "log4j:log4j",
+    "org.apache.logging.log4j:*",
+  ],
+)
+
+use_repo(maven, "maven")

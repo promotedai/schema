@@ -4,6 +4,7 @@ bazel-schema
 bazel-testlogs
 bazel-generated-public
 bin
+obj
 build
 .ijwb
 .idea

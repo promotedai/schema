@@ -7,15 +7,20 @@ option java_outer_classname = "Blender";
 option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
 option csharp_namespace = "Promoted.Delivery";
 
-// This behaves like a COALESCE in SQL. Lookups are performed in order until one
-// succeeds. If they all fail, the default value is produced.
+// Lookups behave like a COALESCE in SQL. Lookups are performed in order until
+// one succeeds. If they all fail, the default value is produced.
 //
-// A leaf with constant value can be represented by a default with no lookups.
+// If no lookups are specified, a variable name is checked for. There is no
+// coalescing here; a variable must exist.
 //
-// Next ID = 3.
+// A leaf with constant value can be represented by a default with no lookups
+// or variable name.
+//
+// Next ID = 4.
 message LeafExpression {
   repeated Lookup lookups = 1;
   float default = 2;
+  string variable_name = 3;
 }
 
 // This represents a lookup into data structures outside of the syntax tree
@@ -29,89 +34,66 @@ message Lookup {
   }
 }
 
-// This describes the executor built and used by Blender.
-//
-// Next ID = 3.
-message BlenderConfig {
-  // How to compute the quality score. The final decision for an allocation will
-  // will always be a (descending) sort based on this score. Quality score ties
-  // are ignored.
-  BlenderExpression quality_score = 1;
+// Wrapper messages to include a repeated inside a oneof.
+message BlenderBoolValues { repeated bool values = 1; }
+message BlenderInt32Values { repeated int32 values = 1; }
+message BlenderFloatValues { repeated float values = 1; }
+message BlenderStringValues { repeated string values = 1; }
 
-  // Additional, preliminary sorting logic. Quality score-based sorting is a
-  // backstop for ties resulting from this.
-  BlenderSortKey sort_key = 2;
-}
-
-// Each expression type must represent the production of a single float. This is
-// the only supported output data type. Expressions are not allowed to produce
-// nulls or errors.
-//
-// (Floating point arithmetic can produce special values, or simply overflow.
-// These are not considered errors and handling is not defined here.)
-//
-// Next ID = 4.
-message BlenderExpression {
-  oneof exp_type {
-    LeafExpression leaf = 1;
-    BlenderArithmeticExpression arithmetic_exp = 2;
-    BlenderConditionalExpression conditional_exp = 3;
-  }
-}
-
-// The specified operator is used across all inputs
-// (e.g. inputs[0] + inputs[1] + inputs[2])
-//
-// Next ID = 7.
-message BlenderArithmeticExpression {
-  enum Operator {
-    UNKNOWN = 0;
-    ADD = 1;
-    MULTIPLY = 2;
-    SUBTRACT = 3;
-    DIVIDE = 4;
-    MIN = 5;
-    MAX = 6;
-    // These are only coherent as unary operators, but putting them here while
-    // the Blender-config-validation story is still unclear.
-    FLOOR = 7;
-    CEILING = 8;
-  }
-  Operator op = 1;
-  repeated BlenderExpression inputs = 2;
-}
-
-// This represents if(-else) branches in processing. For a single execution of
-// the expression:
-// - Both sides of the predicate are computed
-// - Only one of the branches is computed
-//
-// Conjunction/disjunctions (i.e. AND/OR) can be formed by nesting conditionals.
+// How an assignment statement evaluated.
 //
 // Next ID = 6.
-message BlenderConditionalExpression {
-  enum Operator {
-    UNKNOWN = 0;
-    EQUAL = 1;
-    GREATER_THAN = 2;
-    GREATER_THAN_OR_EQUAL = 3;
-  }
-  Operator op = 1;
-  BlenderExpression predicate_lhs = 2;
-  BlenderExpression predicate_rhs = 3;
-  BlenderExpression then_branch = 4;
-  BlenderExpression else_branch = 5;
-}
+message BlenderVariableLog {
+  string name = 1;
+  // Ordering corresponds to `ids` in the session log.
+  // TODO(james): Deprecate and reserve.
+  repeated float values = 2;
 
-// This defines a tuple of expressions that Blender should use for sorting. All
-// sorts are assumed to be descending, as is done with quality scores.
+  // If true, then the following repeated should have a length of 1 and the
+  // value can be used for all `ids`.
+  bool is_scalar = 3;
+  // Ordering of repeated in sub-messages corresponds to `ids` in the session
+  // log.
+  oneof typed_values {
+    BlenderBoolValues bool_values = 4;
+    BlenderInt32Values int32_values = 5;
+    BlenderFloatValues float_values = 6;
+    BlenderStringValues string_values = 7;
+  }
+};
+
+// How an allocation statement evaluated.
 //
-// Next ID = 2.
-message BlenderSortKey {
-  // Positions correspond to sort priority. elements[0] ties are broken using
-  // elements[1], elements[1] ties are broken using elements[2], and so on. Ties
-  // of the last element are broken by the overall quality score.
-  repeated BlenderExpression elements = 1;
+// Next ID = 5.
+message BlenderAllocationLog {
+  // These indexes correspond to elements of `ids` in the session log.
+  repeated int32 indexes = 1;
+  // The name of the rule corresponding to this statement.
+  string name = 2;
+  // Positions which this rule tried to fill.
+  repeated int32 positions_considered = 3;
+  // Positions which were successfully filled.
+  repeated int32 positions_filled = 4;
+};
+
+// A Blender config, input IDs, and how statements evaluated. Inputs only have
+// their IDs included to not duplicate the feature maps.
+//
+// Next ID = 6.
+message BlenderSessionLog {
+  // This is the config, but split by statement to simplify downstream
+  // processing.
+  repeated string config_statements = 1;
+  // Feature IDs which appear in the config.
+  repeated uint64 relevant_feature_ids = 5;
+
+  // Order corresponds to the order of inputs across the session. The same
+  // ordering is used for the entire session.
+  repeated string ids = 2;
+  // Order corresponds to the order of assignment statements in the config.
+  repeated BlenderVariableLog variable_logs = 3;
+  // Order corresponds to the order of allocation statements in the config.
+  repeated BlenderAllocationLog allocation_logs = 4;
 }
 
 // This is only capable of exploring values in simple ways. More complex logic
@@ -189,11 +171,12 @@ message HyperloopUniformMultiGenerator {
   float multi = 2;
 }
 
-// This is intended to be redundant with BlenderConditionalExpression but for
-// Hyperloop messages. Protobuf doesn't have the metaprogramming to reuse that
-// definition here without bringing in all Blender expressions. Unlikely our
-// definition of conditional expression will ever have to change (outside of
-// additional operator support).
+// This represents if(-else) branches in processing. For a single execution of
+// the expression:
+// - Both sides of the predicate are computed
+// - Only one of the branches is computed
+//
+// Conjunction/disjunctions (i.e. AND/OR) can be formed by nesting conditionals.
 //
 // Next ID = 6.
 message HyperloopConditionalExpression {

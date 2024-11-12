@@ -4,6 +4,7 @@ package common;
 option java_multiple_files = true;
 option java_package = "ai.promoted.proto.common";
 option go_package = "github.com/promotedai/schema/generated/go/proto/common";
+option csharp_namespace = "Promoted.Common";
 
 // A mapping table from user_id to retained_user_id.
 //

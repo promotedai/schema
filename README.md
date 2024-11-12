@@ -43,7 +43,8 @@ $ brew install bazel
 Build all protobufs using bazel.
 ```
 $ cd /path/to/schema
-$ bazel build ...
+$ bazel build proto/...
+$ bazel test tests/... --test_output=errors
 ```
 
 If you hit weird Bazel build issues involving bad c++ versions, trying `bazel expunge` and `bazel sync --configure`.

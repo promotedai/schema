@@ -5,7 +5,8 @@ option java_multiple_files = true;
 option java_package = "ai.promoted.proto.delivery.grpc";
 // The default (DeliveryGrpc) fails with class name conflicts.
 option java_outer_classname = "DeliveryGrpcProtos";
-option go_package = "github.com/promotedai/schema/generated/go/proto/delivery";
+option go_package = "github.com/promotedai/schema/generated/go/proto/delivery/grpc";
+option csharp_namespace = "Promoted.DeliveryGrpc";
 
 import "proto/delivery/delivery.proto";
 

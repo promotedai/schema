@@ -8,4 +8,5 @@ DEPS = [
         srcs = [src],
         visibility = ["//visibility:public"],
         deps = DEPS,
+        legacy_create_init = False,
 ) for src in TESTS ]
